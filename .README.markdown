@@ -14,4 +14,5 @@ Installation procedure:
     $ git submodule update
 
 Optionally:
+
     $ git checkout -b work
