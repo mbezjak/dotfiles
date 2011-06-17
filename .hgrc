@@ -1,0 +1,31 @@
+[ui]
+username = Miro Bezjak <bezjak.miro@gmail.com>
+merge = meld
+ssh = ssh -C
+
+[extensions]
+bookmarks =
+churn =
+convert =
+color =
+extdiff =
+fetch =
+graphlog =
+purge =
+rebase =
+record =
+transplant =
+
+hgshelve = ~/local/lib/mercurial/hgshelve.py
+
+[diff]
+git = True
+
+[extdiff]
+cmd.meld =
+
+[alias]
+dirty = !$HG status | wc -l
+cin = !$HG --quiet incoming --template '{node}\n' 2> /dev/null | wc -l
+cout = !$HG --quiet outgoing --template '{node}\n' 2> /dev/null | wc -l
+

@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+IFS=$(echo -en "\n\b") # Internal Field Separator
+for project in $(find ~/workspace -mindepth 2 -maxdepth 2 -type d -printf "%p\n")
+do
+    if [[ -d "$project/.hg" ]]; then # only hg repositories
+        cd "$project"
+        hgproject
+    fi
+done
+
+exit 0

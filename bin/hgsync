@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+dirty=$(hg dirty)
+if [[ "$dirty" -eq 0 ]]; then
+   cin=$(hg cin)
+   cout=$(hg cout)
+
+   if [[ "$cin" -eq 0 ]]; then
+       [[ "$cout" -ne 0 ]] && hg push
+   elif [[ "$cout" -eq 0 ]]; then
+       hg pull --update
+   else
+       echo in "$cin" out "$cout"
+   fi
+else
+    echo dirty "$dirty"
+fi
+
+exit 0

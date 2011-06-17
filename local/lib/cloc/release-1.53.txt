@@ -1,0 +1,35 @@
+New Languages:
+    o Go
+    o MXML
+
+New options:
+
+  --lang-no-ext
+      o Alternate method to count files without file
+        extension.
+  --ignore-case  
+      o Works with --diff; treat uppercase and lowercase text
+        as equivalent.
+
+Bug Fixes:
+
+  Pascal:  Add // as a comment marker.
+  IDL:     Include .pro as a recognized file extension.
+
+  --3:   
+      o Correct XSLT syle when running with --3.
+  
+  --diff:   
+      o Implemented YAML output option.
+      o Implemented XML output option.  Includes an optional
+        default XSLT style file.
+      o Include code/comment/blank counts of added files to  
+        total added material and include code/comment/blank
+        counts of removed files to total removed material.
+      o Ignore unrecognized languages.
+  
+  --exclude-ext
+      o Was inadvertently disabled in v1.52; works now.
+
+Outstanding issues:
+  --csv, --sql output formats remain unimplemented for --diff.

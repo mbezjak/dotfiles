@@ -1,0 +1,7 @@
+# ignore everything
+*
+
+# expect for
+!.gitignore
+
+# rest of dotfiles is added by git add -f

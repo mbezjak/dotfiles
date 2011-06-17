@@ -1,0 +1,13 @@
+[user]
+	name = Miro Bezjak
+	email = bezjak.miro@gmail.com
+[color]
+	ui = true
+[merge]
+	tool = meld
+[alias]
+	co = checkout
+	ci = commit
+	st = status --short
+        l = log --graph --decorate
+	b = branch

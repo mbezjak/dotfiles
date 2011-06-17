@@ -1,0 +1,5 @@
+--smart-case
+--type-set=markdown=.markdown,.md
+--type-set=groovy=.groovy
+--type-set=gradle=.gradle
+--type-set=coffee=.coffee
