@@ -17,13 +17,15 @@ install_link() {
     ln --symbolic --no-target-directory --interactive --verbose "$s" "$t"
 }
 
-install_link .emacs.d .emacs.d
-
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/local/lib"
 for f in bin/* local/lib/*; do
     install_link "$f" "$f"
 done
+
+install_link .emacs.d .emacs.d
+install_link local/lib/cloc/cloc.pl bin/cloc
+install_link local/lib/markdown/Markdown.pl bin/markdown
 
 for f in $(find -mindepth 1 -maxdepth 1 -type f \
                 -and -not -name '.gitmodules' \
