@@ -14,7 +14,7 @@ install_link() {
     # link exists and points to source location
     [[ -L "$t" && "$(readlink -f "$t")" == "$s" ]] && return 0
 
-    ln --symbolic --interactive "$s" "$t"
+    ln --symbolic --no-target-directory --interactive --verbose "$s" "$t"
 }
 
 install_link .emacs.d .emacs.d
