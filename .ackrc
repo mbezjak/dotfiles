@@ -3,3 +3,5 @@
 --type-set=groovy=.groovy
 --type-set=gradle=.gradle
 --type-set=coffee=.coffee
+--type-set=jspec=.jspec
+--type-set=darwin=.drw
