@@ -23,7 +23,7 @@ for f in bin/* local/lib/*; do
     install_link "$f" "$f"
 done
 
-install_link .emacs.d .emacs.d
+install_link emacs.d .emacs.d
 install_link local/lib/cloc/cloc.pl bin/cloc
 install_link local/lib/markdown/Markdown.pl bin/markdown
 
