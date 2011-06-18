@@ -19,8 +19,8 @@ install_link() {
 
 install_link .emacs.d .emacs.d
 
-mkdir -p bin
-mkdir -p local/lib
+mkdir -p "$HOME/bin"
+mkdir -p "$HOME/local/lib"
 for f in bin/* local/lib/*; do
     install_link "$f" "$f"
 done
