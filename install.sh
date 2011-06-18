@@ -3,10 +3,6 @@
 
 set -o errexit
 
-cd $(dirname $(readlink -f "$0"))
-git submodule init
-git submodule update
-
 install_link() {
     local s="$PWD/$1"
     local t="$HOME/$2"
@@ -16,6 +12,10 @@ install_link() {
 
     ln --symbolic --no-target-directory --interactive --verbose "$s" "$t"
 }
+
+cd $(dirname $(readlink -f "$0"))
+git submodule init
+git submodule update
 
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/local/lib"
@@ -32,7 +32,7 @@ for f in $(find -mindepth 1 -maxdepth 1 -type f \
                 -and -not -name 'install.sh' \
                 -and -not -name 'README.md' \
                 -printf '%f\n'); do
-    install_link "$f" "$f"
+    install_link "$f" ".$f"
 done
 
 echo done
