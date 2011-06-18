@@ -28,9 +28,9 @@ install_link local/lib/cloc/cloc.pl bin/cloc
 install_link local/lib/markdown/Markdown.pl bin/markdown
 
 for f in $(find -mindepth 1 -maxdepth 1 -type f \
-                -and -not -name '.gitmodules' \
                 -and -not -name 'install.sh' \
                 -and -not -name 'README.md' \
+                -and -not -name '.*' \
                 -printf '%f\n'); do
     install_link "$f" ".$f"
 done
