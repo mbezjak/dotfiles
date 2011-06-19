@@ -3,7 +3,9 @@
 
 set -o errexit
 
+project=$(basename $PWD)
 dirty=$(hg dirty)
+
 if [[ "$dirty" -eq 0 ]]; then
    cin=$(hg cin)
    cout=$(hg cout)
@@ -13,10 +15,10 @@ if [[ "$dirty" -eq 0 ]]; then
    elif [[ "$cout" -eq 0 ]]; then
        hg pull --update
    else
-       echo in "$cin" out "$cout"
+       echo "$project in $cin out $cout"
    fi
 else
-    echo dirty "$dirty"
+    echo "$project dirty $dirty"
 fi
 
 exit 0
