@@ -81,12 +81,6 @@ type -P pacman &> /dev/null && {
   alias pqo='pacman --query --owns $1'
 }
 
-if [[ -d /usr/share/doc/python/html ]]; then
-  export PYTHONDOCS=/usr/share/doc/python/html
-elif [[ -d /usr/share/doc/python2/html ]]; then
-  export PYTHONDOCS=/usr/share/doc/python2/html
-fi
-
 if [[ -d ~/lib/jsdoc-toolkit ]]; then
   export JSDOC_HOME="$HOME/lib/jsdoc-toolkit"
   alias jsdoc='java -jar "${JSDOC_HOME}/jsrun.jar" "${JSDOC_HOME}/app/run.js" -a -r 10 -t="${JSDOC_HOME}/templates/jsdoc" -d=target/docs/javascript'
@@ -99,4 +93,46 @@ if [[ -d ~/.napalm ]]; then
     [[ -x $bash_script ]] && . $bash_script
   done
   unset bash_script
+fi
+
+[[ -d ~/workspace ]] && {
+  cw() { cd ~/workspace/"$1"; }
+  _cw() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=($(cd ~/workspace && compgen -d "$cur"|sort))
+  }
+  complete -F _cw cw
+}
+
+[[ -d ~/workspace/java ]] && {
+  cj() { cd ~/workspace/java/"$1"; }
+  _cj() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=($(cd ~/workspace/java && compgen -d "$cur"|sort))
+  }
+  complete -F _cj cj
+}
+
+[[ -d ~/workspace/grails ]] && {
+  cg() { cd ~/workspace/grails/"$1"; }
+  _cg() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=($(cd ~/workspace/grails && compgen -d "$cur"|sort))
+  }
+  complete -F _cg cg
+}
+
+[[ -d ~/workspace/other ]] && {
+  co() { cd ~/workspace/other/"$1"; }
+  _co() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=($(cd ~/workspace/other && compgen -d "$cur"|sort))
+  }
+  complete -F _co co
+}
+
+if [[ -d /usr/share/doc/python/html ]]; then
+  export PYTHONDOCS=/usr/share/doc/python/html
+elif [[ -d /usr/share/doc/python2/html ]]; then
+  export PYTHONDOCS=/usr/share/doc/python2/html
 fi
