@@ -16,7 +16,7 @@ rebase =
 record =
 transplant =
 
-hgshelve = ~/local/lib/mercurial/hgshelve.py
+hgshelve = ~/lib/mercurial/hgshelve.py
 
 [diff]
 git = True

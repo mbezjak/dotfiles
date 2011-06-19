@@ -18,14 +18,14 @@ git submodule init
 git submodule update
 
 mkdir -p "$HOME/bin"
-mkdir -p "$HOME/local/lib"
-for f in bin/* local/lib/*; do
+mkdir -p "$HOME/lib"
+for f in bin/* lib/*; do
     install_link "$f" "$f"
 done
 
 install_link emacs.d .emacs.d
-install_link local/lib/cloc/cloc.pl bin/cloc
-install_link local/lib/markdown/Markdown.pl bin/markdown
+install_link lib/cloc/cloc.pl bin/cloc
+install_link lib/markdown/Markdown.pl bin/markdown
 
 for f in $(find -mindepth 1 -maxdepth 1 -type f \
                 -and -not -name 'install.sh' \

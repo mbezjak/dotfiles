@@ -87,8 +87,8 @@ elif [[ -d /usr/share/doc/python2/html ]]; then
   export PYTHONDOCS=/usr/share/doc/python2/html
 fi
 
-if [[ -d ~/local/lib/jsdoc-toolkit ]]; then
-  export JSDOC_HOME="$HOME/local/lib/jsdoc-toolkit"
+if [[ -d ~/lib/jsdoc-toolkit ]]; then
+  export JSDOC_HOME="$HOME/lib/jsdoc-toolkit"
   alias jsdoc='java -jar "${JSDOC_HOME}/jsrun.jar" "${JSDOC_HOME}/app/run.js" -a -r 10 -t="${JSDOC_HOME}/templates/jsdoc" -d=target/docs/javascript'
 fi
 

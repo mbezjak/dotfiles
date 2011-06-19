@@ -1,6 +1,6 @@
 [submodule "emacs.d"]
 	path = emacs.d
 	url = https://github.com/technomancy/emacs-starter-kit.git
-[submodule "local/lib/jsdoc-toolkit"]
-	path = local/lib/jsdoc-toolkit
+[submodule "lib/jsdoc-toolkit"]
+	path = lib/jsdoc-toolkit
 	url = https://github.com/mbezjak/jsdoc-toolkit.git
