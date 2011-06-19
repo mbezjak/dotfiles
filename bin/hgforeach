@@ -1,5 +1,11 @@
 #!/bin/bash
 #
+# for each mercurial project in workspace execute command given as argument $1
+#
+# example:
+#  $ hgforeach hgproject
+#  # or
+#  $ hgforeach hgsync
 
 set -o errexit
 
@@ -8,7 +14,7 @@ for project in $(find ~/workspace -mindepth 2 -maxdepth 2 -type d -printf "%p\n"
 do
     if [[ -d "$project/.hg" ]]; then # only hg repositories
         cd "$project"
-        hgproject
+        eval "$1" # potential security problem
     fi
 done
 
