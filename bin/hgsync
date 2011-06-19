@@ -11,9 +11,11 @@ if [[ "$dirty" -eq 0 ]]; then
    cout=$(hg cout)
 
    if [[ "$cin" -eq 0 ]]; then
-       [[ "$cout" -ne 0 ]] && hg push
+       if [[ "$cout" -ne 0 ]]; then
+           hg push > /dev/null && echo "$project pushed $cout"
+       fi
    elif [[ "$cout" -eq 0 ]]; then
-       hg pull --update
+       hg pull --update > /dev/null && echo "$project pulled $cin"
    else
        echo "$project in $cin out $cout"
    fi
