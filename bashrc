@@ -50,6 +50,11 @@ type -P git &> /dev/null && {
     complete -o default -o nospace -F _git g
 }
 
+type -P hgtk &> /dev/null && {
+  alias hgl='hgtk log'
+  alias hgc='hgtk commit'
+}
+
 type -P grails &> /dev/null && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
   alias gc='grails clean'
@@ -63,11 +68,6 @@ type -P grails &> /dev/null && {
 
 type -P mvn &> /dev/null && {
   export MAVEN_OPTS="-Xms256m -Xmx512m"
-}
-
-type -P hgtk &> /dev/null && {
-  alias hgl='hgtk log'
-  alias hgc='hgtk commit'
 }
 
 type -P pacman &> /dev/null && {
