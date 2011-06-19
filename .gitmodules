@@ -4,3 +4,6 @@
 [submodule "lib/jsdoc-toolkit"]
 	path = lib/jsdoc-toolkit
 	url = https://github.com/mbezjak/jsdoc-toolkit.git
+[submodule "lib/napalm"]
+	path = lib/napalm
+	url = https://github.com/mbezjak/napalm.git
