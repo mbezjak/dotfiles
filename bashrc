@@ -101,7 +101,7 @@ fi
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=($(cd ~/workspace && compgen -d "$cur"|sort))
   }
-  complete -F _cw cw
+  complete -o nospace -F _cw cw
 }
 
 [[ -d ~/workspace/java ]] && {
@@ -110,7 +110,7 @@ fi
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=($(cd ~/workspace/java && compgen -d "$cur"|sort))
   }
-  complete -F _cj cj
+  complete -o nospace -F _cj cj
 }
 
 [[ -d ~/workspace/grails ]] && {
@@ -119,7 +119,7 @@ fi
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=($(cd ~/workspace/grails && compgen -d "$cur"|sort))
   }
-  complete -F _cg cg
+  complete -o nospace -F _cg cg
 }
 
 [[ -d ~/workspace/other ]] && {
@@ -128,7 +128,7 @@ fi
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=($(cd ~/workspace/other && compgen -d "$cur"|sort))
   }
-  complete -F _co co
+  complete -o nospace -F _co co
 }
 
 if [[ -d /usr/share/doc/python/html ]]; then
