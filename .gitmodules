@@ -4,3 +4,6 @@
 [submodule "lib/napalm"]
 	path = lib/napalm
 	url = https://github.com/mbezjak/napalm.git
+[submodule "emacs.d"]
+	path = emacs.d
+	url = git@github.com:mbezjak/emacs-starter-kit.git
