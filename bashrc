@@ -15,6 +15,15 @@ if [[ -d ~/local/bin && ":$PATH:" != *":$HOME/local/bin:"* ]]; then
   export PATH="$PATH:$HOME/local/bin"
 fi
 
+# napalm support: https://github.com/mbezjak/napalm
+if [[ -d ~/.napalm ]]; then
+  for bash_script in ~/.napalm/*.sh
+  do
+    [[ -x $bash_script ]] && . $bash_script
+  done
+  unset bash_script
+fi
+
 # modified commands
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
@@ -84,15 +93,6 @@ type -P pacman &> /dev/null && {
 if [[ -d ~/lib/jsdoc-toolkit ]]; then
   export JSDOC_HOME="$HOME/lib/jsdoc-toolkit"
   alias jsdoc='java -jar "${JSDOC_HOME}/jsrun.jar" "${JSDOC_HOME}/app/run.js" -a -r 10 -t="${JSDOC_HOME}/templates/jsdoc" -d=target/docs/javascript'
-fi
-
-# napalm support: https://github.com/mbezjak/napalm
-if [[ -d ~/.napalm ]]; then
-  for bash_script in ~/.napalm/*.sh
-  do
-    [[ -x $bash_script ]] && . $bash_script
-  done
-  unset bash_script
 fi
 
 [[ -d ~/workspace ]] && {
