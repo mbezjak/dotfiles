@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+
+print_usage() {
+cat >&2 << EOF
+tomcat - operate on tomcat instance set by environmental variable CATALINA_HOME
+
+SYNOPSIS
+    tomcat start
+    tomcat stop
+    tomcat restart
+    tomcat log
+    tomcat clean
+    tomcat deploy WAR_FILE [CONTEXT_NAME]
+EOF
+
+exit 1
+}
+
+[[ -z "$CATALINA_HOME" ]] && {
+    echo "Environmental variable CATALINA_HOME must be set" >&2
+    exit 2
+}
+[[ ! -d "$CATALINA_HOME" ]] && {
+    echo "Directory from environmental variable CATALINA_HOME must exist" >&2
+    exit 3
+}
+
+start() {
+    cd "$CATALINA_HOME" # to contain logs with relative paths
+    bin/startup.sh
+}
+stop() { cd "$CATALINA_HOME"; bin/shutdown.sh; }
+restart() { stop; start; }
+log() { tail -F "$CATALINA_HOME/logs/catalina.out"; }
+clean() { cd "$CATALINA_HOME"; rm -rf temp/* work/* logs/* conf/Catalina; }
+deploy() {
+    [[ ! -f "$1" && "$1" != *.war ]] && print_usage
+
+    stop &> /dev/null
+    context=${2:-$(basename "$1")}
+    context=${context%\.war}
+    rm -rf "$CATALINA_HOME/webapps/$context"
+    rm "$CATALINA_HOME/webapps/${context}.war"
+    cp --verbose "$1" "$CATALINA_HOME/webapps/${context}.war"
+    start
+}
+
+case "$1" in
+start)   start ;;
+stop)    stop ;;
+restart) restart ;;
+log)     log ;;
+clean)   clean ;;
+deploy)  deploy "$2" "$3" ;;
+*)       print_usage ;;
+esac
+
+exit 0
