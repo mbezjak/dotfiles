@@ -28,4 +28,4 @@ cmd.meld =
 dirty = !$HG status | wc -l
 cin = !$HG --quiet incoming --template '{node}\n' 2> /dev/null | wc -l
 cout = !$HG --quiet outgoing --template '{node}\n' 2> /dev/null | wc -l
-
+hastag = !$HG tags | grep "$1"
