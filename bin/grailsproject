@@ -21,6 +21,7 @@ class Application {
     String directory
     String version
     String grailsVersion
+    String workDirectory
     List<List> plugins = [] // [['foo', '3.7'], ['bar', '0.1']]
 
     String toString() {
@@ -37,6 +38,7 @@ class Application {
         directory     ${directory ?: ''}
         version       ${version ?: ''}
         grailsVersion ${grailsVersion ?: ''}
+        workDirectory ${workDirectory ?: ''}
         """.stripIndent().trim() + pluginsString
     }
 }
@@ -74,6 +76,11 @@ if (app.project) {
         }.collect { k, v ->
             [k.replace('plugins.', ''), v]
         }
+    })()
+
+    ({
+        def home = System.getProperty('user.home')
+        app.workDirectory = "$home/.grails/$app.grailsVersion/projects/$app.directory"
     })()
 }
 
