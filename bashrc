@@ -44,6 +44,7 @@ alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
+backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 
 # command dependent
 type -P emacs    &> /dev/null && alias e='emacs'
