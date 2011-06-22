@@ -40,9 +40,9 @@ eval $(dircolors -b) # colored ls output
 alias ..='cd ..'
 alias ...='cd ../..'
 alias du1='du --max-depth=1 --human-readable'
-alias hist='history | grep $1'
+alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
-alias pg='ps -Af | grep $1'
+alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
 
 # command dependent
@@ -52,7 +52,7 @@ type -P ack-grep &> /dev/null && alias ack='ack-grep'
 type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
 type -P python2  &> /dev/null && alias serve='python2 -m SimpleHTTPServer'
 type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
-type -P kwrite   &> /dev/null && alias k='kwrite $1 &> /dev/null'
+type -P kwrite   &> /dev/null && alias k='kwrite &> /dev/null'
 
 type -P git &> /dev/null && {
     alias g='git'
@@ -81,13 +81,13 @@ type -P mvn &> /dev/null && {
 
 type -P pacman &> /dev/null && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
-  alias psp='sudo pacman --sync $1'
-  alias pss='pacman --sync --search $1'
-  alias psi='pacman --sync --info $1'
-  alias pqs='pacman --query --search $1'
-  alias pqi='pacman --query --info $1'
-  alias pql='pacman --query --list $1'
-  alias pqo='pacman --query --owns $1'
+  alias psp='sudo pacman --sync'
+  alias pss='pacman --sync --search'
+  alias psi='pacman --sync --info'
+  alias pqs='pacman --query --search'
+  alias pqi='pacman --query --info'
+  alias pql='pacman --query --list'
+  alias pqo='pacman --query --owns'
 }
 
 if [[ -d ~/lib/jsdoc-toolkit ]]; then
