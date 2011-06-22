@@ -1,0 +1,80 @@
+#!/usr/bin/env groovy
+
+File file(String name) {
+    if (!name) return null
+    def file = new File(name)
+    file.exists() ? file : null
+}
+String text(String name) {
+    file(name)?.text?.tr "'", '"'
+}
+String findMatch(String original, java.util.regex.Pattern p) {
+    original?.find p, { m, f -> f }
+}
+
+class Application {
+
+    boolean project
+    boolean isPlugin() { project && !!pluginDescriptor }
+    String pluginDescriptor
+    String name
+    String directory
+    String version
+    String grailsVersion
+    List<List> plugins = [] // [['foo', '3.7'], ['bar', '0.1']]
+
+    String toString() {
+        def pluginsString = plugins.unique().sort { it[0] }.collect { p ->
+            def (name, version) = p
+            "plugin ${name.padRight(15)} $version"
+        }.join('\n')
+        pluginsString = pluginsString ? "\n\n$pluginsString": ''
+
+        """
+        project       $project
+        plugin        $plugin ${pluginDescriptor ?: ''}
+        name          ${name ?: ''}
+        directory     ${directory ?: ''}
+        version       ${version ?: ''}
+        grailsVersion ${grailsVersion ?: ''}
+        """.stripIndent().trim() + pluginsString
+    }
+}
+
+final MATCH_PLUGIN_VERSION = ~/def version\s*=\s*"(.+?)"/
+final MATCH_PLUGINS_BLOCK  = ~/(?ms)plugins\s*\{(.+?)\}/
+final MATCH_PLUGIN_SPEC    = ~/"(.*?):(.+?):(.+?)"/
+
+final BUILD_CONFIG_TEXT = text('grails-app/conf/BuildConfig.groovy')
+
+def app = new Application()
+app.project = BUILD_CONFIG_TEXT != null
+app.directory = file('.').canonicalFile.name
+
+if (app.project) {
+    def (descriptor) = file('.').list({ dir, name ->
+        name ==~ /.+GrailsPlugin\.groovy/
+    } as FilenameFilter) as List
+    app.pluginDescriptor = descriptor
+    app.version = findMatch(text(app.pluginDescriptor), MATCH_PLUGIN_VERSION)
+    findMatch(BUILD_CONFIG_TEXT, MATCH_PLUGINS_BLOCK)?.eachMatch MATCH_PLUGIN_SPEC, {
+        app.plugins << it[2..-1]
+    }
+
+    ({
+        def p = new Properties()
+        def file = file('application.properties')
+        if (file) p.load(new FileInputStream(file))
+    
+        app.name = p.'app.name'
+        app.version = app.version ?: p.'app.version'
+        app.grailsVersion = p.'app.grails.version'
+        app.plugins.addAll p.findAll {
+            it.key ==~ /plugins.*/
+        }.collect { k, v ->
+            [k.replace('plugins.', ''), v]
+        }
+    })()
+}
+
+println app
