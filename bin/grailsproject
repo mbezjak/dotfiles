@@ -1,87 +1,70 @@
-#!/usr/bin/env groovy
+#!/usr/bin/env python2
+# coding: utf-8
 
-File file(String name) {
-    if (!name) return null
-    def file = new File(name)
-    file.exists() ? file : null
-}
-String text(String name) {
-    file(name)?.text?.tr "'", '"'
-}
-String findMatch(String original, java.util.regex.Pattern p) {
-    original?.find p, { m, f -> f }
-}
+import re, codecs, collections
+from os import path
+from glob import glob
+from operator import itemgetter
 
-class Application {
+app = collections.defaultdict(lambda : '')
+plugins = []
 
-    boolean project
-    boolean isPlugin() { project && !!pluginDescriptor }
-    String pluginDescriptor
-    String name
-    String directory
-    String version
-    String grailsVersion
-    String workDirectory
-    List<List> plugins = [] // [['foo', '3.7'], ['bar', '0.1']]
+def put(key, value):
+    if value is not None: app.setdefault(key, value)
 
-    String toString() {
-        def pluginsString = plugins.unique().sort { it[0] }.collect { p ->
-            def (name, version) = p
-            "plugin ${name.padRight(15)} $version"
-        }.join('\n')
-        pluginsString = pluginsString ? "\n\n$pluginsString": ''
+def add_plugins(pattern, text):
+    if text is not None: plugins.extend(re.findall(pattern, text))
 
-        """
-        project       $project
-        plugin        $plugin ${pluginDescriptor ?: ''}
-        name          ${name ?: ''}
-        directory     ${directory ?: ''}
-        version       ${version ?: ''}
-        grailsVersion ${grailsVersion ?: ''}
-        workDirectory ${workDirectory ?: ''}
-        """.stripIndent().trim() + pluginsString
-    }
-}
+def pluginstr():
+    punique = list(set(plugins))
+    psorted = sorted(punique, key=itemgetter(0))
+    pstr = ['plugin {0:15s} {1}'.format(*p) for p in psorted]
+    return '\n\n' + '\n'.join(pstr) if pstr else ''
 
-final MATCH_PLUGIN_VERSION = ~/def version\s*=\s*"(.+?)"/
-final MATCH_PLUGINS_BLOCK  = ~/(?ms)plugins\s*\{(.+?)\}/
-final MATCH_PLUGIN_SPEC    = ~/"(.*?):(.+?):(.+?)"/
+def appstr():
+    plugin = app['project'] and app['pluginfile'] is not None
+    app['plugin'] = str(plugin).lower()
+    app['project'] = str(app['project']).lower()
+    return """
+project   {0[project]}
+plugin    {0[plugin]} {0[pluginfile]}
+name      {0[name]}
+directory {0[directory]}
+version   {0[version]}
+grails    {0[grails]}
+""".strip().format(app) #format(**app) won't work when key isn't defined
 
-final BUILD_CONFIG_TEXT = text('grails-app/conf/BuildConfig.groovy')
+def text(name):
+    if not name: return None
+    if not path.exists(name): return None
+    f = codecs.open(name, 'r', 'utf8')
+    return f.read().replace("'", '"') if f else None
 
-def app = new Application()
-app.project = BUILD_CONFIG_TEXT != null
-app.directory = file('.').canonicalFile.name
+def find_group(pattern, original):
+    if not original: return None
+    m = re.search(pattern, original)
+    return m.group(1) if m else None
 
-if (app.project) {
-    def (descriptor) = file('.').list({ dir, name ->
-        name ==~ /.+GrailsPlugin\.groovy/
-    } as FilenameFilter) as List
-    app.pluginDescriptor = descriptor
-    app.version = findMatch(text(app.pluginDescriptor), MATCH_PLUGIN_VERSION)
-    findMatch(BUILD_CONFIG_TEXT, MATCH_PLUGINS_BLOCK)?.eachMatch MATCH_PLUGIN_SPEC, {
-        app.plugins << it[2..-1]
-    }
+build_config_text = text('grails-app/conf/BuildConfig.groovy')
+app_text          = text('application.properties')
 
-    ({
-        def p = new Properties()
-        def file = file('application.properties')
-        if (file) p.load(new FileInputStream(file))
-    
-        app.name = p.'app.name'
-        app.version = app.version ?: p.'app.version'
-        app.grailsVersion = p.'app.grails.version'
-        app.plugins.addAll p.findAll {
-            it.key ==~ /plugins.*/
-        }.collect { k, v ->
-            [k.replace('plugins.', ''), v]
-        }
-    })()
+put('project', build_config_text is not None)
+put('directory', path.basename(path.abspath('.')))
 
-    ({
-        def home = System.getProperty('user.home')
-        app.workDirectory = "$home/.grails/$app.grailsVersion/projects/$app.directory"
-    })()
-}
+if app['project']:
+    descriptors = glob('*GrailsPlugin.groovy')
+    put('pluginfile', descriptors[0] if descriptors else None)
+    plugin_text = text(app['pluginfile'])
+    put('version', find_group(r'def version\s*=\s*"(.+?)"', plugin_text))
 
-println app
+    search_plugins_block = re.compile(r'plugins\s*\{(.+?)\}',
+                                      re.MULTILINE | re.DOTALL)
+    pblock = find_group(search_plugins_block, build_config_text)
+    add_plugins(r'".*?:(.+?):(.+?)"', pblock)
+
+    put('name', find_group(r'app.name=(.+)', app_text))
+    put('version', find_group(r'app.version=(.+)', app_text))
+    put('grails', find_group(r'app.grails.version=(.+)', app_text))
+    add_plugins(r'plugins.(.+?)=(.+)', app_text)
+
+print appstr() + pluginstr()
