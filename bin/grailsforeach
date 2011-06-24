@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# For each grails project in workspace execute command given as argument $1.
+#
+# example:
+#  $ grailsforeach 'grailshasplugin foo'
+
+set -o errexit
+
+IFS=$(echo -en "\n\b") # Internal Field Separator
+for project in $(find ~/workspace/grails -mindepth 1 -maxdepth 1 -type d -printf "%p\n")
+do
+    if [[ -d "$project/grails-app" ]]; then # only grails projects
+        cd "$project"
+        eval "$1" # potential security problem
+    fi
+done
+
+exit 0
