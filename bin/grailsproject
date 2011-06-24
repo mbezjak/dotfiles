@@ -26,12 +26,12 @@ def appstr():
     app['plugin'] = str(plugin).lower()
     app['project'] = str(app['project']).lower()
     return """
-project   {0[project]}
-plugin    {0[plugin]} {0[pluginfile]}
-name      {0[name]}
-directory {0[directory]}
-version   {0[version]}
-grails    {0[grails]}
+is_project {0[project]}
+is_plugin  {0[plugin]} {0[pluginfile]}
+name       {0[name]}
+directory  {0[directory]}
+version    {0[version]}
+grails     {0[grails]}
 """.strip().format(app) #format(**app) won't work when key isn't defined
 
 def text(name):
