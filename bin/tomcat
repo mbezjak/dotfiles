@@ -2,16 +2,17 @@
 #
 
 print_usage() {
+local prog=$(basename $0)
 cat >&2 << EOF
-$(basename $0) - operate on tomcat instance set by environmental variable CATALINA_HOME
+$prog - operate on tomcat instance set by environmental variable CATALINA_HOME
 
 SYNOPSIS
-    tomcat start
-    tomcat stop
-    tomcat restart
-    tomcat log
-    tomcat clean
-    tomcat deploy WAR_FILE [CONTEXT_NAME]
+    $prog start
+    $prog stop
+    $prog restart
+    $prog log
+    $prog clean
+    $prog deploy WAR_FILE [CONTEXT_NAME]
 EOF
 
 exit 1
