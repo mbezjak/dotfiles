@@ -3,7 +3,7 @@
 
 print_usage() {
 cat >&2 << EOF
-tomcat - operate on tomcat instance set by environmental variable CATALINA_HOME
+$(basename $0) - operate on tomcat instance set by environmental variable CATALINA_HOME
 
 SYNOPSIS
     tomcat start
