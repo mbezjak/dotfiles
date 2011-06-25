@@ -1,5 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2.7
 # coding: utf-8
+#
+# Using python2.7 interpreter to extend compatibility to Ubuntu machines. Arch
+# works either way.
 
 import re, codecs, collections
 from os import path
