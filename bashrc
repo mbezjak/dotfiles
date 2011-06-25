@@ -104,7 +104,7 @@ cd_alias() {
   [[ -d "$dir" ]] && {
     # example:
     # ct() { cd "/tmp"; }
-    eval "$name() { cd \"$dir\"; }"
+    eval "$name() { cd \"$dir/\$1\"; }"
     # example:
     # _ct() {
     #   local cur="${COMP_WORDS[COMP_CWORD]}"
