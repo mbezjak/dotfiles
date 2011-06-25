@@ -97,41 +97,33 @@ if [[ -d ~/lib/jsdoc-toolkit ]]; then
   alias jsdoc='java -jar "${JSDOC_HOME}/jsrun.jar" "${JSDOC_HOME}/app/run.js" -a -r 10 -t="${JSDOC_HOME}/templates/jsdoc" -d=target/docs/javascript'
 fi
 
-[[ -d ~/workspace ]] && {
-  cw() { cd ~/workspace/"$1"; }
-  _cw() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=($(cd ~/workspace && compgen -d "$cur"|sort))
+cd_alias() {
+  local name="$1"
+  local dir="$2"
+
+  [[ -d "$dir" ]] && {
+    # example:
+    # ct() { cd "/tmp"; }
+    eval "$name() { cd \"$dir\"; }"
+    # example:
+    # _ct() {
+    #   local cur="${COMP_WORDS[COMP_CWORD]}"
+    #   COMPREPLY=($(cd ~/workspace && compgen -d "$cur"|sort))
+    # }
+    eval """
+_$name() {
+  local cur=\"\${COMP_WORDS[COMP_CWORD]}\"
+  COMPREPLY=(\$(cd \"$dir\" && compgen -d \"\$cur\"|sort))
+}
+"""
+    complete -o nospace -S '/' -F _"$name" "$name"
   }
-  complete -o nospace -S '/' -F _cw cw
 }
 
-[[ -d ~/workspace/java ]] && {
-  cj() { cd ~/workspace/java/"$1"; }
-  _cj() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=($(cd ~/workspace/java && compgen -d "$cur"|sort))
-  }
-  complete -o nospace -S '/' -F _cj cj
-}
-
-[[ -d ~/workspace/grails ]] && {
-  cg() { cd ~/workspace/grails/"$1"; }
-  _cg() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=($(cd ~/workspace/grails && compgen -d "$cur"|sort))
-  }
-  complete -o nospace -S '/' -F _cg cg
-}
-
-[[ -d ~/workspace/other ]] && {
-  co() { cd ~/workspace/other/"$1"; }
-  _co() {
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=($(cd ~/workspace/other && compgen -d "$cur"|sort))
-  }
-  complete -o nospace -S '/' -F _co co
-}
+cd_alias cw "$HOME/workspace"
+cd_alias cj "$HOME/workspace/java"
+cd_alias cg "$HOME/workspace/grails"
+cd_alias co "$HOME/workspace/other"
 
 if [[ -d /usr/share/doc/python/html ]]; then
   export PYTHONDOCS=/usr/share/doc/python/html
