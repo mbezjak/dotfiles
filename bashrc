@@ -108,7 +108,7 @@ cd_alias() {
     # example:
     # _ct() {
     #   local cur="${COMP_WORDS[COMP_CWORD]}"
-    #   COMPREPLY=($(cd ~/workspace && compgen -d "$cur"|sort))
+    #   COMPREPLY=($(cd "/tmp" && compgen -d "$cur"|sort))
     # }
     eval """
 _$name() {
@@ -116,7 +116,7 @@ _$name() {
   COMPREPLY=(\$(cd \"$dir\" && compgen -d \"\$cur\"|sort))
 }
 """
-    complete -o nospace -S '/' -F _"$name" "$name"
+    complete -o nospace -S '/' -F "_$name" "$name"
   }
 }
 
