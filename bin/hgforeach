@@ -14,7 +14,7 @@ for project in $(find ~/workspace -mindepth 2 -maxdepth 2 -type d -printf "%p\n"
 do
     if [[ -d "$project/.hg" ]]; then # only hg repositories
         cd "$project"
-        eval "$1" # potential security problem
+        eval "$@" # potential security problem
     fi
 done
 

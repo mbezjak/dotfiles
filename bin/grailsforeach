@@ -12,7 +12,7 @@ for project in $(find ~/workspace/grails -mindepth 1 -maxdepth 1 -type d -printf
 do
     if [[ -d "$project/grails-app" ]]; then # only grails projects
         cd "$project"
-        eval "$1" # potential security problem
+        eval "$@" # potential security problem
     fi
 done
 
