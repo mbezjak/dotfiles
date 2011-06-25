@@ -8,7 +8,7 @@
 
 set -o errexit
 
-project=$(grailsproject | awk '/^name/{ print $2 }')
+project=$(grailsproject name)
 grailsproject \
     | awk -v project="$project" '/^plugin '"$1"'/{ print project, $3, $2 }' \
     | column --table
