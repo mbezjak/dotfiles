@@ -4,7 +4,7 @@
 # Using python2.7 interpreter to extend compatibility to Ubuntu machines. Arch
 # works either way.
 
-import re, codecs, collections
+import sys, re, codecs, collections
 from os import path
 from glob import glob
 from operator import itemgetter
@@ -25,12 +25,9 @@ def pluginstr():
     return '\n\n' + '\n'.join(pstr) if pstr else ''
 
 def appstr():
-    plugin = app['project'] and app['pluginfile'] is not None
-    app['plugin'] = str(plugin).lower()
-    app['project'] = str(app['project']).lower()
     return """
-is_project {0[project]}
-is_plugin  {0[plugin]} {0[pluginfile]}
+is_project {0[is_project]}
+is_plugin  {0[is_plugin]} {0[pluginfile]}
 name       {0[name]}
 directory  {0[directory]}
 version    {0[version]}
@@ -51,10 +48,10 @@ def find_group(pattern, original):
 build_config_text = text('grails-app/conf/BuildConfig.groovy')
 app_text          = text('application.properties')
 
-put('project', build_config_text is not None)
+put('is_project', build_config_text is not None)
 put('directory', path.basename(path.abspath('.')))
 
-if app['project']:
+if app['is_project']:
     descriptors = glob('*GrailsPlugin.groovy')
     put('pluginfile', descriptors[0] if descriptors else None)
     plugin_text = text(app['pluginfile'])
@@ -70,4 +67,13 @@ if app['project']:
     put('grails', find_group(r'app.grails.version=(.+)', app_text))
     add_plugins(r'plugins.(.+?)=(.+)', app_text)
 
-print appstr() + pluginstr()
+
+# normalize for printing
+is_plugin = app['is_project'] and app['pluginfile'] is not None
+app['is_plugin'] = str(is_plugin).lower()
+app['is_project'] = str(app['is_project']).lower()
+
+if len(sys.argv) == 2:
+    print app[sys.argv[1]]
+else:
+    print appstr() + pluginstr()
