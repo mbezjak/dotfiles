@@ -69,7 +69,7 @@ if app['is_project']:
 
 
 # normalize for printing
-is_plugin = app['is_project'] and app['pluginfile'] is not None
+is_plugin = app['is_project'] and not not app['pluginfile']
 app['is_plugin'] = str(is_plugin).lower()
 app['is_project'] = str(app['is_project']).lower()
 
