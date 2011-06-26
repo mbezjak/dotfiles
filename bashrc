@@ -8,21 +8,22 @@ HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
 export EDITOR=vim
 export VISUAL=vim
-if [[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]]; then
+[[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]] && {
   export PATH="$PATH:$HOME/bin"
-fi
-if [[ -d ~/local/bin && ":$PATH:" != *":$HOME/local/bin:"* ]]; then
+}
+[[ -d ~/local/bin && ":$PATH:" != *":$HOME/local/bin:"* ]] && {
   export PATH="$PATH:$HOME/local/bin"
-fi
+}
 
 # napalm support: https://github.com/mbezjak/napalm
-if [[ -d ~/.napalm ]]; then
-  for bash_script in ~/.napalm/*.sh
+[[ -d ~/.napalm ]] && {
+  for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
+                            -type f -executable -name '*.sh')
   do
-    [[ -x $bash_script ]] && . $bash_script
+    source "$bash_script"
   done
   unset bash_script
-fi
+}
 
 # modified commands
 alias grep='grep --color=auto'
@@ -92,14 +93,14 @@ type -P pacman &> /dev/null && {
   alias pqo='pacman --query --owns'
 }
 
-if [[ -d ~/lib/jsdoc-toolkit ]]; then
+[[ -d ~/lib/jsdoc-toolkit ]] && {
   export JSDOC_HOME="$HOME/lib/jsdoc-toolkit"
-  alias jsdoc='java -jar "${JSDOC_HOME}/jsrun.jar" \
-                         "${JSDOC_HOME}/app/run.js" \
+  alias jsdoc='java -jar "$JSDOC_HOME/jsrun.jar" \
+                         "$JSDOC_HOME/app/run.js" \
                          -a -r 10 \
-                         -t="${JSDOC_HOME}/templates/jsdoc" \
+                         -t="$JSDOC_HOME/templates/jsdoc" \
                          -d=target/docs/javascript'
-fi
+}
 
 cd_alias() {
   local name="$1"
