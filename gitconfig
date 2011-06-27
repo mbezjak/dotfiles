@@ -8,6 +8,6 @@
 [alias]
 	co = checkout
 	ci = commit
-	st = status --short
+	st = status --short --branch
         l = log --graph --decorate
 	b = branch
