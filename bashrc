@@ -75,7 +75,7 @@ type -P grails &> /dev/null && {
   alias gr-sql='grails -Dlogsql=true run-app'
   alias gi='grails install-plugin'
   alias gu='grails uninstall-plugin'
-  grailswhere() { grailsforeach grailshasplugin "$1" | column --table; }
+  grailswhere() { grailsforeach grailshasplugin "$1" | column -t; }
   grailscoverride() { watch --differences --interval=2 grailsoverride "$1"; }
 }
 

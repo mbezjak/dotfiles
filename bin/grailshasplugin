@@ -11,7 +11,7 @@ set -o errexit
 project=$(grailsproject name)
 grailsproject \
     | awk -v project="$project" '/^plugin '"$1"'/{ print project, $3, $2 }' \
-    | column --table
+    | column -t
 
 # output: project_name plugin_version plugin_name
 
