@@ -12,3 +12,4 @@
         s = status --short --branch
         l = log --graph --decorate
 	b = branch
+        ff = merge --ff-only
