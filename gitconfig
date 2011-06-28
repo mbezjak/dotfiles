@@ -1,15 +1,15 @@
 [user]
-	name = Miro Bezjak
-	email = bezjak.miro@gmail.com
+        name = Miro Bezjak
+        email = bezjak.miro@gmail.com
 [color]
-	ui = true
+        ui = true
 [merge]
-	tool = meld
+        tool = meld
 [alias]
-	co = checkout
-	ci = commit
-	st = status --short
+        co = checkout
+        ci = commit
+        st = status --short
         s = status --short --branch
         l = log --graph --decorate
-	b = branch
+        b = branch
         ff = merge --ff-only
