@@ -8,6 +8,7 @@ HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
 export EDITOR=vim
 export VISUAL=vim
+alias vi='vim' # use vim instead of vi
 [[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]] && {
   export PATH="$PATH:$HOME/bin"
 }
