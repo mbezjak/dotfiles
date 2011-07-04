@@ -13,3 +13,4 @@
         l = log --graph --decorate
         b = branch
         ff = merge --ff-only
+        forget = rm --cached
