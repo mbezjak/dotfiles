@@ -29,7 +29,7 @@ exit 1
 }
 
 plugin="$1"
-[[ "$plugin" != */* ]] && plugin="$HOME/workspace/grails/$plugin"
+[[ "$plugin" != */* ]] && plugin="$HOME/workspace/groovy/$plugin"
 [[ ! -d "$plugin" ]]   && print_usage
 
 plugin_name=$(cd "$plugin" && grailsproject name)

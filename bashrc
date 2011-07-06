@@ -129,7 +129,7 @@ _$name() {
 
 cd_alias cw "$HOME/workspace"
 cd_alias cj "$HOME/workspace/java"
-cd_alias cg "$HOME/workspace/grails"
+cd_alias cg "$HOME/workspace/groovy"
 cd_alias co "$HOME/workspace/other"
 cd_alias ct /tmp
 
