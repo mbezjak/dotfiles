@@ -67,6 +67,12 @@ type -P hgtk &> /dev/null && {
   alias hgc='hgtk commit'
 }
 
+type -P java &> /dev/null && {
+  [[ -z "$JAVA_HOME" && -d /usr/lib/jvm/java-6-sun ]] && {
+    export JAVA_HOME='/usr/lib/jvm/java-6-sun'
+  }
+}
+
 type -P grails &> /dev/null && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
   alias gc='grails clean'
