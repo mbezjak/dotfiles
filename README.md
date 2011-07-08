@@ -1,6 +1,6 @@
 Installation procedure:
 
-    $ git clone git@github.com:mbezjak/dotfiles.git ~/workspace/dotfiles
+    $ git clone https://github.com/mbezjak/dotfiles.git ~/workspace/dotfiles
     $ ~/workspace/dotfiles/install.sh
 
 This will install symbolic links into your $HOME directory. It's safe
