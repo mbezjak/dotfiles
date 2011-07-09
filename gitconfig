@@ -9,7 +9,7 @@
         co = checkout
         ci = commit
         st = status --short
-        s = status --short --branch
+        s = status --short --branch --untracked-files=all
         l = log --graph --decorate
         b = branch
         ff = merge --ff-only
