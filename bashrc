@@ -62,9 +62,9 @@ type -P git &> /dev/null && {
     complete -o default -o nospace -F _git g
 }
 
-type -P hgtk &> /dev/null && {
-  alias hgl='hgtk log'
-  alias hgc='hgtk commit'
+type -P thg &> /dev/null && {
+  alias hgl='thg log'
+  alias hgc='thg commit'
 }
 
 type -P java &> /dev/null && {
