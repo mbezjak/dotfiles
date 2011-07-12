@@ -83,7 +83,6 @@ type -P grails &> /dev/null && {
   alias gi='grails install-plugin'
   alias gu='grails uninstall-plugin'
   grailswhere() { grailsforeach grailshasplugin "$1" | column -t; }
-  grailscoverride() { watch --interval=1 grailsoverride "$1"; }
 }
 
 type -P mvn &> /dev/null && {
