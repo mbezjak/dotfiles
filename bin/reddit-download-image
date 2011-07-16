@@ -1,0 +1,65 @@
+#!/usr/bin/env python2.7
+# coding: utf-8
+#
+# Download images from links on first page of a subreddit.
+
+from os import path
+import re
+import os
+import tempfile
+import urllib2
+import shutil
+import json
+
+# contradictory to what you might think these are SFW
+subreddits = ['wallpaper',
+              'EarthPorn',
+              'SpacePorn',
+              'CityPorn',
+              'WaterPorn',
+              'AnimalPorn', # err lol?!
+              'DestructionPorn',
+              'BotanicalPorn',
+              'lolcats']
+redditurl  = "http://www.reddit.com/r/{}.json"
+
+def subreddit_links(subreddit):
+    url = redditurl.format(subreddit)
+    page = json.load(urllib2.urlopen(url))
+    for post in page['data']['children']:
+        url = post['data']['url']
+        title = post['data']['title']
+        filename = None
+
+        for extension in ['.png', '.jpg', '.jpeg', '.gif', '.bmp']:
+            if url.endswith(extension):
+                filename = title + extension
+
+        if filename is not None:
+            yield (url, re.sub('\n|/|\\\\', '', filename))
+
+def download_image(url, destination):
+    if path.isfile(destination): return
+
+    try:
+        r = urllib2.urlopen(url)
+    except urllib2.HTTPError:
+        return # ignore 404, 403 and similar errors
+
+    try:
+        with open(destination, 'wb') as f:
+            shutil.copyfileobj(r, f)
+    finally:
+        r.close()
+
+def destination_file(subreddit, filename):
+    destdir = path.join(tempfile.gettempdir(), 'reddit-images', subreddit)
+    if not path.isdir(destdir): os.makedirs(destdir)
+
+    return path.join(destdir, filename)
+
+for subreddit in subreddits:
+    for url, filename in subreddit_links(subreddit):
+        destination = destination_file(subreddit, filename)
+        print destination
+        download_image(url, destination)
