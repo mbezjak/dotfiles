@@ -21,7 +21,6 @@ subreddits = ['wallpaper',
               'WaterPorn',
               'AnimalPorn', # err lol?!
               'DestructionPorn',
-              'BotanicalPorn',
               'aww',
               'gifs',
               'lolcats']
