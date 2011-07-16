@@ -22,6 +22,8 @@ subreddits = ['wallpaper',
               'AnimalPorn', # err lol?!
               'DestructionPorn',
               'BotanicalPorn',
+              'aww',
+              'gifs',
               'lolcats']
 redditurl  = "http://www.reddit.com/r/{}.json"
 
