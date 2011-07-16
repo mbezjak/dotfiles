@@ -2,6 +2,8 @@
 # coding: utf-8
 #
 # Download images from links on first page of a subreddit.
+# Inspired by:
+# http://www.reddit.com/r/pics/comments/iqwp9/ok_reddit_let_me_make_it_simple_for_you/
 
 from os import path
 import re
