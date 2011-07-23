@@ -46,6 +46,7 @@ alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
+alias nasmount='sudo mount.nfs nas:/mnt/ide1/public /mnt/nas'
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 
 # command dependent
