@@ -42,7 +42,7 @@ deploy() {
     context=${2:-$(basename "$1")}
     context=${context%\.war}
     rm -rf "$CATALINA_HOME/webapps/$context"
-    rm "$CATALINA_HOME/webapps/${context}.war"
+    rm -f "$CATALINA_HOME/webapps/${context}.war"
     cp --verbose "$1" "$CATALINA_HOME/webapps/${context}.war"
     start
 }
