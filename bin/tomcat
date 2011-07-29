@@ -27,14 +27,16 @@ exit 1
     exit 3
 }
 
-start() {
-    cd "$CATALINA_HOME" # to contain logs with relative paths
-    bin/startup.sh
-}
-stop() { cd "$CATALINA_HOME"; bin/shutdown.sh; }
+# cd to contain log files with relative path
+start()   { (cd "$CATALINA_HOME"; bin/startup.sh;)  }
+stop()    { (cd "$CATALINA_HOME"; bin/shutdown.sh;) }
 restart() { stop; start; }
-log() { tail -F "$CATALINA_HOME/logs/catalina.out"; }
-clean() { cd "$CATALINA_HOME"; rm -rf temp/* work/* logs/* conf/Catalina; }
+log()     { tail -F "$CATALINA_HOME/logs/catalina.out"; }
+clean() {
+    rm -rf "$CATALINA_HOME"/*.log
+    rm -rf "$CATALINA_HOME"/{temp,work,logs}/*
+    rm -rf "$CATALINA_HOME/conf/Catalina"
+}
 deploy() {
     [[ ! -f "$1" && "$1" != *.war ]] && print_usage
 
