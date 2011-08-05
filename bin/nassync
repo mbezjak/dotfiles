@@ -8,7 +8,8 @@ nasbackup Documents Documents
 nasbackup downloads downloads
 nasbackup Dropbox Dropbox
 nasbackup lib lib
-nasbackup .mozilla mozilla --exclude 'firefox/*/Cache'
-nasbackup workspace workspace --exclude '**.class'
+nasbackup .mozilla mozilla --exclude '**/Cache'
+nasbackup workspace workspace --exclude '**.class' --exclude '**/bin' \
+                              --exclude '**/build' --exclude '**/target'
 
 exit 0
