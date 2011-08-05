@@ -6,18 +6,23 @@ set -o errexit
 print_usage() {
 local prog=$(basename $0)
 cat >&2 <<EOF
-Example usage:
-  $prog downloads
-  $prog .mozilla mozilla
+Usage:
+  $prog source destination [rdiff-backup-options]
+
+Example:
+  $prog downloads downloads
+  $prog .mozilla mozilla --exclude 'firefox/*/Cache'
 EOF
 exit 1
 }
 
-[[ -z "$1" ]] && print_usage
-source="$HOME/$1"
-destination="/mnt/nas/backup/arch/${2:-$1}"
-
+[[ -z "$1" || -z "$2" ]] && print_usage
 [[ ! -d /mnt/nas/backup ]] && nasmount
-rdiff-backup --verbosity 5 --print-statistics "$source" "$destination"
+
+source="$HOME/$1"
+destination="/mnt/nas/backup/arch/$2"
+shift 2
+
+rdiff-backup --verbosity 5 --print-statistics "$@" "$source" "$destination"
 
 exit 0
