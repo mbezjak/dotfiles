@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+nasbackup bin
+nasbackup Documents
+nasbackup downloads
+nasbackup Dropbox
+nasbackup lib
+nasbackup .mozilla mozilla
+nasbackup workspace
+
+exit 0

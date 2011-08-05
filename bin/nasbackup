@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+print_usage() {
+local prog=$(basename $0)
+cat >&2 <<EOF
+Example usage:
+  $prog downloads
+  $prog .mozilla mozilla
+EOF
+exit 1
+}
+
+[[ -z "$1" ]] && print_usage
+source="$HOME/$1"
+destination="/mnt/nas/backup/arch/${2:-$1}"
+
+[[ ! -d /mnt/nas/backup ]] && nasmount
+rdiff-backup --verbosity 5 --print-statistics "$source" "$destination"
+
+exit 0

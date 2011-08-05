@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+
+sudo mount.nfs nas:/mnt/ide1/public /mnt/nas

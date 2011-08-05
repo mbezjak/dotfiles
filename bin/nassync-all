@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+nassync
+nasbackup torrent
+nasbackup .VirtualBox VirtualBox
+
+exit 0
