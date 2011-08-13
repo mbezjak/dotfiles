@@ -26,6 +26,8 @@ cmd.meld =
 
 [alias]
 show = log --patch --rev
+last = log --limit 1
+last3 = log --limit 3
 dirty = !$HG status | wc -l
 cin = !$HG --quiet incoming --template '{node}\n' 2> /dev/null | wc -l
 cout = !$HG --quiet outgoing --template '{node}\n' 2> /dev/null | wc -l
