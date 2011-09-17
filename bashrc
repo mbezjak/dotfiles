@@ -15,6 +15,9 @@ alias vi='vim' # use vim instead of vi
 [[ -d ~/local/bin && ":$PATH:" != *":$HOME/local/bin:"* ]] && {
   export PATH="$PATH:$HOME/local/bin"
 }
+[[ -d ~/.cabal/bin ]] && {
+  export PATH="$PATH:$HOME/.cabal/bin"
+}
 
 # napalm support: https://github.com/mbezjak/napalm
 [[ -d ~/.napalm ]] && {
