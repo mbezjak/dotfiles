@@ -68,6 +68,7 @@ type -P git &> /dev/null && {
 type -P thg &> /dev/null && {
   alias hgl='thg log'
   alias hgc='thg commit'
+  alias hgv='thg shelve'
 }
 
 type -P java &> /dev/null && {
