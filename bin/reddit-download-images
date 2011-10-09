@@ -36,7 +36,7 @@ def subreddit_links(subreddit):
 
         for extension in ['.png', '.jpg', '.jpeg', '.gif', '.bmp']:
             if url.endswith(extension):
-                filename = title + extension
+                filename = title[:240] + extension
 
         if filename is not None:
             yield (url, re.sub('\n|/|\\\\', '', filename))
