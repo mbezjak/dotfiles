@@ -95,6 +95,8 @@ type -P mvn &> /dev/null && {
 
 type -P pacman &> /dev/null && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
+  type -P packer &> /dev/null && alias pu='packer -Syu'
+
   alias psp='sudo pacman --sync'
   alias prs='sudo pacman --remove --recursive'
   alias pss='pacman --sync --search'
