@@ -15,34 +15,6 @@ import copy, cStringIO, errno, operator, os, re, shutil, tempfile
 
 lines_re = re.compile(r'@@ -(\d+),(\d+) \+(\d+),(\d+) @@\s*(.*)')
 
-def internalpatch(patchobj, ui, strip, cwd, reverse=False, files={}):
-    """use builtin patch to apply <patchobj> to the working directory.
-    returns whether patch was applied with fuzz factor.
-    
-    Adapted from patch.internalpatch() to support reverse patching.
-    """
-
-    eolmode = ui.config('patch', 'eol', 'strict')
-
-    if eolmode.lower() not in patch.eolmodes:
-        raise util.Abort(_('Unsupported line endings type: %s') % eolmode)
-    
-    try:
-        fp = file(patchobj, 'rb')
-    except TypeError:
-        fp = patchobj
-    if cwd:
-        curdir = os.getcwd()
-        os.chdir(cwd)
-    try:
-        ret = patch.applydiff(ui, fp, files, strip=strip, eolmode=eolmode)
-    finally:
-        if cwd:
-            os.chdir(curdir)
-    if ret < 0:
-        raise PatchError
-    return ret > 0
-
 def scanpatch(fp):
     lr = patch.linereader(fp)
 
@@ -519,7 +491,7 @@ def shelve(ui, repo, *pats, **opts):
                 if dopatch:
                     ui.debug('applying patch\n')
                     ui.debug(fp.getvalue())
-                    patch.internalpatch(fp, ui, 1, repo.root)
+                    patch.internalpatch(ui, repo, fp, 1)
                 del fp
 
                 # 3c. apply filtered patch to clean repo (shelve)
@@ -556,6 +528,7 @@ def shelve(ui, repo, *pats, **opts):
     # wrap ui.write so diff output can be labeled/colorized
     def wrapwrite(orig, *args, **kw):
         label = kw.pop('label', '')
+        if label: label += ' '
         for chunk, l in patch.difflabel(lambda: args):
             orig(chunk, label=label + l)
     oldwrite = ui.write
@@ -592,7 +565,18 @@ def unshelve(ui, repo, **opts):
         patch_diff = repo.opener(shelfpath).read()
         fp = cStringIO.StringIO(patch_diff)
         if opts['inspect']:
-            ui.status(fp.getvalue())
+            # wrap ui.write so diff output can be labeled/colorized
+            def wrapwrite(orig, *args, **kw):
+                label = kw.pop('label', '')
+                if label: label += ' '
+                for chunk, l in patch.difflabel(lambda: args):
+                    orig(chunk, label=label + l)
+            oldwrite = ui.write
+            extensions.wrapfunction(ui, 'write', wrapwrite)
+            try:
+                ui.status(fp.getvalue())
+            finally:
+                ui.write = oldwrite
         else:
             files = []
             ac = parsepatch(fp)
@@ -607,7 +591,7 @@ def unshelve(ui, repo, **opts):
             try:
                 try:
                     fp.seek(0)
-                    internalpatch(fp, ui, 1, repo.root)
+                    patch.internalpatch(ui, repo, fp, 1)
                     patchdone = 1
                 except:
                     if opts['force']:
