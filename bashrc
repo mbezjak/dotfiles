@@ -49,6 +49,7 @@ alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
+search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 
 # command dependent
