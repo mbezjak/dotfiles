@@ -120,15 +120,6 @@ type -P pacman &> /dev/null && {
   alias pqo='pacman --query --owns'
 }
 
-[[ -d ~/lib/jsdoc-toolkit ]] && {
-  export JSDOC_HOME="$HOME/lib/jsdoc-toolkit"
-  alias jsdoc='java -jar "$JSDOC_HOME/jsrun.jar" \
-                         "$JSDOC_HOME/app/run.js" \
-                         -a -r 10 \
-                         -t="$JSDOC_HOME/templates/jsdoc" \
-                         -d=target/docs/javascript'
-}
-
 cd_alias() {
   local name="$1"
   local dir="$2"
