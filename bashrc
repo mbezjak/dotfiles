@@ -102,6 +102,13 @@ type -P pacman &> /dev/null && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
   type -P packer &> /dev/null && alias pu='packer -Syu'
 
+  alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
+  pacedit() { sudo $EDITOR /etc/$1; }
+  pacrm() { sudo rm --interactive /etc/$1.pacnew; }
+  type -P meld &> /dev/null && {
+    pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
+  }
+
   alias psp='sudo pacman --sync'
   alias prs='sudo pacman --remove --recursive'
   alias pss='pacman --sync --search'
