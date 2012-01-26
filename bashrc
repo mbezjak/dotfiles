@@ -59,6 +59,7 @@ type -P hg       &> /dev/null && alias hgworkspace='hgforeach hgproject'
 type -P ack-grep &> /dev/null && alias ack='ack-grep'
 type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
 type -P python2  &> /dev/null && alias serve='python2 -m SimpleHTTPServer'
+type -P hoogle   &> /dev/null && alias h='hoogle --color --count=30'
 type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
 type -P kwrite   &> /dev/null && alias k='kwrite &> /dev/null'
 
