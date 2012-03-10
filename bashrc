@@ -141,9 +141,3 @@ cd_alias cj "$HOME/workspace/java"
 cd_alias cg "$HOME/workspace/groovy"
 cd_alias co "$HOME/workspace/other"
 cd_alias ct /tmp
-
-if [[ -d /usr/share/doc/python/html ]]; then
-  export PYTHONDOCS=/usr/share/doc/python/html
-elif [[ -d /usr/share/doc/python2/html ]]; then
-  export PYTHONDOCS=/usr/share/doc/python2/html
-fi
