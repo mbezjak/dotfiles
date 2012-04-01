@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+
+query="$1"
+
+firefox "http://dict.tu-chemnitz.de/dings.cgi?lang=en&service=deen&opterrors=0&optpro=0&query=$query&iservice=&comment=&email="
+firefox "http://www.eudict.com/?lang=gercro&word=$query"
+firefox "http://deutsche-rechtschreibung.org/schreibweise/$query"
+firefox "http://deutsche-rechtschreibung.org/flexion-neue-rechtschreibung/$query"
+
+exit 0
