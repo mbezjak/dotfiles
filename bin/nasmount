@@ -1,4 +1,12 @@
 #!/bin/bash
 #
 
-sudo mount.nfs nas:/mnt/ide1/public /mnt/nas
+mountdir=/mnt/nas
+
+if [[ "$1" == --unmount ]]; then
+    mountpoint --quiet $mountdir && sudo umount $mountdir
+else
+    mountpoint --quiet $mountdir || sudo mount.nfs nas:/mnt/ide1/public $mountdir
+fi
+
+exit 0

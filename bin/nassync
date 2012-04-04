@@ -12,4 +12,6 @@ nasbackup .mozilla mozilla --exclude '**/Cache'
 nasbackup workspace workspace --exclude '**.class' --exclude '**/bin' \
                               --exclude '**/build' --exclude '**/target'
 
+nasmount --unmount
+
 exit 0

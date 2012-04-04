@@ -17,7 +17,7 @@ exit 1
 }
 
 [[ -z "$1" || -z "$2" ]] && print_usage
-[[ ! -d /mnt/nas/backup ]] && nasmount
+nasmount
 
 source="$HOME/$1"
 destination="/mnt/nas/backup/arch/$2"
