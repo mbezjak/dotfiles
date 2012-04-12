@@ -24,7 +24,6 @@ for f in bin/* lib/*; do
 done
 
 install_link emacs.d .emacs.d
-install_link lib/cloc/cloc.pl bin/cloc
 install_link lib/markdown/Markdown.pl bin/markdown
 install_link lib/napalm/bin/napalm bin/napalm
 
