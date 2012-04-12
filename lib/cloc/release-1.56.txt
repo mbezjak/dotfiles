@@ -1,3 +1,63 @@
+                Release Notes for cloc version 1.56
+                   http://cloc.sourceforge.net
+                           April 3, 2012   
+
+Version 1.56 introduces an additional documentation file, cloc.1.pod, which
+can be used to produce cloc's documentation in the style of a Unix man page,
+plain text, HTML, or LaTeX.
+
+New Languages:
+    o Clojure
+    o ClojureScript
+    o AutoHotkey
+    o QML
+    o CFScript
+    o OpenCL
+
+New options and features:
+
+  --unix
+      o Override the operating system autodetection logic and run in 
+        UNIX mode.
+
+  --windows
+      o Override the operating system autodetection logic and run in 
+        Microsoft Windows mode.
+
+  --show-os
+      o Print the name of the of the operating system mode and exit.
+
+  --csv-delimiter
+      o Use the provided delimiter instead of a comma when generating 
+        csv output.
+
+  --stdin-name
+      o On UNIX systems, enables cloc to count code piped in via STDIN.
+        This switch provides a filename for to use to infer the language.
+
+  .git subdirectories are now ignored.
+
+  Updated yacc counter to recognize C99 comments.
+
+  Improved detection and reporting of ignored zero sized files.
+
+  Removed spurious <languages> from YAML output.
+
+  Fixed handling of multi-line Ruby comments surrounded by =begin/=end.
+
+  Associated .ctl and .dsr extensions with Visual Basic
+
+Bug Fixes:
+
+  Produce correct diff results when comparing empty files with populated 
+  files.
+
+  Remove temporary directory names from --by-file output when working
+  with archive files.
+
+  Honor user's requested scratch directory if given --sdir.
+
+============================================================================
                 Release Notes for cloc version 1.55
                    http://cloc.sourceforge.net
                           October 14, 2011
