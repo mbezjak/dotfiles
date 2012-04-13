@@ -17,6 +17,8 @@ alias vi='vim' # use vim instead of vi
   export PATH="$PATH:$HOME/.cabal/bin"
 }
 
+[[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
+
 # napalm support: https://github.com/mbezjak/napalm
 [[ -d ~/.napalm ]] && {
   for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
