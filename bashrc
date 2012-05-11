@@ -16,6 +16,9 @@ alias vi='vim' # use vim instead of vi
 [[ -d ~/.cabal/bin ]] && {
   export PATH="$PATH:$HOME/.cabal/bin"
 }
+type -P gem &> /dev/null && {
+  export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
+}
 
 [[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
 
