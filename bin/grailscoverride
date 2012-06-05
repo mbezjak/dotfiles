@@ -10,7 +10,7 @@ set -o errexit
 }
 
 plugin="$1"
-[[ "$plugin" != */* ]] && plugin="$HOME/workspace/groovy/$plugin"
+[[ "$plugin" != */* ]] && plugin="$HOME/workspace/$plugin"
 grailsoverride "$plugin" > /dev/null
 
 while inotifywait --quiet \

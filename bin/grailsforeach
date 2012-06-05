@@ -8,7 +8,7 @@
 set -o errexit
 
 IFS=$(echo -en "\n\b") # Internal Field Separator
-for project in $(find ~/workspace/groovy -mindepth 1 -maxdepth 1 -type d -printf "%p\n")
+for project in $(find ~/workspace -mindepth 1 -maxdepth 1 -type d -printf "%p\n")
 do
     if [[ -d "$project/grails-app" ]]; then # only grails projects
         cd "$project"
