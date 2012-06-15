@@ -105,6 +105,7 @@ type -P pacman &> /dev/null && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
   type -P packer &> /dev/null && alias pu='packer -Syu'
 
+  alias paclog='less +G /var/log/pacman.log'
   alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
   pacedit() { sudo $EDITOR /etc/$1; }
   pacrm() { sudo rm --interactive /etc/$1.pacnew; }
