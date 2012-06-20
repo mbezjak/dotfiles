@@ -52,12 +52,9 @@ alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
+alias samba-restart='sudo rc.d restart samba'
 search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
-samba-restart() {
-  sudo rc.d stop samba
-  sudo rc.d start samba
-}
 
 # command dependent
 type -P emacs    &> /dev/null && alias e='emacs --geometry 120x100 --fullheight'
