@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+
+project="$PWD"
+[[ ! -f pom.xml ]] && {
+    echo "$project isn't a maven project" >&2
+    exit 1
+}
+
+group=$(xpath pom.xml '//project/groupId/text()' 2> /dev/null)
+artifact=$(xpath pom.xml '//project/artifactId/text()' 2> /dev/null)
+version=$(xpath pom.xml '//project/version/text()' 2> /dev/null)
+
+[[ -z "$group" ]]    && echo 'Missing groupId in pom.xml' >&2    && exit 2
+[[ -z "$artifact" ]] && echo 'Missing artifactId in pom.xml' >&2 && exit 3
+[[ -z "$version" ]]  && echo 'Missing version in pom.xml' >&2    && exit 4
+
+set -o errexit
+
+target="$project/target/$artifact-$version.jar"
+link="$HOME/.ivy2/cache/$group/$artifact/jars/$artifact-$version.jar"
+
+if [[ -L "$link" ]]; then
+    rm "$link"
+    mv "$link.orig" "$link"
+    echo "Restored $link"
+elif [[ -f "$link" ]]; then
+    mv "$link" "$link.orig"
+    [[ ! -f "$target" ]] && mvn package
+
+    ln --symbolic "$target" "$link"
+    echo "$link -> $target"
+else
+    echo "Missing $link" >&2 && exit 5
+fi
+
+exit 0

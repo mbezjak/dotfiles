@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Interoperability of grails release-plugin with mercurial repository.
+
+set -o errexit
+
+plugin="$PWD"
+version=$(grailsproject version)
+
+[[ -z "$version" ]] && {
+    echo "$plugin isn't a grails plugin" >&2
+    exit 1
+}
+[[ ! -d .hg ]] && {
+    echo "$plugin isn't a mercurial project" >&2
+    exit 2
+}
+[[ $(hg dirty) -ne 0 ]] && {
+    echo "Plugin has uncommited changes. Do a 'hg commit' first!" >&2
+    exit 3
+}
+[[ -n $(hg hastag "$version") ]] && {
+    echo "$plugin is already released under '$version'" >&2
+    exit 4
+}
+
+hg tag "$version"
+hg push
+echo # newline
+
+if [[ $(grailsproject grails) == 2.* ]]; then
+    grails publish-plugin --non-interactive --message="RELEASE $version"
+else
+    grails release-plugin --non-interactive \
+                          --message="RELEASE $version" \
+                          --zipOnly \
+                          --repository=hxRepository
+fi
+
+exit 0
