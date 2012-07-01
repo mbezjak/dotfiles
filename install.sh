@@ -28,9 +28,9 @@ install_link lib/markdown/Markdown.pl bin/markdown
 install_link lib/napalm/bin/napalm bin/napalm
 
 for f in $(find -mindepth 1 -maxdepth 1 -type f \
-                -and -not -name 'install.sh' \
+                -and -not -name '*.sh' \
                 -and -not -name '*.md' \
-                -and -not -name '.*' \
+                -and -not -name '.*'   \
                 -printf '%f\n'); do
     install_link "$f" ".$f"
 done
