@@ -5,3 +5,5 @@ Installation procedure:
 
 This will install symbolic links into your $HOME directory. It's safe
 to run `install.sh` script multiple times.
+
+Change *username* and *email* config options in `hgrc` and `gitconfig`.
