@@ -36,5 +36,10 @@ for f in $(find -mindepth 1 -maxdepth 1 -type f \
     install_link "$f" ".$f"
 done
 
+
+if [[ "$1" == work ]]; then
+    install_link hgrc.work .hgrc.local
+fi
+
 echo done
 exit 0
