@@ -15,8 +15,7 @@ purge =
 rebase =
 record =
 transplant =
-
-hgshelve = ~/lib/mercurial/hgshelve.py
+# hgshelve is available as: thg shelve
 
 [diff]
 git = True
