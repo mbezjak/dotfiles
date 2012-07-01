@@ -3,7 +3,7 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-PS1='\[\e[1;32m\][\u@\h \[\e[1;33m\]\W\[\e[1;32m\]]\$\[\e[0m\] '
+PS1='\[\e[1;32m\][\[\e[1;33m\]\W\[\e[1;32m\]]\$\[\e[0m\] '
 HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
