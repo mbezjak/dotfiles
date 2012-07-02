@@ -1,3 +1,8 @@
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
 ;; disable mouse interface
 (menu-bar-mode -1)
 (tool-bar-mode -1)
