@@ -33,7 +33,7 @@
 
 (setq my-packages '(ghc-mod haskell-mode coffee-mode paredit
                     highlight-symbol find-file-in-project smex
-                    magit htmlize))
+                    magit markdown-mode htmlize))
 
 (setq el-get-user-package-directory
       (concat user-emacs-directory "el-get-init"))
