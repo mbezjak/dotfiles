@@ -45,3 +45,4 @@
 
 ;; rest of init.el
 (column-number-mode t)
+(setq tab-width 4)
