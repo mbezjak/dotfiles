@@ -1,3 +1,8 @@
+;; disable early in initialization to avoid flicker
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
 (column-number-mode t)
 (setq tab-width 4)
 
