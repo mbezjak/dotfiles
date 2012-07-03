@@ -10,6 +10,7 @@
 (column-number-mode t)
 (setq tab-width 4)
 
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
 ;; package.el and el-get.el dependent code
 (require 'package)
