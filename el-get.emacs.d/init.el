@@ -1,30 +1,9 @@
+(ffap-bindings)
+
 (require 'package)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
-
-;; disable mouse interface
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (blink-cursor-mode -1))
-
-(setq visible-bell t
-      inhibit-startup-message t)
-
-(windmove-default-keybindings)
-(ffap-bindings)
-(show-paren-mode 1)
-(ido-mode t)
-
-(global-set-key (kbd "C-c f") 'find-file-in-project)
-(global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "C-<f10>") 'menu-bar-mode)
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -40,13 +19,14 @@
       (concat user-emacs-directory "el-get-init"))
 
 (setq el-get-sources
-      '((:name htmlize :type elpa)))
+      '((:name starter-kit          :type elpa)
+        (:name starter-kit-bindings :type elpa)
+        (:name htmlize              :type elpa)))
 
 (setq my-el-get-elpa-packages
       (mapcar 'el-get-source-name el-get-sources))
 
 (setq my-el-get-packages '(ghc-mod haskell-mode coffee-mode
-      paredit highlight-symbol find-file-in-project smex magit
       markdown-mode))
 
 (setq my-packages
