@@ -2,6 +2,8 @@
 /backups/
 /el-get/
 /elpa/
+
+/custom.el
 /places
 /.smex-items
 
