@@ -42,3 +42,6 @@
       (append my-el-get-elpa-packages my-el-get-packages))
 
 (el-get 'sync my-packages)
+
+;; rest of init.el
+(column-number-mode t)
