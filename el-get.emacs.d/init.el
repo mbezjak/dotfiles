@@ -19,7 +19,7 @@
       (concat user-emacs-directory "el-get-init"))
 
 ;; Everything above `starter-kit' are its dependencies.
-;; It seems they are needed for proper load ordering.
+;; It seems they are needed for proper load order.
 (setq el-get-sources
       '((:name paredit              :type elpa)
         (:name idle-highlight-mode  :type elpa)
@@ -29,6 +29,9 @@
         (:name magit                :type elpa)
         (:name starter-kit          :type elpa)
         (:name starter-kit-bindings :type elpa)
+        (:name starter-kit-eshell   :type elpa)
+        (:name starter-kit-js       :type elpa)
+        (:name starter-kit-lisp     :type elpa)
         (:name htmlize              :type elpa)))
 
 (setq my-el-get-elpa-packages
