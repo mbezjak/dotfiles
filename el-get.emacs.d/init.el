@@ -1,3 +1,8 @@
+(column-number-mode t)
+(setq tab-width 4)
+
+
+;; package.el and el-get.el dependent code
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -42,7 +47,3 @@
       (append my-el-get-elpa-packages my-el-get-packages))
 
 (el-get 'sync my-packages)
-
-;; rest of init.el
-(column-number-mode t)
-(setq tab-width 4)
