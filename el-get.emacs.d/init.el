@@ -36,11 +36,20 @@
         (goto-char (point-max))
         (eval-print-last-sexp))))
 
-(setq my-packages '(ghc-mod haskell-mode coffee-mode paredit
-                    highlight-symbol find-file-in-project smex
-                    magit markdown-mode htmlize))
-
 (setq el-get-user-package-directory
       (concat user-emacs-directory "el-get-init"))
+
+(setq el-get-sources
+      '((:name htmlize :type elpa)))
+
+(setq my-el-get-elpa-packages
+      (mapcar 'el-get-source-name el-get-sources))
+
+(setq my-el-get-packages '(ghc-mod haskell-mode coffee-mode
+      paredit highlight-symbol find-file-in-project smex magit
+      markdown-mode))
+
+(setq my-packages
+      (append my-el-get-elpa-packages my-el-get-packages))
 
 (el-get 'sync my-packages)
