@@ -11,6 +11,7 @@
 (setq tab-width 4)
 (setq-default fill-column 80)
 
+(global-set-key (kbd "C-x \\") 'align-regexp)
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
 
