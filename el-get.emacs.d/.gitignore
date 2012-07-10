@@ -2,6 +2,7 @@
 /backups/
 /el-get/
 /elpa/
+/url/
 
 /custom.el
 /places
