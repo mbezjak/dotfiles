@@ -9,13 +9,10 @@
 
 set -o errexit
 
-IFS=$(echo -en "\n\b") # Internal Field Separator
-for project in $(find ~/workspace ~/incubation -mindepth 1 -maxdepth 1 -type d -printf "%p\n")
+for project in $(projects --hg)
 do
-    if [[ -d "$project/.hg" ]]; then # only hg repositories
-        cd "$project"
-        eval "$@" # potential security problem
-    fi
+    cd "$project"
+    eval "$@" # potential security problem
 done
 
 exit 0

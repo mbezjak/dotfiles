@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+print_usage() {
+local prog=$(basename $0)
+cat >&2 <<EOF
+$prog - list projects
+
+SYNOPSIS
+    $prog OPTIONS
+
+OPTIONS
+    --rootdirs
+    --all
+    --git
+    --hg
+    --grails
+EOF
+
+exit 1
+}
+
+rootdirs() {
+    echo "$HOME/workspace"
+    echo "$HOME/incubation"
+    echo "$HOME/lib"
+}
+
+projects() {
+    find $(rootdirs) -mindepth 1 -maxdepth 1 -type d -printf "%p\n"
+}
+
+gitprojects() {
+    find $(projects) -mindepth 1 -maxdepth 1 -name '.git' -printf "%h\n"
+}
+
+hgprojects() {
+    find $(projects) -mindepth 1 -maxdepth 1 -name '.hg' -printf "%h\n"
+}
+
+grailsprojects() {
+    find $(projects) -mindepth 1 -maxdepth 1 -name 'grails-app' -printf "%h\n"
+}
+
+case "$1" in
+  --rootdirs) rootdirs       ;;
+       --all) projects       ;;
+       --git) gitprojects    ;;
+        --hg) hgprojects     ;;
+    --grails) grailsprojects ;;
+           *) print_usage    ;;
+esac
+
+exit 0

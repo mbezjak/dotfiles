@@ -7,13 +7,10 @@
 
 set -o errexit
 
-IFS=$(echo -en "\n\b") # Internal Field Separator
-for project in $(find ~/workspace -mindepth 1 -maxdepth 1 -type d -printf "%p\n")
+for project in $(projects --grails)
 do
-    if [[ -d "$project/grails-app" ]]; then # only grails projects
-        cd "$project"
-        eval "$@" # potential security problem
-    fi
+    cd "$project"
+    eval "$@" # potential security problem
 done
 
 exit 0
