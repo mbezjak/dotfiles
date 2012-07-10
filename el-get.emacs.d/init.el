@@ -13,6 +13,7 @@
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 
 ;; package.el and el-get.el dependent code
@@ -45,7 +46,6 @@
         (:name starter-kit          :type elpa)
         (:name starter-kit-bindings :type elpa)
         (:name starter-kit-eshell   :type elpa)
-        (:name starter-kit-js       :type elpa)
         (:name starter-kit-lisp     :type elpa)
         (:name htmlize              :type elpa)))
 
