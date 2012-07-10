@@ -31,8 +31,7 @@
         (goto-char (point-max))
         (eval-print-last-sexp))))
 
-(setq el-get-user-package-directory
-      (concat user-emacs-directory "el-get-init"))
+(setq el-get-user-package-directory user-emacs-directory)
 
 ;; Everything above `starter-kit' are its dependencies.
 ;; It seems they are needed for proper load order.
