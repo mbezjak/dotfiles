@@ -1,6 +1,3 @@
 [submodule "lib/napalm"]
 	path = lib/napalm
 	url = https://github.com/mbezjak/napalm.git
-[submodule "emacs.d"]
-	path = emacs.d
-	url = https://github.com/mbezjak/emacs.d.git
