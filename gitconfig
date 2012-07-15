@@ -16,3 +16,4 @@
         b = branch
         ff = merge --ff-only
         forget = rm --cached
+        authors = !git log --all --format='%aN <%cE>' | sort -u
