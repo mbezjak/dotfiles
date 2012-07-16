@@ -17,7 +17,6 @@
 
 (defun delete-trailing-whitespace-before-save ()
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
-(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'delete-trailing-whitespace-before-save)
