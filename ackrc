@@ -1,4 +1,5 @@
 --smart-case
+
 --type-set=markdown=.markdown,.md
 --type-set=restructuredtext=.rst
 --type-set=groovy=.groovy
@@ -6,3 +7,5 @@
 --type-set=coffee=.coffee
 --type-set=jspec=.jspec
 --type-set=darwin=.drw
+
+--ignore-dir=target
