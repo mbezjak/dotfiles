@@ -17,8 +17,12 @@ cd $(dirname $(readlink -f "$0"))
 git submodule init
 git submodule update
 
-mkdir -p "$HOME/bin"
-mkdir -p "$HOME/lib"
+mkdir --parents ~/bin
+mkdir --parents ~/Documents
+mkdir --parents ~/downloads
+mkdir --parents ~/Dropbox
+mkdir --parents ~/lib
+mkdir --parents ~/workspace/{xattic,xincubation}
 for f in bin/* lib/*; do
     install_link "$f" "$f"
 done
