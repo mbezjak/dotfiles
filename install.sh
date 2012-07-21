@@ -20,7 +20,7 @@ git submodule update
 mkdir --parents ~/bin
 mkdir --parents ~/Documents
 mkdir --parents ~/downloads
-mkdir --parents ~/Dropbox
+mkdir --parents --mode=700 ~/Dropbox
 mkdir --parents ~/lib
 mkdir --parents ~/workspace/{xattic,xincubation}
 for f in bin/* lib/*; do
