@@ -59,8 +59,11 @@
 (setq my-el-get-elpa-packages
       (mapcar 'el-get-source-name el-get-sources))
 
-(setq my-el-get-packages '(ghc-mod haskell-mode coffee-mode
-      markdown-mode))
+(setq my-el-get-packages
+      '(ghc-mod
+        haskell-mode
+        coffee-mode
+        markdown-mode))
 
 (setq my-packages
       (append my-el-get-elpa-packages my-el-get-packages))
