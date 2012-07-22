@@ -49,7 +49,8 @@
         (:name starter-kit-bindings :type elpa)
         (:name starter-kit-eshell   :type elpa)
         (:name starter-kit-lisp     :type elpa)
-        (:name htmlize              :type elpa)))
+        (:name htmlize              :type elpa)
+        (:name yasnippet            :type elpa)))
 
 (setq my-el-get-elpa-packages
       (mapcar 'el-get-source-name el-get-sources))
