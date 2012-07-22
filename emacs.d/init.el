@@ -23,12 +23,7 @@
 
 
 
-;; package.el and el-get.el dependent code
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(package-initialize)
-
+;; el-get.el dependent code
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil t)
