@@ -49,17 +49,17 @@
         (:name starter-kit-bindings :type elpa)
         (:name starter-kit-eshell   :type elpa)
         (:name starter-kit-lisp     :type elpa)
-        (:name htmlize              :type elpa)
-        (:name yasnippet            :type elpa)))
+        (:name haskell-mode         :type elpa)
+        (:name coffee-mode          :type elpa)
+        (:name markdown-mode        :type elpa)
+        (:name yasnippet            :type elpa)
+        (:name htmlize              :type elpa)))
 
 (setq my-el-get-elpa-packages
       (mapcar 'el-get-source-name el-get-sources))
 
 (setq my-el-get-packages
-      '(ghc-mod
-        haskell-mode
-        coffee-mode
-        markdown-mode))
+      '(ghc-mod))
 
 (setq my-packages
       (append my-el-get-elpa-packages my-el-get-packages))

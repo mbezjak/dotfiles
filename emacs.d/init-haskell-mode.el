@@ -1,4 +1,3 @@
 (add-hook 'haskell-mode-hook 'esk-prog-mode-hook)
-(add-hook 'haskell-mode-hook
-	  (lambda ()
-	    (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
