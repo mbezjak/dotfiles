@@ -5,6 +5,7 @@
         ui = true
 [diff]
         renames = copies
+        mnemonicprefix = true
 [merge]
         tool = meld
 [alias]
