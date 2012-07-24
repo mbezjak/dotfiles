@@ -32,5 +32,8 @@ cin = !$HG --quiet incoming --template '{node}\n' 2> /dev/null | wc -l
 cout = !$HG --quiet outgoing --template '{node}\n' 2> /dev/null | wc -l
 hastag = !$HG --quiet tags | grep "^$1\$"
 
+[tortoisehg]
+guifork = True
+
 # override defaults in a file that is not version controlled
 %include ~/.hgrc.local
