@@ -13,6 +13,7 @@
 [alias]
         co = checkout
         ci = commit
+        cm = commit --message
         st = status --short
         s = status --short --branch --untracked-files=all
         l = log --graph --decorate
