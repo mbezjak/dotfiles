@@ -8,6 +8,8 @@
         mnemonicprefix = true
 [merge]
         tool = meld
+[rerere]
+        enabled = true
 [alias]
         co = checkout
         ci = commit
