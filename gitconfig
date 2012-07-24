@@ -3,6 +3,8 @@
         email = bezjak.miro@gmail.com
 [color]
         ui = true
+[diff]
+        renames = copies
 [merge]
         tool = meld
 [alias]
