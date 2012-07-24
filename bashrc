@@ -71,6 +71,7 @@ type -P kwrite   &> /dev/null && alias k='kwrite &> /dev/null'
 
 type -P git &> /dev/null && {
     alias g='git'
+    alias gs='git s' # damn ghostscript; this typo happened a view times to many
     complete -o bashdefault -o default -o nospace -F _git g
 }
 
