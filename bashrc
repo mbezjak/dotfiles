@@ -114,6 +114,10 @@ type -P pacman &> /dev/null && {
     pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
   }
 
+  pacman-ls-updates() {
+    ls --time-style=iso -lrt /var/lib/pacman/local
+  }
+
   alias psp='sudo pacman --sync'
   alias prs='sudo pacman --remove --recursive'
   alias pss='pacman --sync --search'
