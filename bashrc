@@ -119,7 +119,7 @@ type -P pacman &> /dev/null && {
   alias pss='pacman --sync --search'
   alias psi='pacman --sync --info'
   alias pqs='pacman --query --search'
-  alias pqi='pacman --query --info'
+  alias pqi='pacman --query --info --info'
   alias pql='pacman --query --list'
   alias pqo='pacman --query --owns'
 }
