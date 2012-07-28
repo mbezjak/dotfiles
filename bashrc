@@ -126,6 +126,8 @@ type -P pacman &> /dev/null && {
   alias pqi='pacman --query --info --info'
   alias pql='pacman --query --list'
   alias pqo='pacman --query --owns'
+  alias pqm='pacman --query --foreign'
+  alias pdt='pacman --query --deps --unrequired'
 }
 
 cd_alias() {
