@@ -21,6 +21,8 @@
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'delete-trailing-whitespace-before-save)
 
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'gommons-mode)
 
 
 ;; el-get.el dependent code
