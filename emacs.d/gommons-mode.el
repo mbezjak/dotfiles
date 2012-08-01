@@ -68,7 +68,10 @@
 
 ;;;###autoload
 (define-minor-mode gommons-mode
-  "Toggle gommons mode"
+  "Toggle gommons mode
+
+The following commands are available:
+\\{gommons-mode-map}"
   :init-value nil
   :lighter " Gommons"
   :keymap gommons-mode-map
