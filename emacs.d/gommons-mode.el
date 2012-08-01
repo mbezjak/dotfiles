@@ -1,3 +1,6 @@
+(defconst gommons-dir (concat (getenv "HOME") "/workspace/gommons")
+  "Directory where gommons project exists")
+
 (defconst gommons-src "client-app/src/main"
   "Partial directory structure that contains source files")
 
@@ -39,17 +42,38 @@
   (interactive)
   (gommons-toggle-open (buffer-file-name)))
 
+(defun gommons-run-tests ()
+  "Run coffee and javascript tests"
+  (interactive)
+  (let* ((cdir (format "%s/client-app" gommons-dir)))
+    (shell-command-to-string
+     (format "cd %s && make test" cdir))
+    (browse-url (format "file://%s/jasmine.html" cdir))
+    (browse-url (format "%s/jspec.html" cdir))))
+
+(defun gommons-make-manual ()
+  "Create Gommons manual"
+  (interactive)
+  (shell-command-to-string
+   (format "cd %s/src/docs && make html" gommons-dir))
+  (browse-url
+   (format "file://%s/target/manual/html/releasenotes.html" gommons-dir)))
+
 (defvar gommons-mode-map (make-keymap)
   "Keymap for Gommons minor mode.")
 
-(define-key gommons-mode-map
-  (kbd "<f5>") 'gommons-toggle-current)
+(define-key gommons-mode-map (kbd "<f5>") 'gommons-toggle-current)
+(define-key gommons-mode-map (kbd "C-x g t") 'gommons-run-tests)
+(define-key gommons-mode-map (kbd "C-x g m") 'gommons-make-manual)
 
 ;;;###autoload
 (define-minor-mode gommons-mode
   "Toggle gommons mode"
   :init-value nil
   :lighter " Gommons"
-  :keymap gommons-mode-map)
+  :keymap gommons-mode-map
+
+  (add-to-list 'projectile-ignored-directories "client-app/target")
+  (add-to-list 'projectile-ignored-directories "web-apps"))
 
 (provide 'gommons-mode)
