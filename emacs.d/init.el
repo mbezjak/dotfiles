@@ -53,6 +53,7 @@
         (:name coffee-mode          :type elpa)
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
+        (:name switch-window        :type elpa)
         (:name htmlize              :type elpa)))
 
 (setq my-el-get-elpa-packages
