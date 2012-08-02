@@ -15,6 +15,7 @@
   "Test if NAME is a gommons test file"
   (string-match gommons-test name))
 
+;; consider using `replace-regexp-in-string'
 (defun gommons-src-to-test (name)
   "Make test location from source"
   (when (gommons-src-file-p name)
