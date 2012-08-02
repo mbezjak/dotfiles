@@ -65,8 +65,9 @@
   (interactive)
   (shell-command-to-string
    (format "cd %s/src/docs && make html" gommons-dir))
-  (browse-url
-   (format "file://%s/target/manual/html/releasenotes.html" gommons-dir)))
+  (let* ((file (replace-regexp-in-string "\.rst" ".html" (buffer-name))))
+    (browse-url
+     (format "file://%s/target/manual/html/%s" gommons-dir file))))
 
 (defvar gommons-mode-map (make-keymap)
   "Keymap for Gommons minor mode.")
