@@ -1,0 +1,5 @@
+! useful in emacs: caps lock is another control key
+remove Lock = Caps_Lock
+remove Control = Control_L
+keysym Caps_Lock = Control_L
+add Control = Control_L
