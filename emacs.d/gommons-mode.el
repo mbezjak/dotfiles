@@ -69,6 +69,12 @@
     (browse-url
      (format "file://%s/target/manual/html/%s" gommons-dir file))))
 
+(defun gommons-commit ()
+  "Open mercurial commit dialog"
+  (interactive)
+  (shell-command-to-string
+   (format "cd %s && thg commit" gommons-dir)))
+
 (defvar gommons-mode-map (make-keymap)
   "Keymap for Gommons minor mode.")
 
@@ -76,6 +82,7 @@
 (define-key gommons-mode-map (kbd "C-x g t") 'gommons-run-tests)
 (define-key gommons-mode-map (kbd "C-x g d") 'gommons-make-js-docs)
 (define-key gommons-mode-map (kbd "C-x g m") 'gommons-make-manual)
+(define-key gommons-mode-map (kbd "C-x g c") 'gommons-commit)
 
 ;;;###autoload
 (define-minor-mode gommons-mode
