@@ -9,6 +9,7 @@
 
 (column-number-mode t)
 (setq-default tab-width 4
+              c-basic-offset 4
               fill-column 80)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -53,6 +54,7 @@
         (:name starter-kit-lisp     :type elpa)
         (:name haskell-mode         :type elpa)
         (:name coffee-mode          :type elpa)
+        (:name groovy-mode          :type elpa)
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
         (:name switch-window        :type elpa)
