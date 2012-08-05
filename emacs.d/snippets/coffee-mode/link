@@ -3,4 +3,4 @@
 # key: link
 # expand-env: ((yas/indent-line 'fixed))
 # --
-{@link $1} $0
+{@link ${1:name}} $0
