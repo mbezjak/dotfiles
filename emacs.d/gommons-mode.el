@@ -43,7 +43,7 @@
   (interactive)
   (gommons-toggle-open (buffer-file-name)))
 
-(defun gommons-run-tests ()
+(defun gommons-run-js-tests ()
   "Run coffee and javascript tests"
   (interactive)
   (let* ((cdir (format "%s/client-app" gommons-dir)))
@@ -51,6 +51,12 @@
      (format "cd %s && make test" cdir))
     (browse-url (format "file://%s/jasmine.html" cdir))
     (browse-url (format "%s/jspec.html" cdir))))
+
+(defun gommons-run-unit-tests ()
+  "Run grails unittests"
+  (interactive)
+  (message (shell-command-to-string
+            (format "cd %s && grails test-app unit:" gommons-dir))))
 
 (defun gommons-make-js-docs ()
   "Create javascript documentation"
@@ -79,7 +85,8 @@
   "Keymap for Gommons minor mode.")
 
 (define-key gommons-mode-map (kbd "<f5>") 'gommons-toggle-current)
-(define-key gommons-mode-map (kbd "C-x g t") 'gommons-run-tests)
+(define-key gommons-mode-map (kbd "C-x g t") 'gommons-run-js-tests)
+(define-key gommons-mode-map (kbd "C-x g u") 'gommons-run-unit-tests)
 (define-key gommons-mode-map (kbd "C-x g d") 'gommons-make-js-docs)
 (define-key gommons-mode-map (kbd "C-x g m") 'gommons-make-manual)
 (define-key gommons-mode-map (kbd "C-x g c") 'gommons-commit)
