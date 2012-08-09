@@ -55,8 +55,8 @@
 (defun gommons-run-unit-tests ()
   "Run grails unittests"
   (interactive)
-  (message (shell-command-to-string
-            (format "cd %s && grails test-app unit:" gommons-dir))))
+  (shell-command
+   (format "cd %s && grails test-app unit:" gommons-dir)))
 
 (defun gommons-make-js-docs ()
   "Create javascript documentation"
