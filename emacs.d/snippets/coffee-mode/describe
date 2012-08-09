@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: describe
+# expand-env: ((yas/indent-line 'fixed))
+# key: desc
+# --
+describe '${1:function}', ->
+    $0
