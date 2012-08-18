@@ -12,7 +12,8 @@
               c-basic-offset 4
               fill-column 80)
 
-(setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last"))
+(setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
+      recentf-save-file (concat user-emacs-directory ".recentf"))
 
 (defun find-org-files ()
   (interactive)
