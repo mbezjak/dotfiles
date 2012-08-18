@@ -13,7 +13,8 @@
               fill-column 80)
 
 (setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
-      recentf-save-file (concat user-emacs-directory ".recentf"))
+      recentf-save-file (concat user-emacs-directory ".recentf")
+      recentf-max-saved-items 50)
 
 (defun find-org-files ()
   (interactive)
