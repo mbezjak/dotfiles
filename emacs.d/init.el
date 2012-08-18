@@ -12,6 +12,8 @@
               c-basic-offset 4
               fill-column 80)
 
+(setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last"))
+
 (defun find-org-files ()
   (interactive)
   (ido-find-file-in-dir "~/Dropbox/notes"))
