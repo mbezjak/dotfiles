@@ -12,6 +12,11 @@
               c-basic-offset 4
               fill-column 80)
 
+(defun find-org-files ()
+  (interactive)
+  (ido-find-file-in-dir "~/Dropbox/notes"))
+
+(global-set-key (kbd "C-x c") 'find-org-files)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
