@@ -60,7 +60,7 @@ search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 
 # command dependent
-type -P emacs    &> /dev/null && alias e='emacs --geometry 120x100 --fullheight'
+type -P emacs    &> /dev/null && alias e='emacs'
 type -P hg       &> /dev/null && alias hgworkspace='hgforeach hgproject'
 type -P ack-grep &> /dev/null && alias ack='ack-grep'
 type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
