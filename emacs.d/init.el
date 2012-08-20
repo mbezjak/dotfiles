@@ -22,6 +22,7 @@
 
 (global-set-key (kbd "C-x c") 'find-org-files)
 (global-set-key (kbd "C-x \\") 'align-regexp)
+(global-set-key (kbd "M-B") 'browse-url)
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
