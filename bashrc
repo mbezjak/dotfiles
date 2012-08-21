@@ -9,6 +9,7 @@ source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM=auto
 HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
