@@ -4,6 +4,8 @@
 [ -z "$PS1" ] && return
 
 PS1='\[\e[1;32m\][\[\e[1;33m\]\W$(__git_ps1 "\[\e[1;31m\] (%s)")\[\e[1;32m\]]\$\[\e[0m\] '
+source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
