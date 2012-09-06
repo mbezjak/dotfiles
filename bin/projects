@@ -30,19 +30,19 @@ rootdirs() {
 }
 
 projects() {
-    find $(rootdirs) -mindepth 1 -maxdepth 1 -type d -printf "%p\n"
+    find -L $(rootdirs) -mindepth 1 -maxdepth 1 -type d -printf "%p\n"
 }
 
 gitprojects() {
-    find $(projects) -mindepth 1 -maxdepth 1 -name '.git' -printf "%h\n"
+    find -L $(projects) -mindepth 1 -maxdepth 1 -name '.git' -printf "%h\n"
 }
 
 hgprojects() {
-    find $(projects) -mindepth 1 -maxdepth 1 -name '.hg' -printf "%h\n"
+    find -L $(projects) -mindepth 1 -maxdepth 1 -name '.hg' -printf "%h\n"
 }
 
 grailsprojects() {
-    find $(projects) -mindepth 1 -maxdepth 1 -name 'grails-app' -printf "%h\n"
+    find -L $(projects) -mindepth 1 -maxdepth 1 -name 'grails-app' -printf "%h\n"
 }
 
 case "$1" in
