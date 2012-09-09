@@ -23,6 +23,9 @@
   (interactive)
   (ido-find-file-in-dir "~/Dropbox/notes"))
 
+(global-unset-key (kbd "C-x C-c")) ; shutdown with alt + F4
+(global-unset-key (kbd "C-z"))
+
 (global-set-key (kbd "C-x c") 'find-org-files)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-x \\") 'align-regexp)
