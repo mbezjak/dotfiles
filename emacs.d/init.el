@@ -24,6 +24,7 @@
   (ido-find-file-in-dir "~/Dropbox/notes"))
 
 (global-set-key (kbd "C-x c") 'find-org-files)
+(global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "M-B") 'browse-url)
 (global-set-key (kbd "M-P") 'browse-url-at-point)
