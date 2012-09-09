@@ -15,7 +15,9 @@
 (setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
       recentf-save-file (concat user-emacs-directory ".recentf")
       recentf-max-saved-items 50
-      org-agenda-files '("~/Dropbox/notes"))
+      org-agenda-files '("~/Dropbox/notes")
+      org-refile-targets '((nil :maxlevel . 3)
+                           (org-agenda-files :maxlevel . 2)))
 
 (defun find-org-files ()
   (interactive)
