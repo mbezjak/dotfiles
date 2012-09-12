@@ -61,6 +61,10 @@ alias touchall='find -type f -exec touch {} \;'
 alias samba-restart='sudo rc.d restart samba'
 search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
+org-notes-backup() {
+  cd ~/Dropbox/notes
+  git commit --all --message='Automated backup'
+}
 
 # command dependent
 type -P emacs    &> /dev/null && alias e='emacs'
