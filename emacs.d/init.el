@@ -16,6 +16,7 @@
       recentf-save-file (concat user-emacs-directory ".recentf")
       recentf-max-saved-items 50
       org-agenda-files '("~/Dropbox/notes")
+      org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
 
