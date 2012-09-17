@@ -16,14 +16,15 @@
       recentf-save-file (concat user-emacs-directory ".recentf")
       recentf-max-saved-items 50
       calendar-week-start-day 1 ; monday
-      org-agenda-files '("~/Dropbox/notes")
+      org-directory "~/Dropbox/notes"
+      org-agenda-files (list org-directory)
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
 
 (defun find-org-files ()
   (interactive)
-  (ido-find-file-in-dir "~/Dropbox/notes"))
+  (ido-find-file-in-dir org-directory))
 
 (global-unset-key (kbd "C-x C-c")) ; shutdown with alt + F4
 (global-unset-key (kbd "C-z"))
