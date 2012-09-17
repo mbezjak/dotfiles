@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: class
+# key: class
+# --
+/**
+ * $2
+ *
+ * @author Miro Bezjak
+ */
+class ${1:Foo} {
+
+    $0
+
+}
