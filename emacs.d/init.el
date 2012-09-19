@@ -18,6 +18,8 @@
       calendar-week-start-day 1 ; monday
       org-directory "~/Dropbox/notes"
       org-agenda-files (list org-directory)
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done t
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
