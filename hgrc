@@ -10,7 +10,6 @@ convert =
 color =
 extdiff =
 fetch =
-graphlog =
 purge =
 rebase =
 record =
@@ -24,6 +23,7 @@ git = True
 cmd.meld =
 
 [alias]
+l = log --graph
 show = log --patch --rev
 last = log --limit 1 --stat
 last3 = log --limit 3 --stat
