@@ -1,24 +1,33 @@
 #!/bin/bash
 #
 # run as:
-# $ hg-stub
+# $ dvc-stub [git|hg]
 
 set -o errexit
 
-root=/tmp/hg-stub
-mkdir $root
-cd    $root
+### setup parent directory
+cmd=${1:-git}
+root=/tmp/$cmd-stub
+rm -rf $root
+mkdir  $root
+cd     $root
 
-newrepo()  { mkdir $root/$1; cd $root/$1; hg init; addempty $1 first; }
-clone()    { cd $root; hg clone $1 $2; }
+### DSL functions
+run()      { $cmd "$@";   }
+cdrepo()   { cd $root/$1; }
+newrepo()  { mkdir $root/$1; cdrepo $1; run init; addempty $1 first; }
+clone()    { cd $root; run clone $1 $2; }
+commit()   { run commit -m "$1"; }
 addempty() {
-  cd $root/$1; touch $2; hg add
-  hg ci -m "Add empty file named '$2'."
+  cdrepo $1; touch $2; run add .
+  commit "Add empty file named '$2'."
 }
 content()  {
-  cd $root/$1; echo $3 > $2; hg add
-  hg ci -m "Change '$2' to: '$3'."
+  cdrepo $1; echo $3 > $2; run add .
+  commit "Change '$2' to: '$3'."
 }
+
+### stub
 
 # fast-forward
 newrepo  01-main
