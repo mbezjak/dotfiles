@@ -83,7 +83,8 @@
         (:name yasnippet            :type elpa)
         (:name switch-window        :type elpa)
         (:name projectile           :type elpa)
-        (:name htmlize              :type elpa)))
+        (:name htmlize              :type elpa)
+        (:name ensime :load-path ("./dist_2.9.2/elisp"))))
 
 (setq my-el-get-elpa-packages
       (mapcar 'el-get-source-name el-get-sources))
