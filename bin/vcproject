@@ -9,7 +9,7 @@ dirty=$($cmd dirty)
 cin=$($cmd cin)
 cout=$($cmd cout)
 
-if [[ "$1" == "--short" ]]; then
+if [[ "$1" == "--oneline" ]]; then
   echo "$cmd $project $dirty $cin $cout"
 else
   [[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
