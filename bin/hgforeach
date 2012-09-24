@@ -5,7 +5,7 @@
 # example:
 #  $ hgforeach vcproject
 #  # or
-#  $ hgforeach hgsync
+#  $ hgforeach vcsync
 
 set -o errexit
 
