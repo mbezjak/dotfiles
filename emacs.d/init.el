@@ -71,6 +71,7 @@
         (:name smex                 :type elpa)
         (:name ido-ubiquitous       :type elpa)
         (:name magit                :type elpa)
+        (:name monky                :type elpa)
         (:name starter-kit          :type elpa)
         (:name starter-kit-bindings :type elpa)
         (:name starter-kit-eshell   :type elpa)
