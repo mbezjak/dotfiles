@@ -20,6 +20,8 @@
         last = log --decorate -1
         last3 = log --decorate -3
         dirty = !git st | wc -l
+        cin = !git log --oneline master..origin/master 2> /dev/null | wc -l
+        cout = !git log --oneline origin/master..master 2> /dev/null | wc -l
         b = branch
         ff = merge --ff-only
         forget = rm --cached
