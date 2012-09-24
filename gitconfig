@@ -19,6 +19,7 @@
         l = log --graph --decorate
         last = log --decorate -1
         last3 = log --decorate -3
+        dirty = !git st | wc -l
         b = branch
         ff = merge --ff-only
         forget = rm --cached
