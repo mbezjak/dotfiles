@@ -7,7 +7,7 @@ set -o errexit
 [[ "$1" == "--git-prefetch" ]] && { prefetch=y; shift; }
 
 [[ -d .hg ]] && cmd=hg || cmd=git
-[[ $cmd == git && $prefetch ]] && git fetch --quiet
+[[ $cmd == git && $prefetch ]] && git fetch --quiet --all
 
 project=$(basename $PWD)
 dirty=$($cmd dirty)
