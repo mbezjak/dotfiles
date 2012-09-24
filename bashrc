@@ -68,7 +68,7 @@ org-notes-backup() {
 
 # command dependent
 type -P emacs    &> /dev/null && alias e='emacs'
-type -P hg       &> /dev/null && alias hgworkspace='hgforeach hgproject'
+type -P hg       &> /dev/null && alias hgworkspace='hgforeach vcproject'
 type -P ack-grep &> /dev/null && alias ack='ack-grep'
 type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
 type -P python2  &> /dev/null && alias serve='python2 -m SimpleHTTPServer'

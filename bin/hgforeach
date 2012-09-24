@@ -3,7 +3,7 @@
 # For each mercurial project in workspace execute command given as argument $1.
 #
 # example:
-#  $ hgforeach hgproject
+#  $ hgforeach vcproject
 #  # or
 #  $ hgforeach hgsync
 

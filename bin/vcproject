@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+[[ -d .hg ]] && cmd=hg || cmd=git
+project=$(basename $PWD)
+dirty=$($cmd dirty)
+cin=$($cmd cin)
+cout=$($cmd cout)
+
+if [[ "$1" == "--short" ]]; then
+  echo "$project $dirty $cin $cout"
+else
+  [[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
+  [[ "$cin"   -ne 0 ]] && echo "$project in $cin"
+  [[ "$cout"  -ne 0 ]] && echo "$project out $cout"
+fi
+
+exit 0
