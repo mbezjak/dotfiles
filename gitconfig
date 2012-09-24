@@ -25,4 +25,5 @@
         b = branch
         ff = merge --ff-only
         forget = rm --cached
+        rollback = reset --soft HEAD^
         authors = !git log --all --format='%aN <%cE>' | sort -u
