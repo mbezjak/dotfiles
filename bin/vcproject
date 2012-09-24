@@ -3,13 +3,18 @@
 
 set -o errexit
 
+[[ "$1" == "--oneline" ]]      && { oneline=y; shift; }
+[[ "$1" == "--git-prefetch" ]] && { prefetch=y; shift; }
+
 [[ -d .hg ]] && cmd=hg || cmd=git
+[[ $cmd == git && $prefetch ]] && git fetch --quiet
+
 project=$(basename $PWD)
 dirty=$($cmd dirty)
 cin=$($cmd cin)
 cout=$($cmd cout)
 
-if [[ "$1" == "--oneline" ]]; then
+if [[ $oneline ]]; then
   echo "$cmd $project $dirty $cin $cout"
 else
   [[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
