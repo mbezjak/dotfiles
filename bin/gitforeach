@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# For each git project in workspace execute command given as argument $1.
+
+set -o errexit
+
+for project in $(projects --git)
+do
+    cd "$project"
+    eval "$@" # potential security problem
+done
+
+exit 0

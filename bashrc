@@ -78,6 +78,7 @@ type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
 type -P git &> /dev/null && {
     alias g='git'
     alias gs='git s' # damn ghostscript; this typo happened a view times to many
+    alias gitworkspace='gitforeach vcproject --git-prefetch'
     complete -o bashdefault -o default -o nospace -F _git g
 }
 
