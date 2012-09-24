@@ -10,7 +10,7 @@ cin=$($cmd cin)
 cout=$($cmd cout)
 
 if [[ "$1" == "--short" ]]; then
-  echo "$project $dirty $cin $cout"
+  echo "$cmd $project $dirty $cin $cout"
 else
   [[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
   [[ "$cin"   -ne 0 ]] && echo "$project in $cin"
