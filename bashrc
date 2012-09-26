@@ -59,6 +59,7 @@ alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
 alias touchall='find -type f -exec touch {} \;'
 alias samba-restart='sudo rc.d restart samba'
+alias open='xdg-open'
 search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
