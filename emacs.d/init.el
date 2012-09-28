@@ -16,6 +16,9 @@
       recentf-save-file (concat user-emacs-directory ".recentf")
       recentf-max-saved-items 50
       calendar-week-start-day 1 ; monday
+      org-startup-indented t
+      org-hide-leading-stars t
+      org-log-done 'time
       org-directory "~/Dropbox/notes"
       org-agenda-files (list org-directory)
       org-agenda-skip-scheduled-if-done t
