@@ -43,7 +43,7 @@
       (setq x1 (search-forward "<title>"))
       (search-forward "</title>")
       (setq x2 (search-backward "<"))
-      (buffer-substring-no-properties x1 x2))))
+      (mm-url-decode-entities-string (buffer-substring-no-properties x1 x2)))))
 
 (defun find-org-files ()
   (interactive)
@@ -68,7 +68,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'gommons-mode)
-
+(require 'mm-url) ; to include mm-url-decode-entities-string
 
 ;; el-get.el dependent code
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
