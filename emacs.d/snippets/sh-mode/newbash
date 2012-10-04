@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: newbash
+# key: newbash
+# --
+#!/bin/bash
+#
+
+set -o errexit
+
+$0
+
+exit 0
