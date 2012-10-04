@@ -1,3 +1,0 @@
-[submodule "lib/napalm"]
-	path = lib/napalm
-	url = https://github.com/mbezjak/napalm.git
