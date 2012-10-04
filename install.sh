@@ -28,7 +28,6 @@ for f in bin/* lib/*; do
 done
 
 install_link emacs.d .emacs.d
-install_link lib/napalm/bin/napalm bin/napalm
 
 for f in $(find -mindepth 1 -maxdepth 1 -type f \
                 -and -not -name '*.sh'   \

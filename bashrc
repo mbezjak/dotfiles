@@ -27,16 +27,8 @@ type -P gem &> /dev/null && {
 }
 
 [[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
+[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
 
-# napalm support: https://github.com/mbezjak/napalm
-[[ -d ~/.napalm ]] && {
-  for bash_script in $(find ~/.napalm -mindepth 1 -maxdepth 1 \
-                            -type f -executable -name '*\.sh')
-  do
-    source "$bash_script"
-  done
-  unset bash_script
-}
 
 # modified commands
 alias grep='grep --color=auto'
