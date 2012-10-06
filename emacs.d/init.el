@@ -49,6 +49,12 @@
   (interactive)
   (ido-find-file-in-dir org-directory))
 
+(defun unbind-org-keys ()
+  (local-unset-key (kbd "C-c ["))
+  (local-unset-key (kbd "C-c ]")))
+
+(add-hook 'org-mode-hook 'unbind-org-keys)
+
 (global-unset-key (kbd "C-x C-c")) ; shutdown with alt + F4
 (global-unset-key (kbd "C-z"))
 
