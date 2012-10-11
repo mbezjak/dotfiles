@@ -19,16 +19,8 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'my-functions)
 (require 'my-org)
+(require 'my-keys)
 
-
-(global-unset-key (kbd "C-x C-c")) ; shutdown with alt + F4
-(global-unset-key (kbd "C-z"))
-
-(global-set-key (kbd "C-x c") 'find-org-files)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-x \\") 'align-regexp)
-(global-set-key (kbd "M-B") 'browse-url)
-(global-set-key (kbd "M-P") 'browse-url-at-point)
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
