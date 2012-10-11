@@ -84,12 +84,12 @@
 (defvar gommons-mode-map (make-keymap)
   "Keymap for Gommons minor mode.")
 
-(define-key gommons-mode-map (kbd "<f5>") 'gommons-toggle-current)
-(define-key gommons-mode-map (kbd "C-x g t") 'gommons-run-js-tests)
-(define-key gommons-mode-map (kbd "C-x g u") 'gommons-run-unit-tests)
-(define-key gommons-mode-map (kbd "C-x g d") 'gommons-make-js-docs)
-(define-key gommons-mode-map (kbd "C-x g m") 'gommons-make-manual)
-(define-key gommons-mode-map (kbd "C-x g c") 'gommons-commit)
+(define-key gommons-mode-map (kbd "<f5>")  'gommons-toggle-current)
+(define-key gommons-mode-map (kbd "M-G t") 'gommons-run-js-tests)
+(define-key gommons-mode-map (kbd "M-G u") 'gommons-run-unit-tests)
+(define-key gommons-mode-map (kbd "M-G d") 'gommons-make-js-docs)
+(define-key gommons-mode-map (kbd "M-G m") 'gommons-make-manual)
+(define-key gommons-mode-map (kbd "M-G c") 'gommons-commit)
 
 ;;;###autoload
 (define-minor-mode gommons-mode
