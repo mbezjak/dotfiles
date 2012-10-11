@@ -27,23 +27,15 @@
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
 
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'my-functions)
+
 (defun my-org-insert-link ()
   "Insert org link where default description is set to html title."
   (interactive)
   (let* ((url (read-string "URL: "))
-         (title (get-html-title-from-url url)))
+         (title (my-get-html-title-from-url url)))
     (org-insert-link nil url title)))
-
-(defun get-html-title-from-url (url)
-  "Return content in <title> tag."
-  (let (x1 x2 (download-buffer (url-retrieve-synchronously url)))
-    (save-excursion
-      (set-buffer download-buffer)
-      (beginning-of-buffer)
-      (setq x1 (search-forward "<title>"))
-      (search-forward "</title>")
-      (setq x2 (search-backward "<"))
-      (mm-url-decode-entities-string (buffer-substring-no-properties x1 x2)))))
 
 (defun find-org-files ()
   (interactive)
@@ -72,9 +64,7 @@
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'delete-trailing-whitespace-before-save)
 
-(add-to-list 'load-path "~/.emacs.d/")
 (require 'gommons-mode)
-(require 'mm-url) ; to include mm-url-decode-entities-string
 
 ;; el-get and melpa package initialization
 (require 'my-packages)
