@@ -16,20 +16,12 @@
       recentf-save-file (concat user-emacs-directory ".recentf")
       recentf-max-saved-items 50)
 
+;; my-stuff
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'my-functions)
 (require 'my-org)
+(require 'my-dev)
 (require 'my-keys)
-
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-
-(defun delete-trailing-whitespace-before-save ()
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(add-hook 'prog-mode-hook 'whitespace-mode)
-(add-hook 'prog-mode-hook 'delete-trailing-whitespace-before-save)
-
 (require 'gommons-mode)
 
 ;; el-get and melpa package initialization
