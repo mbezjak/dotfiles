@@ -14,38 +14,12 @@
 
 (setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
       recentf-save-file (concat user-emacs-directory ".recentf")
-      recentf-max-saved-items 50
-      calendar-week-start-day 1 ; monday
-      org-startup-indented t
-      org-hide-leading-stars t
-      org-log-done 'time
-      org-directory "~/Dropbox/notes"
-      org-agenda-files (list org-directory)
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-extend-today-until 5
-      org-refile-targets '((nil :maxlevel . 3)
-                           (org-agenda-files :maxlevel . 2)))
+      recentf-max-saved-items 50)
 
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'my-functions)
+(require 'my-org)
 
-(defun my-org-insert-link ()
-  "Insert org link where default description is set to html title."
-  (interactive)
-  (let* ((url (read-string "URL: "))
-         (title (my-get-html-title-from-url url)))
-    (org-insert-link nil url title)))
-
-(defun find-org-files ()
-  (interactive)
-  (ido-find-file-in-dir org-directory))
-
-(defun unbind-org-keys ()
-  (local-unset-key (kbd "C-c ["))
-  (local-unset-key (kbd "C-c ]")))
-
-(add-hook 'org-mode-hook 'unbind-org-keys)
 
 (global-unset-key (kbd "C-x C-c")) ; shutdown with alt + F4
 (global-unset-key (kbd "C-z"))
