@@ -10,5 +10,8 @@
 (global-set-key (kbd "M-B") 'browse-url)
 (global-set-key (kbd "M-P") 'browse-url-at-point)
 
+;; must be set before projectile is loaded
+(setq projectile-keymap-prefix (kbd "M-F"))
+
 
 (provide 'my-keys)
