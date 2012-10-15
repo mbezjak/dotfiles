@@ -56,7 +56,7 @@ search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
   cd ~/Dropbox/notes
-  git commit --all --message='Automated backup'
+  git commit --message='Automated backup'
 }
 
 # command dependent
