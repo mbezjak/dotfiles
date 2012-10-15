@@ -102,6 +102,6 @@ The following commands are available:
   :keymap gommons-mode-map
 
   (add-to-list 'projectile-ignored-directories "client-app/target")
-  (add-to-list 'projectile-ignored-directories "web-apps"))
+  (add-to-list 'projectile-ignored-directories "web-app"))
 
 (provide 'gommons-mode)
