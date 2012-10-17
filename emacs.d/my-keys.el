@@ -4,6 +4,7 @@
 ;; org-mode keys
 (global-set-key (kbd "C-x c") 'my-org-find-files)
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; rest
 (global-set-key (kbd "C-x \\") 'align-regexp)
