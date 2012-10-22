@@ -11,6 +11,9 @@
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
 
+(setq org-capture-templates
+ '(( "t" "Todo" entry (file+headline "pool.org" "SHORT") "* %?")))
+
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
   (local-unset-key (kbd "C-c ["))
