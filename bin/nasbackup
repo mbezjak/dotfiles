@@ -3,26 +3,31 @@
 
 set -o errexit
 
-print_usage() {
-local prog=$(basename $0)
-cat >&2 <<EOF
-Usage:
-  $prog source destination [rdiff-backup-options]
+mountdir=/mnt/nas
+from="$HOME"
+to="$mountdir/backup/arch"
 
-Example:
-  $prog downloads downloads
-  $prog .mozilla mozilla --exclude 'firefox/*/Cache'
-EOF
-exit 1
+nasmount()   { sudo mount.nfs nas:/mnt/ide1/public $mountdir; }
+nasunmount() { sudo umount $mountdir; }
+backup()     {
+  src="$from/$1"
+  dest="$to/$2"
+  shift 2
+  rdiff-backup --verbosity 5 --print-statistics "$@" "$src" "$dest"
 }
 
-[[ -z "$1" || -z "$2" ]] && print_usage
+
 nasmount
 
-source="$HOME/$1"
-destination="/mnt/nas/backup/arch/$2"
-shift 2
+backup bin bin
+backup Documents Documents
+backup downloads downloads
+backup Dropbox Dropbox
+backup lib lib
+backup .mozilla mozilla --exclude '**/Cache'
+backup workspace workspace --exclude '**.class' --exclude '**/bin' \
+                           --exclude '**/build' --exclude '**/target'
 
-rdiff-backup --verbosity 5 --print-statistics "$@" "$source" "$destination"
+nasunmount
 
 exit 0
