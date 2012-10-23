@@ -34,7 +34,7 @@
 * TODO KhanAcademy practice x2"))
 
 (setq my-org-capture-template-pressure
-      '("P" "Pressure" table-line (file+headline "everything.org" "PRESSURE")
+      '("p" "Pressure" table-line (file+headline "everything.org" "PRESSURE")
         "| %U | %? |   |   |"
         :table-line-pos "II-1"))
 
