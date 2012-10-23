@@ -19,7 +19,9 @@
 * TODO KhanAcademy video x2
 * TODO KhanAcademy practice x1
 * TODO KhanAcademy practice x2")
-   ("w" "Work Todo" entry (file+headline "work.org" "GENERAL") "* %?")))
+   ("w" "Work Todo" entry (file+headline "work.org" "GENERAL") "* %?")
+   ("P" "Pressure" table-line (file+headline "everything.org" "PRESSURE")
+    "| %U | %? |   |   |" :table-line-pos "II-1")))
 
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
