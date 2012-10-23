@@ -2,8 +2,10 @@
 # name: class
 # key: class
 # --
+package ${2:foo}
+
 /**
- * $2
+ * $3
  *
  * @author Miro Bezjak
  */
