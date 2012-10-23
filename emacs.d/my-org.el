@@ -13,12 +13,13 @@
 
 (setq org-capture-templates
  '(("t" "Todo" entry (file+headline "pool.org" "SHORT") "* %?")
-   ("W" "Stub Next Week" entry (file+headline "agenda.org" "WEEKLY PLEDGE")
+   ("N" "Stub Next Week" entry (file+headline "agenda.org" "WEEKLY PLEDGE")
     "* TODO Fallacy x1
 * TODO KhanAcademy video x1
 * TODO KhanAcademy video x2
 * TODO KhanAcademy practice x1
-* TODO KhanAcademy practice x2")))
+* TODO KhanAcademy practice x2")
+   ("w" "Work Todo" entry (file+headline "work.org" "GENERAL") "* %?")))
 
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
