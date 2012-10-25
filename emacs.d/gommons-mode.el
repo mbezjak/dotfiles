@@ -85,7 +85,7 @@
   "Keymap for Gommons minor mode.")
 
 (define-key gommons-mode-map (kbd "<f5>")  'gommons-toggle-current)
-(define-key gommons-mode-map (kbd "M-G t") 'gommons-run-js-tests)
+(define-key gommons-mode-map (kbd "M-G j") 'gommons-run-js-tests)
 (define-key gommons-mode-map (kbd "M-G u") 'gommons-run-unit-tests)
 (define-key gommons-mode-map (kbd "M-G d") 'gommons-make-js-docs)
 (define-key gommons-mode-map (kbd "M-G m") 'gommons-make-manual)
