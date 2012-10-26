@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: New function
+# key: newfn
+# expand-env: ((yas/indent-line 'fixed))
+# --
+###*
+$3
+
+@member $1
+###
+${1:foo}.${2:fn} = ->
+    $0

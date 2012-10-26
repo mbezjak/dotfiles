@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: class
-# key: class
+# name: New top level class
+# key: newclass
 # --
 package ${2:foo}
 
