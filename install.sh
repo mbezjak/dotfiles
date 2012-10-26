@@ -41,5 +41,8 @@ if [[ "$1" == work ]]; then
     install_link hgrc.work .hgrc.local
 fi
 
+# remove dead symbolic links
+find ~/bin -type l ! -exec test -r {} \; -exec rm -i {} \;
+
 echo done
 exit 0
