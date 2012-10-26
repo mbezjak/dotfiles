@@ -27,7 +27,7 @@
 
 (setq my-org-capture-template-next-week
       '("N" "Next Week's Floaters" entry (file+headline "agenda.org" "WEEKLY PLEDGE")
-        "* TODO [[http://www.nizkor.org/features/fallacies/][Fallacy]] x1
+        "* TODO [[http://www.nizkor.org/features/fallacies/][Fallacy]] x1 +take-home-msg
 * TODO KhanAcademy video x1
 * TODO KhanAcademy video x2
 * TODO KhanAcademy practice x1
