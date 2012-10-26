@@ -26,7 +26,7 @@
         "* %?"))
 
 (setq my-org-capture-template-next-week
-      '("N" "Next Week Tasks" entry (file+headline "agenda.org" "WEEKLY PLEDGE")
+      '("N" "Next Week's Floaters" entry (file+headline "agenda.org" "WEEKLY PLEDGE")
         "* TODO Fallacy x1
 * TODO KhanAcademy video x1
 * TODO KhanAcademy video x2
