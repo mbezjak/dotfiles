@@ -20,7 +20,7 @@ mkdir --parents ~/Documents
 mkdir --parents ~/downloads
 mkdir --parents --mode=700 ~/Dropbox
 mkdir --parents ~/lib
-mkdir --parents ~/workspace/{xattic,xincubation}
+mkdir --parents ~/workspace/{xattic,xforeign,xincubation}
 for f in bin/*; do
     install_link "$f" "$f"
 done
