@@ -10,4 +10,6 @@ for f in *; do
   mv scaled "$f"
 done
 
+ls -1 | wc --lines
+
 exit 0
