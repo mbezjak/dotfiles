@@ -19,6 +19,9 @@ alias vi='vim'
 [[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]] && {
   export PATH="$PATH:$HOME/bin"
 }
+[[ -d ~/Dropbox/bin ]] && {
+  export PATH="$PATH:$HOME/Dropbox/bin"
+}
 [[ -d ~/.cabal/bin ]] && {
   export PATH="$PATH:$HOME/.cabal/bin"
 }
