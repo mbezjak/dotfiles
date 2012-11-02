@@ -99,9 +99,6 @@ The following commands are available:
 \\{gommons-mode-map}"
   :init-value nil
   :lighter " Gommons"
-  :keymap gommons-mode-map
-
-  (add-to-list 'projectile-ignored-directories "client-app/target")
-  (add-to-list 'projectile-ignored-directories "web-app"))
+  :keymap gommons-mode-map)
 
 (provide 'gommons-mode)
