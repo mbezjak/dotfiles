@@ -32,7 +32,6 @@
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
         (:name switch-window        :type elpa)
-        (:name projectile           :type elpa)
         (:name htmlize              :type elpa)
 ;        (:name ensime :load-path ("./dist_2.9.2/elisp"))
         ))
@@ -41,7 +40,9 @@
 (setq my-elpa-packages (mapcar 'el-get-source-name el-get-sources))
 
 (setq my-el-get-packages
-      '(ghc-mod))
+      '(ghc-mod
+        projectile ; installing though el-get because it doesn't work with elpa
+        ))
 
 (setq my-packages (append my-elpa-packages my-el-get-packages))
 
