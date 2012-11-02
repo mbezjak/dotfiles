@@ -34,7 +34,8 @@
         (:name switch-window        :type elpa)
         (:name projectile           :type elpa)
         (:name htmlize              :type elpa)
-        (:name ensime :load-path ("./dist_2.9.2/elisp"))))
+;        (:name ensime :load-path ("./dist_2.9.2/elisp"))
+        ))
 
 ;; see also init-package.el
 (setq my-elpa-packages (mapcar 'el-get-source-name el-get-sources))
