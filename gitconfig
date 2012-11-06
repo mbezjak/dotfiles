@@ -10,6 +10,8 @@
         tool = meld
 [rerere]
         enabled = true
+[push]
+        default = matching
 [alias]
         co = checkout
         ci = commit
