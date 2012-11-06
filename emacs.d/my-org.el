@@ -1,4 +1,5 @@
-(setq calendar-week-start-day 1 ; monday
+(setq org-replace-disputed-keys t
+      calendar-week-start-day 1 ; monday
       org-startup-indented t
       org-hide-leading-stars t
       org-log-done 'time
