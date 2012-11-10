@@ -21,7 +21,6 @@ nasmount
 
 backup bin bin
 backup Documents Documents
-backup downloads downloads
 backup Dropbox Dropbox
 backup lib lib
 backup .mozilla mozilla --exclude '**/Cache'
