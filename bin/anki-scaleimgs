@@ -5,9 +5,10 @@ set -o errexit
 
 cd ~/Dropbox/lib/anki/german-to-croatian.media/
 
+tmp=/tmp/scaled-img
 for f in *; do
-  convert "$f" -resize 250x250 scaled
-  mv scaled "$f"
+  convert "$f" -resize 250x250 $tmp
+  mv $tmp "$f"
 done
 
 ls -1 | wc --lines
