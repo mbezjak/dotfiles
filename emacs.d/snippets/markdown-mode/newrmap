@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: New roadmap
+# key: newrmap
+# expand-env: ((yas/indent-line 'fixed))
+# --
+Nothing comes to mind at the moment.$0
+
+Use github [issues](https://github.com/mbezjak/${1:project}/issues) to file a
+suggestion.
