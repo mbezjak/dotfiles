@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: New changelog
+# key: newclog
+# expand-env: ((yas/indent-line 'fixed))
+# --
+# ${1:1.0} [`(format-time-string "%Y-%m-%d")`]
+ * $0
