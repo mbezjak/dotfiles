@@ -16,7 +16,7 @@ grailsoverride "$plugin" > /dev/null
 while inotifywait --quiet \
                   --recursive \
                   --event close_write,create,move,delete \
-                  --exclude '^\(\..*|.*\.zip|target\)$' \
+                  --exclude '(\.#|\.zip|target)' \
                   "$plugin"
 do
   grailsoverride "$plugin" > /dev/null
