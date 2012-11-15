@@ -5,7 +5,7 @@ set -o errexit
 
 mountdir=/mnt/nas
 from="$HOME"
-to="$mountdir/backup/arch"
+to="$mountdir/backup/arch2"
 
 nasmount()   { sudo mount.nfs nas:/mnt/ide1/public $mountdir; }
 nasunmount() { sudo umount $mountdir; }
