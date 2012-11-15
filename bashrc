@@ -29,7 +29,7 @@ type -P gem &> /dev/null && {
   export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 }
 
-[[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
+[[ -f /usr/etc/profile.d/autojump.bash ]] && source /usr/etc/profile.d/autojump.bash
 [[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
 
 
