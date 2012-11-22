@@ -1,0 +1,56 @@
+# -*- mode: snippet -*-
+# name: New readme
+# key: newreadme
+# expand-env: ((yas/indent-line 'fixed))
+# --
+# ${1:program}
+${2:Short description}
+
+[![Build Status](https://secure.travis-ci.org/mbezjak/$1.png?branch=master)](http://travis-ci.org/mbezjak/$1)
+
+## Summary
+$0
+
+## Screenshots
+
+## Terminology
+
+## Rationale
+
+## Example
+
+## Features
+
+## Limitations
+
+## Why name $1
+
+## Install
+
+## Upgrade
+
+## Uninstall
+
+## Required Dependencies
+
+## Configuration
+
+## Development Documentation
+
+## Technical Description
+
+## Security
+
+## How to use $1
+
+## Further Resources
+
+ * Homepage:   https://github.com/mbezjak/$1
+ * Issues:     https://github.com/mbezjak/$1/issues
+ * Changelog:  see Changelog.md file
+ * Roadmap:    see Roadmap.md file
+ * Wiki:       https://github.com/mbezjak/$1/wiki
+ * Mail list:  http://groups.google.com/group/$1
+ * FAQ:        https://github.com/mbezjak/$1/wiki/FAQ
+ * CI Server:  http://travis-ci.org/mbezjak/$1
+ * License:    MIT (see LICENSE file)
