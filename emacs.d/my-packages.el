@@ -29,6 +29,7 @@
         (:name coffee-mode          :type elpa)
         (:name groovy-mode          :type elpa)
         (:name scala-mode           :type elpa)
+        (:name js2-mode             :type elpa)
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
         (:name switch-window        :type elpa)
