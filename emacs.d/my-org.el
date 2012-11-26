@@ -36,14 +36,13 @@
 
 
 ;; advice
-(defadvice org-read-date (around my-no-disputed-keys)
+(defadvice org-read-date (around my-no-disputed-keys activate)
   "Ignore org-replace-disputed-keys when calendar is active."
   (let ((org-replace-disputed-keys nil))
     ad-do-it))
 
 
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
-(ad-activate 'org-read-date)
 
 
 (provide 'my-org)
