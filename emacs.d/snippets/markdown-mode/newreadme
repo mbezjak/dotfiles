@@ -8,8 +8,11 @@ ${2:Short description}
 
 [![Build Status](https://secure.travis-ci.org/mbezjak/$1.png?branch=master)](http://travis-ci.org/mbezjak/$1)
 
+This project is still in development. When completed it will be capable of:
+
+ * $0
+
 ## Summary
-$0
 
 ## Screenshots
 
