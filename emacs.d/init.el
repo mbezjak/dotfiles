@@ -22,7 +22,7 @@
 (require 'my-org)
 (require 'my-dev)
 (require 'my-keys)
-(require 'gommons-mode)
+(autoload 'gommons-mode "gommons-mode")
 
 ;; el-get and melpa package initialization
 (require 'my-packages)
