@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: New function
+# key: fn
+# --
+var ${1:fn} = function($2) {
+    $0
+};
