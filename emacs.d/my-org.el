@@ -25,7 +25,9 @@
 (defun my-org-find-files ()
   "Find org files."
   (interactive)
-  (ido-find-file-in-dir org-directory))
+  (let ((ido-use-filename-at-point nil)
+        (ido-use-url-at-point nil))
+    (ido-find-file-in-dir org-directory)))
 
 (defun my-org-insert-link ()
   "Insert org link where default description is set to html title."
