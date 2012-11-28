@@ -3,7 +3,7 @@
 
 set -o errexit
 
-cd ~/Dropbox/lib/anki/german-to-croatian.media/
+cd ~/Dropbox/lib/anki/main/collection.media
 
 tmp=/tmp/scaled-img
 for f in *; do
