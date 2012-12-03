@@ -22,13 +22,6 @@
   (local-unset-key (kbd "C-c ["))
   (local-unset-key (kbd "C-c ]")))
 
-(defun my-org-find-files ()
-  "Find org files."
-  (interactive)
-  (let ((ido-use-filename-at-point nil)
-        (ido-use-url-at-point nil))
-    (ido-find-file-in-dir org-directory)))
-
 (defun my-org-insert-link ()
   "Insert org link where default description is set to html title."
   (interactive)
