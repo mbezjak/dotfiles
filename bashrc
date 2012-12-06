@@ -52,6 +52,7 @@ alias du1='du --max-depth=1 --human-readable'
 alias hist='history | grep'
 alias openports='netstat --all --numeric --programs --inet'
 alias pg='ps -Af | grep'
+alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias open='xdg-open'
 alias vlcoverhdmi='vlc --alsa-audio-device plughw:1,7' # device syntax from ArchLinux ALSA wiki
