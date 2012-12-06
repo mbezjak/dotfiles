@@ -12,7 +12,9 @@
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
 
-(plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
+(eval-after-load "org"
+  '(progn
+     (plist-put org-format-latex-options :scale 1.5))) ; bigger latex fragment
 
 ;; org-agenda-custom-commands and org-capture-templates
 (load (concat org-directory "/org-custom"))
