@@ -28,5 +28,6 @@ backup workspace workspace --exclude '**.class' --exclude '**/bin' \
                            --exclude '**/build' --exclude '**/target'
 
 nasunmount
+ls -al $mountdir
 
 exit 0
