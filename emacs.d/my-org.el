@@ -14,6 +14,7 @@
 
 (eval-after-load "org"
   '(progn
+     (add-to-list 'org-modules 'org-habit t)
      (plist-put org-format-latex-options :scale 1.5))) ; bigger latex fragment
 
 ;; org-agenda-custom-commands and org-capture-templates
