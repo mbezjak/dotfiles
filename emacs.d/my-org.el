@@ -9,6 +9,7 @@
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-deadline-if-done t
       org-habit-graph-column 70
+      org-habit-show-habits-only-for-today nil
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 3)
                            (org-agenda-files :maxlevel . 2)))
