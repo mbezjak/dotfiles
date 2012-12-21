@@ -42,6 +42,7 @@
 
 (setq my-el-get-packages
       '(ghc-mod
+        dash ; projectile unlisted dependency
         projectile ; installing though el-get because it doesn't work with elpa
         ))
 
