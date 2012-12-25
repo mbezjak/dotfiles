@@ -8,7 +8,7 @@ cd ~/Dropbox/lib/anki/main/collection.media
 tmp=/tmp/scaled-img
 for f in *; do
   if [[ "$f" != latex* ]]; then # ignore latex files
-    convert "$f" -resize 250x250 $tmp
+    convert "$f" -resize 400x400 $tmp
     mv $tmp "$f"
   fi
 done
