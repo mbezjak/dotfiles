@@ -5,7 +5,7 @@
       org-log-done 'time
       org-directory "~/Dropbox/notes"
       org-default-notes-file (concat org-directory "/pool.org")
-      org-agenda-files (list org-directory)
+      org-agenda-files (list (concat org-directory "/agenda.org"))
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-deadline-if-done t
       org-habit-graph-column 70
