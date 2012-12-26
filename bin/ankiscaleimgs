@@ -4,12 +4,17 @@
 set -o errexit
 
 cd ~/Dropbox/lib/anki/main/collection.media
-
 tmp=/tmp/scaled-img
+maxw=800
+maxh=500
+
 for f in *; do
   if [[ "$f" != latex* ]]; then # ignore latex files
-    convert "$f" -resize 400x400 $tmp
-    mv $tmp "$f"
+    read w h <<<$(identify -format "%w %h" "$f")
+    if [[ $w > $maxw || $b > maxh ]]; then
+      convert "$f" -resize ${maxw}x${maxh} $tmp
+      mv $tmp "$f"
+    fi
   fi
 done
 
