@@ -10,9 +10,9 @@ maxh=500
 
 for f in *; do
   if [[ "$f" != latex* ]]; then # ignore latex files
-    read w h <<<$(identify -format "%w %h" "$f")
-    if [[ $w > $maxw || $b > maxh ]]; then
-      convert "$f" -resize ${maxw}x${maxh} $tmp
+    read w h <<<$(identify -format "%w %h\n" "$f" | head -1) # gifs output >1 line
+    if (( w > maxw || h > maxh )); then
+      convert "$f" -resize "${maxw}x${maxh}" $tmp
       mv $tmp "$f"
       echo "$f"
     fi
