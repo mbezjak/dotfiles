@@ -22,9 +22,11 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; rest
+(global-set-key (kbd "<f1>")   'call-last-kbd-macro)
+(global-set-key (kbd "M-<f1>") 'toggle-kbd-macro-recording-on)
 (global-set-key (kbd "C-x \\") 'align-regexp)
-(global-set-key (kbd "M-B") 'browse-url)
-(global-set-key (kbd "M-P") 'browse-url-at-point)
+(global-set-key (kbd "M-B")    'browse-url)
+(global-set-key (kbd "M-P")    'browse-url-at-point)
 
 ;; must be set before projectile is loaded
 (setq projectile-keymap-prefix (kbd "M-F"))
