@@ -1,18 +1,25 @@
+(defun my-org-note (name)
+  "File name from org note NAME."
+  (concat org-directory "/" name ".org"))
+
 (setq org-replace-disputed-keys t
-      calendar-week-start-day 1 ; monday
-      org-startup-indented t
-      org-hide-leading-stars t
-      org-log-done 'time
-      org-directory "~/Dropbox/notes"
-      org-default-notes-file (concat org-directory "/pool.org")
-      org-agenda-files (list (concat org-directory "/agenda.org"))
+      calendar-week-start-day   1 ; monday
+      org-startup-indented      t
+      org-hide-leading-stars    t
+      org-log-done       'time
+      org-directory      "~/Dropbox/notes"
+      my-org-note-agenda (my-org-note "agenda")
+      my-org-note-pool   (my-org-note "pool")
+      org-default-notes-file my-org-note-pool
+      org-agenda-files       (list my-org-note-agenda)
       org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-habit-graph-column 70
+      org-agenda-skip-deadline-if-done  t
       org-habit-show-habits-only-for-today nil
+      org-habit-graph-column 70
       org-extend-today-until 5
-      org-refile-targets '((nil :maxlevel . 3)
-                           (org-agenda-files :maxlevel . 2)))
+      org-refile-targets '((nil :maxlevel . 1)
+                           (my-org-note-agenda :maxlevel . 1)
+                           (my-org-note-pool   :maxlevel . 1)))
 
 (eval-after-load "org"
   '(progn
