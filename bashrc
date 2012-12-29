@@ -55,7 +55,7 @@ alias pg='ps -Afww | grep'
 alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias open='xdg-open'
-alias vlcoverhdmi='vlc --alsa-audio-device plughw:1,7' # device syntax from ArchLinux ALSA wiki
+alias tv='vlc --alsa-audio-device plughw:1,7' # device syntax from ArchLinux ALSA wiki
 search() { find -iname "*$1*"; }
 backup() { cp --verbose --recursive -p "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
