@@ -8,10 +8,12 @@
       org-hide-leading-stars    t
       org-log-done       'time
       org-directory      "~/Dropbox/notes"
-      my-org-note-agenda (my-org-note "agenda")
-      my-org-note-pool   (my-org-note "pool")
+      my-org-note-agenda  (my-org-note "agenda")
+      my-org-note-pool    (my-org-note "pool")
+      my-org-note-archive (my-org-note "archive")
       org-default-notes-file my-org-note-pool
       org-agenda-files       (list my-org-note-agenda)
+      org-archive-location   (concat my-org-note-archive "::")
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-deadline-if-done  t
       org-habit-show-habits-only-for-today nil
