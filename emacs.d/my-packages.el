@@ -40,8 +40,7 @@
 
 (setq my-el-get-packages
       '(ghc-mod
-        dash ; projectile unlisted dependency
-        projectile ; installing though el-get because it doesn't work with elpa
+        projectile ; didn't work with elpa previously; now it might?
         ; ensime ; once https://github.com/dimitri/el-get/pull/1004 gets applied
         ))
 
