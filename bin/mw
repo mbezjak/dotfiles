@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# wrapper for http://joeyh.name/code/mr/
+#
+# help for perl multiline replace
+# http://stackoverflow.com/questions/9670426/perl-command-line-multi-line-replace
+
+set -o errexit
+
+[[ -z "$1" ]] && action=status || action="$@"
+
+mr --directory "$HOME" --jobs 10 "$action" |& \
+    # do not echo when nothing changed
+    perl -0777 -pe 's/mr (status|sync): .*\n\n//g'
+
+exit 0
