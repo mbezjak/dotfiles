@@ -7,10 +7,6 @@ set -o errexit
 type=$1
 shift
 
-for project in $(projects $type)
-do
-    cd "$project"
-    eval "$@" # potential security problem
-done
+projects $type | parallel --jobs 10 "cd {}; eval $@"
 
 exit 0
