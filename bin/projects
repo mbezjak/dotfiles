@@ -26,7 +26,6 @@ rootdirs() {
     echo "$HOME/workspace"
     echo "$HOME/workspace/xattic"
     echo "$HOME/workspace/xincubation"
-    echo "$HOME/lib"
     echo "$HOME/Dropbox"
 }
 
