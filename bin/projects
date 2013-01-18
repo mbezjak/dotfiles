@@ -24,7 +24,6 @@ exit 1
 
 rootdirs() {
     echo "$HOME/workspace"
-    echo "$HOME/workspace/xattic"
     echo "$HOME/workspace/xincubation"
     echo "$HOME/Dropbox"
 }
