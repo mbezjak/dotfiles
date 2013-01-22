@@ -14,8 +14,21 @@ dirty=$($cmd dirty)
 cin=$($cmd cin)
 cout=$($cmd cout)
 
-# exceptions to the rule
+
+# script repurposed to update if it is safe to do so
+[[ -z $oneline && "$dirty" -eq 0 && "$cout" -eq 0 && "cin" -ne 0 ]] && {
+  if [[ $cmd == hg ]]; then
+    hg --quiet incoming --template '{desc}\n' | awk -vp="$project " '{print p $0}'
+    hg --quiet pull --update
+  else
+    git log --oneline master..origin/master | awk -vp="$project " '{print p $0}'
+    git merge --quiet --ff-only origin/master
+  fi
+}
+
+# special rules for some projects
 [[ "$project" == .metadata || "$project" == notes ]] && dirty=0
+
 
 if [[ $oneline ]]; then
   echo "$cmd $project $dirty $cin $cout"
