@@ -1,19 +1,5 @@
 (require 'mm-url) ; to include mm-url-decode-entities-string
 
-;; from http://www.emacswiki.org/emacs/KeyboardMacros
-;; and  http://stackoverflow.com/questions/6003666/one-key-macros-in-emacs
-(defun toggle-kbd-macro-recording-on ()
-  "One-key keyboard macros: turn recording on."
-  (interactive)
-  (define-key global-map (this-command-keys) 'toggle-kbd-macro-recording-off)
-  (start-kbd-macro nil))
-
-(defun toggle-kbd-macro-recording-off ()
-  "One-key keyboard macros: turn recording off."
-  (interactive)
-  (define-key global-map (this-command-keys) 'toggle-kbd-macro-recording-on)
-  (end-kbd-macro))
-
 
 (defun my-get-html-title-from-url (url)
   "Return content in <title> tag."

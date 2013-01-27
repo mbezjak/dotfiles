@@ -24,8 +24,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; rest
-(global-set-key (kbd "<f1>")   'call-last-kbd-macro)
-(global-set-key (kbd "M-<f1>") 'toggle-kbd-macro-recording-on)
+(global-set-key (kbd "M-<f1>") 'kmacro-start-macro-or-insert-counter)
+(global-set-key (kbd "<f1>")   'kmacro-end-or-call-macro)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "M-B")    'browse-url)
 (global-set-key (kbd "M-P")    'browse-url-at-point)
