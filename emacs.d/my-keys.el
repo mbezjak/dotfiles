@@ -21,7 +21,7 @@
 
 ;; org-mode keys
 (global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "<f4>")  'org-capture)
 
 ;; rest
 (global-set-key (kbd "M-<f1>") 'kmacro-start-macro-or-insert-counter)
