@@ -9,7 +9,7 @@ package ${2:foo}
  *
  * @author Miro Bezjak
  */
-class ${1:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`} {
+class ${1:`(my-yas-buffer-class-name)`} {
 
     $0
 
