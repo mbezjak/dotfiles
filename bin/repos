@@ -3,7 +3,29 @@
 
 set -o errexit
 
-vcforeach --git vcproject --git-prefetch
-vcforeach --hg vcproject
+rootdirs() {
+  echo "$HOME/workspace"
+  echo "$HOME/workspace/xincubation"
+  echo "$HOME/Dropbox"
+}
+
+projects() {
+    find -L $(rootdirs) -mindepth 1 -maxdepth 1 -type d -printf "%p\n"
+}
+
+gitprojects() {
+    find -L $(projects) -mindepth 1 -maxdepth 1 -name '.git' -printf "%h\n"
+}
+
+hgprojects() {
+    find -L $(projects) -mindepth 1 -maxdepth 1 -name '.hg' -printf "%h\n"
+}
+
+vcforeach() {
+  $1 | parallel --jobs 10 "cd {}; vcproject $1"
+}
+
+vcforeach gitprojects --git-prefetch
+vcforeach hgprojects
 
 exit 0
