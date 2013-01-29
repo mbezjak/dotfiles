@@ -73,9 +73,9 @@ type -P hoogle   &> /dev/null && alias h='hoogle --color --count=30'
 type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
 
 type -P git &> /dev/null && {
-    alias g='git'
-    alias gs='git s' # damn ghostscript; this typo happened view times to many
-    complete -o bashdefault -o default -o nospace -F _git g
+  alias g='git'
+  alias gs='git s' # damn ghostscript; this typo happened view times to many
+  complete -o bashdefault -o default -o nospace -F _git g
 }
 
 type -P thg &> /dev/null && {
