@@ -3,11 +3,8 @@
 
 set -o errexit
 
-[[ "$1" == "--oneline" ]]      && { oneline=y; shift; }
-[[ "$1" == "--git-prefetch" ]] && { prefetch=y; shift; }
-
 [[ -d .hg ]] && cmd=hg || cmd=git
-[[ $cmd == git && $prefetch ]] && git fetch --quiet --all
+[[ $cmd == git ]] && git fetch --quiet --all
 
 project=$(basename $PWD)
 dirty=$($cmd dirty)
@@ -16,7 +13,7 @@ cout=$($cmd cout)
 
 
 # script repurposed to update if it is safe to do so
-[[ -z $oneline && "$dirty" -eq 0 && "$cout" -eq 0 && "cin" -ne 0 ]] && {
+[[ "$dirty" -eq 0 && "$cout" -eq 0 && "cin" -ne 0 ]] && {
   if [[ $cmd == hg ]]; then
     hg --quiet incoming --template '{desc}\n' | awk -vp="$project " '{print p $0}'
     hg --quiet pull --update
@@ -30,12 +27,8 @@ cout=$($cmd cout)
 [[ "$project" == .metadata || "$project" == notes ]] && dirty=0
 
 
-if [[ $oneline ]]; then
-  echo "$cmd $project $dirty $cin $cout"
-else
-  [[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
-  [[ "$cin"   -ne 0 ]] && echo "$project in $cin"
-  [[ "$cout"  -ne 0 ]] && echo "$project out $cout"
-fi
+[[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
+[[ "$cin"   -ne 0 ]] && echo "$project in $cin"
+[[ "$cout"  -ne 0 ]] && echo "$project out $cout"
 
 exit 0
