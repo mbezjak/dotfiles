@@ -66,7 +66,6 @@ org-notes-backup() {
 
 # command dependent
 type -P emacs    &> /dev/null && alias e='emacs'
-type -P hg       &> /dev/null && alias hgworkspace='vcforeach --hg vcproject'
 type -P ack-grep &> /dev/null && alias ack='ack-grep'
 type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
 type -P python2  &> /dev/null && alias serve='python2 -m SimpleHTTPServer'
@@ -76,7 +75,6 @@ type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
 type -P git &> /dev/null && {
     alias g='git'
     alias gs='git s' # damn ghostscript; this typo happened view times to many
-    alias gitworkspace='vcforeach --git vcproject --git-prefetch'
     complete -o bashdefault -o default -o nospace -F _git g
 }
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+vcforeach --git vcproject --git-prefetch
+vcforeach --hg vcproject
+
+exit 0
