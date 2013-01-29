@@ -93,7 +93,6 @@ type -P grails &> /dev/null && {
   alias gr-sql='grails -Dlogsql=true run-app'
   alias gi='grails install-plugin'
   alias gu='grails uninstall-plugin'
-  grailswhere() { vcforeach --grails grailshasplugin "$1" | column -t; }
   grailsdir() {
     local version=$(grailsproject grails)
     local project=$(grailsproject directory)
