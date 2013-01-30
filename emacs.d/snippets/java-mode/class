@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: New java class
+# key: class
+# --
+public class ${1:`(my-yas-buffer-class-name)`} {
+    $0
+}
