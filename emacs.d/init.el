@@ -14,7 +14,8 @@
 
 (setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
       recentf-save-file (concat user-emacs-directory ".recentf")
-      recentf-max-saved-items 50)
+      recentf-max-saved-items 50
+      bookmark-save-flag 1)
 
 ;; my-stuff
 (add-to-list 'load-path "~/.emacs.d/")
