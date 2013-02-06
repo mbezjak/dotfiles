@@ -11,9 +11,9 @@ project=$(basename "$PWD")
 git_count_dirty() { git status --short | wc -l; }
 hg_count_dirty()  { hg status | wc -l; }
 git_incoming() { git log --oneline master..origin/master; }
-hg_incoming()  { hg --quiet incoming --template '{author} {desc|firstline}\n'; }
+hg_incoming()  { hg --quiet incoming --template '{author|person} {desc|firstline}\n' 2> /dev/null; }
 git_outgoing() { git log --oneline origin/master..master; }
-hg_outgoing()  { hg --quiet outgoing --template '{author} {desc|firstline}\n'; }
+hg_outgoing()  { hg --quiet outgoing --template '{author|person} {desc|firstline}\n' 2> /dev/null; }
 git_fast_forward() { git merge --quiet --ff-only origin/master; }
 hg_fast_forward()  { hg --quiet pull --update; }
 
