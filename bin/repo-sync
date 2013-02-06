@@ -3,32 +3,49 @@
 
 set -o errexit
 
-[[ -d .hg ]] && cmd=hg || cmd=git
-[[ $cmd == git ]] && git fetch --quiet --all
-
-project=$(basename $PWD)
-dirty=$($cmd dirty)
-cin=$($cmd cin)
-cout=$($cmd cout)
+[[ -d .git ]] && cmd=git || cmd=hg
+project=$(basename "$PWD")
 
 
-# script repurposed to update if it is safe to do so
+### helper functions ###
+git_count_dirty() { git status --short | wc -l; }
+hg_count_dirty()  { hg status | wc -l; }
+git_incoming()    { git log --oneline master..origin/master; }
+hg_incoming()  { hg --quiet incoming --template '{author} {desc|firstline}\n'; }
+git_outgoing() { git log --oneline origin/master..master; }
+hg_outgoing()  { hg --quiet outgoing --template '{author} {desc|firstline}\n'; }
+git_fast_forward() { git merge --quiet --ff-only origin/master; }
+hg_fast_forward()  { git --query pull --update; }
+
+### DSL functions ###
+fetch()          { [[ $cmd == git ]] && git fetch --quiet --all || return 0; }
+count_dirty()    { ${cmd}_count_dirty;  }
+incoming()       { ${cmd}_incoming;     }
+outgoing()       { ${cmd}_outgoing;     }
+count_incoming() { incoming | wc -l;    }
+count_outgoing() { outgoing | wc -l;    }
+fast_forward()   { ${cmd}_fast_forward; }
+echo_incoming()  { incoming | awk -vp="$project " '{print p $0}'; }
+echo_state()     { [[ "$2" -ne 0 ]] && echo "$project $1 $2" || return 0; }
+
+
+
+fetch
+dirty=$(count_dirty)
+cin=$(count_incoming)
+cout=$(count_outgoing)
+
 [[ "$dirty" -eq 0 && "$cout" -eq 0 && "cin" -ne 0 ]] && {
-  if [[ $cmd == hg ]]; then
-    hg --quiet incoming --template '{desc}\n' | awk -vp="$project " '{print p $0}'
-    hg --quiet pull --update
-  else
-    git log --oneline master..origin/master | awk -vp="$project " '{print p $0}'
-    git merge --quiet --ff-only origin/master
-  fi
+  echo_incoming
+  fast_forward
 }
 
 # special rules for some projects
 [[ "$project" == .metadata || "$project" == notes ]] && dirty=0
 
 
-[[ "$dirty" -ne 0 ]] && echo "$project dirty $dirty"
-[[ "$cin"   -ne 0 ]] && echo "$project in $cin"
-[[ "$cout"  -ne 0 ]] && echo "$project out $cout"
+echo_state dirty $dirty
+echo_state in    $cin
+echo_state out   $cout
 
 exit 0
