@@ -3,15 +3,15 @@
 
 set -o errexit
 
-rootdirs() {
+workspaces() {
     echo "$HOME/workspace"
     echo "$HOME/workspace/xincubation"
     echo "$HOME/Dropbox"
 }
 
 projects() {
-    find -L $(rootdirs) -mindepth 1 -maxdepth 2 -name '.git' -printf "%h\n"
-    find -L $(rootdirs) -mindepth 1 -maxdepth 2 -name '.hg' -printf "%h\n"
+    find -L $(workspaces) -mindepth 2 -maxdepth 2 \
+        \( -name '.git' -or -name '.hg' \) -printf "%h\n"
 }
 
 projects | parallel --jobs 10 "cd {}; vcproject $1"
