@@ -14,6 +14,6 @@ projects() {
         \( -name '.git' -or -name '.hg' \) -printf "%h\n"
 }
 
-projects | parallel --jobs 10 "cd {}; vcproject $1"
+projects | parallel --jobs 10 "cd {}; repo-sync"
 
 exit 0
