@@ -18,6 +18,8 @@
       org-agenda-skip-deadline-if-done  t
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
+      org-tags-exclude-from-inheritance '("crypt")
+      org-crypt-key nil
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-agenda :maxlevel . 1)
@@ -26,7 +28,11 @@
 (eval-after-load "org"
   '(progn
      (add-to-list 'org-modules 'org-habit t)
-     (plist-put org-format-latex-options :scale 1.5))) ; bigger latex fragment
+     (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
+
+     ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
+     (require 'org-crypt)
+     (org-crypt-use-before-save-magic)))
 
 ;; org-agenda-custom-commands and org-capture-templates
 (load (concat org-directory "/org-custom"))
