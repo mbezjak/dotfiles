@@ -33,6 +33,7 @@
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
         (:name switch-window        :type elpa)
+        (:name bookmark+            :type elpa)
         (:name htmlize              :type elpa)))
 
 ;; see also init-package.el
