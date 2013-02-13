@@ -20,6 +20,10 @@
       org-habit-graph-column 70
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
+      org-mobile-directory "~/Dropbox/MobileOrg"
+      org-mobile-inbox-for-pull (my-org-note "mobile")
+      org-mobile-force-id-on-agenda-items nil
+      org-mobile-agendas '("a")
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-agenda :maxlevel . 1)
