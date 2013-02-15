@@ -2,6 +2,7 @@
 (global-unset-key (kbd "C-z"))     ; suspend-frame
 (global-unset-key (kbd "C-x C-z")) ; suspend-frame
 (global-unset-key (kbd "C-t"))     ; transpose-chars
+(global-unset-key (kbd "C-/"))     ; undo; use C-_
 
 ;; jump to directory
 (defmacro my-jump-macro (fnname dir)
