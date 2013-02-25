@@ -29,6 +29,8 @@
                            (my-org-note-agenda :maxlevel . 1)
                            (my-org-note-pool   :maxlevel . 1)))
 
+(add-to-list 'kill-emacs-hook 'org-mobile-push t)
+
 (eval-after-load "org"
   '(progn
      (add-to-list 'org-modules 'org-habit t)
