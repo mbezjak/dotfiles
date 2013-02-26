@@ -186,6 +186,7 @@
 
 
 ;; MINOR MODE
+;;;###autoload
 (define-minor-mode gommons-mode
   "Toggle gommons mode.
 

@@ -23,7 +23,7 @@
 (require 'my-org)
 (require 'my-dev)
 (require 'my-keys)
-(autoload 'gommons-mode "gommons-mode")
+(load-file (concat user-emacs-directory "loaddefs.el"))
 
 ;; el-get and melpa package initialization
 (require 'my-packages)
