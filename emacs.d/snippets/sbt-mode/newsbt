@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: New sbt build
+# key: newsbt
+# --
+name := "${1:foo}"
+
+version := "0.1"
+
+scalaVersion := "${2:2.10.0}"
