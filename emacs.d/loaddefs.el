@@ -30,13 +30,25 @@ Major mode for editing build.gradle.
 
 ;;;***
 
+;;;### (autoloads (sbt-mode) "sbt-mode" "sbt-mode.el" (20781 53156))
+;;; Generated autoloads from sbt-mode.el
+
+(autoload 'sbt-mode "sbt-mode" "\
+Major mode for editing build.sbt.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("build\\.sbt\\'" . sbt-mode))
+
+;;;***
+
 ;;;### (autoloads nil nil ("bmk-bmenu-state.el" "custom.el" "init-bookmark+.el"
 ;;;;;;  "init-coffee-mode.el" "init-ghc-mod.el" "init-groovy-mode.el"
 ;;;;;;  "init-haskell-mode.el" "init-js2-mode.el" "init-markdown-mode.el"
 ;;;;;;  "init-monky.el" "init-package.el" "init-projectile.el" "init-scala-mode.el"
 ;;;;;;  "init-starter-kit.el" "init-switch-window.el" "init-yasnippet.el"
 ;;;;;;  "init.el" "my-dev.el" "my-functions.el" "my-keys.el" "my-org.el"
-;;;;;;  "my-packages.el") (20780 35214 438566))
+;;;;;;  "my-packages.el") (20781 53169 359138))
 
 ;;;***
 
