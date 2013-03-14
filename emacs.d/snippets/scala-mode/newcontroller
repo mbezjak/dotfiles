@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: New play controller
+# key: newcontroller
+# --
+package controllers
+
+import play.api._
+import play.api.mvc._
+
+object ${1:`(my-yas-buffer-class-name)`} extends Controller {
+
+  def ${2:index} = Action {
+    $0
+  }
+
+}
