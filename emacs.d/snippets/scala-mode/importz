@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import {s,S}calaz._
+# key: importz
+# --
+import scalaz._
+import Scalaz._
