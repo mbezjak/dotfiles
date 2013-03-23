@@ -26,7 +26,7 @@
       org-mobile-agendas '("a")
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
-                           (my-org-note-agenda :maxlevel . 1)
+                           (my-org-note-agenda :maxlevel . 2)
                            (my-org-note-pool   :maxlevel . 1)))
 
 (add-to-list 'kill-emacs-hook 'org-mobile-push t)
