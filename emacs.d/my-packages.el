@@ -33,6 +33,7 @@
         (:name js2-mode             :type elpa)
         (:name markdown-mode        :type elpa)
         (:name yasnippet            :type elpa)
+        (:name projectile           :type elpa)
         (:name switch-window        :type elpa)
         (:name bookmark+            :type elpa)
         (:name htmlize              :type elpa)))
@@ -41,8 +42,7 @@
 (setq my-elpa-packages (mapcar 'el-get-source-name el-get-sources))
 
 (setq my-el-get-packages
-      '(projectile ; didn't work with elpa previously; now it might?
-        ; ensime ; once https://github.com/dimitri/el-get/pull/1004 gets applied
+      '(; ensime ; once https://github.com/dimitri/el-get/pull/1004 gets applied
         ))
 
 (setq my-packages (append my-elpa-packages my-el-get-packages))
