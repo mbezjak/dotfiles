@@ -26,6 +26,7 @@
         (:name starter-kit-eshell   :type elpa)
         (:name starter-kit-lisp     :type elpa)
         (:name haskell-mode         :type elpa)
+        (:name ghc                  :type elpa)
         (:name coffee-mode          :type elpa)
         (:name groovy-mode          :type elpa)
         (:name scala-mode           :type elpa)
@@ -40,8 +41,7 @@
 (setq my-elpa-packages (mapcar 'el-get-source-name el-get-sources))
 
 (setq my-el-get-packages
-      '(ghc-mod
-        projectile ; didn't work with elpa previously; now it might?
+      '(projectile ; didn't work with elpa previously; now it might?
         ; ensime ; once https://github.com/dimitri/el-get/pull/1004 gets applied
         ))
 
