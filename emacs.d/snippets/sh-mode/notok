@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: notok
+# name: NOT OK
 # key: notok
 # --
 trap onexit EXIT
