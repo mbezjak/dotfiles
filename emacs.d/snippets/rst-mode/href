@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Hyperlink
+# key: href
+# --
+\`${1:text} <http://${2:example.com}>\`_
