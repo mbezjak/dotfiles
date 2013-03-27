@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: implicit def writes: Writes[T]
-# key: writes
-# --
-implicit def writes${2:[T : Writes]}: Writes[${1:Container[T]}] = new Writes[$1] {
-  def writes(o: $1) = ${3:JsBoolean(false)}$0
-}
