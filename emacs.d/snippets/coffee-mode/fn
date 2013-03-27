@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: New function
-# key: newfn
+# key: fn
 # expand-env: ((yas/indent-line 'fixed))
 # --
 ###*
