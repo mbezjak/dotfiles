@@ -119,6 +119,9 @@ type -P pacman &> /dev/null && {
   pacman-ls-updates() {
     ls --time-style=iso -lrt /var/lib/pacman/local
   }
+  pacman-installed() {
+    sort <(pacman -Qe | awk '{print $1}') <(pacman -Q -g base -g base-devel | awk '{print $2}') | uniq -u
+  }
 
   alias psp='sudo pacman --sync'
   alias prs='sudo pacman --remove --recursive'
