@@ -14,8 +14,6 @@
       org-default-notes-file my-org-note-pool
       org-agenda-files       (list my-org-note-agenda)
       org-archive-location   (concat my-org-note-archive "::")
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done  t
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
       org-tags-exclude-from-inheritance '("crypt")
