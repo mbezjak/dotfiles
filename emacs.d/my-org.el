@@ -28,7 +28,7 @@
                            (my-org-note-agenda :maxlevel . 2)
                            (my-org-note-pool   :maxlevel . 1)))
 
-(add-to-list 'kill-emacs-hook 'org-mobile-push t)
+(add-to-list 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
 
 (eval-after-load "org"
   '(progn
@@ -55,6 +55,9 @@
   (let* ((url (read-string "URL: "))
          (title (my-get-html-title-from-url url)))
     (org-insert-link nil url title)))
+
+(defun my-org-push-on-emacs-exit ()
+  (when (functionp 'org-mobile-push) (org-mobile-push)))
 
 
 ;; advice
