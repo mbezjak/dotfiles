@@ -23,7 +23,6 @@ backup bin bin
 backup Documents Documents
 backup Dropbox Dropbox
 backup lib lib
-#backup .mozilla mozilla --exclude '**/Cache'
 backup workspace workspace --exclude '**.class' --exclude '**/bin' \
                            --exclude '**/build' --exclude '**/target'
 
