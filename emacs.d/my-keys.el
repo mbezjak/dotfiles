@@ -32,7 +32,8 @@
 (global-set-key (kbd "C-x C-d") 'ido-dired)
 (global-set-key (kbd "C-x \\")  'align-regexp)
 (global-set-key (kbd "M-K")     'my-kill-current-buffer)
-(global-set-key (kbd "M-B")     'browse-url)
+(global-set-key (kbd "M-B")     'ido-switch-buffer)
+(global-set-key (kbd "M-L")     'browse-url)
 (global-set-key (kbd "M-P")     'browse-url-at-point)
 
 ;; must be set before projectile is loaded
