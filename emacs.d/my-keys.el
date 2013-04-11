@@ -31,6 +31,7 @@
 (global-set-key (kbd "<f9>")    'jump-to-register)
 (global-set-key (kbd "C-x C-d") 'ido-dired)
 (global-set-key (kbd "C-x \\")  'align-regexp)
+(global-set-key (kbd "M-K")     'my-kill-current-buffer)
 (global-set-key (kbd "M-B")     'browse-url)
 (global-set-key (kbd "M-P")     'browse-url-at-point)
 

@@ -18,5 +18,10 @@
         (ido-use-url-at-point nil))
     (ido-find-file-in-dir dir)))
 
+(defun my-kill-current-buffer ()
+  "Kill current buffer."
+  (interactive)
+  (kill-buffer))
+
 
 (provide 'my-functions)
