@@ -36,6 +36,7 @@ type -P gem &> /dev/null && {
 # modified commands
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias less='less --ignore-case'
 
 # ls
 alias l='ls -l --human-readable'
