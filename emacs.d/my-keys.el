@@ -29,6 +29,8 @@
 (global-set-key (kbd "<f1>")    'kmacro-end-or-call-macro)
 (global-set-key (kbd "M-<f8>")  'point-to-register)
 (global-set-key (kbd "<f8>")    'jump-to-register)
+(global-set-key (kbd "M-<f9>")  'previous-buffer)
+(global-set-key (kbd "M-<f10>") 'next-buffer)
 (global-set-key (kbd "C-x C-d") 'ido-dired)
 (global-set-key (kbd "C-x \\")  'align-regexp)
 (global-set-key (kbd "M-K")     'my-kill-current-buffer)
