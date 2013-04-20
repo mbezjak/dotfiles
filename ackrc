@@ -1,11 +1,10 @@
 --smart-case
 
---type-set=markdown=.markdown,.md
---type-set=restructuredtext=.rst
---type-set=orgmode=.org
---type-set=gradle=.gradle
---type-set=coffee=.coffee
---type-set=jspec=.jspec
---type-set=darwin=.drw
+--type-add=markdown:ext:markdown,md
+--type-add=restructuredtext:ext:rst
+--type-add=orgmode:ext:org
+--type-add=coffee:ext:coffee
+--type-add=jspec:ext:jspec
+--type-add=darwin:ext:drw
 
---ignore-dir=target
+--ignore-directory=is:target
