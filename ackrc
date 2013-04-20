@@ -8,3 +8,4 @@
 --type-add=darwin:ext:drw
 
 --ignore-directory=is:target
+--ignore-directory=is:build
