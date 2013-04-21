@@ -18,7 +18,7 @@
       bookmark-save-flag 1)
 
 ;; my-stuff
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path user-emacs-directory)
 (require 'my-functions)
 (require 'my-org)
 (require 'my-dev)
