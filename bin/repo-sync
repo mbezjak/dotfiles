@@ -8,13 +8,16 @@ project=$(basename "$PWD")
 
 
 ### helper functions ###
-git_count_dirty() { git status --short | wc -l; }
-hg_count_dirty()  { hg status | wc -l; }
-git_incoming() { git log --oneline --reverse master..origin/master 2> /dev/null; }
-hg_incoming()  { hg --quiet incoming --template '{author|person} {desc|firstline}\n' 2> /dev/null; }
-git_outgoing() { git log --oneline --reverse origin/master..master 2> /dev/null; }
-hg_outgoing()  { hg --quiet outgoing --template '{author|person} {desc|firstline}\n' 2> /dev/null; }
+git_count_dirty()  { git status --short | wc -l; }
+git_inout() { git log --oneline --reverse "$1" 2> /dev/null; }
+git_incoming()     { git_inout master..origin/master; }
+git_outgoing()     { git_inout origin/master..master; }
 git_fast_forward() { git merge --quiet --ff-only origin/master; }
+
+hg_count_dirty()   { hg status | wc -l; }
+hg_inout()  { hg --quiet "$1" --template '{author|person} {desc|firstline}\n' 2> /dev/null; }
+hg_incoming()      { hg_inout incoming; }
+hg_outgoing()      { hg_inout outgoing; }
 hg_fast_forward()  { hg --quiet pull --update; }
 
 ### DSL functions ###
@@ -25,7 +28,7 @@ outgoing()       { ${cmd}_outgoing;     }
 count_incoming() { incoming | wc -l;    }
 count_outgoing() { outgoing | wc -l;    }
 fast_forward()   { ${cmd}_fast_forward; }
-echo_incoming()  { incoming | awk -vp="$project " '{print p $0}'; }
+echo_incoming()  { incoming | awk -vp="  $project " '{print p $0}'; }
 echo_state()     { [[ "$2" -ne 0 ]] && echo "$project $1 $2" || return 0; }
 
 
