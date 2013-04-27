@@ -177,7 +177,7 @@
 
 
 ;; KEYS
-(define-key gommons-key-map (kbd "<f5>")  'gommons-toggle-open-current)
+(define-key gommons-key-map (kbd "M-G o") 'gommons-toggle-open-current)
 (define-key gommons-key-map (kbd "M-G j") 'gommons-test-js)
 (define-key gommons-key-map (kbd "M-G u") 'gommons-test-unit)
 (define-key gommons-key-map (kbd "M-G d") 'gommons-docs-js)
