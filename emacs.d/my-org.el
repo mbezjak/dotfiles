@@ -43,6 +43,13 @@
 (load (concat org-directory "/org-custom"))
 
 
+;; kbd-macros
+(fset 'my-actually-i-did-it-yesterday
+   [?\C-s ?< ?2 ?0 ?\C-m ?\C-c ?. ?. return ?\C-s ?\[ ?\C-? ?\\ ?\[ ?2 ?0 ?\C-m ?\C-c ?! backspace backspace backspace backspace backspace ?2 ?3 ?: ?0 ?0 home ?- ?1 ?  return ?\C-r ?\\ ?\[ ?\C-m ?\C-k ?\C-y ?\C-s ?L ?A ?S ?T ?\C-m ?\C-c ?\C-r ?\C-a tab ?\C-s ?\[ ?\C-? ?\\ ?\[ ?2 ?0 ?\C-m ?\C-b ?\C-b ?\C-b S-insert ?\C-k])
+
+(put 'my-actually-i-did-it-yesterday 'kmacro t)
+
+
 ;; functions
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
