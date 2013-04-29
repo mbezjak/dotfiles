@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: case
+# key: case
+# --
+case "${1:\$1}" in
+  ${2:foo*})
+    $0
+    ;;
+  *)
+    ;;
+esac
