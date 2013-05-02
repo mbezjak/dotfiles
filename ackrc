@@ -9,3 +9,4 @@
 
 --ignore-directory=is:target
 --ignore-directory=is:build
+--ignore-file=ext:cache
