@@ -6,6 +6,7 @@
       calendar-week-start-day   1 ; monday
       org-startup-indented      t
       org-hide-leading-stars    t
+      org-use-speed-commands    t
       org-log-done       'time
       org-directory      "~/Dropbox/notes"
       my-org-note-agenda  (my-org-note "agenda")
