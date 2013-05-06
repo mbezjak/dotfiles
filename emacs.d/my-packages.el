@@ -1,53 +1,48 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(setq my-packages
+      '(paredit
+        idle-highlight-mode
+        find-file-in-project
+        smex
+        ido-ubiquitous
+        magit
+        monky
+        starter-kit
+        starter-kit-bindings
+        starter-kit-eshell
+        starter-kit-lisp
+        haskell-mode
+        ghc
+        coffee-mode
+        groovy-mode
+        scala-mode
+        js2-mode
+        markdown-mode
+        yasnippet
+        projectile
+        switch-window
+        bookmark+
+        htmlize))
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-      (let (el-get-master-branch
-            el-get-install-skip-emacswiki-recipes)
-        (goto-char (point-max))
-        (eval-print-last-sexp))))
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(setq el-get-user-package-directory user-emacs-directory)
+;; (unless package-archive-contents
+;;   (package-refresh-contents))
 
-;; Above `starter-kit' are mostly its dependencies.
-;; It seems they are needed for proper load order.
-(setq el-get-sources
-      '((:name paredit              :type elpa)
-        (:name idle-highlight-mode  :type elpa)
-        (:name find-file-in-project :type elpa)
-        (:name smex                 :type elpa)
-        (:name ido-ubiquitous       :type elpa)
-        (:name magit                :type elpa)
-        (:name monky                :type elpa)
-        (:name starter-kit          :type elpa)
-        (:name starter-kit-bindings :type elpa)
-        (:name starter-kit-eshell   :type elpa)
-        (:name starter-kit-lisp     :type elpa)
-        (:name haskell-mode         :type elpa)
-        (:name ghc                  :type elpa)
-        (:name coffee-mode          :type elpa)
-        (:name groovy-mode          :type elpa)
-        (:name scala-mode           :type elpa)
-        (:name js2-mode             :type elpa)
-        (:name markdown-mode        :type elpa)
-        (:name yasnippet            :type elpa)
-        (:name projectile           :type elpa)
-        (:name switch-window        :type elpa)
-        (:name bookmark+            :type elpa)
-        (:name htmlize              :type elpa)))
+(setq package-load-list '(all))
+(package-initialize)
 
-;; see also init-package.el
-(setq my-elpa-packages (mapcar 'el-get-source-name el-get-sources))
+(mapc (lambda (package)
+        (unless (package-installed-p package)
+          (package-install package)))
+ my-packages)
 
-(setq my-el-get-packages
-      '(; ensime ; once https://github.com/dimitri/el-get/pull/1004 gets applied
-        ))
 
-(setq my-packages (append my-elpa-packages my-el-get-packages))
-
-(el-get 'sync my-packages)
-
+(mapc (lambda (package)
+        (let ((file (concat "~/.emacs.d/init-" (symbol-name package) ".el")))
+          (when (file-exists-p file)
+            (load file))))
+ my-packages)
 
 (provide 'my-packages)
