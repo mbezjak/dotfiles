@@ -27,22 +27,23 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+
+;; not always
+;; (require 'package)
 ;; (unless package-archive-contents
 ;;   (package-refresh-contents))
+
 
 (setq package-load-list '(all))
 (package-initialize)
 
-(mapc (lambda (package)
-        (unless (package-installed-p package)
-          (package-install package)))
- my-packages)
+(dolist (package my-packages)
+  (unless (package-installed-p package)
+    (package-install package))
 
+  (let ((file (concat "~/.emacs.d/init-" (symbol-name package) ".el")))
+    (when (file-exists-p file)
+      (load file))))
 
-(mapc (lambda (package)
-        (let ((file (concat "~/.emacs.d/init-" (symbol-name package) ".el")))
-          (when (file-exists-p file)
-            (load file))))
- my-packages)
 
 (provide 'my-packages)
