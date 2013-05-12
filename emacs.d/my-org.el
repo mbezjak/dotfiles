@@ -36,6 +36,10 @@
      (add-to-list 'org-modules 'org-habit t)
      (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
 
+     (org-babel-do-load-languages 'org-babel-load-languages
+                                  '((gnuplot . t)
+                                    (emacs-lisp . t)))
+
      ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
      (require 'org-crypt)
      (org-crypt-use-before-save-magic)))
