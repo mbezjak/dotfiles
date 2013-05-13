@@ -39,11 +39,7 @@
 
 (dolist (package my-packages)
   (unless (package-installed-p package)
-    (package-install package))
-
-  (let ((file (concat "~/.emacs.d/init-" (symbol-name package) ".el")))
-    (when (file-exists-p file)
-      (load file))))
+    (package-install package)))
 
 
 (provide 'my-packages)
