@@ -20,3 +20,6 @@
          (reduction (lambda (path regex) (replace-regexp-in-string regex "" path t)))
          (pkg (-reduce-from reduction dirs replacements)))
     (replace-regexp-in-string "/" "." pkg)))
+
+
+(provide 'my-yasnippet)
