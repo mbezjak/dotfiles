@@ -43,8 +43,8 @@ Major mode for editing build.kin.
 
 ;;;***
 
-;;;### (autoloads (sbt-mode) "sbt-mode" "sbt-mode.el" (20781 53156
-;;;;;;  72913 935000))
+;;;### (autoloads (sbt-mode) "sbt-mode" "sbt-mode.el" (20880 55872
+;;;;;;  41340 985000))
 ;;; Generated autoloads from sbt-mode.el
 
 (autoload 'sbt-mode "sbt-mode" "\
@@ -52,17 +52,13 @@ Major mode for editing build.sbt.
 
 \(fn)" t nil)
 
-(add-to-list 'auto-mode-alist '("build\\.sbt\\'" . sbt-mode))
+(add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-mode))
 
 ;;;***
 
-;;;### (autoloads nil nil ("bmk-bmenu-state.el" "custom.el" "init-bookmark+.el"
-;;;;;;  "init-coffee-mode.el" "init-ghc.el" "init-groovy-mode.el"
-;;;;;;  "init-haskell-mode.el" "init-js2-mode.el" "init-markdown-mode.el"
-;;;;;;  "init-monky.el" "init-projectile.el" "init-scala-mode.el"
-;;;;;;  "init-starter-kit.el" "init-switch-window.el" "init-yasnippet.el"
-;;;;;;  "init.el" "my-dev.el" "my-functions.el" "my-keys.el" "my-org.el"
-;;;;;;  "my-packages.el") (20874 6573 184219 867000))
+;;;### (autoloads nil nil ("bmk-bmenu-state.el" "custom.el" "init.el"
+;;;;;;  "my-dev.el" "my-functions.el" "my-keys.el" "my-org.el" "my-packages.el"
+;;;;;;  "my-yasnippet.el") (20880 55888 484019 579000))
 
 ;;;***
 

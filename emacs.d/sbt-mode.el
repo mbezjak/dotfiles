@@ -4,7 +4,7 @@
   "Major mode for editing build.sbt.")
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("build\\.sbt\\'" . sbt-mode))
+(add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-mode))
 
 
 (provide 'sbt-mode)
