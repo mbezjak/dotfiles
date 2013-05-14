@@ -24,7 +24,7 @@
 ;; cd org-mode
 ;; git checkout release_8.0.2 -b 8.0.2
 ;; make autoloads
-(when (file-exists-p "~/lib/org-mode/lisp")
+(when (file-directory-p "~/lib/org-mode/lisp")
   (add-to-list 'load-path "~/lib/org-mode/lisp"))
 
 
@@ -108,7 +108,7 @@
 ;; $ cd ensime
 ;; $ git checkout v2.10.0-0.9.8.8 -b 0.9.8.8
 ;; $ sbt update stage
-(when (file-exists-p "~/lib/ensime/dist")
+(when (file-directory-p "~/lib/ensime/dist")
   (add-to-list 'load-path "~/lib/ensime/dist/elisp")
   (require 'ensime)
   (eval-after-load "scala-mode"
