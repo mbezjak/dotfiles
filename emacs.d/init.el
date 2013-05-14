@@ -17,6 +17,17 @@
       recentf-max-saved-items 50
       bookmark-save-flag 1)
 
+
+;; To use:
+;; cd ~/lib
+;; git clone git://orgmode.org/org-mode.git
+;; cd org-mode
+;; git checkout release_8.0.2 -b 8.0.2
+;; make autoloads
+(when (file-exists-p "~/lib/org-mode/lisp")
+  (add-to-list 'load-path "~/lib/org-mode/lisp"))
+
+
 ;; my-stuff
 (add-to-list 'load-path user-emacs-directory)
 (require 'my-functions)
