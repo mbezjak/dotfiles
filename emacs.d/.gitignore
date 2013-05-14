@@ -3,17 +3,15 @@
 /elpa/
 /eshell/
 /ltxpng/
+/managed/
 /url/
 
-/bmk-bmenu-state.el
 /bookmarks
 /custom.el
 /places
 /projectile-bookmarks.eld
 /tramp
-/.ido.last
 /.org-id-locations
-/.recentf
 /.smex-items
 
 *.cache

@@ -12,8 +12,13 @@
               c-basic-offset 4
               fill-column    80)
 
-(setq ido-save-directory-list-file (concat user-emacs-directory ".ido.last")
-      recentf-save-file (concat user-emacs-directory ".recentf")
+(make-directory "~/.emacs.d/managed" 'parents)
+(defun my-managed-file (name)
+  "Create a file path where managed files are put."
+  (concat user-emacs-directory "managed/" name))
+
+(setq ido-save-directory-list-file (my-managed-file "ido.last")
+      recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
       bookmark-save-flag 1)
 
@@ -55,7 +60,7 @@
 
 
 (require 'bookmark+)
-(setq bmkp-bmenu-state-file "~/.emacs.d/bmk-bmenu-state.el")
+(setq bmkp-bmenu-state-file (my-managed-file "bmkp-bmenu-state-file.el"))
 
 
 (require 'monky)
