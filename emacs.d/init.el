@@ -103,13 +103,13 @@
     (scala-run-scala "scala")))
 
 ;; To use:
-;; $ cd ~/workspace/xforeign
+;; $ cd ~/lib
 ;; $ hub clone aemoncannon/ensime
 ;; $ cd ensime
 ;; $ git checkout v2.10.0-0.9.8.8 -b 0.9.8.8
 ;; $ sbt update stage
-(when (file-exists-p "~/workspace/xforeign/ensime/dist")
-  (add-to-list 'load-path "~/workspace/xforeign/ensime/dist/elisp")
+(when (file-exists-p "~/lib/ensime/dist")
+  (add-to-list 'load-path "~/lib/ensime/dist/elisp")
   (require 'ensime)
   (eval-after-load "scala-mode"
     (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)))
