@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: New spock unit test
+# key: spockunit
+# --
+import grails.plugin.spock.*
+import spock.lang.*
+import grails.test.*
+
+class ${1:`(my-yas-buffer-class-name)`} extends UnitSpec {
+
+    $0
+
+}

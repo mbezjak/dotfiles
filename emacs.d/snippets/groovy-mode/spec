@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: spec
+# key: spec
+# --
+def "${1:1 + 1 should equal 2}"() {
+    given:
+    $0
+
+    expect:
+
+}
