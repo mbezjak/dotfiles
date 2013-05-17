@@ -91,9 +91,12 @@
      (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)))
 
 
+(defun my-groovy-not-electric ()
+  (setq c-electric-flag nil)) ; annoying, especially for colon!
+
 (eval-after-load "groovy-mode"
   '(progn
-     (setq c-electric-flag nil))) ; annoying, especially for colon!
+     (add-hook 'groovy-mode-hook 'my-groovy-not-electric)))
 
 
 (require 'scala-mode-auto)
