@@ -3,7 +3,12 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(setq custom-file (concat user-emacs-directory "custom.el"))
+(make-directory "~/.emacs.d/managed" 'parents)
+(defun my-managed-file (name)
+  "Create a file path where managed files are put."
+  (concat user-emacs-directory "managed/" name))
+
+(setq custom-file (my-managed-file "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
 
@@ -12,14 +17,10 @@
               c-basic-offset 4
               fill-column    80)
 
-(make-directory "~/.emacs.d/managed" 'parents)
-(defun my-managed-file (name)
-  "Create a file path where managed files are put."
-  (concat user-emacs-directory "managed/" name))
-
 (setq ido-save-directory-list-file (my-managed-file "ido.last")
       recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
+      bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1)
 
 
@@ -60,7 +61,8 @@
 
 
 (require 'bookmark+)
-(setq bmkp-bmenu-state-file (my-managed-file "bmkp-bmenu-state-file.el"))
+(setq bmkp-bmenu-state-file (my-managed-file "bmkp-bmenu-state-file.el")
+      bmkp-last-as-first-bookmark-file nil)
 
 
 (require 'monky)
@@ -71,7 +73,9 @@
 
 
 (projectile-global-mode)
-(setq projectile-enable-caching t)
+(setq projectile-enable-caching t
+      projectile-cache-file (my-managed-file "projectile.cache")
+      projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
 (add-to-list 'projectile-globally-ignored-directories "target")
 (add-to-list 'projectile-globally-ignored-directories "build")
 

@@ -23,7 +23,7 @@
       org-mobile-inbox-for-pull (my-org-note "mobile")
       org-mobile-force-id-on-agenda-items nil
       org-mobile-agendas '("a")
-      org-latex-preview-ltxpng-directory "~/.emacs.d/ltxpng/"
+      org-latex-preview-ltxpng-directory (my-managed-file "ltxpng/")
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-agenda :maxlevel . 2)

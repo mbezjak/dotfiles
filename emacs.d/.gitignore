@@ -2,17 +2,10 @@
 /backups/
 /elpa/
 /eshell/
-/ltxpng/
 /managed/
 /url/
 
-/bookmarks
-/custom.el
 /places
-/projectile-bookmarks.eld
 /tramp
 /.org-id-locations
 /.smex-items
-
-*.cache
-*.elc
