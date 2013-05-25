@@ -1,6 +1,11 @@
 #!/bin/bash
 #
 
+declare -a nouns=()
+declare -a verbs=()
+declare -a rest=()
+
+
 function browse {
     local -r query="$1"
 
@@ -12,11 +17,39 @@ function browse {
 
     # works when there are few cmd args
     firefox "http://images.google.com/search?tbm=isch&q=$query"
+
+    return 0
 }
 
-for query in "$@"
-do
-    browse "$query"
-done
+function classify {
+    local -r word="$1"
+
+    if [[ "${word:0:1}" = [[:upper:]] ]]; then
+        nouns+=("$word")
+    elif [[ "$word" =~ .+(en|rn|ln) ]]; then
+        verbs+=("$word")
+    else
+        rest+=("$word")
+    fi
+
+    return 0
+}
+
+function classify-all-words {
+    local word
+
+    for word in "$@"; do
+        classify "$word"
+    done
+
+    return 0
+}
+
+
+
+classify-all-words "$@"
+for w in "${nouns[@]}"; do browse "$w"; done
+for w in "${verbs[@]}"; do browse "$w"; done
+for w in "${rest[@]}";  do browse "$w"; done
 
 exit 0
