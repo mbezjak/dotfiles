@@ -1,16 +1,22 @@
 #!/bin/bash
 #
 
+function browse {
+    local -r query="$1"
+
+    firefox "http://dict.tu-chemnitz.de/dings.cgi?lang=en&service=deen&opterrors=0&optpro=0&query=$query"
+    firefox "http://www.eudict.com/?lang=gercro&word=$query"
+
+    # no longer in use
+    # firefox "http://deutsche-rechtschreibung.org/schreibweise/$query"
+
+    # works when there are few cmd args
+    firefox "http://images.google.com/search?tbm=isch&q=$query"
+}
+
 for query in "$@"
 do
-  firefox "http://dict.tu-chemnitz.de/dings.cgi?lang=en&service=deen&opterrors=0&optpro=0&query=$query&iservice=&comment=&email="
-  firefox "http://www.eudict.com/?lang=gercro&word=$query"
-
-  # I don't use it very much no more
-  # firefox "http://deutsche-rechtschreibung.org/schreibweise/$query"
-
-  # works when there are few cmd args
-  firefox "http://images.google.com/search?tbm=isch&q=$query"
+    browse "$query"
 done
 
 exit 0
