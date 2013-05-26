@@ -3,6 +3,7 @@
 
 declare -a nouns=()
 declare -a verbs=()
+declare -a adjectives=()
 declare -a rest=()
 
 
@@ -24,10 +25,13 @@ function browse {
 function classify {
     local -r word="$1"
 
+    # rules are correct most of the time
     if [[ "${word:0:1}" = [[:upper:]] ]]; then
         nouns+=("$word")
     elif [[ "$word" =~ .+(en|rn|ln)$ ]]; then
         verbs+=("$word")
+    elif [[ "$word" =~ .+(ig|nd|t|ch|los)$ ]]; then
+        adjectives+=("$word")
     else
         rest+=("$word")
     fi
@@ -48,8 +52,9 @@ function classify-all-words {
 
 
 classify-all-words "$@"
-for w in "${nouns[@]}"; do browse "$w"; done
-for w in "${verbs[@]}"; do browse "$w"; done
-for w in "${rest[@]}";  do browse "$w"; done
+for w in "${nouns[@]}";      do browse "$w"; done
+for w in "${verbs[@]}";      do browse "$w"; done
+for w in "${adjectives[@]}"; do browse "$w"; done
+for w in "${rest[@]}";       do browse "$w"; done
 
 exit 0
