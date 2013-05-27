@@ -21,7 +21,8 @@
       recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
       bookmark-default-file (my-managed-file "bookmarks")
-      bookmark-save-flag 1)
+      bookmark-save-flag 1
+      url-configuration-directory (my-managed-file "url/"))
 
 
 ;; To use:
