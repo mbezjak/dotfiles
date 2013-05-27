@@ -23,6 +23,7 @@
       org-mobile-inbox-for-pull (my-org-note "mobile")
       org-mobile-agendas '("a")
       org-latex-preview-ltxpng-directory (my-managed-file "ltxpng/")
+      org-id-locations-file (my-managed-file "org-id-locations")
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-agenda :maxlevel . 2)
