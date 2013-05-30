@@ -21,7 +21,7 @@ nasmount
 
 backup bin bin
 backup Documents Documents
-backup Dropbox Dropbox
+backup Dropbox Dropbox --exclude '**/.dropbox.cache'
 backup lib lib
 backup workspace workspace --exclude '**.class' --exclude '**/bin' \
                            --exclude '**/build' --exclude '**/target'
