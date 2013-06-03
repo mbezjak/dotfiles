@@ -73,14 +73,6 @@
 (global-set-key (kbd "C-c h") 'monky-status)
 
 
-(eval-after-load "magit"
-  '(progn
-     (defun my-disable-magit-highlight-in-buffer ()
-       (face-remap-add-relative 'magit-item-highlight '()))
-
-     (add-hook 'magit-status-mode-hook 'my-disable-magit-highlight-in-buffer)))
-
-
 (projectile-global-mode)
 (setq projectile-enable-caching t
       projectile-cache-file (my-managed-file "projectile.cache")
