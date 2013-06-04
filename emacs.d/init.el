@@ -79,6 +79,7 @@
       projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
 (add-to-list 'projectile-globally-ignored-directories "target")
 (add-to-list 'projectile-globally-ignored-directories "build")
+(add-to-list 'projectile-globally-ignored-files "*.log")
 
 
 ;; To use:
