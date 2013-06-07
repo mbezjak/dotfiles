@@ -20,6 +20,7 @@
 (setq ido-save-directory-list-file (my-managed-file "ido.last")
       recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
+      auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
       bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1
       url-configuration-directory (my-managed-file "url/"))
