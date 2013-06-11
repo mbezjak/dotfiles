@@ -12,7 +12,7 @@
          (dirs (or (file-name-directory fullpath) default-pkg))
          (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\)/"
                          ".*/src/groovy/"
-                         ".*/test/unit/"
+                         ".*/test/\\(unit\\|integration\\)/"
                          ".*/grails-app/\\(controllers\\|services\\)/"
                          ".*/app/"
                          ".*/test/"
