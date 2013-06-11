@@ -10,11 +10,12 @@
   (let* ((default-pkg "foo")
          (fullpath (or (buffer-file-name) default-pkg))
          (dirs (or (file-name-directory fullpath) default-pkg))
-         (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\)/"
+         (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\)/"
                          ".*/src/groovy/"
                          ".*/test/unit/"
-                         ".*/grails-app/services/"
+                         ".*/grails-app/\\(controllers\\|services\\)/"
                          ".*/app/"
+                         ".*/test/"
                          "^/"
                          "/$"))
          (reduction (lambda (path regex) (replace-regexp-in-string regex "" path t)))
