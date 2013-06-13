@@ -74,6 +74,11 @@
 (global-set-key (kbd "C-c h") 'monky-status)
 
 
+(eval-after-load "magit"
+  '(progn
+     (set-face-background 'magit-item-highlight "DarkSeaGreen2")
+     (set-face-bold-p     'magit-item-highlight nil)))
+
 (projectile-global-mode)
 (setq projectile-enable-caching t
       projectile-cache-file (my-managed-file "projectile.cache")
