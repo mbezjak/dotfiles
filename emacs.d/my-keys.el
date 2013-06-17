@@ -42,6 +42,7 @@
 (global-set-key (kbd "M-]")     'ido-find-file)
 (global-set-key (kbd "C-]")     'my-jump-to-workspace)
 (global-set-key (kbd "M-K")     'my-kill-current-buffer)
+(global-set-key (kbd "M-I")     'my-org-insert-link)
 (global-set-key (kbd "M-L")     'browse-url)
 (global-set-key (kbd "M-P")     'browse-url-at-point)
 
