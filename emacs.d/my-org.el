@@ -38,6 +38,7 @@
 
      (org-babel-do-load-languages 'org-babel-load-languages
                                   '((gnuplot . t)
+                                    (sh . t)
                                     (emacs-lisp . t)))
 
      ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
