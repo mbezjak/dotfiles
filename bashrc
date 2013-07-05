@@ -59,6 +59,10 @@ alias open='xdg-open'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
 alias tv='vlc --alsa-audio-device plughw:1,7' # device syntax from ArchLinux ALSA wiki
 search() { find -iname "*$1*" -printf '%P\n' | grep -ve '^.hg' -e '^.git'; }
+files()  {
+  find -type f -iname "*$1*" -printf '%P\n' | \
+      grep -ve '^.hg' -e '^.git' -e '^target' -e '^build'
+}
 backup() { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
   cd ~/Dropbox/notes
