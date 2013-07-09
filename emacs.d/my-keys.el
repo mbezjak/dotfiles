@@ -33,6 +33,7 @@
 (global-set-key (kbd "<f6>")    'jump-to-register)
 (global-set-key (kbd "M-<f7>")  'bmkp-autofile-set)
 (global-set-key (kbd "<f7>")    'bmkp-autofile-jump)
+(global-set-key (kbd "<f8>")    'my-repo-status)
 (global-set-key (kbd "M-<f8>")  'ido-switch-buffer)
 (global-set-key (kbd "M-<f9>")  'previous-buffer)
 (global-set-key (kbd "M-<f10>") 'next-buffer)

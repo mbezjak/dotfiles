@@ -23,5 +23,12 @@
   (interactive)
   (kill-buffer))
 
+(defun my-repo-status ()
+  "Open git or hg status buffer."
+  (interactive)
+  (if (magit-get-top-dir ".")
+      (magit-status ".")
+    (monky-status)))
+
 
 (provide 'my-functions)
