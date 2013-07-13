@@ -25,6 +25,8 @@
       bookmark-save-flag 1
       url-configuration-directory (my-managed-file "url/"))
 
+(set-face-background 'mode-line "SkyBlue")
+
 
 ;; To use:
 ;; cd ~/lib
