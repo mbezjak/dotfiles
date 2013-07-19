@@ -23,6 +23,7 @@
   (interactive)
   (kill-buffer))
 
+(autoload 'magit-get-top-dir "magit")
 (defun my-repo-status ()
   "Open git or hg status buffer."
   (interactive)
