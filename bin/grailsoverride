@@ -40,7 +40,9 @@ installed_version=$(grailshasplugin "$plugin_name" | awk '{ print $2 }')
 if [[ "$installed_version" =~ ^latest\.(integration|release)$ ]]; then
     installed_version="$plugin_version"
 fi
-workdir="$HOME/.grails/$grails_version/projects/$project_name/plugins/$plugin_name-$installed_version"
+
+workdir="target/plugins/$plugin_name-$installed_version"
+[[ ! -d "$workdir" ]] && workdir="$HOME/.grails/$grails_version/projects/$project_name/plugins/$plugin_name-$installed_version"
 
 [[ -z "$plugin_version" || -z "$plugin_name" ]] && {
     echo "$plugin must be a grails plugin" >&2
