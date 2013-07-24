@@ -57,10 +57,7 @@ if app['is_project']:
     plugin_text = text(app['pluginfile'])
     put('version', find_group(r'def version\s*=\s*"(.+?)"', plugin_text))
 
-    search_plugins_block = re.compile(r'plugins\s*\{(.+?)\}',
-                                      re.MULTILINE | re.DOTALL)
-    pblock = find_group(search_plugins_block, build_config_text)
-    add_plugins(r'".*?:(.+?):(.+?)"', pblock)
+    add_plugins(r'":([a-zA-Z0-9_.$\-]+?):([a-zA-Z0-9_.$\-]+?)"', build_config_text)
 
     put('name', find_group(r'app.name=(.+)', app_text))
     put('version', find_group(r'app.version=(.+)', app_text))
