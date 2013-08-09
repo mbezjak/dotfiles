@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: final
+# key: final
+# --
+final ${1:String} ${2:name}
+
+`(my-yas-buffer-class-name)`(final $1 $2) {
+    this.$2 = $2
+}
