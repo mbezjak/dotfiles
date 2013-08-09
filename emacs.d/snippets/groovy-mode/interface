@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: interface
+# key: interface
+# --
+interface ${1:`(my-yas-buffer-class-name)`} {
+    $0
+}
