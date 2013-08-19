@@ -93,6 +93,7 @@ type -P grails &> /dev/null && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
   alias gc='grails clean'
   alias gp='grails package'
+  alias gpn='grails package --non-interactive'
   alias gt='grails test-app'
   alias gr='grails run-app'
   alias gr-sql='grails -Dlogsql=true run-app'
