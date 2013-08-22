@@ -13,7 +13,7 @@
          (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\)/"
                          ".*/src/groovy/"
                          ".*/test/\\(unit\\|integration\\)/"
-                         ".*/grails-app/\\(controllers\\|services\\)/"
+                         ".*/grails-app/\\(controllers\\|services\\|domain\\)/"
                          ".*/app/"
                          ".*/test/"
                          "^/"
