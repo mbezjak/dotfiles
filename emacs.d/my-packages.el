@@ -21,6 +21,7 @@
         projectile
         switch-window
         bookmark+
+        move-text
         htmlize))
 
 (setq package-archives
