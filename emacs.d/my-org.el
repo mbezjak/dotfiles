@@ -17,6 +17,7 @@
       org-archive-location   (concat my-org-note-archive "::")
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
+      org-habit-show-done-always-green t
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
       org-mobile-directory "~/Dropbox/MobileOrg"
