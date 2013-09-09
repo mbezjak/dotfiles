@@ -1,5 +1,9 @@
 (setq my-packages
-      '(paredit
+      '(dash
+        s
+        f
+        web
+        paredit
         idle-highlight-mode
         find-file-in-project
         smex

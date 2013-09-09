@@ -4,7 +4,7 @@
 
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
-    (file-name-nondirectory (file-name-sans-extension file))))
+    (f-base file)))
 
 (defun my-yas-buffer-package-name ()
   (let* ((default-pkg "foo")

@@ -53,6 +53,10 @@
 
 ;;; INITS
 
+(require 'dash)
+(require 's)
+(require 'f)
+
 (move-text-default-bindings)
 
 
