@@ -9,4 +9,6 @@
 
 --ignore-directory=is:target
 --ignore-directory=is:build
+--ignore-directory=is:generated-doc
+--ignore-directory=is:.metadata
 --ignore-file=ext:cache
