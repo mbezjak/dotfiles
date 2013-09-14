@@ -110,6 +110,11 @@ type -P mvn &> /dev/null && {
   export MAVEN_OPTS="-Xms256m -Xmx512m"
 }
 
+type -P systemctl &> /dev/null && {
+  alias s='sudo systemctl'
+  alias sj='sudo journalctl'
+}
+
 type -P pacman &> /dev/null && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
   type -P packer &> /dev/null && alias pu='packer -Syu'
