@@ -57,6 +57,8 @@
 (fset 'my-correct-for-after-midnight
    [?\C-s ?< ?2 ?0 ?\C-m ?\C-s ?\\ ?\[ ?2 ?0 ?\C-m ?\C-c ?! ?\C-? ?\C-? ?\C-? ?\C-? ?\C-? ?2 ?3 ?: ?0 ?0 home ?- ?1 ?  ?\C-m ?\C-r ?\\ ?\[ ?\C-m ?\C-k ?\C-y ?\C-s ?L ?A ?S ?T ?\C-m ?\C-c ?\C-r ?\C-a tab ?\C-s ?\\ ?\[ ?2 ?0 ?\C-m ?\C-b ?\C-b ?\C-b S-insert ?\C-k])
 
+(fset 'my-org-agenda-sort
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([C-home 103 101 120 112 return tab 94 100 tab 103 102 117 116 117 return tab 94 100 tab 103 116 104 105 115 return 94 115 tab 24 19] 0 "%d")) arg)))
 
 (put 'my-actually-i-did-it-yesterday 'kmacro t)
 
