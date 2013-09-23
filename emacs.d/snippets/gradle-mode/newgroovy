@@ -5,7 +5,7 @@
 # --
 apply plugin: 'groovy'
 
-version = 0.1
+version = '0.1'
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
@@ -14,5 +14,5 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:${1:2.1.2}'
+    compile 'org.codehaus.groovy:groovy-all:${1:2.1.7}'
 }
