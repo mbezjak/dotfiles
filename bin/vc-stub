@@ -13,12 +13,13 @@ mkdir  $root
 cd     $root
 
 ### DSL functions
-run()      { $cmd "$@";   }
-cdrepo()   { cd $root/$1; }
-newrepo()  { mkdir $root/$1; cdrepo $1; run init; addempty $1 first; }
-clone()    { cd $root; run clone $1 $2; }
-commit()   { run commit -m "$1"; }
-addempty() {
+run()        { $cmd "$@";   }
+cdrepo()     { cd $root/$1; }
+newrepo()    { mkdir $root/$1; cdrepo $1; run init; addempty $1 first; }
+clone()      { cd $root; run clone $1 $2; }
+commit()     { run commit -m "$1"; }
+leavedirty() { cdrepo $1; touch file-that-makes-repo-dirty; }
+addempty()   {
   cdrepo $1; touch $2; run add .
   commit "Add empty file named '$2'."
 }
@@ -58,5 +59,9 @@ addempty 04-main a
 clone    04-main 04-conflict
 content  04-main     a "content-from-main"
 content  04-conflict a "content-from-conflict"
+
+# left dirty
+newrepo    05-main
+leavedirty 05-main
 
 exit 0

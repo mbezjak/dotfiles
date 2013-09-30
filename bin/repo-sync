@@ -8,6 +8,11 @@ project=$(basename "$PWD")
 
 
 ### helper functions ###
+color_green()  { tput setaf 2; }
+color_orange() { tput setaf 3; }
+color_red()    { tput setaf 1; }
+color_reset()  { tput sgr0;    }
+
 git_count_dirty()  { git status --short | wc -l; }
 git_inout() { git log --oneline --reverse "$1" 2> /dev/null; }
 git_incoming()     { git_inout master..origin/master; }
@@ -31,6 +36,10 @@ fast_forward()   { ${cmd}_fast_forward; }
 echo_incoming()  { incoming | awk -vp="  $project " '{print p $0}'; }
 echo_state()     { [[ "$2" -ne 0 ]] && echo "$project $1 $2" || return 0; }
 
+echoc_incoming() { color_green  ; echo_incoming       ; color_reset; }
+echoc_in()       { color_green  ; echo_state in    $1 ; color_reset; }
+echoc_out()      { color_red    ; echo_state out   $1 ; color_reset; }
+echoc_dirty()    { color_orange ; echo_state dirty $1 ; color_reset; }
 
 
 fetch
@@ -39,7 +48,7 @@ cin=$(count_incoming)
 cout=$(count_outgoing)
 
 [[ "$dirty" -eq 0 && "$cout" -eq 0 && "cin" -ne 0 ]] && {
-  echo_incoming
+  echoc_incoming
   fast_forward
 }
 
@@ -47,8 +56,8 @@ cout=$(count_outgoing)
 [[ "$project" == .metadata || "$project" == notes ]] && dirty=0
 
 
-echo_state dirty $dirty
-echo_state in    $cin
-echo_state out   $cout
+echoc_dirty $dirty
+echoc_in    $cin
+echoc_out   $cout
 
 exit 0
