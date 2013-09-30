@@ -91,6 +91,14 @@ type -P thg &> /dev/null && {
 
 type -P grails &> /dev/null && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
+  grails() {
+      if [[ -x ./grailsw ]]; then
+          ./grailsw "$@"
+      else
+          "$GRAILS_HOME"/bin/grails "$@"
+      fi
+  }
+
   alias gc='grails clean'
   alias gp='grails package'
   alias gpn='grails package --non-interactive'
