@@ -29,7 +29,7 @@ hg push
 echo # newline
 
 if [[ $(grailsproject grails) == 2.* ]]; then
-    grails publish-plugin --non-interactive --message="RELEASE $version"
+    ./grailsw publish-plugin --non-interactive --message="RELEASE $version"
 else
     grails release-plugin --non-interactive \
                           --message="RELEASE $version" \
