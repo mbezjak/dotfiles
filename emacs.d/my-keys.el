@@ -37,6 +37,7 @@
 (global-set-key (kbd "M-<f8>")  'ido-switch-buffer)
 (global-set-key (kbd "M-<f9>")  'previous-buffer)
 (global-set-key (kbd "M-<f10>") 'next-buffer)
+(global-set-key (kbd "<f12> d") 'org-decrypt-entry)
 (global-set-key (kbd "C-x \\")  'align-regexp)
 (global-set-key (kbd "C-x C-d") 'ido-dired)
 (global-set-key (kbd "M-[")     '(lambda () (interactive) (dired ".")))
