@@ -104,8 +104,6 @@ type -P grails &> /dev/null && {
   alias gt='grails test-app'
   alias gr='grails run-app'
   alias gr-sql='grails -Dlogsql=true run-app'
-  alias gi='grails install-plugin'
-  alias gu='grails uninstall-plugin'
   grailsdir() {
     local version=$(grailsproject grails)
     local project=$(grailsproject directory)
