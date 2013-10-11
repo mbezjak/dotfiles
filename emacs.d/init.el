@@ -23,7 +23,8 @@
       auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
       bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1
-      url-configuration-directory (my-managed-file "url/"))
+      url-configuration-directory (my-managed-file "url/")
+      require-final-newline t)
 
 (set-face-background 'mode-line "SkyBlue")
 
