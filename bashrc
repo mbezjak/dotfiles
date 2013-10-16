@@ -62,6 +62,10 @@ files()  {
   find -type f -iname "*$1*" -printf '%P\n' | \
       grep -ve '^.hg' -e '^.git' -e '^target' -e '^build'
 }
+t() {
+  local -r ext=$1
+  tree --prune -P '*.'$ext
+}
 backup() { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
   cd ~/Dropbox/notes
