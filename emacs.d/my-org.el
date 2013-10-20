@@ -60,6 +60,12 @@
 (fset 'my-org-agenda-sort
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([C-home 103 101 120 112 return tab 94 100 tab 103 102 117 116 117 return tab 94 100 tab 103 116 104 105 115 return 94 115 tab 24 19 tab] 0 "%d")) arg)))
 
+(fset 'my-org-hotd-to-journal
+   [?\C-a ?\C-s ?\\ ?\] ?\C-m ?  ?H ?O ?T ?D ?\C-a ?\C-c ?\C-w ?j ?o ?u ?r ?n ?a ?l return ?\C-x ?\C-s])
+
+(fset 'my-org-perception-to-journal
+   [?\C-a ?\C-s ?\\ ?\] ?\C-m ?  ?P ?E ?R ?C ?\C-a ?\C-c ?\C-w ?j ?o ?u ?r ?n ?a ?l return ?\C-x ?\C-s])
+
 (put 'my-actually-i-did-it-yesterday 'kmacro t)
 
 
