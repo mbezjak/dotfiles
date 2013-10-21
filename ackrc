@@ -1,4 +1,5 @@
 --smart-case
+--follow
 
 --type-add=markdown:ext:markdown,md
 --type-add=rst:ext:rst
