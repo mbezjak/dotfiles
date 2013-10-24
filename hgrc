@@ -32,6 +32,7 @@ hastag = !$HG --quiet tags | grep "^$1\$"
 
 [tortoisehg]
 guifork = True
+activatebookmarks = auto
 
 # override defaults in a file that is not version controlled
 %include ~/.hgrc.local
