@@ -23,6 +23,16 @@
   (interactive)
   (kill-buffer))
 
+(defun my-duplicate-line ()
+  "Duplicate current line."
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank))
+
 (autoload 'magit-get-top-dir "magit")
 (defun my-repo-status ()
   "Open git or hg status buffer."
