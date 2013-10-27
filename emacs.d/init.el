@@ -84,7 +84,7 @@
 
 (eval-after-load "magit"
   '(progn
-     (set-face-background 'magit-item-highlight "LemonChiffon")))
+     (set-face-background 'magit-item-highlight "DarkSeaGreen1")))
 
 (projectile-global-mode)
 (setq projectile-enable-caching t
