@@ -96,6 +96,7 @@ type -P grails &> /dev/null && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
   grails() {
       if [[ -x ./grailsw ]]; then
+          echo grails 2.3.1 eats the current prompt
           ./grailsw "$@"
       else
           "$GRAILS_HOME"/bin/grails "$@"
