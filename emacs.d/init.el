@@ -84,7 +84,7 @@
 
 (eval-after-load "magit"
   '(progn
-     (set-face-background 'magit-item-highlight "cornsilk")))
+     (set-face-background 'magit-item-highlight "PaleGoldenrod")))
 
 (projectile-global-mode)
 (setq projectile-enable-caching t
