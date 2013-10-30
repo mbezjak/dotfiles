@@ -12,5 +12,8 @@
 --ignore-directory=is:build
 --ignore-directory=is:generated-doc
 --ignore-directory=is:.metadata
+--ignore-directory=is:xforeign
+--ignore-directory=is:xattic
+--ignore-directory=is:xincubation
 --ignore-file=ext:cache
 --ignore-file=match:/[.-]all[.]js$/
