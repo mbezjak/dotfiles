@@ -7,6 +7,9 @@
 
 set -o errexit
 
+function die  { exit 1; }
+function fail { echo "$@"; die; }
+
 $0
 
 exit 0
