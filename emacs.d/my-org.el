@@ -21,7 +21,7 @@
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
       org-mobile-directory "~/Dropbox/MobileOrg"
-      org-mobile-inbox-for-pull (my-org-note "mobile")
+      org-mobile-inbox-for-pull (my-org-note "refile")
       org-mobile-agendas '("m")
       org-latex-preview-ltxpng-directory (my-managed-file "ltxpng/")
       org-id-locations-file (my-managed-file "org-id-locations")
