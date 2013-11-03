@@ -3,17 +3,17 @@
         s
         f
         web
+
+        ; starter-kit dependencies
         paredit
         idle-highlight-mode
         find-file-in-project
         smex
         ido-ubiquitous
+
+
         magit
         monky
-        starter-kit
-        starter-kit-bindings
-        starter-kit-eshell
-        starter-kit-lisp
         haskell-mode
         ghc
         coffee-mode

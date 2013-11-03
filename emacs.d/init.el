@@ -64,6 +64,10 @@
 (eval-after-load "starter-kit-defuns"
   '(progn
      (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)))
+(require 'starter-kit)
+(require 'starter-kit-bindings)
+(require 'starter-kit-eshell)
+(require 'starter-kit-lisp)
 
 
 (require 'switch-window)
