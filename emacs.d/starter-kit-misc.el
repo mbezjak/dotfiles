@@ -64,16 +64,6 @@
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
-;; Set this to whatever browser you use
-;; (setq browse-url-browser-function 'browse-url-firefox)
-;; (setq browse-url-browser-function 'browse-default-macosx-browser)
-;; (setq browse-url-browser-function 'browse-default-windows-browser)
-;; (setq browse-url-browser-function 'browse-default-kde)
-;; (setq browse-url-browser-function 'browse-default-epiphany)
-;; (setq browse-url-browser-function 'browse-default-w3m)
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "~/src/conkeror/conkeror")
-
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
