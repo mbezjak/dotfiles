@@ -24,6 +24,7 @@
       bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1
       url-configuration-directory (my-managed-file "url/")
+      smex-save-file (my-managed-file "smex-items")
       require-final-newline t)
 
 (set-face-background 'mode-line "SkyBlue")
@@ -64,7 +65,11 @@
 (eval-after-load "starter-kit-defuns"
   '(progn
      (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)))
-(require 'starter-kit)
+(require 'uniquify)
+(require 'starter-kit-defuns)
+(require 'starter-kit-misc)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
 (require 'starter-kit-bindings)
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
