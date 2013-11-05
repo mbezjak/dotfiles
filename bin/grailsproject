@@ -48,7 +48,7 @@ def find_group(pattern, original):
 build_config_text = text('grails-app/conf/BuildConfig.groovy')
 app_text          = text('application.properties')
 
-put('is_project', build_config_text is not None)
+put('is_project', app_text is not None)
 put('directory', path.basename(path.abspath('.')))
 
 if app['is_project']:
