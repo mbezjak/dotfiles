@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: val
+# key: val
+# --
+declare -r ${1:version}=${2:1.0}
