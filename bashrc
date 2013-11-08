@@ -97,6 +97,7 @@ type -P grails &> /dev/null && {
   grails() {
       if [[ -x ./grailsw ]]; then
           ./grailsw -plain-output "$@"
+          echo # newline because `grails package` doesn't end with one
       else
           "$GRAILS_HOME"/bin/grails "$@"
       fi
