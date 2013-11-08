@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: New changelog
 # key: newclog
+# expand-env: ((yas/indent-line 'fixed))
 # --
 .. _rn$1:
 
