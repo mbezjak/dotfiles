@@ -12,6 +12,7 @@
         ido-ubiquitous
 
 
+        free-keys
         magit
         monky
         haskell-mode
