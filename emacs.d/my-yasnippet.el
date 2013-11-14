@@ -1,5 +1,11 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(setq yas-new-snippet-default "\
+# -*- mode: snippet -*-
+# name: $1
+# key: ${2:${1:$(yas--key-from-desc yas-text)}}
+# --
+$0")
 (yas/global-mode 1)
 
 (defun my-yas-buffer-class-name ()
