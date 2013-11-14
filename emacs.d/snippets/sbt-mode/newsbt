@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New sbt build
 # key: newsbt
 # --
 name := "${1:foo}"

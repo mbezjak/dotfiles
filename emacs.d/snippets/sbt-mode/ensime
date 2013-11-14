@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Add ensime plugin
 # key: ensime
 # --
 addSbtPlugin("org.ensime" % "ensime-sbt-cmd" % "0.1.2")

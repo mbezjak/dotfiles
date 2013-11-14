@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New spock unit test
 # key: spockunit
 # --
 import spock.lang.*

@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: final
 # key: final
 # --
 final ${1:String} ${2:name}

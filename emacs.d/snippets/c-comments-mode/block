@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Block comment
 # key: **
 # expand-env: ((yas/indent-line 'fixed))
 # --

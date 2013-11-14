@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: func
 # key: func
 # --
 function ${1:name} {

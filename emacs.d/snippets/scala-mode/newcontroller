@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New play controller
 # key: newcontroller
 # --
 package controllers

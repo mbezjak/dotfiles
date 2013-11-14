@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: li
 # key: li
 # --
 <li>$0</li>

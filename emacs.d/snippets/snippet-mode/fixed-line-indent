@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Use fixed line indent
 # key: fi
 # --
 # expand-env: ((yas/indent-line 'fixed))

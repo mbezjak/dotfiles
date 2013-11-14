@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New bug report
 # key: newbug
 # --
 ** ${1:grails jira}: ${2:summary line} [0/3]

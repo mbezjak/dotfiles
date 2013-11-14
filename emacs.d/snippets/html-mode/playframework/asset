@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: routes.Assets.at
 # key: asset
 # --
 @routes.Assets.at("${1:css/boostrap.min.css}")

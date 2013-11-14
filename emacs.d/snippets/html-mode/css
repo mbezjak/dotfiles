@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: css
 # key: css
 # --
 <link href="${1:css/bootstrap.min.css}" rel="stylesheet" media="screen" />

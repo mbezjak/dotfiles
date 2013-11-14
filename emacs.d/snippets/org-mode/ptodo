@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Default project TODOs
 # key: ptodo
 # --
 ** ${1:project-name} ${2:1.0} [/]

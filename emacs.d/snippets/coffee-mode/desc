@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: describe
 # key: desc
 # expand-env: ((yas/indent-line 'fixed))
 # --

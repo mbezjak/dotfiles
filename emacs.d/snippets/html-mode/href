@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: a href
 # key: href
 # --
 <a href="$1">$2</a>

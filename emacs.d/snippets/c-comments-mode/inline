@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Inline block comment
 # key: *
 # --
 /** $0 */

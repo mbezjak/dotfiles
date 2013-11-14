@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: local
 # key: local
 # --
 local -r ${1:version}=${2:1.0}

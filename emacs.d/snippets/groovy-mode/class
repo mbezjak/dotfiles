@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: class
 # key: class
 # --
 class ${1:`(my-yas-buffer-class-name)`} {

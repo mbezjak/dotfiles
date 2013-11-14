@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New Groovy build
 # key: newgroovy
 # expand-env: ((yas/indent-line 'fixed))
 # --

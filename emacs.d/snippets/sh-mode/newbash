@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New bash script
 # key: newbash
 # --
 #!/bin/bash

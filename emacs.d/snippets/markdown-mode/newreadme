@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New readme
 # key: newreadme
 # expand-env: ((yas/indent-line 'fixed))
 # --

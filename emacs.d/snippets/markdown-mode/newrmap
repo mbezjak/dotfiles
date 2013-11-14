@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New roadmap
 # key: newrmap
 # expand-env: ((yas/indent-line 'fixed))
 # --

@@ -2,8 +2,7 @@
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (setq yas-new-snippet-default "\
 # -*- mode: snippet -*-
-# name: $1
-# key: ${2:${1:$(yas--key-from-desc yas-text)}}
+# key: $1
 # --
 $0")
 (yas/global-mode 1)

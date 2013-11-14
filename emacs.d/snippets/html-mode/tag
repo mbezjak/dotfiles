@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: Any tag
 # key: tag
 # --
 <$1>$0</$1>

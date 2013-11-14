@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: package
 # key: package
 # --
 package ${1:`(my-yas-buffer-package-name)`}

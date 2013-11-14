@@ -1,5 +1,4 @@
 # -*- mode: snippet -*-
-# name: New Shelly project
 # key: newshelly
 # expand-env: ((yas/indent-line 'fixed))
 # --
