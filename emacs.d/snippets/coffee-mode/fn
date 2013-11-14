@@ -3,7 +3,7 @@
 # expand-env: ((yas/indent-line 'fixed))
 # --
 ###*
-$3
+$2
 ###
 ${1:fn} = ->
     $0
