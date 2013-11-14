@@ -2,3 +2,5 @@
 # key: package
 # --
 package ${1:`(my-yas-buffer-package-name)`}
+
+$0
