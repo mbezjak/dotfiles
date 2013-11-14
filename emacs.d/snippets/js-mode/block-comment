@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Block comment
-# key: **
-# --
-/**
- * $0
- */
