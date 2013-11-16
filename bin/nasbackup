@@ -15,10 +15,20 @@ backup()     {
   shift 2
   rdiff-backup --verbosity 5 --print-statistics "$@" "$src" "$dest"
 }
+pacmandump() {
+  local -r dir=$to/pacman/$(date +%F)
+  mkdir --parents $dir
 
+  pacman -Qe > $dir/explicit
+  pacman -Qd > $dir/deps
+  pacman -Qm > $dir/foreign
+  pacman -Qdt > $dir/unrequired
+  pacman -Q --info > $dir/details
+}
 
 nasmount
 
+pacmandump
 backup bin bin
 backup Documents Documents
 backup Dropbox Dropbox --exclude '**/.dropbox.cache'
