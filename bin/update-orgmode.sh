@@ -16,7 +16,10 @@ git pull origin master
 declare -r latest=$(git tag | grep '^release' | sort --sort=version --reverse | head -n 1)
 declare -r shortlast=$(echo $latest | awk -F_ '{print $2}')
 
-[[ $current == $shortlast ]] && fail "Already at latest tag: $current"
+[[ $current == $shortlast ]] && {
+    git checkout $current
+    fail "Already at latest tag: $current"
+}
 
 git log --oneline "release_$current...$latest"
 git checkout -b $shortlast $latest
