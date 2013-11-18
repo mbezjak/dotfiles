@@ -15,8 +15,10 @@
 (defconst gommons-docs-js-cmd     "make doc")
 (defconst gommons-docs-refman-cmd "make html")
 
-(defvar gommons-referring-buffer nil
+(defvar-local gommons-referring-buffer nil
   "Name of buffer that issued `gommons-exec'. Only used in some circumstances.")
+
+(put 'gommons-referring-buffer 'permanent-local 't)
 
 (defvar gommons-key-map (make-keymap)
   "Keymap for Gommons minor mode.")
@@ -83,15 +85,16 @@
 
 (defun gommons-exec (basedir cmd &optional onfinish)
   "Execute shell CMD in BASEDIR as working directory."
-  (setq gommons-referring-buffer (buffer-name))
-
-  (let* ((buffer-name "*gommons*")
+  (let* ((current-buffer (buffer-name))
+         (buffer-name "*gommons*")
          (buffer-name-fn (lambda (mode) buffer-name))
          (compilation-scroll-output t))
     (pop-to-buffer buffer-name)
 
+    (setq gommons-referring-buffer current-buffer)
+
     (setq compilation-finish-functions nil)
-    (when onfinish (add-hook 'compilation-finish-functions onfinish) t t)
+    (when onfinish (add-hook 'compilation-finish-functions onfinish))
 
     (cd basedir)
     (compilation-start cmd nil buffer-name-fn)))
@@ -164,9 +167,9 @@
   "Create reference manual."
   (interactive)
   (gommons-exec gommons-refman-dir gommons-docs-refman-cmd
-     (lambda (buffer status)
-       (gommons-browse-manual
-        (file-name-sans-extension gommons-referring-buffer)))))
+   (lambda (buffer status)
+     (let ((ref (buffer-local-value 'gommons-referring-buffer buffer)))
+       (when ref (gommons-browse-manual (file-name-sans-extension ref)))))))
 
 
 ;; KEYS
