@@ -14,7 +14,6 @@
 (defconst gommons-test-unit-cmd   "grails test-app unit:")
 (defconst gommons-docs-js-cmd     "make doc")
 (defconst gommons-docs-refman-cmd "make html")
-(defconst gommons-release-cmd     "grailsrelease")
 
 (defvar gommons-referring-buffer nil
   "Name of buffer that issued `gommons-exec'. Only used in some circumstances.")
@@ -169,12 +168,6 @@
        (gommons-browse-manual
         (file-name-sans-extension gommons-referring-buffer)))))
 
-(defun gommons-release ()
-  "Publish new version of the plugin."
-  (interactive)
-  (when (yes-or-no-p "Confirm plugin release? ")
-    (gommons-exec gommons-root-dir gommons-release-cmd)))
-
 
 ;; KEYS
 (define-key gommons-key-map (kbd "M-G o") 'gommons-toggle-open-current)
@@ -182,7 +175,6 @@
 (define-key gommons-key-map (kbd "M-G u") 'gommons-test-unit)
 (define-key gommons-key-map (kbd "M-G d") 'gommons-docs-js)
 (define-key gommons-key-map (kbd "M-G m") 'gommons-docs-manual)
-(define-key gommons-key-map (kbd "M-G R") 'gommons-release)
 
 
 ;; MINOR MODE
