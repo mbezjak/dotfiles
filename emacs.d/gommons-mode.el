@@ -169,7 +169,7 @@
   (gommons-exec gommons-refman-dir gommons-docs-refman-cmd
    (lambda (buffer status)
      (let ((ref (buffer-local-value 'gommons-referring-buffer buffer)))
-       (when ref (gommons-browse-manual (file-name-sans-extension ref)))))))
+       (when ref (gommons-browse-manual (file-name-nondirectory (file-name-sans-extension ref))))))))
 
 
 ;; KEYS
