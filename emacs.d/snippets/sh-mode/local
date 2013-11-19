@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
 # key: local
 # --
-local -r ${1:version}=${2:1.0}
+local -r ${1:version}=$0

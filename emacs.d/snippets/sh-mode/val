@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
 # key: val
 # --
-declare -r ${1:version}=${2:1.0}
+declare -r ${1:version}=$0
