@@ -39,6 +39,7 @@ function try-to-browse-file {
 try-to-browse-file index.html
 try-to-browse-file html/index.html
 try-to-browse-file build/html/index.html
+try-to-browse-file build/reports/tests/index.html
 try-to-browse-file target/manual/html/index.html
 try-to-browse-file target/jsdoc/index.html
 try-to-browse-file target/dependency-report/index.html
