@@ -36,7 +36,7 @@ plugin_name=$(cd "$plugin" && grailsproject name)
 plugin_version=$(cd "$plugin" && grailsproject version)
 project_name=$(grailsproject directory)
 grails_version=$(grailsproject grails)
-installed_version=$(grailshasplugin "$plugin_name" | awk '{ print $2 }')
+installed_version=$(grailshasplugin "$plugin_name" | awk '{ print $2 }' | tr '\n' '|')
 if [[ "$installed_version" =~ ^latest\.(integration|release)$ ]]; then
     installed_version="$plugin_version"
 fi
