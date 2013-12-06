@@ -29,6 +29,7 @@ pacmandump() {
 nasmount
 
 pacmandump
+backup .kde4/share kde4-share
 backup bin bin
 backup Documents Documents
 backup Dropbox Dropbox --exclude '**/.dropbox.cache'
