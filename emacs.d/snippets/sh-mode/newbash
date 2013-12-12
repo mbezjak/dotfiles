@@ -6,8 +6,22 @@
 
 set -o errexit
 
-function die  { exit 1; }
-function fail { echo "$@"; die; }
+function color {
+    case "\$1" in
+        red)    tput -Txterm setaf 1 ;;
+        green)  tput -Txterm setaf 2 ;;
+        yellow) tput -Txterm setaf 3 ;;
+        reset)  tput -Txterm sgr0    ;;
+        *)      echo "Unknown color: \$1"; die ;;
+    esac
+
+    return 0
+}
+function error { color red; echo "$@"; color reset;   }
+function msg   { color green; echo "$@"; color reset; }
+function die   { exit 1; }
+function fail  { error "$@"; die; }
+
 
 $0
 
