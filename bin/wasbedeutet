@@ -11,6 +11,7 @@ function browse {
     local -r query="$1"
 
     firefox "http://dict.tu-chemnitz.de/dings.cgi?lang=en&service=deen&opterrors=0&optpro=0&query=$query"
+    firefox "http://dict.leo.org/ende/index_de.html#/search=$query&searchLoc=1"
     firefox "http://www.eudict.com/?lang=gercro&word=$query"
 
     # no longer in use
