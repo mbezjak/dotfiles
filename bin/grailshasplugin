@@ -16,7 +16,7 @@ function list-in {
     # http://stackoverflow.com/questions/2096490/print-second-last-column-field-in-awk
     # http://stackoverflow.com/questions/6271348/regex-to-replace-last-occurrence-of-a-string-in-each-line
     find "$1" -maxdepth 1 -mindepth 1 -printf '%f\n' | \
-        sed -e 's|-\([^-]*\)$| \1|'
+        sed -e 's|-\([[:digit:]]\+\.[[:digit:]]\+.*\)$| \1|'
 }
 
 function list {
