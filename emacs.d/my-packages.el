@@ -20,6 +20,7 @@
         coffee-mode
         groovy-mode
         scala-mode
+        clojure-mode
         js2-mode
         markdown-mode
         yasnippet
