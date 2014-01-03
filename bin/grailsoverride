@@ -1,74 +1,59 @@
 #!/bin/bash
 #
-# Override data of installed plugin with one given as argument $1. All files in
-# $1 are copied into $HOME/.grails/$version/$project/plugins/$plugin
-# overriding anything that existed before that. Usefull for testing plugins
-# before releasing them.
-#
-# example:
-#  $ grailsoverride foo
-#  # or
-#  $ grailsoverride $HOME/workspace/foo
 
 set -o errexit
 
-print_usage() {
+function color {
+    case "$1" in
+        red)    tput -Txterm setaf 1 ;;
+        green)  tput -Txterm setaf 2 ;;
+        yellow) tput -Txterm setaf 3 ;;
+        reset)  tput -Txterm sgr0    ;;
+        *)      echo "Unknown color: $1"; die ;;
+    esac
+
+    return 0
+}
+function error { color red; echo "$@"; color reset;   }
+function msg   { color green; echo "$@"; color reset; }
+function die   { exit 1; }
+function fail  { error "$@"; die; }
+function usage {
 local prog=$(basename $0)
 cat >&2 <<EOF
-$prog - override data of installed plugin with one given as argument
+$prog - install the plugin via 'grails.plugins.location' for easier testing
 
 SYNOPSIS
     $prog plugin_name
-    $prog plugin_dir
 
-Current directory should be grails application in which given plugin is already
+Current directory should be grails application in which given plugin should be
 installed!
 EOF
-
-exit 1
 }
 
-plugin="$1"
-[[ "$plugin" != */* ]] && plugin="$HOME/workspace/$plugin"
-[[ ! -d "$plugin" ]]   && print_usage
 
-plugin_name=$(cd "$plugin" && grailsproject name)
-plugin_version=$(cd "$plugin" && grailsproject version)
-project_name=$(grailsproject directory)
-grails_version=$(grailsproject grails)
-installed_version=$(grailshasplugin "$plugin_name" | awk '{ print $2 }')
-if [[ "$installed_version" =~ ^latest\.(integration|release)$ ]]; then
-    installed_version="$plugin_version"
+declare -r plugin="$1"
+declare -r dir="../$plugin"
+declare -r config=grails-app/conf/BuildConfig.groovy
+declare -r key="grails.plugin.location.$plugin"
+declare -r line="$key = '$dir'"
+
+
+# sanity checks
+[[ -z "$plugin" ]] && usage && die
+[[ ! -d "$dir" ]]  && fail "Plugin not found in '$dir'"
+[[ ! -f $config ]] && fail "'$config' not found"
+
+
+declare -r installed=$(grep --count --fixed-strings "$key" $config)
+if [[ $installed == 0 ]]; then
+    sed -i -e "/':$plugin:[a-zA-Z0-9.-]\+'/d" $config
+    echo "$line" >> $config
+    msg "$line"
+else
+    sed -i -e "/$key/d" $config
+    echo "Removed: $key"
 fi
 
-workdir="target/plugins/$plugin_name-$installed_version"
-[[ ! -d "$workdir" ]] && workdir="$HOME/.grails/$grails_version/projects/$project_name/plugins/$plugin_name-$installed_version"
-
-[[ -z "$plugin_version" || -z "$plugin_name" ]] && {
-    echo "$plugin must be a grails plugin" >&2
-    exit 2
-}
-[[ -z "$project_name" ]] && {
-    echo "$PWD must be a grails project" >&2
-    exit 3
-}
-[[ -z "$installed_version" ]] && {
-    echo "$plugin_name must be installed in $PWD" >&2
-    exit 4
-}
-[[ "$installed_version" != "$plugin_version" ]] && {
-    echo "Plugin version mismatch; installed: $installed_version, plugin: $plugin_version" >&2
-    exit 5
-}
-[[ ! -d "$workdir" ]] && {
-    echo "$workdir must exist. Run: grails package" >&2
-    exit 6
-}
-
-rsync --checksum --archive --delete --prune-empty-dirs --verbose \
-    --exclude=.*      \
-    --exclude=*.zip   \
-    --exclude=target/ \
-    "$plugin/" "$workdir/"
 
 exit 0
