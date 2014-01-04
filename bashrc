@@ -182,3 +182,8 @@ _$name() {
 
 cd_alias cw "$HOME/workspace"
 cd_alias ct /tmp
+
+
+# randomized learning
+# http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178
+whatis $(ls /usr/bin | shuf -n 1)
