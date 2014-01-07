@@ -31,6 +31,9 @@
                            (my-org-note-agenda :maxlevel . 2)
                            (my-org-note-pool   :maxlevel . 1)))
 
+;; https://aur.archlinux.org/packages/plantuml/
+(setq org-plantuml-jar-path "/opt/plantuml/plantuml.jar")
+
 (add-to-list 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
 
 (eval-after-load "org"
@@ -40,6 +43,7 @@
 
      (org-babel-do-load-languages 'org-babel-load-languages
                                   '((gnuplot . t)
+                                    (plantuml . t)
                                     (sh . t)
                                     (emacs-lisp . t)))
 
