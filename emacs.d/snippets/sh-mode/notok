@@ -2,7 +2,7 @@
 # key: notok
 # --
 trap onexit EXIT
-onexit() {
+function onexit {
     local exit_status=\${1:-$?}
     [[ $exit_status -ne 0 ]] && fail "NOT OK"
     exit $exit_status
