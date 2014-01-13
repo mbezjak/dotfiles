@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+function color {
+    case "$1" in
+        red)    tput -Txterm setaf 1 ;;
+        green)  tput -Txterm setaf 2 ;;
+        yellow) tput -Txterm setaf 3 ;;
+        reset)  tput -Txterm sgr0    ;;
+        *)      echo "Unknown color: $1"; die ;;
+    esac
+
+    return 0
+}
+function error { color red; echo "$@"; color reset;   }
+function msg   { color green; echo "$@"; color reset; }
+function die   { exit 1; }
+function fail  { error "$@"; die; }
+
+trap onexit EXIT
+onexit() {
+    local exit_status=${1:-$?}
+    [[ $exit_status -ne 0 ]] && fail "NOT OK"
+    exit $exit_status
+}
+
+
+
+if [[ -f release.sh ]]; then
+    ./release.sh "$@"
+elif [[ $(find -maxdepth 1 -name '*GrailsPlugin.groovy' | wc -l) == 1 ]]; then
+    grailsrelease
+else
+    fail "Do not recognize the project: $(basename $PWD)"
+fi
+
+msg OK
+
+exit 0
