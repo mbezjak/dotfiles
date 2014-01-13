@@ -4,6 +4,6 @@
 trap onexit EXIT
 onexit() {
     local exit_status=\${1:-$?}
-    [[ $exit_status -ne 0 ]] && echo "$(tput setaf 1)NOT OK$(tput sgr0)"
+    [[ $exit_status -ne 0 ]] && fail "NOT OK"
     exit $exit_status
 }

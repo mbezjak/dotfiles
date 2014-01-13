@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
 # key: ok
 # --
-echo "$(tput setaf 2)OK$(tput sgr0)"
+msg OK
