@@ -42,6 +42,10 @@ elif [[ -x gradlew ]]; then
         fail "Unknown gradle project: $project"
     fi
 
+elif [[ -d app && -d conf && -f project/Build.scala ]]; then
+    play doc
+    open target/scala-*/api/index.html
+
 else
     fail "How to document: $project?"
 fi
