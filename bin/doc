@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+function color {
+    case "$1" in
+        red)    tput -Txterm setaf 1 ;;
+        green)  tput -Txterm setaf 2 ;;
+        yellow) tput -Txterm setaf 3 ;;
+        reset)  tput -Txterm sgr0    ;;
+        *)      echo "Unknown color: $1"; die ;;
+    esac
+
+    return 0
+}
+function error { color red; echo "$@"; color reset;   }
+function msg   { color green; echo "$@"; color reset; }
+function die   { exit 1; }
+function fail  { error "$@"; die; }
+function open  { firefox "$1" 2> /dev/null; }
+
+declare -r project=$(basename $PWD)
+
+
+if [[ -f src/docs/index.rst ]]; then
+    make -C src/docs html
+    open target/manual/html/index.html
+
+elif [[ -d src/main/javascript ]]; then
+    make doc
+    open target/jsdoc/index.html
+
+elif [[ -x gradlew ]]; then
+    if [[ -d src/main/groovy ]]; then
+        ./gradlew groovydoc
+        open build/docs/groovydoc/index.html
+    elif [[ -d src/main/java ]]; then
+        ./gradlew javadoc
+        open build/docs/javadoc/index.html
+    else
+        fail "Unknown gradle project: $project"
+    fi
+
+else
+    fail "How to document: $project?"
+fi
+
+exit 0
