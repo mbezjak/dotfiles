@@ -100,8 +100,6 @@ comment as a filename."
 (set-default 'imenu-auto-rescan t)
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
-;; (when (executable-find ispell-program-name)
-;;       (add-hook 'text-mode-hook 'turn-on-flyspell))
 
 (eval-after-load "ispell"
   '(when (executable-find ispell-program-name)
@@ -138,13 +136,6 @@ comment as a filename."
   '(progn
      (set-face-foreground 'magit-diff-add "green4")
      (set-face-foreground 'magit-diff-del "red3")))
-
-;; Get around the emacswiki spam protection
-(eval-after-load 'oddmuse
-  (add-hook 'oddmuse-mode-hook
-            (lambda ()
-              (unless (string-match "question" oddmuse-post)
-                (setq oddmuse-post (concat "uihnscuskc=1;" oddmuse-post))))))
 
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here
