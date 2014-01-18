@@ -68,9 +68,11 @@
     (switch-to-buffer-other-window (get-buffer-create "*Benefit*"))
     (org-mode)
     (flyspell-mode -1)
+    (read-only-mode -1)
     (erase-buffer)
 
     (insert "| Name | Benefit |\n")
+    (insert "|<70> | |\n")
     (insert "|--\n")
 
     (dolist (row tbl)
@@ -85,7 +87,7 @@
 
     (goto-char 2)
     (org-table-align)
-    (org-table-goto-line 2)
+    (org-table-goto-line 3)
     (org-table-goto-column 2)
     (org-table-sort-lines nil ?n)
 
