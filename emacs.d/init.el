@@ -30,12 +30,7 @@
 (set-face-background 'mode-line "SkyBlue")
 
 
-;; To use:
-;; cd ~/lib
-;; git clone git://orgmode.org/org-mode.git
-;; cd org-mode
-;; git checkout release_8.0.2 -b 8.0.2
-;; make autoloads
+;; Update with: $ ~/bin/update-orgmode.sh
 (when (file-directory-p "~/lib/org-mode/lisp")
   (add-to-list 'load-path "~/lib/org-mode/lisp"))
 
