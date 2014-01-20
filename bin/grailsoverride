@@ -50,6 +50,10 @@ declare -r line="$key = '$dir'"
 
 declare -r installed=$(grep --count --fixed-strings "$key" $config)
 if [[ $installed == 0 ]]; then
+    if [[ -f "$dir/$config" ]]; then
+        # grails doesn't work when `mavenRepo` is being passed a closure
+        sed -i -e 's/\(mavenRepo [^,]\+\),.*/\1/g' "$dir/$config"
+    fi
     sed -i -e "/':$pluginname:[a-zA-Z0-9.-]\+'/d" $config
     echo "$line" >> $config
     msg "$line"
