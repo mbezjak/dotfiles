@@ -35,8 +35,7 @@ EOF
 declare -r plugin="$1"
 declare -r dir="../$plugin"
 declare -r config=grails-app/conf/BuildConfig.groovy
-declare -r key="grails.plugin.location.$plugin"
-declare -r line="$key = '$dir'"
+declare -r aprop=application.properties
 
 
 # sanity checks
@@ -45,9 +44,13 @@ declare -r line="$key = '$dir'"
 [[ ! -f $config ]] && fail "'$config' not found"
 
 
+declare -r pluginname=$(grep app.name "$dir/$aprop" | awk -F= '{print $2}')
+declare -r key="grails.plugin.location.'$pluginname'"
+declare -r line="$key = '$dir'"
+
 declare -r installed=$(grep --count --fixed-strings "$key" $config)
 if [[ $installed == 0 ]]; then
-    sed -i -e "/':$plugin:[a-zA-Z0-9.-]\+'/d" $config
+    sed -i -e "/':$pluginname:[a-zA-Z0-9.-]\+'/d" $config
     echo "$line" >> $config
     msg "$line"
 else
