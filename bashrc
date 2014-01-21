@@ -3,6 +3,8 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
+function have { type -P "$1" &> /dev/null; }
+
 PS1='\[\e[1;32m\][\[\e[1;33m\]\W$(__git_ps1 "\[\e[1;31m\] (%s)")\[\e[1;32m\]]\$\[\e[0m\] '
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
@@ -25,7 +27,7 @@ alias vi='vim'
 [[ -d ~/.cabal/bin ]] && {
   export PATH="$PATH:$HOME/.cabal/bin"
 }
-type -P gem &> /dev/null && {
+have gem && {
   export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 }
 
@@ -74,26 +76,26 @@ org-notes-backup() {
 }
 
 # command dependent
-type -P emacs    &> /dev/null && alias e='emacs'
-type -P ack-grep &> /dev/null && alias ack='ack-grep'
-type -P python   &> /dev/null && alias serve='python -m SimpleHTTPServer'
-type -P python2  &> /dev/null && alias serve='python2 -m SimpleHTTPServer'
-type -P hoogle   &> /dev/null && alias h='hoogle --color --count=30'
-type -P dolphin  &> /dev/null && alias d='dolphin . &> /dev/null'
+have emacs    && alias e='emacs'
+have ack-grep && alias ack='ack-grep'
+have python   && alias serve='python -m SimpleHTTPServer'
+have python2  && alias serve='python2 -m SimpleHTTPServer'
+have hoogle   && alias h='hoogle --color --count=30'
+have dolphin  && alias d='dolphin . &> /dev/null'
 
-type -P git &> /dev/null && {
+have git && {
   alias g='git'
   alias gs='git s' # damn ghostscript; this typo happened view times to many
   complete -o bashdefault -o default -o nospace -F _git g
 }
 
-type -P thg &> /dev/null && {
+have thg && {
   alias hgl='thg log'
   alias hgc='thg commit'
   alias hgv='thg shelve'
 }
 
-type -P grails &> /dev/null && {
+have grails && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
   grails() {
       if [[ -x ./grailsw ]]; then
@@ -117,24 +119,24 @@ type -P grails &> /dev/null && {
   }
 }
 
-type -P mvn &> /dev/null && {
+have mvn && {
   export MAVEN_OPTS="-Xms256m -Xmx512m"
 }
 
-type -P systemctl &> /dev/null && {
+have systemctl && {
   alias s='sudo systemctl'
   alias sj='sudo journalctl'
 }
 
-type -P pacman &> /dev/null && {
+have pacman && {
   alias pu='sudo pacman --sync --refresh --sysupgrade'
-  type -P packer &> /dev/null && alias pu='packer -Syu'
+  have packer && alias pu='packer -Syu'
 
   alias paclog='less +G /var/log/pacman.log'
   alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
   pacedit() { sudo $EDITOR /etc/$1; }
   pacrm() { sudo rm --interactive /etc/$1.pacnew; }
-  type -P meld &> /dev/null && {
+  have meld && {
     pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
   }
 
