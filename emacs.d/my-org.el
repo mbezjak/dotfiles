@@ -44,6 +44,7 @@
      (org-babel-do-load-languages 'org-babel-load-languages
                                   '((gnuplot . t)
                                     (plantuml . t)
+                                    (dot . t)
                                     (sh . t)
                                     (emacs-lisp . t)))
 
