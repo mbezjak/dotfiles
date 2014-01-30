@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
-# key: css
+# key: includecss
 # --
 <link href="${1:css/bootstrap.min.css}" rel="stylesheet" media="screen" />
