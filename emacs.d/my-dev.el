@@ -9,7 +9,6 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save)
 
