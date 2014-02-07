@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: newbc
+# expand-env: ((yas/indent-line 'fixed))
+# --
+.. warning: Breaking Changes!
+
+ * $0
