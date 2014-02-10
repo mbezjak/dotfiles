@@ -19,7 +19,7 @@ version=$(grailsproject version)
     echo "Plugin has uncommited changes. Do a 'hg commit' first!" >&2
     exit 3
 }
-[[ -n $(hg hastag "$version") ]] && {
+repo-hastag "$version" && {
     echo "$plugin is already released under '$version'" >&2
     exit 4
 }
