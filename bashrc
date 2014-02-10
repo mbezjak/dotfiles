@@ -3,8 +3,6 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-function have { type -P "$1" &> /dev/null; }
-
 PS1='\[\e[1;32m\][\[\e[1;33m\]\W$(__git_ps1 "\[\e[1;31m\] (%s)")\[\e[1;32m\]]\$\[\e[0m\] '
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
@@ -18,6 +16,10 @@ HISTSIZE=10000         # 10k
 export EDITOR=vim
 export VISUAL=vim
 alias vi='vim'
+
+[[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
+[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
+
 [[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]] && {
   export PATH="$PATH:$HOME/bin"
 }
@@ -30,9 +32,6 @@ alias vi='vim'
 have gem && {
   export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 }
-
-[[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
-[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
 
 
 # modified commands
@@ -77,8 +76,6 @@ org-notes-backup() {
 # command dependent
 have emacs    && alias e='emacs'
 have ack-grep && alias ack='ack-grep'
-have python   && alias serve='python -m SimpleHTTPServer'
-have python2  && alias serve='python2 -m SimpleHTTPServer'
 have hoogle   && alias h='hoogle --color --count=30'
 have dolphin  && alias d='dolphin . &> /dev/null'
 
