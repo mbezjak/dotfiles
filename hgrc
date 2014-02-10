@@ -27,7 +27,6 @@ l = log --graph
 show = log --patch --rev
 last = log --limit 1 --stat
 last3 = log --limit 3 --stat
-dirty = !$HG status 2> /dev/null | wc -l
 hastag = !$HG --quiet tags | grep "^$1\$"
 
 [tortoisehg]

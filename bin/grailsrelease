@@ -15,7 +15,7 @@ version=$(grailsproject version)
     echo "$plugin isn't a mercurial project" >&2
     exit 2
 }
-[[ $(hg dirty) -ne 0 ]] && {
+[[ $(repo-dirty) -ne 0 ]] && {
     echo "Plugin has uncommited changes. Do a 'hg commit' first!" >&2
     exit 3
 }
