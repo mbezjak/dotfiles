@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# key: usagemore
+# --
+function usage {
+    local -r prog=\$(basename "\$0")
+    cat <<EOF
+\$prog - ${1:description}
+
+SYNOPSIS
+    \$prog ${2:ARG1}
+    \$prog $0
+EOF
+}
