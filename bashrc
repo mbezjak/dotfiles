@@ -88,15 +88,8 @@ have thg && {
 
 have grails && {
   export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
-  grails() {
-      if [[ -x ./grailsw ]]; then
-          ./grailsw -plain-output "$@"
-          echo # newline because `grails package` doesn't end with one
-      else
-          "$GRAILS_HOME"/bin/grails "$@"
-      fi
-  }
 
+  alias grails=run-grails
   alias gc='grails clean'
   alias gp='grails package'
   alias gpn='grails package --non-interactive'
@@ -108,6 +101,10 @@ have grails && {
     local project=$(grailsproject directory)
     cd "$HOME/.grails/$version/projects/$project" && pwd
   }
+}
+
+have gradle && {
+    alias gradle=run-gradle
 }
 
 have mvn && {
