@@ -58,11 +58,6 @@ alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias 7mms='xdg-open ~/Documents/health/7mms.png &'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
-search() { find -L -iname "*$1*" -printf '%P\n' | grep -ve '^.hg' -e '^.git'; }
-files()  {
-  find -L -type f -iname "*$1*" -printf '%P\n' | \
-      grep -ve '^.hg' -e '^.git' -e '^target' -e '^build'
-}
 t() {
   local -r ext=$1
   tree --prune -P '*.'$ext
