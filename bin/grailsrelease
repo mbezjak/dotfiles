@@ -5,7 +5,7 @@
 set -o errexit
 
 plugin="$PWD"
-version=$(grailsproject version)
+version=$(version)
 
 [[ -z "$version" ]] && {
     echo "$plugin isn't a grails plugin" >&2
@@ -28,7 +28,7 @@ hg tag "$version"
 hg push
 echo # newline
 
-if [[ $(grailsproject grails) == 2.* ]]; then
+if [[ $(container-version) == 2.* ]]; then
     ./grailsw publish-plugin --non-interactive --message="RELEASE $version"
 else
     grails release-plugin --non-interactive \

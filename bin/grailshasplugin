@@ -9,8 +9,8 @@
 set -o errexit
 
 declare -r plugin="$1"
-declare -r project=$(grailsproject directory)
-declare -r grailsVersion=$(grailsproject grails)
+declare -r project=$(project-dir)
+declare -r grailsVersion=$(container-version)
 
 function list-in {
     # http://stackoverflow.com/questions/2096490/print-second-last-column-field-in-awk

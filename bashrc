@@ -97,8 +97,8 @@ have grails && {
   alias gr='grails run-app'
   alias gr-sql='grails -Dlogsql=true run-app'
   grailsdir() {
-    local version=$(grailsproject grails)
-    local project=$(grailsproject directory)
+    local version=$(container-version)
+    local project=$(project-dir)
     cd "$HOME/.grails/$version/projects/$project" && pwd
   }
 }
