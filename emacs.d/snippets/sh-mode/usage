@@ -1,4 +1,4 @@
 # -*- mode: snippet -*-
 # key: usage
 # --
-function usage { echo "$(basename \$0) ${1:ARG}"; }
+function usage { echo "Usage: $(basename \$0) ${1:ARG}"; }
