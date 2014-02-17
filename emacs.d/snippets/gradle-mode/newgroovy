@@ -13,5 +13,5 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:${1:2.1.9}'
+    compile 'org.codehaus.groovy:groovy-all:${1:2.2.1}'
 }
