@@ -96,11 +96,6 @@ have grails && {
   alias gt='grails test-app'
   alias gr='grails run-app'
   alias gr-sql='grails -Dlogsql=true run-app'
-  grailsdir() {
-    local version=$(container-version)
-    local project=$(project-dir)
-    cd "$HOME/.grails/$version/projects/$project" && pwd
-  }
 }
 
 have gradle && {
