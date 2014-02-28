@@ -3,6 +3,7 @@
 (setq yas-new-snippet-default "\
 # -*- mode: snippet -*-
 # key: $1
+# name: $1
 # --
 $0")
 (yas/global-mode 1)
