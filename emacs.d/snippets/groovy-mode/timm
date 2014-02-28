@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: timm
+# --
+@groovy.transform.Immutable

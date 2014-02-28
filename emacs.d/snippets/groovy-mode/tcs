@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: tcs
+# --
+@groovy.transform.CompileStatic

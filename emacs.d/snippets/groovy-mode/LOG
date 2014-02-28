@@ -1,4 +1,0 @@
-# -*- mode: snippet -*-
-# key: LOG
-# --
-private static final Logger ${2:LOG} = LoggerFactory.getLogger(${1:`(my-yas-buffer-class-name)`})$0

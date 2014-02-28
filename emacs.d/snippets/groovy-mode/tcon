@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: tcon
+# --
+@groovy.transform.TupleConstructor

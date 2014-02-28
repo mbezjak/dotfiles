@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: tcan
+# --
+@groovy.transform.Canonical

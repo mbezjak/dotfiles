@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: tlog
+# --
+@groovy.util.logging.Slf4j
