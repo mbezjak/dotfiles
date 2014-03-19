@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # key: script
 # --
-<script type="text/javascript">
+<script>
     $0
 </script>
