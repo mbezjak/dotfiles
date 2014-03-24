@@ -6,3 +6,5 @@ name := "${1:foo}"
 version := "0.1"
 
 scalaVersion := "${2:2.10.3}"
+
+scalacOptions ++= Seq("-deprecation", "-feature")
