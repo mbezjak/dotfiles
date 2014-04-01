@@ -29,6 +29,8 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
+(global-subword-mode)
+
 
 ;; Update with: $ ~/bin/update-orgmode.sh
 (when (file-directory-p "~/lib/org-mode/lisp")
