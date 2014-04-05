@@ -20,30 +20,21 @@ alias vi='vim'
 [[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
 [[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
 
-[[ -d ~/bin && ":$PATH:" != *":$HOME/bin:"* ]] && {
-  export PATH="$PATH:$HOME/bin"
+function add-to-path {
+    declare -r dir=$(realpath --strip --canonicalize-missing "$1")
+    if [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]]; then
+        export PATH="$PATH:$dir"
+    fi
+    return 0
 }
-[[ -d ~/Dropbox/bin ]] && {
-  export PATH="$PATH:$HOME/Dropbox/bin"
-}
-[[ -d ~/workspace/poly-devel/bin ]] && {
-  export PATH="$PATH:$HOME/workspace/poly-devel/bin"
-}
-[[ -d ~/workspace/devilish/bin ]] && {
-  export PATH="$PATH:$HOME/workspace/devilish/bin"
-}
-[[ -d ~/.cabal/bin ]] && {
-  export PATH="$PATH:$HOME/.cabal/bin"
-}
-[[ -d ~/lib/visualvm ]] && {
-  export PATH="$PATH:$HOME/lib/visualvm/bin"
-}
-[[ -d ~/.cask/bin ]] && {
-  export PATH="$PATH:$HOME/.cask/bin"
-}
-have gem && {
-  export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
-}
+add-to-path ~/bin
+add-to-path ~/Dropbox/bin
+add-to-path ~/workspace/poly-devel/bin
+add-to-path ~/workspace/devilish/bin
+add-to-path ~/.cabal/bin
+add-to-path ~/.cask/bin
+add-to-path ~/lib/visualvm
+have gem && add-to-path "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 
 
 # modified commands
