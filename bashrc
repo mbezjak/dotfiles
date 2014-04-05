@@ -62,13 +62,13 @@ alias touchall='find -type f -exec touch {} \;'
 alias 7mms='xdg-open ~/Documents/health/7mms.png &'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
 t() {
-  local -r ext=$1
-  tree --prune -P '*.'$ext
+    local -r ext=$1
+    tree --prune -P '*.'$ext
 }
 backup() { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 org-notes-backup() {
-  cd ~/Dropbox/notes
-  git commit --message='Automated backup'
+    cd ~/Dropbox/notes
+    git commit --message='Automated backup'
 }
 
 # command dependent
@@ -78,27 +78,27 @@ have hoogle   && alias h='hoogle --color --count=30'
 have dolphin  && alias d='dolphin . &> /dev/null'
 
 have git && {
-  alias g='git'
-  alias gs='git s' # damn ghostscript; this typo happened few times too many
-  complete -o bashdefault -o default -o nospace -F _git g
+    alias g='git'
+    alias gs='git s' # damn ghostscript; this typo happened few times too many
+    complete -o bashdefault -o default -o nospace -F _git g
 }
 
 have thg && {
-  alias hgl='thg log'
-  alias hgc='thg commit'
-  alias hgv='thg shelve'
+    alias hgl='thg log'
+    alias hgc='thg commit'
+    alias hgv='thg shelve'
 }
 
 have grails && {
-  export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
+    export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
 
-  alias grails=run-grails
-  alias gc='grails clean'
-  alias gp='grails package'
-  alias gpn='grails package --non-interactive'
-  alias gt='grails test-app'
-  alias gr='grails run-app'
-  alias gr-sql='grails -Dlogsql=true run-app'
+    alias grails=run-grails
+    alias gc='grails clean'
+    alias gp='grails package'
+    alias gpn='grails package --non-interactive'
+    alias gt='grails test-app'
+    alias gr='grails run-app'
+    alias gr-sql='grails -Dlogsql=true run-app'
 }
 
 have gradle && {
@@ -106,66 +106,66 @@ have gradle && {
 }
 
 have mvn && {
-  export MAVEN_OPTS="-Xms256m -Xmx512m"
+    export MAVEN_OPTS="-Xms256m -Xmx512m"
 }
 
 have systemctl && {
-  alias s='sudo systemctl'
-  alias sj='sudo journalctl'
+    alias s='sudo systemctl'
+    alias sj='sudo journalctl'
 }
 
 have pacman && {
-  alias pu='sudo pacman --sync --refresh --sysupgrade'
-  have packer && alias pu='packer -Syu'
+    alias pu='sudo pacman --sync --refresh --sysupgrade'
+    have packer && alias pu='packer -Syu'
 
-  alias paclog='less +G /var/log/pacman.log'
-  alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
-  pacedit() { sudo $EDITOR /etc/$1; }
-  pacrm() { sudo rm --interactive /etc/$1.pacnew; }
-  have meld && {
-    pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
-  }
+    alias paclog='less +G /var/log/pacman.log'
+    alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
+    pacedit() { sudo $EDITOR /etc/$1; }
+    pacrm() { sudo rm --interactive /etc/$1.pacnew; }
+    have meld && {
+        pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
+    }
 
-  pacman-ls-updates() {
-    ls --time-style=iso -lrt /var/lib/pacman/local
-  }
-  pacman-installed() {
-    sort <(pacman -Qe | awk '{print $1}') <(pacman -Q -g base -g base-devel | awk '{print $2}') | uniq -u
-  }
+    pacman-ls-updates() {
+        ls --time-style=iso -lrt /var/lib/pacman/local
+    }
+    pacman-installed() {
+        sort <(pacman -Qe | awk '{print $1}') <(pacman -Q -g base -g base-devel | awk '{print $2}') | uniq -u
+    }
 
-  alias psp='sudo pacman --sync'
-  alias prs='sudo pacman --remove --recursive'
-  alias pss='pacman --sync --search'
-  alias psi='pacman --sync --info'
-  alias pqs='pacman --query --search'
-  alias pqi='pacman --query --info --info'
-  alias pql='pacman --query --list'
-  alias pqo='pacman --query --owns'
-  alias pqm='pacman --query --foreign'
-  alias pdt='pacman --query --deps --unrequired'
+    alias psp='sudo pacman --sync'
+    alias prs='sudo pacman --remove --recursive'
+    alias pss='pacman --sync --search'
+    alias psi='pacman --sync --info'
+    alias pqs='pacman --query --search'
+    alias pqi='pacman --query --info --info'
+    alias pql='pacman --query --list'
+    alias pqo='pacman --query --owns'
+    alias pqm='pacman --query --foreign'
+    alias pdt='pacman --query --deps --unrequired'
 }
 
 cd_alias() {
-  local name="$1"
-  local dir="$2"
+    local name="$1"
+    local dir="$2"
 
-  [[ -d "$dir" ]] && {
-    # example:
-    # ct() { cd "/tmp"; }
-    eval "$name() { cd \"$dir/\$1\"; }"
-    # example:
-    # _ct() {
-    #   local cur="${COMP_WORDS[COMP_CWORD]}"
-    #   COMPREPLY=($(cd "/tmp" && compgen -d "$cur"|sort))
-    # }
-    eval """
+    [[ -d "$dir" ]] && {
+        # example:
+        # ct() { cd "/tmp"; }
+        eval "$name() { cd \"$dir/\$1\"; }"
+        # example:
+        # _ct() {
+        #   local cur="${COMP_WORDS[COMP_CWORD]}"
+        #   COMPREPLY=($(cd "/tmp" && compgen -d "$cur"|sort))
+        # }
+        eval """
 _$name() {
   local cur=\"\${COMP_WORDS[COMP_CWORD]}\"
   COMPREPLY=(\$(cd \"$dir\" && compgen -d \"\$cur\"|sort))
 }
 """
-    complete -o nospace -S '/' -F "_$name" "$name"
-  }
+        complete -o nospace -S '/' -F "_$name" "$name"
+    }
 }
 
 cd_alias cw "$HOME/workspace"
