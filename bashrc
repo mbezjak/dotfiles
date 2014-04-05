@@ -26,6 +26,12 @@ alias vi='vim'
 [[ -d ~/Dropbox/bin ]] && {
   export PATH="$PATH:$HOME/Dropbox/bin"
 }
+[[ -d ~/workspace/poly-devel/bin ]] && {
+  export PATH="$PATH:$HOME/workspace/poly-devel/bin"
+}
+[[ -d ~/workspace/devilish/bin ]] && {
+  export PATH="$PATH:$HOME/workspace/devilish/bin"
+}
 [[ -d ~/.cabal/bin ]] && {
   export PATH="$PATH:$HOME/.cabal/bin"
 }
