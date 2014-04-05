@@ -59,9 +59,6 @@
 (move-text-default-bindings)
 
 
-(eval-after-load "starter-kit-defuns"
-  '(progn
-     (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)))
 (require 'uniquify)
 (require 'starter-kit-defuns)
 (require 'starter-kit-misc)
