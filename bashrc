@@ -32,6 +32,9 @@ alias vi='vim'
 [[ -d ~/lib/visualvm ]] && {
   export PATH="$PATH:$HOME/lib/visualvm/bin"
 }
+[[ -d ~/.cask/bin ]] && {
+  export PATH="$PATH:$HOME/.cask/bin"
+}
 have gem && {
   export PATH="$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 }

@@ -1,0 +1,34 @@
+(source melpa)
+
+(depends-on "dash")
+(depends-on "s")
+(depends-on "f")
+(depends-on "web")
+
+; starter-kit dependencies
+(depends-on "paredit")
+(depends-on "idle-highlight-mode")
+(depends-on "find-file-in-project")
+(depends-on "smex")
+(depends-on "ido-ubiquitous")
+
+; needed explicitly for some reason
+(depends-on "elisp-slime-nav")
+
+(depends-on "free-keys")
+(depends-on "magit")
+(depends-on "monky")
+(depends-on "haskell-mode")
+(depends-on "ghc")
+(depends-on "coffee-mode")
+(depends-on "groovy-mode")
+(depends-on "scala-mode")
+(depends-on "clojure-mode")
+(depends-on "js2-mode")
+(depends-on "markdown-mode")
+(depends-on "yasnippet")
+(depends-on "projectile")
+(depends-on "switch-window")
+(depends-on "bookmark+")
+(depends-on "move-text")
+(depends-on "htmlize")

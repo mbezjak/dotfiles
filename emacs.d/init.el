@@ -45,9 +45,9 @@
 (require 'my-keys)
 (load-file (concat user-emacs-directory "loaddefs.el"))
 
-;; el-get and melpa package initialization
-(require 'my-packages)
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
 
 
 ;;; INITS
