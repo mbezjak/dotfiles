@@ -54,7 +54,6 @@
 
 ;; org-agenda-custom-commands and org-capture-templates
 (load (concat org-directory "/org-custom"))
-(load "my-org-benefit.el")
 
 
 ;; kbd-macros
