@@ -99,6 +99,18 @@
 (add-to-list 'projectile-globally-ignored-directories "build")
 (add-to-list 'projectile-globally-ignored-files "*.log")
 
+(add-to-list 'projectile-test-files-suffices "Spec")
+(defun my-projectile-test-suffix-function (project-type)
+  (or (projectile-test-suffix project-type)
+      (when (member project-type '(grails)) "Spec")))
+(setq projectile-test-suffix-function 'my-projectile-test-suffix-function)
+
+(defvar my-projectile-grails '("application.properties" "grails-app"))
+(defadvice projectile-project-type (after my-projectile-project-type-after activate)
+  (when (projectile-verify-files my-projectile-grails)
+    (setq ad-return-value 'grails)))
+
+
 
 ;; To use:
 ;; $ pacman --sync perl-text-markdown
