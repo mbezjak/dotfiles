@@ -83,8 +83,19 @@
 (defun my-org-push-on-emacs-exit ()
   (when (functionp 'org-mobile-push) (org-mobile-push)))
 
+; http://lists.gnu.org/archive/html/emacs-orgmode/2014-02/msg00088.html
+(defun my-org-ask-clock-out ()
+  "Ask the user before clocking out.
+   This is a useful function for adding to `kill-emacs-query-functions'."
+  (if (and (featurep 'org-clock)
+           (funcall 'org-clocking-p)
+           (y-or-n-p "You are currently clocking time, clock out? "))
+      (org-clock-out)
+    t)) ; only fails on keyboard quit or error
+
 
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
 (add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
+(add-hook 'kill-emacs-query-functions 'my-org-ask-clock-out)
 
 (provide 'my-org)
