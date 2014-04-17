@@ -34,8 +34,6 @@
 ;; https://aur.archlinux.org/packages/plantuml/
 (setq org-plantuml-jar-path "/opt/plantuml/plantuml.jar")
 
-(add-to-list 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
-
 (eval-after-load "org"
   '(progn
      (add-to-list 'org-modules 'org-habit t)
@@ -87,6 +85,6 @@
 
 
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
-
+(add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
 
 (provide 'my-org)
