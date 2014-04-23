@@ -21,7 +21,7 @@ alias vi='vim'
 [[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
 
 function add-to-path {
-    declare -r dir=$(realpath --strip --canonicalize-missing "$1")
+    local -r dir=$(realpath --strip --canonicalize-missing "$1")
     if [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]]; then
         export PATH="$PATH:$dir"
     fi
