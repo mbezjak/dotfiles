@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: override
+# name: override
+# --
+@Override
+${1:int} ${2:add}(${int args}) {
+    $0
+}
