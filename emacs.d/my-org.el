@@ -10,10 +10,11 @@
       org-log-done       'time
       org-directory      "~/Dropbox/notes"
       my-org-note-agenda  (my-org-note "agenda")
+      my-org-note-habit   (my-org-note "habit")
       my-org-note-pool    (my-org-note "pool")
       my-org-note-archive (my-org-note "archive")
       org-default-notes-file my-org-note-pool
-      org-agenda-files       (list my-org-note-agenda)
+      org-agenda-files       (list my-org-note-agenda my-org-note-habit)
       org-archive-location   (concat my-org-note-archive "::")
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
@@ -28,7 +29,7 @@
       org-extend-today-until 5
       org-completion-use-ido t
       org-refile-targets '((nil :maxlevel . 1)
-                           (my-org-note-agenda :maxlevel . 2)
+                           (my-org-note-agenda :maxlevel . 1)
                            (my-org-note-pool   :maxlevel . 1)))
 
 ;; https://aur.archlinux.org/packages/plantuml/
