@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: classi
+# --
+class ${1:`(my-yas-buffer-class-name)`} implements ${2:What} {
+
+    $0
+
+}
