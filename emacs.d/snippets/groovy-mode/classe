@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: classe
+# --
+class ${1:`(my-yas-buffer-class-name)`} extends ${2:What} {
+
+    $0
+
+}
