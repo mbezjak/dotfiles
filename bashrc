@@ -143,6 +143,8 @@ have pacman && {
     alias pqo='pacman --query --owns'
     alias pqm='pacman --query --foreign'
     alias pdt='pacman --query --deps --unrequired'
+
+    function pqb { pacman --query --list "$1" | grep --color=never /usr/bin; }
 }
 
 cd_alias() {
