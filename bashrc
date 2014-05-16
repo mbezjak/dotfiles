@@ -145,6 +145,13 @@ have pacman && {
     alias pdt='pacman --query --deps --unrequired'
 
     function pqb { pacman --query --list "$1" | grep --color=never /usr/bin; }
+    function pqf {
+        pacman --query --list "$1"       | \
+            grep -v /usr/share/man/      | \
+            grep -v /usr/share/locale/   | \
+            grep -v /usr/share/licenses/ | \
+            grep -v /usr/include/
+    }
 }
 
 cd_alias() {
