@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: divc
+# name: divc
+# --
+<div class="$1">$0</div>
