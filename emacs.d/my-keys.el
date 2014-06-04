@@ -41,6 +41,7 @@
 (global-set-key (kbd "M-<f10>")    'next-buffer)
 (global-set-key (kbd "<f12> s")    'my-org-agenda-sort)
 (global-set-key (kbd "<f12> d")    'org-decrypt-entry)
+(global-set-key (kbd "<f12> p")    'my-project-version-at-point)
 (global-set-key (kbd "C-x \\")     'align-regexp)
 (global-set-key (kbd "C-x C-d")    'ido-dired)
 (global-set-key (kbd "M-[")        '(lambda () (interactive) (dired ".")))

@@ -33,6 +33,14 @@
   (next-line 1)
   (yank))
 
+(defun my-project-version-at-point ()
+  "Get the version for the project at point"
+  (interactive)
+  (let* ((project (thing-at-point 'symbol))
+         (cmd (format "cd ~/workspace/%s; version" project))
+         (version (shell-command-to-string cmd)))
+    (message "%s %s" project version)))
+
 (autoload 'magit-get-top-dir "magit")
 (defun my-repo-status ()
   "Open git or hg status buffer."
