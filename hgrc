@@ -31,6 +31,7 @@ last3 = log --limit 3 --stat
 [tortoisehg]
 guifork = True
 activatebookmarks = auto
+editor = kate
 
 # override defaults in a file that is not version controlled
 %include ~/.hgrc.local
