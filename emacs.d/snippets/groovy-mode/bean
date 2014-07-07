@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# key: bean
+# --
+${1:String} ${1:$(s-lower-camel-case yas-text)}
