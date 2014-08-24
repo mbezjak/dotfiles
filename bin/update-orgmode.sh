@@ -13,7 +13,7 @@ declare -r current=$(git rev-parse --abbrev-ref HEAD)
 git checkout master
 git fetch --tags origin master
 
-declare -r latest=$(git tag | grep '^release' | sort --sort=version --reverse | head -n 1)
+declare -r latest=$(git tag | grep '^release' | grep -v 'beta$' | grep -v 'alpha$' | grep -v 'pre$' | sort --sort=version --reverse | head -n 1)
 declare -r shortlast=$(echo $latest | awk -F_ '{print $2}')
 
 [[ $current == $shortlast ]] && {
