@@ -30,7 +30,12 @@
       org-completion-use-ido t
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-agenda :maxlevel . 1)
-                           (my-org-note-pool   :maxlevel . 1)))
+                           (my-org-note-pool   :maxlevel . 1))
+      org-agenda-prefix-format '((agenda . " %i %-10:c%?-12t% s %-8e")
+                                 (timeline . "  % s")
+                                 (todo . " %i %-12:c")
+                                 (tags . " %i %-12:c")
+                                 (search . " %i %-12:c")))
 
 ;; https://aur.archlinux.org/packages/plantuml/
 (setq org-plantuml-jar-path "/opt/plantuml/plantuml.jar")
