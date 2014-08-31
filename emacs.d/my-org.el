@@ -14,7 +14,7 @@
       my-org-note-pool    (my-org-note "pool")
       my-org-note-archive (my-org-note "archive")
       org-default-notes-file my-org-note-pool
-      org-agenda-files       (list my-org-note-agenda my-org-note-habit)
+      org-agenda-files       (list my-org-note-agenda my-org-note-habit my-org-note-pool)
       org-archive-location   (concat my-org-note-archive "::")
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
