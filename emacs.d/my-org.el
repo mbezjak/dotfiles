@@ -12,6 +12,7 @@
       my-org-note-agenda  (my-org-note "agenda")
       my-org-note-habit   (my-org-note "habit")
       my-org-note-pool    (my-org-note "pool")
+      my-org-note-journal (my-org-note "journal")
       my-org-note-archive (my-org-note "archive")
       org-default-notes-file my-org-note-pool
       org-agenda-files       (list my-org-note-agenda my-org-note-habit my-org-note-pool)
@@ -29,8 +30,9 @@
       org-extend-today-until 5
       org-completion-use-ido t
       org-refile-targets '((nil :maxlevel . 1)
-                           (my-org-note-agenda :maxlevel . 1)
-                           (my-org-note-pool   :maxlevel . 1))
+                           (my-org-note-journal :maxlevel . 1)
+                           (my-org-note-agenda  :maxlevel . 1)
+                           (my-org-note-pool    :maxlevel . 1))
       org-agenda-prefix-format '((agenda . " %i %-10:c%?-12t% s %-8e")
                                  (timeline . "  % s")
                                  (todo . " %i %-12:c")
