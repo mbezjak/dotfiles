@@ -72,4 +72,14 @@ def prettyPrintTime = { timeMap ->
 
 def model = source2model(source)
 def now = new Date().format('HH,mm')
-println model.akz.akz.findAll { it.time > now }.collect { prettyPrintTime(it) }.join('\n')
+
+def from = args.any { it == '--from-home' } ? 'smb' : 'akz'
+def absolute = args.any { it == '--absolute' }
+
+def lineTimes = model.akz."$from"
+if (!absolute) {
+    lineTimes = lineTimes.findAll { it.time > now }
+}
+
+println from == 'akz' ? 'akz->smb' : 'smb->akz'
+println lineTimes.collect { prettyPrintTime(it) }.join('\n')
