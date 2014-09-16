@@ -63,10 +63,11 @@ def source2model(source) {
 }
 
 def prettyPrintTime = { timeMap ->
-    timeMap.time +
-        (timeMap.novaki ? 'N' : '') +
-        (timeMap.kerestinec ? 'K' : '') +
-        (timeMap.star ? '*' : '')
+    def modifier = (timeMap.novaki ? 'N' : '') +
+                   (timeMap.kerestinec ? 'K' : '') +
+                   (timeMap.star ? '*' : '')
+
+    timeMap.time + (modifier ? " $modifier" : '')
 }
 
 def model = source2model(source)
