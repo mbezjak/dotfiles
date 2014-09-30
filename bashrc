@@ -109,6 +109,11 @@ have mvn && {
     export MAVEN_OPTS="-Xms256m -Xmx512m"
 }
 
+have go && {
+    export GOPATH=~/lib/gocode
+    add-to-path $GOPATH/bin
+}
+
 have systemctl && {
     alias s='sudo systemctl'
     alias sj='sudo journalctl'
