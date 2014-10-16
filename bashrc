@@ -77,6 +77,10 @@ have ack-grep && alias ack='ack-grep'
 have hoogle   && alias h='hoogle --color --count=30'
 have dolphin  && alias d='dolphin . &> /dev/null'
 
+[[ -z "$JAVA_HOME" && -d /usr/lib/jvm/default ]] && {
+    export JAVA_HOME=/usr/lib/jvm/default
+}
+
 have git && {
     alias g='git'
     alias gs='git s' # damn ghostscript; this typo happened few times too many
