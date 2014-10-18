@@ -76,6 +76,11 @@
 
 
 ;; functions
+(defun my-org-agenda-remove-later ()
+  "Remove agenda items with `later` tag."
+  (interactive)
+  (org-agenda-filter-apply '("-later") 'tag))
+
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
   (local-unset-key (kbd "C-c ["))
