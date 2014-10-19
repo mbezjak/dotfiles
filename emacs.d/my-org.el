@@ -79,7 +79,9 @@
 (defun my-org-agenda-remove-later ()
   "Remove agenda items with `later` tag."
   (interactive)
-  (org-agenda-filter-apply '("-later") 'tag))
+  (let ((tags '("-later")))
+    (setq org-agenda-tag-filter tags)
+    (org-agenda-filter-apply tags 'tag)))
 
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
