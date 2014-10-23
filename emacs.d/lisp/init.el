@@ -29,6 +29,8 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
+(add-hook 'focus-out-hook 'save-buffer)
+
 (global-subword-mode)
 
 
