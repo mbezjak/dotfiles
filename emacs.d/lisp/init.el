@@ -29,8 +29,6 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
-(add-hook 'focus-out-hook 'save-buffer)
-
 (global-subword-mode)
 
 
@@ -46,6 +44,8 @@
 (require 'my-dev)
 (require 'my-keys)
 (load-file (concat user-emacs-directory "lisp/loaddefs.el"))
+
+(add-hook 'focus-out-hook 'my-save-writable-buffer)
 
 
 (require 'cask "~/.cask/cask.el")

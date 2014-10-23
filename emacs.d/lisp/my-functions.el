@@ -49,5 +49,11 @@
       (magit-status ".")
     (monky-status)))
 
+(defun my-save-writable-buffer ()
+  "Save buffer that is not read-only"
+  (interactive)
+  (unless buffer-read-only
+    (save-buffer)))
+
 
 (provide 'my-functions)
