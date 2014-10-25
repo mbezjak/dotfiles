@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+function usage { echo "Usage: $(basename $0) FILE"; }
+declare -r file="$1"
+[[ ! -f "$file" ]] && usage && die
+
+sed 's/[[:alnum:]]/a/g' "$file"
+
+exit 0
