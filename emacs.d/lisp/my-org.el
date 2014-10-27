@@ -17,6 +17,7 @@
       org-default-notes-file my-org-note-pool
       org-agenda-files       (list my-org-note-agenda my-org-note-habit my-org-note-pool)
       org-archive-location   (concat my-org-note-archive "::")
+      org-global-properties '(("BENEFIT_ALL" . "1 2 3 4 5 6 7 8 0.5 0"))
       org-habit-show-habits-only-for-today nil
       org-habit-graph-column 70
       org-habit-show-done-always-green t
