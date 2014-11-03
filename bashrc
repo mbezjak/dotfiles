@@ -1,7 +1,7 @@
 #-*-Shell-Script-*-
 
-# Check for an interactive session
-[ -z "$PS1" ] && return
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 PS1='\[\e[1;32m\][\[\e[1;33m\]\W$(__git_ps1 "\[\e[1;31m\] (%s)")\[\e[1;32m\]]\$\[\e[0m\] '
 source /usr/share/git/completion/git-completion.bash
