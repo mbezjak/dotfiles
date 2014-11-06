@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+declare -r dir=~/Dropbox/pacman/$(computer-type)
+
+mkdir --parents $dir
+cd $dir
+pacman --query                     > all
+pacman --query --explicit          > explicit
+pacman --query --deps              > deps
+pacman --query --foreign           > foreign
+pacman --query --deps --unrequired > unrequired
+pacman --query --info              > details
+
+exit 0

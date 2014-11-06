@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+if at-laptop;         then echo laptop
+elif at-home-desktop; then echo home-desktop
+elif at-work-desktop; then echo work-desktop
+else                       echo unknown
+fi
+
+exit 0
