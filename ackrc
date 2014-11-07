@@ -12,6 +12,7 @@
 --ignore-directory=is:build
 --ignore-directory=is:generated-doc
 --ignore-directory=is:dotfiles/emacs.d/managed
+--ignore-directory=is:dotfiles/emacs.d/.cask
 --ignore-directory=is:.metadata
 --ignore-directory=is:xforeign
 --ignore-directory=is:xattic
