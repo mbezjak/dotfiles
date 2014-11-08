@@ -29,6 +29,7 @@ function add-to-path {
 }
 add-to-path ~/bin
 add-to-path ~/Dropbox/bin
+add-to-path ~/workspace/dotfiles/bin
 add-to-path ~/workspace/poly-devel/bin
 add-to-path ~/workspace/devilish/bin
 add-to-path ~/.cabal/bin

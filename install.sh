@@ -20,9 +20,6 @@ mkdir --parents ~/Documents
 mkdir --parents ~/downloads
 mkdir --parents --mode=700 ~/Dropbox
 mkdir --parents ~/workspace/{xattic,xforeign}
-for f in bin/*; do
-    install_link "$f" "$f"
-done
 
 install_link emacs.d .emacs.d
 
@@ -42,6 +39,13 @@ fi
 
 # remove dead symbolic links
 find ~/bin -type l ! -exec test -r {} \; -exec rm -i {} \;
+
+# remove old links that are no longer used
+for f in $(find ~/bin -type l); do
+    if [[ $(readlink -f "$f") = */dotfiles/bin/* ]]; then
+        rm "$f"
+    fi
+done
 
 echo done
 exit 0
