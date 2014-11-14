@@ -25,8 +25,14 @@ function __prompt_command {
     PS1="${statuscolor}${laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
 }
 export PROMPT_COMMAND=__prompt_command
-source /usr/share/git/completion/git-completion.bash
-source /usr/share/git/completion/git-prompt.sh
+
+function source-if {
+    local -r file="$1"
+    [[ -f "$file" ]] && source "$file"
+    return 0
+}
+source-if /usr/share/git/completion/git-completion.bash
+source-if /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -38,8 +44,8 @@ export EDITOR=vim
 export VISUAL=vim
 alias vi='vim'
 
-[[ -f /etc/profile.d/autojump.bash ]] && source /etc/profile.d/autojump.bash
-[[ -f ~/.napalm/profile ]] && source ~/.napalm/profile
+source-if /etc/profile.d/autojump.bash
+source-if ~/.napalm/profile
 
 function add-to-path {
     local -r dir=$(realpath --strip --canonicalize-missing "$1")
