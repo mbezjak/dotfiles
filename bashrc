@@ -3,7 +3,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='\[\e[1;32m\][\[\e[1;33m\]\W$(__git_ps1 "\[\e[1;31m\] (%s)")\[\e[1;32m\]]\$\[\e[0m\] '
+function __prompt_command {
+    local -r red='\[\e[1;31m\]'
+    local -r green='\[\e[1;32m\]'
+    local -r yellow='\[\e[1;33m\]'
+    local -r coloroff='\[\e[0m\]'
+    local -r cwd='\W'
+    local -r gitps1=$(__git_ps1 "$red (%s)")
+
+    PS1="${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
+}
+export PROMPT_COMMAND=__prompt_command
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=true
