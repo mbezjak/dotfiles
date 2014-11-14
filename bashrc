@@ -4,14 +4,25 @@
 [[ $- != *i* ]] && return
 
 function __prompt_command {
+    local -r laststatus=$?
+
+    # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash
+    local -r iwhite='\[\e[0;97m\]'
+    local -r ired='\[\e[0;91m\]'
     local -r red='\[\e[1;31m\]'
     local -r green='\[\e[1;32m\]'
     local -r yellow='\[\e[1;33m\]'
     local -r coloroff='\[\e[0m\]'
+
+    if [[ $laststatus == 0 ]]; then
+        local -r statuscolor="${iwhite}"
+    else
+        local -r statuscolor="${ired}"
+    fi
     local -r cwd='\W'
     local -r gitps1=$(__git_ps1 "$red (%s)")
 
-    PS1="${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
+    PS1="${statuscolor}${laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
 }
 export PROMPT_COMMAND=__prompt_command
 source /usr/share/git/completion/git-completion.bash
