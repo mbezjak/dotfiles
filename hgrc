@@ -22,6 +22,11 @@ git = True
 [extdiff]
 cmd.meld =
 
+[annotate]
+ignorews = True
+ignorewsamount = True
+ignoreblanklines = True
+
 [alias]
 l = log --graph
 show = log --patch --rev
