@@ -45,7 +45,7 @@
 (require 'my-keys)
 (load-file (concat user-emacs-directory "lisp/loaddefs.el"))
 
-(add-hook 'focus-out-hook 'my-save-writable-buffer)
+(my-register-buffer-save-on-focus-out)
 
 
 (require 'cask "~/.cask/cask.el")

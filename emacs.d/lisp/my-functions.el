@@ -56,5 +56,11 @@
               (minibufferp))
     (save-buffer)))
 
+(defun my-register-buffer-save-on-focus-out ()
+  (my-unregister-buffer-save-on-focus-out)
+  (add-hook 'focus-out-hook 'my-save-writable-buffer))
+
+(defun my-unregister-buffer-save-on-focus-out ()
+  (remove-hook 'focus-out-hook 'my-save-writable-buffer))
 
 (provide 'my-functions)
