@@ -216,6 +216,7 @@ _$name() {
 
 cd_alias cw "$HOME/workspace"
 cd_alias ct /tmp
+cd_alias dropdir "$HOME/Dropbox"
 
 
 # randomized learning
