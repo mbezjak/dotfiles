@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+if at-home-desktop; then
+    nasbackup
+elif at-work-desktop; then
+    workbackup
+else
+    fail "How to backup the files on this computer?"
+fi
+
+exit 0
