@@ -5,7 +5,7 @@ set -o errexit
 
 mountdir=/mnt/nas
 from="$HOME"
-to="$mountdir/backup/laptop"
+to="$mountdir/backup/archlinux-shire-laptop/rdiff-backup"
 
 nasmount()   { sudo mount.nfs nas:/mnt/ide1/public $mountdir; }
 nasunmount() { sudo umount $mountdir; }
