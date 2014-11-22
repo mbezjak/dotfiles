@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+mountdir=/mnt/nas
+from="$HOME"
+to="$mountdir/backup/laptop"
+
+nasmount()   { sudo mount.nfs nas:/mnt/ide1/public $mountdir; }
+nasunmount() { sudo umount $mountdir; }
+backup()     {
+  src="$from/$1"
+  dest="$to/$2"
+  shift 2
+  rdiff-backup --verbosity 5 --print-statistics "$@" "$src" "$dest"
+}
+
+nasmount
+
+pacman-dump
+backup .kde4/share kde4-share
+backup .mozilla mozilla
+backup bin bin
+backup Documents Documents
+backup Dropbox Dropbox --exclude '**/.dropbox.cache'
+backup lib lib
+backup workspace workspace --exclude '**.class' --exclude '**/bin' \
+                           --exclude '**/build' --exclude '**/target'
+
+nasunmount
+ls -al $mountdir
+
+exit 0

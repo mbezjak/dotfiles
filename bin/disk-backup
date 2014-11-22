@@ -7,6 +7,8 @@ if at-home-desktop; then
     nasbackup
 elif at-work-desktop; then
     workbackup
+elif at-laptop; then
+    laptopbackup
 else
     fail "How to backup the files on this computer?"
 fi
