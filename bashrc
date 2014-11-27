@@ -148,6 +148,7 @@ have go && {
 
 have systemctl && {
     alias s='sudo systemctl'
+    alias sg='systemctl -a list-units'
     alias sj='sudo journalctl'
 }
 
