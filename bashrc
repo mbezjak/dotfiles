@@ -83,12 +83,12 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias du1='du --max-depth=1 --human-readable'
 alias hist='history | grep'
-alias openports='netstat --all --numeric --programs --tcp'
 alias pg='ps -Afww | grep -i'
 alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias 7mms='xdg-open ~/Documents/health/7mms.png &'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
+openports() { ss --tcp --processes "$@" | sed '1d' | column -t; }
 t() {
     local -r ext=$1
     tree --prune -P '*.'$ext
