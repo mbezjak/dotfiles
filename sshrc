@@ -31,6 +31,7 @@ have ack-grep && alias ack=ack-grep
 
 have apt-get && {
     # identical interface to the one for pacman in `bashrc`
+    alias pu='sudo apt-get update && sudo apt-get upgrade'
     alias psp='sudo apt-get install'
     alias prs='sudo apt-get purge'
     alias pss='apt-cache search'
