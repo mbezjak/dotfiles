@@ -20,7 +20,6 @@ nasmount
 
 pacman-dump
 backup .kde4/share kde4-share
-backup .mozilla mozilla
 backup bin bin
 backup Documents Documents
 backup Dropbox Dropbox --exclude '**/.dropbox.cache'
