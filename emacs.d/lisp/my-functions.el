@@ -53,7 +53,8 @@
   "Save buffer that is not read-only"
   (interactive)
   (unless (or buffer-read-only
-              (minibufferp))
+              (minibufferp)
+              (equal "*scratch*" (buffer-name)))
     (save-buffer)))
 
 (defun my-register-buffer-save-on-focus-out ()
