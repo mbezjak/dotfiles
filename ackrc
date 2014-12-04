@@ -7,6 +7,7 @@
 --type-add=coffee:ext:coffee
 --type-add=jspec:ext:jspec
 --type-add=darwin:ext:drw
+--type-add=gettext:ext:po,pot
 
 --ignore-directory=is:target
 --ignore-directory=is:build
@@ -19,3 +20,4 @@
 --ignore-directory=is:xincubation
 --ignore-file=ext:cache
 --ignore-file=match:/[.-]all[.]js$/
+--nogettext
