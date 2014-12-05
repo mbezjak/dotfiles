@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# key: odrsearch
+# name: odrsearch
+# --
+<record id="${1:$(replace-regexp-in-string "\\\\." "_" yas-text t)}_search" model="ir.ui.view">
+  <field name="model">$1</field>
+  <field name="name">$1: search</field>
+  <field name="arch" type="xml">
+    <search>
+      $0
+    </search>
+  </field>
+</record>

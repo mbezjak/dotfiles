@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: odeach
+# name: odeach
+# --
+<t t-foreach="$1" t-as="$2">
+  $0
+</t>

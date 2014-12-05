@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# key: odrform
+# name: odrform
+# --
+<record id="${1:$(replace-regexp-in-string "\\\\." "_" yas-text t)}_form" model="ir.ui.view">
+  <field name="model">$1</field>
+  <field name="name">$1: form</field>
+  <field name="arch" type="xml">
+    <form>
+      <sheet>
+        $0
+      </sheet>
+    </form>
+  </field>
+</record>
