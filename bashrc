@@ -59,6 +59,7 @@ add-to-path ~/Dropbox/bin
 add-to-path ~/workspace/dotfiles/bin
 add-to-path ~/workspace/poly-devel/bin
 add-to-path ~/workspace/devilish/bin
+add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
 add-to-path ~/.cask/bin
 add-to-path ~/lib/visualvm
