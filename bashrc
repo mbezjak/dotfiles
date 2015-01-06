@@ -99,7 +99,7 @@ org-notes-backup() {
     cd ~/Dropbox/notes
     git commit --message='Automated backup'
 }
-function dropconfl { cd Dropbox && find -iname '*conflict*'; }
+function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
 
 # command dependent
 have emacs    && alias e='emacs'
