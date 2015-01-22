@@ -15,13 +15,6 @@
 (my-jump-macro my-jump-to-emacsd    "~/workspace/dotfiles/emacs.d")
 (my-jump-macro my-jump-to-snippets  "~/workspace/dotfiles/emacs.d/snippets")
 
-(define-prefix-command 'my-jump-map)
-(global-set-key (kbd "C-x c") 'my-jump-map)
-(define-key 'my-jump-map (kbd "c") 'my-jump-to-org-notes)
-(define-key 'my-jump-map (kbd "d") 'my-jump-to-dotfiles)
-(define-key 'my-jump-map (kbd "e") 'my-jump-to-emacsd)
-(define-key 'my-jump-map (kbd "s") 'my-jump-to-snippets)
-
 
 ;; org-mode keys
 (global-set-key (kbd "C-c a") 'org-agenda)
