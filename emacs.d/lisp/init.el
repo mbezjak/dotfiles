@@ -102,6 +102,10 @@
 (add-to-list 'projectile-globally-ignored-files "*.log")
 
 
+(eval-after-load "ace-jump-mode"
+  '(progn
+     (global-set-key (kbd "C-c SPC") 'ace-jump-mode)))
+
 
 
 ;; To use:
