@@ -37,7 +37,6 @@
 (global-set-key (kbd "<f12> p")    'my-project-version-at-point)
 (global-set-key (kbd "<f12> l")    'my-org-agenda-remove-later)
 (global-set-key (kbd "C-x \\")     'align-regexp)
-(global-set-key (kbd "C-x C-d")    'ido-dired)
 (global-set-key (kbd "M-[")        '(lambda () (interactive) (dired ".")))
 (global-set-key (kbd "M-]")        'ido-find-file)
 (global-set-key (kbd "C-]")        'my-jump-to-workspace)
