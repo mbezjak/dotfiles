@@ -22,7 +22,6 @@
 (depends-on "move-text")
 (depends-on "htmlize")
 (depends-on "free-keys")
-(depends-on "switch-window")
 (depends-on "bookmark+")
 (depends-on "ace-jump-mode")
 

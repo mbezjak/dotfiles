@@ -71,7 +71,6 @@
 (require 'starter-kit-lisp)
 
 
-(require 'switch-window)
 
 
 (require 'my-yasnippet)
