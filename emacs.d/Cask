@@ -24,6 +24,8 @@
 (depends-on "free-keys")
 (depends-on "bookmark+")
 (depends-on "ace-jump-mode")
+(depends-on "helm")
+(depends-on "helm-projectile")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")

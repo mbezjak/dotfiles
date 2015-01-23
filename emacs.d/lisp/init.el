@@ -54,26 +54,20 @@
 
 ;;; INITS
 
+(move-text-default-bindings)
 (require 'dash)
 (require 's)
 (require 'f)
-
-(move-text-default-bindings)
+(require 'my-helm)
+(require 'my-yasnippet)
 
 
 (require 'uniquify)
 (require 'starter-kit-defuns)
 (require 'starter-kit-misc)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
 (require 'starter-kit-bindings)
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
-
-
-
-
-(require 'my-yasnippet)
 
 
 (require 'bookmark+)
@@ -93,6 +87,8 @@
      (set-face-background 'magit-item-highlight "PaleGoldenrod")))
 
 (projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 (setq projectile-enable-caching t
       projectile-cache-file (my-managed-file "projectile.cache")
       projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
