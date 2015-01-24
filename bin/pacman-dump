@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 
-set -o errexit
-
 declare -r dir=~/Dropbox/pacman/$(computer-type)
 
 mkdir --parents $dir
