@@ -14,7 +14,8 @@
 
 (defun my-find-file-in-dir (dir)
   "Find file in DIR. Don't use filename or url at point."
-  (helm-find-files-1 (expand-file-name dir)))
+  (let ((pattern (f-full dir)))
+    (helm-find-files-1 pattern)))
 
 (defun my-kill-current-buffer ()
   "Kill current buffer."
