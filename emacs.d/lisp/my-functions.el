@@ -14,9 +14,7 @@
 
 (defun my-find-file-in-dir (dir)
   "Find file in DIR. Don't use filename or url at point."
-  (let ((ido-use-filename-at-point nil)
-        (ido-use-url-at-point nil))
-    (ido-find-file-in-dir dir)))
+  (helm-find-files-1 (expand-file-name dir)))
 
 (defun my-kill-current-buffer ()
   "Kill current buffer."

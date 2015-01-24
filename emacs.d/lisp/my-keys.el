@@ -10,10 +10,10 @@
 (defmacro my-jump-macro (fnname dir)
   `(defun ,fnname () (interactive) (my-find-file-in-dir ,dir)))
 (my-jump-macro my-jump-to-org-notes org-directory)
-(my-jump-macro my-jump-to-workspace "~/workspace")
-(my-jump-macro my-jump-to-dotfiles  "~/workspace/dotfiles")
-(my-jump-macro my-jump-to-emacsd    "~/workspace/dotfiles/emacs.d")
-(my-jump-macro my-jump-to-snippets  "~/workspace/dotfiles/emacs.d/snippets")
+(my-jump-macro my-jump-to-workspace "~/workspace/")
+(my-jump-macro my-jump-to-dotfiles  "~/workspace/dotfiles/")
+(my-jump-macro my-jump-to-emacsd    "~/workspace/dotfiles/emacs.d/")
+(my-jump-macro my-jump-to-snippets  "~/workspace/dotfiles/emacs.d/snippets/")
 
 
 ;; org-mode keys
