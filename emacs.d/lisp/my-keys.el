@@ -46,6 +46,7 @@
 (global-set-key (kbd "M-L")        'browse-url)
 (global-set-key (kbd "M-P")        'browse-url-at-point)
 (global-set-key (kbd "C-M-<down>") 'my-duplicate-line)
+(global-set-key (kbd "C-c SPC")    'ace-jump-mode)
 
 ;; must be set before projectile is loaded
 (setq projectile-keymap-prefix (kbd "M-F"))
