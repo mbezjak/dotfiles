@@ -66,7 +66,6 @@
   (global-set-key (kbd "C-M-%") 'query-replace)
 
   ;; File finding
-  (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
   (global-set-key (kbd "C-c y") 'bury-buffer)
   (global-set-key (kbd "C-c r") 'revert-buffer)
 
