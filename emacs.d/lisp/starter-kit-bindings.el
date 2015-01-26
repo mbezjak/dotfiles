@@ -65,9 +65,6 @@
   (global-set-key (kbd "C-M-r") 'isearch-backward)
   (global-set-key (kbd "C-M-%") 'query-replace)
 
-  ;; Jump to a definition in the current file. (Protip: this is awesome.)
-  (global-set-key (kbd "C-x C-i") 'imenu)
-
   ;; File finding
   (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
   (global-set-key (kbd "C-c y") 'bury-buffer)
