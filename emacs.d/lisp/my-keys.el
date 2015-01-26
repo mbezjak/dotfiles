@@ -1,8 +1,11 @@
+; avoiding mistakes
 (global-unset-key (kbd "C-x C-c"))    ; save-buffers-kill-terminal; shutdown with alt + F4
 (global-unset-key (kbd "C-z"))        ; suspend-frame
 (global-unset-key (kbd "C-x C-z"))    ; suspend-frame
 (global-unset-key (kbd "C-t"))        ; transpose-chars
 (global-unset-key (kbd "C-/"))        ; undo; use C-_
+
+; replaced by move-text
 (global-unset-key (kbd "C-M-<up>"))   ; backward-up-list
 (global-unset-key (kbd "C-M-<down>")) ; down-list
 
