@@ -33,5 +33,6 @@
 (depends-on "groovy-mode")
 (depends-on "scala-mode")
 (depends-on "clojure-mode")
+(depends-on "inf-clojure")
 (depends-on "js2-mode")
 (depends-on "markdown-mode")
