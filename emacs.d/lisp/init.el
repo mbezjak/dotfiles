@@ -27,6 +27,10 @@
       smex-save-file (my-managed-file "smex-items")
       require-final-newline t)
 
+
+;; Start garbage collection every 100MB to improve Emacs performance
+(setq gc-cons-threshold 100000000)
+
 (set-face-background 'mode-line "SkyBlue")
 
 (global-subword-mode)
