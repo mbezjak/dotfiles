@@ -70,13 +70,25 @@
 (fset 'my-correct-for-after-midnight
    [?\C-s ?< ?2 ?0 ?\C-m ?\C-s ?\\ ?\[ ?2 ?0 ?\C-m ?\C-c ?! ?\C-? ?\C-? ?\C-? ?\C-? ?\C-? ?2 ?3 ?: ?0 ?0 home ?- ?1 ?  ?\C-m ?\C-r ?\\ ?\[ ?\C-m ?\C-k ?\C-y ?\C-s ?L ?A ?S ?T ?\C-m ?\C-c ?\C-r ?\C-a tab ?\C-s ?\\ ?\[ ?2 ?0 ?\C-m ?\C-b ?\C-b ?\C-b S-insert ?\C-k])
 
-(fset 'my-org-agenda-sort
-   [C-home ?g ?E ?X ?P ?I ?R ?E ?S return tab ?^ ?t tab ?g ?D ?E ?A ?D ?L ?I ?N ?E ?D return tab ?^ ?t tab ?g ?S ?C ?H ?E ?D ?U ?L ?E ?D return tab ?^ ?t tab tab ?\C-x ?\C-s])
-
 (put 'my-actually-i-did-it-yesterday 'kmacro t)
 
 
 ;; functions
+(defun my-org-agenda-sort ()
+  (interactive)
+  (beginning-of-buffer)
+
+  (search-forward-regexp "^\* DEADLINED")
+  (beginning-of-line)
+  (org-sort-entries nil ?t)
+  (org-cycle)
+
+  (search-forward-regexp "^\* SCHEDULED")
+  (beginning-of-line)
+  (org-sort-entries nil ?t)
+  (org-cycle)
+  (org-cycle))
+
 (defun my-org-agenda-remove-later ()
   "Remove agenda items with `later` tag."
   (interactive)
