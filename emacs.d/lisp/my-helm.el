@@ -27,5 +27,6 @@
         helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
 
 (helm-mode 1)
+(helm-descbinds-mode)
 
 (provide 'my-helm)
