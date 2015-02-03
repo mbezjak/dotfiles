@@ -24,7 +24,6 @@
       bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1
       url-configuration-directory (my-managed-file "url/")
-      smex-save-file (my-managed-file "smex-items")
       require-final-newline t)
 
 

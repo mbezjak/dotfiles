@@ -13,8 +13,6 @@
 ; needed explicitly for some reason
 (depends-on "elisp-slime-nav")
 
-(depends-on "smex")
-(depends-on "ido-ubiquitous")
 (depends-on "magit")
 (depends-on "monky")
 (depends-on "yasnippet")
