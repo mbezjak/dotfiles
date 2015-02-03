@@ -29,7 +29,6 @@
       org-latex-preview-ltxpng-directory (my-managed-file "ltxpng/")
       org-id-locations-file (my-managed-file "org-id-locations")
       org-extend-today-until 5
-      org-completion-use-ido t
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-meta    :maxlevel . 1)
                            (my-org-note-agenda  :maxlevel . 1)
