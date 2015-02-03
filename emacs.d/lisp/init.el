@@ -17,8 +17,7 @@
               c-basic-offset 4
               fill-column    80)
 
-(setq ido-save-directory-list-file (my-managed-file "ido.last")
-      recentf-save-file (my-managed-file "recentf")
+(setq recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
       auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
       bookmark-default-file (my-managed-file "bookmarks")
