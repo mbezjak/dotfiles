@@ -53,7 +53,7 @@
       shift-select-mode nil
       mouse-yank-at-point t
       uniquify-buffer-name-style 'forward
-      whitespace-style '(face trailing lines-tail tabs)
+      whitespace-style '(face trailing tabs)
       whitespace-line-column 80
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory (concat user-emacs-directory "oddmuse")
