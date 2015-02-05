@@ -35,3 +35,5 @@
 (depends-on "inf-clojure")
 (depends-on "js2-mode")
 (depends-on "markdown-mode")
+
+(depends-on "4clojure")
