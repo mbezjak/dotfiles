@@ -43,19 +43,6 @@ Major mode for editing build.kin.
 
 ;;;***
 
-;;;### (autoloads (sbt-mode) "sbt-mode" "sbt-mode.el" (20880 55872
-;;;;;;  41340 985000))
-;;; Generated autoloads from sbt-mode.el
-
-(autoload 'sbt-mode "sbt-mode" "\
-Major mode for editing build.sbt.
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.sbt\\'" . sbt-mode))
-
-;;;***
-
 ;;;### (autoloads nil nil ("bmk-bmenu-state.el" "custom.el" "init.el"
 ;;;;;;  "my-dev.el" "my-functions.el" "my-keys.el" "my-org.el" "my-packages.el"
 ;;;;;;  "my-yasnippet.el") (20880 55888 484019 579000))
