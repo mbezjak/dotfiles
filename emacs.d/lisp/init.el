@@ -122,17 +122,8 @@
      (add-hook 'groovy-mode-hook 'my-groovy-not-electric)))
 
 
-;; To use:
-;; $ cd ~/lib
-;; $ hub clone aemoncannon/ensime
-;; $ cd ensime
-;; $ git checkout v2.10.0-0.9.8.8 -b 0.9.8.8
-;; $ sbt update stage
-(when (file-directory-p "~/lib/ensime/dist")
-  (add-to-list 'load-path "~/lib/ensime/dist/elisp")
-  (require 'ensime)
-  (eval-after-load "scala-mode"
-    (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)))
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 
 (eval-after-load "haskell-mode"

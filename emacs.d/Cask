@@ -32,6 +32,7 @@
 (depends-on "groovy-mode")
 (depends-on "scala-mode2")
 (depends-on "sbt-mode")
+(depends-on "ensime")
 (depends-on "clojure-mode")
 (depends-on "inf-clojure")
 (depends-on "js2-mode")
