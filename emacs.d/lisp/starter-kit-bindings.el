@@ -41,9 +41,6 @@
 
 ;;;###autoload
 (progn
-  ;; It's all about the project.
-  (global-set-key (kbd "C-c f") 'find-file-in-project)
-
   ;; Completion that uses many different methods to find options.
   (global-set-key (kbd "M-/") 'hippie-expand)
 

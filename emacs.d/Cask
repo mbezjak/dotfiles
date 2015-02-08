@@ -8,7 +8,6 @@
 ; starter-kit dependencies
 (depends-on "paredit")
 (depends-on "idle-highlight-mode")
-(depends-on "find-file-in-project")
 
 ; needed explicitly for some reason
 (depends-on "elisp-slime-nav")
