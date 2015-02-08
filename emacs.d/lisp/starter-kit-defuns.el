@@ -82,9 +82,6 @@
 (defun esk-prog-mode-hook ()
   (run-hooks 'prog-mode-hook))
 
-(defun esk-turn-off-tool-bar ()
-  (if (functionp 'tool-bar-mode) (tool-bar-mode -1)))
-
 (defun esk-untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
