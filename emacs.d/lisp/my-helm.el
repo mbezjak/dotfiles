@@ -1,4 +1,5 @@
 (require 'helm)
+(require 'helm-files)
 (require 'helm-config)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
@@ -11,6 +12,8 @@
 (global-set-key (kbd "M-<f8>") 'helm-for-files)
 (global-set-key (kbd "C-x C-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-o") 'helm-occur)
+
+(define-key helm-find-files-map (kbd "M-l") 'helm-find-files-up-one-level)
 
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-for-files-preferred-list '(helm-source-buffers-list
