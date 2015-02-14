@@ -15,7 +15,10 @@
 (column-number-mode t)
 (setq-default tab-width      4
               c-basic-offset 4
-              fill-column    80)
+              fill-column    80
+              indent-tabs-mode     nil
+              indicate-empty-lines t
+              imenu-auto-rescan    t)
 
 (setq recentf-save-file (my-managed-file "recentf")
       recentf-max-saved-items 50
@@ -32,6 +35,7 @@
 (set-face-background 'mode-line "SkyBlue")
 
 (global-subword-mode)
+(show-paren-mode)
 
 
 ;; Update with: $ ~/bin/update-orgmode.sh

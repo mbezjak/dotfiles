@@ -61,13 +61,6 @@
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
-;; Highlight matching parentheses when the point is on them.
-(show-paren-mode 1)
-
-(set-default 'indent-tabs-mode nil)
-(set-default 'indicate-empty-lines t)
-(set-default 'imenu-auto-rescan t)
-
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 (eval-after-load "ispell"
