@@ -68,8 +68,6 @@
 
   ;; Window switching. (C-x o goes to the next window)
   (windmove-default-keybindings) ;; Shift+direction
-  (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
-  (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
   ;; Start eshell or switch to it if it's active.
   (global-set-key (kbd "C-x m") 'eshell)
@@ -80,9 +78,6 @@
   ;; Start a regular shell if you prefer that.
   (global-set-key (kbd "C-x C-m") 'shell)
 
-  ;; If you want to be able to M-x without meta (phones, etc)
-  (global-set-key (kbd "C-c x") 'execute-extended-command)
-
   ;; Help should search more than just commands
   (define-key 'help-command "a" 'apropos)
 
@@ -91,18 +86,6 @@
 
   ;; M-S-6 is awkward
   (global-set-key (kbd "C-c q") 'join-line)
-
-  ;; So good!
-  (global-set-key (kbd "C-c g") 'magit-status)
-
-  ;; This is a little hacky since VC doesn't support git add internally
-  (eval-after-load 'vc
-    (define-key vc-prefix-map "i"
-      '(lambda () (interactive)
-         (if (not (eq 'Git (vc-backend buffer-file-name)))
-             (vc-register)
-           (shell-command (format "git add %s" buffer-file-name))
-           (message "Staged changes.")))))
 
   ;; Activate occur easily inside isearch
   (define-key isearch-mode-map (kbd "C-o")
