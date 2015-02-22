@@ -3,9 +3,7 @@
 
 set -o errexit
 
-if at-home-desktop; then
-    nasbackup
-elif at-work-desktop; then
+if at-work-desktop; then
     workbackup
 elif at-laptop; then
     laptopbackup
