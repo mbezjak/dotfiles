@@ -7,6 +7,7 @@ mkdir --parents $dir
 cd $dir
 pacman --query                     > all
 pacman --query --explicit          > explicit
+pacman-explicit-no-base            > explicit-no-base
 pacman --query --deps              > deps
 pacman --query --foreign           > foreign
 pacman --query --deps --unrequired > unrequired
