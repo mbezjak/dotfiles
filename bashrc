@@ -173,7 +173,7 @@ have pacman && {
     alias psp='sudo pacman --sync'
     alias prs='sudo pacman --remove --recursive'
     alias pss='pacman --sync --search'
-    alias psi='pacman --sync --info'
+    alias psi='pacman --sync --info --info'
     alias pqs='pacman --query --search'
     alias pqi='pacman --query --info --info'
     alias pql='pacman --query --list'
