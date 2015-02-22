@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+function all { pacman --query --quiet --explicit | sort; }
+function only-base { pacman --query --quiet --group base base-devel | sort; }
+
+comm -23 <(all) <(only-base)
+
+exit 0
