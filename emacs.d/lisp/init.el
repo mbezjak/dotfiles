@@ -28,6 +28,7 @@
       url-configuration-directory (my-managed-file "url/")
       require-final-newline t)
 
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;; Start garbage collection every 100MB to improve Emacs performance
 (setq gc-cons-threshold 100000000)
