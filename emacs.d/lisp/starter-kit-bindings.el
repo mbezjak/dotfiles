@@ -41,9 +41,6 @@
 
 ;;;###autoload
 (progn
-  ;; Completion that uses many different methods to find options.
-  (global-set-key (kbd "M-/") 'hippie-expand)
-
   ;; Perform general cleanup.
   (global-set-key (kbd "C-c n") 'esk-cleanup-buffer)
 

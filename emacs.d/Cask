@@ -21,6 +21,7 @@
 (depends-on "bookmark+")
 (depends-on "ace-jump-mode")
 (depends-on "ace-window")
+(depends-on "company")
 (depends-on "projectile")
 (depends-on "helm")
 (depends-on "helm-projectile")

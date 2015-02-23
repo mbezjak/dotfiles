@@ -76,6 +76,7 @@
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
 
+(add-hook 'after-init-hook 'global-company-mode)
 
 (require 'bookmark+)
 (setq bmkp-bmenu-state-file (my-managed-file "bmkp-bmenu-state-file.el")
