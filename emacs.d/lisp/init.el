@@ -88,10 +88,16 @@
 (set-face-foreground 'monky-diff-del  "red3")
 (setq monky-process-type 'cmdserver)
 
+(eval-after-load 'diff-mode
+  '(progn
+     (set-face-foreground 'diff-added "green4")
+     (set-face-foreground 'diff-removed "red3")))
 
 (eval-after-load "magit"
   '(progn
-     (set-face-background 'magit-item-highlight "PaleGoldenrod")))
+     (set-face-background 'magit-item-highlight "PaleGoldenrod")
+     (set-face-foreground 'magit-diff-add "green4")
+     (set-face-foreground 'magit-diff-del "red3")))
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
