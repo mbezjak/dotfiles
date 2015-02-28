@@ -120,22 +120,12 @@
           "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
           "culpa qui officia deserunt mollit anim id est laborum."))
 
-(defun esk-insert-date ()
-  "Insert a time-stamp according to locale's date and time format."
-  (interactive)
-  (insert (format-time-string "%c" (current-time))))
-
 (defun esk-paredit-nonlisp ()
   "Turn on paredit mode for non-lisps."
   (interactive)
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
        '((lambda (endp delimiter) nil)))
   (paredit-mode 1))
-
-;; A monkeypatch to cause annotate to ignore whitespace
-(defun vc-git-annotate-command (file buf &optional rev)
-  (let ((name (file-relative-name file)))
-    (vc-git-command buf 0 name "blame" "-w" rev)))
 
 (provide 'starter-kit-defuns)
 ;;; starter-kit-defuns.el ends here
