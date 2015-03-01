@@ -83,9 +83,5 @@
      ;; Add this back in at the end of the list.
      (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t)))
 
-(eval-after-load 'grep
-  '(when (boundp 'grep-find-ignored-files)
-     (add-to-list 'grep-find-ignored-files "*.class")))
-
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here
