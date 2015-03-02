@@ -30,6 +30,10 @@
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
+;; respect case when inserting into buffer, ignore case when searching for candidates
+(setq company-dabbrev-downcase nil
+      company-dabbrev-ignore-case 'yes)
+
 ;; Start garbage collection every 100MB to improve Emacs performance
 (setq gc-cons-threshold 100000000)
 
