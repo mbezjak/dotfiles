@@ -57,6 +57,23 @@
                                    (company-complete)
                                  (hippie-expand nil))))
 
+;; explore new modes
+(global-set-key (kbd "C-<f10>") 'menu-bar-mode)
+
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
+;; use regex search by default
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "M-%") 'query-replace-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "C-M-%") 'query-replace)
+
+;; shift + arrow keys
+(windmove-default-keybindings)
+
 ;; must be set before projectile is loaded
 (setq projectile-keymap-prefix (kbd "M-F"))
 

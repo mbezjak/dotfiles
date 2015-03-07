@@ -44,27 +44,9 @@
   ;; Perform general cleanup.
   (global-set-key (kbd "C-c n") 'esk-cleanup-buffer)
 
-  ;; Turn on the menu bar for exploring new modes
-  (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
-
-  ;; Font size
-  (define-key global-map (kbd "C-+") 'text-scale-increase)
-  (define-key global-map (kbd "C--") 'text-scale-decrease)
-
-  ;; Use regex searches by default.
-  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-  (global-set-key (kbd "\C-r") 'isearch-backward-regexp)
-  (global-set-key (kbd "M-%") 'query-replace-regexp)
-  (global-set-key (kbd "C-M-s") 'isearch-forward)
-  (global-set-key (kbd "C-M-r") 'isearch-backward)
-  (global-set-key (kbd "C-M-%") 'query-replace)
-
   ;; File finding
   (global-set-key (kbd "C-c y") 'bury-buffer)
   (global-set-key (kbd "C-c r") 'revert-buffer)
-
-  ;; Window switching. (C-x o goes to the next window)
-  (windmove-default-keybindings) ;; Shift+direction
 
   ;; Start eshell or switch to it if it's active.
   (global-set-key (kbd "C-x m") 'eshell)
@@ -88,7 +70,8 @@
   (define-key isearch-mode-map (kbd "C-o")
     (lambda () (interactive)
       (let ((case-fold-search isearch-case-fold-search))
-        (occur (if isearch-regexp isearch-string (regexp-quote isearch-string)))))))
+        (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
-(provide 'starter-kit-bindings)
+  (provide 'starter-kit-bindings)
 ;;; starter-kit-bindings.el ends here
+  )
