@@ -125,7 +125,6 @@
 
 (eval-after-load "coffee-mode"
   '(progn
-     (add-hook 'coffee-mode-hook 'esk-prog-mode-hook)
      (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)))
 
 
@@ -143,7 +142,6 @@
 
 (eval-after-load "haskell-mode"
   '(progn
-     (add-hook 'haskell-mode-hook 'esk-prog-mode-hook)
      (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
      (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
