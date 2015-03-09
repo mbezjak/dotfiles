@@ -8,7 +8,9 @@
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "M-]") 'helm-find-files)
+(global-set-key (kbd "M-[") 'helm-projectile-find-file)
+(global-set-key (kbd "M-]") 'projectile-switch-project)
+(global-set-key (kbd "C-M-]") 'helm-find-files)
 (global-set-key (kbd "M-<f8>") 'helm-for-files)
 (global-set-key (kbd "C-x C-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-o") 'helm-occur)
