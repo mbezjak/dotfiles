@@ -12,6 +12,9 @@
 ;; replaced by helm-occur
 (global-unset-key (kbd "M-o"))
 
+;; replaced by helm-swoop
+(global-unset-key (kbd "M-i"))
+
 ;; jump to directory
 (defmacro my-jump-macro (fnname dir)
   `(defun ,fnname () (interactive) (my-find-file-in-dir ,dir)))

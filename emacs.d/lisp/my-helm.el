@@ -14,6 +14,11 @@
 (global-set-key (kbd "M-<f8>") 'helm-for-files)
 (global-set-key (kbd "C-x C-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-o") 'helm-occur)
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+
+(define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
 (define-key helm-find-files-map (kbd "M-l") 'helm-find-files-up-one-level)
 
