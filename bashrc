@@ -176,7 +176,7 @@ have pacman && {
     alias psi='pacman --sync --info --info'
     alias pqs='pacman --query --search'
     alias pqi='pacman --query --info --info'
-    alias pas='package-query --aur'
+    alias pas='package-query --aur --search'
     alias pql='pacman --query --list'
     alias pqo='pacman --query --owns'
     alias pqm='pacman --query --foreign'
