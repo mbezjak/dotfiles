@@ -82,10 +82,6 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-(require 'bookmark+)
-(setq bmkp-bmenu-state-file (my-managed-file "bmkp-bmenu-state-file.el")
-      bmkp-last-as-first-bookmark-file nil)
-
 
 (require 'monky)
 (set-face-foreground 'monky-diff-add  "green4")
