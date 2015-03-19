@@ -20,4 +20,5 @@
 --ignore-directory=is:xincubation
 --ignore-file=ext:cache
 --ignore-file=match:/[.-]all[.]js$/
+--ignore-file=match:/[.]log([.]\d{4}[-]\d{2})?$/
 --nogettext
