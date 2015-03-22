@@ -102,9 +102,7 @@ org-notes-backup() {
 function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
 
 # command dependent
-have emacs    && alias e='emacs'
-have hoogle   && alias h='hoogle --color --count=30'
-have dolphin  && alias d='dolphin . &> /dev/null'
+have dolphin && alias d='dolphin . &> /dev/null'
 
 [[ -z "$JAVA_HOME" && -d /usr/lib/jvm/default ]] && {
     export JAVA_HOME=/usr/lib/jvm/default
