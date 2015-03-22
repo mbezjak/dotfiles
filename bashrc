@@ -103,7 +103,6 @@ function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
 
 # command dependent
 have emacs    && alias e='emacs'
-have ack-grep && alias ack='ack-grep'
 have hoogle   && alias h='hoogle --color --count=30'
 have dolphin  && alias d='dolphin . &> /dev/null'
 
