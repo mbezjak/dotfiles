@@ -13,4 +13,12 @@ pacman --query --foreign           > foreign
 pacman --query --deps --unrequired > unrequired
 pacman --query --info              > details
 
+
+rm -f npm
+for pkg in $(npm list --global --depth=0 --parseable=true); do
+    if ! pacman --query --owns $pkg &> /dev/null; then
+        echo $pkg >> npm
+    fi
+done
+
 exit 0
