@@ -18,7 +18,7 @@ backup()     {
 
 nasmount
 
-pacman-dump
+dump-package-list
 backup .kde4/share kde4-share
 backup bin bin
 backup Documents Documents

@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-declare -r dir=~/Dropbox/pacman/$(computer-type)
+declare -r dir=~/Dropbox/packages/$(computer-type)
 
 mkdir --parents $dir
 cd $dir
