@@ -23,4 +23,14 @@ if have npm; then
     done
 fi
 
+if have pip2; then
+    rm -f pip2
+    for pkg in $(pip2 list | awk '{print $1}'); do
+        location=$(pip2 show $pkg | awk '/Location:/{print $2}')
+        if ! pacman --query --owns "$location" &> /dev/null; then
+            echo "$pkg - $location" >> pip2
+        fi
+    done
+fi
+
 exit 0
