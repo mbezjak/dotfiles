@@ -45,7 +45,6 @@
 
 (setq visible-bell t
       inhibit-startup-message t
-      color-theme-is-global t
       sentence-end-double-space nil
       shift-select-mode nil
       mouse-yank-at-point t
