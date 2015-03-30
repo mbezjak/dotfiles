@@ -1,36 +1,47 @@
 #!/bin/bash
 #
 
-declare -r dir=~/Dropbox/packages/$(computer-type)
+function known-to-pacman {
+    local -r file="$1"
+    pacman --query --owns "$file" &> /dev/null
+}
+function list-npm {
+    local pkg
+    for pkg in $(npm list --global --depth=0 --parseable=true); do
+        if ! known-to-pacman $pkg; then
+            echo $pkg
+        fi
+    done
+    return 0
+}
+function list-python-eggs {
+    local -r pip="$1"
+    local pkg
+    local location
+    for pkg in $($pip list | awk '{print $1}'); do
+        location=$($pip show "$pkg" | awk '/Location:/{print $2}')
+        if ! known-to-pacman "$location"; then
+            echo "$pkg - $location"
+        fi
+    done
+    return 0
+}
 
+
+
+declare -r dir=~/Dropbox/packages/$(computer-type)
 mkdir --parents $dir
 cd $dir
-pacman --query                     > all
-pacman --query --explicit          > explicit
-pacman-explicit-no-base            > explicit-no-base
-pacman --query --deps              > deps
-pacman --query --foreign           > foreign
-pacman --query --deps --unrequired > unrequired
-pacman --query --info              > details
 
-
-if have npm; then
-    rm -f npm
-    for pkg in $(npm list --global --depth=0 --parseable=true); do
-        if ! pacman --query --owns $pkg &> /dev/null; then
-            echo $pkg >> npm
-        fi
-    done
-fi
-
-if have pip2; then
-    rm -f pip2
-    for pkg in $(pip2 list | awk '{print $1}'); do
-        location=$(pip2 show $pkg | awk '/Location:/{print $2}')
-        if ! pacman --query --owns "$location" &> /dev/null; then
-            echo "$pkg - $location" >> pip2
-        fi
-    done
-fi
+pacman --query                      > all
+pacman --query --explicit           > explicit
+pacman-explicit-no-base             > explicit-no-base
+pacman --query --deps               > deps
+pacman --query --foreign            > foreign
+pacman --query --deps --unrequired  > unrequired
+pacman --query --info               > details
+have npm  && list-npm               > npm
+have pip  && list-python-eggs pip   > pip
+have pip2  && list-python-eggs pip2 > pip2
 
 exit 0
