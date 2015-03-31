@@ -26,6 +26,7 @@
       bookmark-default-file (my-managed-file "bookmarks")
       bookmark-save-flag 1
       url-configuration-directory (my-managed-file "url/")
+      eshell-directory-name (my-managed-file "eshell/")
       require-final-newline t)
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
