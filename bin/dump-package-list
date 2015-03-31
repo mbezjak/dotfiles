@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+set -o errexit
+
 function known-to-pacman {
     local -r file="$1"
     pacman --query --owns "$file" &> /dev/null
