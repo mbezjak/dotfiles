@@ -28,22 +28,42 @@ function list-python-eggs {
     done
     return 0
 }
-
+function gem-table {
+    gem list --details | \
+        awk '/^[^ ]+ \(.+\)$/{v=$2; gsub(/\(|\)/,"",v); printf "%s %s ",$1,v} /Installed at/{print $NF}'
+}
+function list-gems {
+    local line
+    local pkg
+    local ver
+    local root
+    local location
+    while read pkg ver root; do
+        location="$root/gems/$pkg-$ver"
+        if ! known-to-pacman "$location"; then
+            echo "$pkg - $location"
+        fi
+    done<<EOF
+$(gem-table)
+EOF
+    return 0
+}
 
 
 declare -r dir=~/Dropbox/packages/$(computer-type)
 mkdir --parents $dir
 cd $dir
 
-pacman --query                      > all
-pacman --query --explicit           > explicit
-pacman-explicit-no-base             > explicit-no-base
-pacman --query --deps               > deps
-pacman --query --foreign            > foreign
-pacman --query --deps --unrequired  > unrequired
-pacman --query --info               > details
-have npm  && list-npm               > npm
-have pip  && list-python-eggs pip   > pip
-have pip2  && list-python-eggs pip2 > pip2
+pacman --query                     > all
+pacman --query --explicit          > explicit
+pacman-explicit-no-base            > explicit-no-base
+pacman --query --deps              > deps
+pacman --query --foreign           > foreign
+pacman --query --deps --unrequired > unrequired
+pacman --query --info              > details
+have npm  && list-npm              > npm
+have pip  && list-python-eggs pip  > pip
+have pip2 && list-python-eggs pip2 > pip2
+have gem  && list-gems             > gem
 
 exit 0
