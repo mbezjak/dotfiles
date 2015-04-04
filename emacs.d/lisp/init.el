@@ -12,6 +12,14 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(setq recentf-save-file (my-managed-file "recentf")
+      auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
+      bookmark-default-file (my-managed-file "bookmarks")
+      url-configuration-directory (my-managed-file "url/")
+      eshell-directory-name (my-managed-file "eshell/")
+      save-place-file (my-managed-file "places")
+      backup-directory-alist `(("." . ,(my-managed-file "backups"))))
+
 (column-number-mode t)
 (setq-default tab-width      4
               c-basic-offset 4
@@ -20,13 +28,8 @@
               indicate-empty-lines t
               imenu-auto-rescan    t)
 
-(setq recentf-save-file (my-managed-file "recentf")
-      recentf-max-saved-items 50
-      auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
-      bookmark-default-file (my-managed-file "bookmarks")
+(setq recentf-max-saved-items 50
       bookmark-save-flag 1
-      url-configuration-directory (my-managed-file "url/")
-      eshell-directory-name (my-managed-file "eshell/")
       require-final-newline t)
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))

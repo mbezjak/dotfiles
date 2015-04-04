@@ -52,9 +52,6 @@
       whitespace-style '(face trailing tabs)
       whitespace-line-column 80
       ediff-window-setup-function 'ediff-setup-windows-plain
-      oddmuse-directory (my-managed-file "oddmuse")
-      save-place-file (my-managed-file "places")
-      backup-directory-alist `(("." . ,(my-managed-file "backups")))
       diff-switches "-u")
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
