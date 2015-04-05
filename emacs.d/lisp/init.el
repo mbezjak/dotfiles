@@ -3,6 +3,10 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(column-number-mode)
+(global-subword-mode)
+(show-paren-mode)
+
 (make-directory "~/.emacs.d/managed" 'parents)
 (defun my-managed-file (name)
   "Create a file path where managed files are put."
@@ -20,7 +24,6 @@
       save-place-file (my-managed-file "places")
       backup-directory-alist `(("." . ,(my-managed-file "backups"))))
 
-(column-number-mode t)
 (setq-default tab-width      4
               c-basic-offset 4
               fill-column    80
@@ -42,9 +45,6 @@
 (setq gc-cons-threshold 100000000)
 
 (set-face-background 'mode-line "SkyBlue")
-
-(global-subword-mode)
-(show-paren-mode)
 
 
 ;; Update with: $ ~/bin/update-orgmode.sh
