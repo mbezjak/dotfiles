@@ -46,12 +46,6 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
-
-;; Update with: $ ~/bin/update-orgmode.sh
-(when (file-directory-p "~/lib/org-mode/lisp")
-  (add-to-list 'load-path "~/lib/org-mode/lisp"))
-
-
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'my-functions)

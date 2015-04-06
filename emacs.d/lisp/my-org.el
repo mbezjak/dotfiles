@@ -1,3 +1,8 @@
+;; update with: $ ~/bin/update-orgmode.sh
+(when (file-directory-p "~/lib/org-mode/lisp")
+  (add-to-list 'load-path "~/lib/org-mode/lisp"))
+
+
 (defun my-org-note (name)
   "File name from org note NAME."
   (concat org-directory "/" name ".org"))
