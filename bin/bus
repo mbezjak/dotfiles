@@ -9,32 +9,32 @@ def akzToSmbAtWorkdayModN = '*4,55  *5,40  6,30  *8,30  *9,35  *10,20  *11,35  *
 def akzToSmbAtWorkdayModK = '7,40  *11,55  19,15 *21,30'
 
 def source = [
-    [ line     : 'akz',
+    [ end      : 'akz',
       start    : 'smb',
       schedule : 'workday',
       variant  : 'all',
       times    : smbToAkzAtWorkdayModA ],
-    [ line     : 'akz',
+    [ end      : 'akz',
       start    : 'smb',
       schedule : 'workday',
       variant  : 'novaki',
       times    :  smbToAkzAtWorkdayModN ],
-    [ line     : 'akz',
+    [ end      : 'akz',
       start    : 'smb',
       schedule : 'workday',
       variant  : 'kerestinec',
       times    :  smbToAkzAtWorkdayModK ],
-    [ line     : 'akz',
+    [ end      : 'akz',
       start    : 'akz',
       schedule : 'workday',
       variant  : 'all',
       times    : akzToSmbAtWorkdayModA ],
-    [ line     : 'akz',
+    [ end      : 'akz',
       start    : 'akz',
       schedule : 'workday',
       variant  : 'novaki',
       times    : akzToSmbAtWorkdayModN ],
-    [ line     : 'akz',
+    [ end     : 'akz',
       start    : 'akz',
       schedule : 'workday',
       variant  : 'kerestinec',
@@ -60,7 +60,7 @@ def parseTimes (times) {
 
 def source2model(source) {
     use(MapCategory) {
-        def groups = source.groupBy([{ it.line }, { it.start }, { it.schedule }, { it.variant }])
+        def groups = source.groupBy([{ it.end }, { it.start }, { it.schedule }, { it.variant }])
         groups.collectValues { starts ->
             starts.collectValues { schedules ->
                 schedules.collectValues { variants ->
