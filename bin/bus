@@ -76,6 +76,12 @@ def source2model(source) {
     }
 }
 
+def dayOfWeekForToday = {
+    def day = new Date()[Calendar.DAY_OF_WEEK]
+    if (day == Calendar.SATURDAY) 'saturday'
+    else if (day == Calendar.SUNDAY) 'sunday'
+    else 'workday'
+}
 def oppositeOf = { line ->
     line == 'akz' ? 'smb' : 'akz'
 }
@@ -86,17 +92,26 @@ def prettyPrintTime = { timeMap ->
 
     timeMap.time + (modifier ? " $modifier" : '')
 }
+def hasArg = { name -> args.any { it == name } }
 
 def model = source2model(source)
 def now = new Date().format('HH,mm')
 
-def from = args.any { it == '--from-home' } ? 'smb' : 'akz'
-def absolute = args.any { it == '--absolute' }
+def from = hasArg('--from-home') ? 'smb' : 'akz'
+def absolute = hasArg('--absolute')
+def dayOfWeek = dayOfWeekForToday()
+if (hasArg('--workday')) {
+    dayOfWeek = 'workday'
+} else if (hasArg('--saturday')) {
+    dayOfWeek = 'saturday'
+} else if (hasArg('--sunday')) {
+    dayOfWeek = 'sunday'
+}
 
-def lineTimes = model."$from"."${oppositeOf(from)}".workday
+def lineTimes = model."$from"."${oppositeOf(from)}"."$dayOfWeek"
 if (!absolute) {
     lineTimes = lineTimes.findAll { it.time > now }
 }
 
-println from == 'akz' ? 'akz->smb' : 'smb->akz'
+println((from == 'akz' ? 'akz->smb' : 'smb->akz') + " @$dayOfWeek")
 println lineTimes.collect { prettyPrintTime(it) }.join('\n')
