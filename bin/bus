@@ -32,8 +32,8 @@ def fromWeb = [
 
 def parse = { String spec ->
     def matcher = spec =~ /^(\w+)->(\w+) @(\w+) #(\w+).*$/
-    def (fullMatch, start, end, schedule, variant) = matcher[0]
-    [ start:start, end:end, schedule:schedule, variant:variant ]
+    def (fullMatch, src, dst, schedule, variant) = matcher[0]
+    [ src:src, dst:dst, schedule:schedule, variant:variant ]
 }
 
 def source = fromWeb.collect { spec, times ->
@@ -59,9 +59,9 @@ def parseTimes (times) {
 
 def source2model(source) {
     use(MapCategory) {
-        def groups = source.groupBy([{ it.end }, { it.start }, { it.schedule }, { it.variant }])
-        groups.collectValues { starts ->
-            starts.collectValues { schedules ->
+        def groups = source.groupBy([{ it.dst }, { it.src }, { it.schedule }, { it.variant }])
+        groups.collectValues { srcs ->
+            srcs.collectValues { schedules ->
                 schedules.collectValues { variants ->
                     def all = parseTimes(variants.all.first().times)
                     def novaki = parseTimes(variants.novaki.first().times)
