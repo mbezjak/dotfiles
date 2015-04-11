@@ -46,6 +46,9 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'my-functions)
@@ -55,10 +58,6 @@
 (load-file (concat user-emacs-directory "lisp/loaddefs.el"))
 
 (my-register-buffer-save-on-focus-out)
-
-
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
 
 
 ;;; INITS
