@@ -59,7 +59,7 @@ def parseTimes (times) {
 
 def source2model(source) {
     use(MapCategory) {
-        def groups = source.groupBy([{ it.dst }, { it.src }, { it.schedule }, { it.variant }])
+        def groups = source.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
         groups.collectValues { srcs ->
             srcs.collectValues { schedules ->
                 schedules.collectValues { variants ->
