@@ -99,16 +99,16 @@ def option = { name -> hasArg('--' + name) ? name : null }
 
 def from = hasArg('--from-home') ? 'smb' : 'akz'
 def absolute = hasArg('--absolute')
-def dayOfWeek = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
+def schedule = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
 
 
 def model = source2model(source)
 def now = new Date().format('HH,mm')
 
-def lineTimes = model."$from"."${oppositeOf(from)}"."$dayOfWeek"
+def lineTimes = model."$from"."${oppositeOf(from)}"."$schedule"
 if (!absolute) {
     lineTimes = lineTimes.findAll { it.time > now }
 }
 
-println((from == 'akz' ? 'akz->smb' : 'smb->akz') + " @$dayOfWeek")
+println((from == 'akz' ? 'akz->smb' : 'smb->akz') + " @$schedule")
 println lineTimes.collect { prettyPrintTime(it) }.join('\n')
