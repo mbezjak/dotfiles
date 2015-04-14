@@ -87,9 +87,6 @@ def dayOfWeekForToday = {
     else if (day == Calendar.SUNDAY) 'sunday'
     else 'workday'
 }
-def oppositeOf = { line ->
-    line == 'akz' ? 'smb' : 'akz'
-}
 def prettyPrintTime = { timeMap ->
     def modifier = (timeMap.novaki ? 'N' : '') +
                    (timeMap.kerestinec ? 'K' : '') +
