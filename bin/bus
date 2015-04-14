@@ -92,21 +92,18 @@ def prettyPrintTime = { timeMap ->
 
     timeMap.time + (modifier ? " $modifier" : '')
 }
-def hasArg = { name -> args.any { it == name } }
 
-def model = source2model(source)
-def now = new Date().format('HH,mm')
+def findArg = { name -> args.find { it == name } }
+def hasArg = { name -> !!findArg(name) }
+def option = { name -> hasArg('--' + name) ? name : null }
 
 def from = hasArg('--from-home') ? 'smb' : 'akz'
 def absolute = hasArg('--absolute')
-def dayOfWeek = dayOfWeekForToday()
-if (hasArg('--workday')) {
-    dayOfWeek = 'workday'
-} else if (hasArg('--saturday')) {
-    dayOfWeek = 'saturday'
-} else if (hasArg('--sunday')) {
-    dayOfWeek = 'sunday'
-}
+def dayOfWeek = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
+
+
+def model = source2model(source)
+def now = new Date().format('HH,mm')
 
 def lineTimes = model."$from"."${oppositeOf(from)}"."$dayOfWeek"
 if (!absolute) {
