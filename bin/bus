@@ -46,8 +46,8 @@ def source = fromWeb.collect { spec, times ->
 }
 
 class MapCategory {
-    static Map collectValues(Map source, Closure f) {
-        source.collectEntries { key, value -> [key, f(value)] }
+    static Map collectValues(Map input, Closure f) {
+        input.collectEntries { key, value -> [key, f(value)] }
     }
 }
 
