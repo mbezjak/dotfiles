@@ -35,6 +35,11 @@ def parse = { String spec ->
     def (fullMatch, src, dst, schedule, variant) = matcher[0]
     [ src:src, dst:dst, schedule:schedule, variant:variant ]
 }
+def parseLine = { String line ->
+    def matcher = line =~ /^(\w+)-(\w+)$/
+    def (fullMatch, src, dst) = matcher[0]
+    [ src:src, dst:dst ]
+}
 
 def source = fromWeb.collect { spec, times ->
     parse(spec) + [times:times]
@@ -92,23 +97,25 @@ def prettyPrintTime = { timeMap ->
 
     timeMap.time + (modifier ? " $modifier" : '')
 }
+def prettyLine = { line ->
+    "${line.src}->${line.dst}" as String
+}
 
 def findArg = { name -> args.find { it == name } }
 def hasArg = { name -> !!findArg(name) }
 def option = { name -> hasArg('--' + name) ? name : null }
 
-def from = hasArg('--from-home') ? 'smb' : 'akz'
 def absolute = hasArg('--absolute')
 def schedule = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
-
+def line = parseLine(option('smb-akz') ?: 'akz-smb')
 
 def model = source2model(source)
 def now = new Date().format('HH,mm')
 
-def lineTimes = model."$from"."${oppositeOf(from)}"."$schedule"
+def lineTimes = model[line.src][line.dst][schedule]
 if (!absolute) {
     lineTimes = lineTimes.findAll { it.time > now }
 }
 
-println((from == 'akz' ? 'akz->smb' : 'smb->akz') + " @$schedule")
+println "${prettyLine(line)} @$schedule"
 println lineTimes.collect { prettyPrintTime(it) }.join('\n')
