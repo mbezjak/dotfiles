@@ -4,7 +4,7 @@
  * Command line interface for http://www.samoborcek.hr/vozni-red
  */
 
-def fromWeb = [
+def webContent = [
     'smb->akz @workday #all' : '*4.10  *4,40  *5,05  *5,25  5,40  6,00  6,20  6,30  *6,35  6,50  7,05  7,30  7,45  8,10  *8,35  *8,55  *9,20  *9,45  *10,10  *10,35  *10,55  *11,20  *11,40  *12,05  12,40  13,10  13,30  13,55  14,15  14,45  15,15  15,35  *15,50  16,20  16,40  17,05  *17,20  18,00  18,20  18,40  *19,00  19,25  19,50  *20,10  *20,35  *21,00  *21,45  *22,15  *23,00',
     'smb->akz @workday #novaki' : '*4,40  5,40  *6,35  7,30  *8,55  *9,45  *10,55  *12.05  12.40  13.55  *15.50  16,40 *17.20 18,00  18,40  19,50  *20,35  *21,45  *22,15',
     'smb->akz @workday #kerestinec' : '*9,20  *11,40  14,15  *21,00',
@@ -30,54 +30,72 @@ def fromWeb = [
     'akz->smb @sunday #kerestinec' : '7.00  8.00  10.00  16.30  21.30  23.00'
 ]
 
-def parse = { String spec ->
-    def matcher = spec =~ /^(\w+)->(\w+) @(\w+) #(\w+).*$/
-    def (fullMatch, src, dst, schedule, variant) = matcher[0]
-    [ src:src, dst:dst, schedule:schedule, variant:variant ]
-}
-def parseLine = { String line ->
-    def matcher = line =~ /^(\w+)-(\w+)$/
-    def (fullMatch, src, dst) = matcher[0]
-    [ src:src, dst:dst ]
+
+class Parse {
+    static Map webContentKey(String key) {
+        def matcher = key =~ /^(\w+)->(\w+) @(\w+) #(\w+).*$/
+        def (fullMatch, src, dst, schedule, variant) = matcher[0]
+        [ src:src, dst:dst, schedule:schedule, variant:variant ]
+    }
+
+    static Map time(String time) {
+        def normalize = { String s ->
+            def t = s.replaceAll(/\./, ',')
+            t.length() <= 4 ? '0'+t : t
+        }
+
+        [ time : normalize(time - '**' - '*'), star : time.startsWith('*') ]
+    }
+
+    static List<Map> times(String times) {
+        times.tokenize(' ').collect(Parse.&time)
+    }
+
+    static Map lineArg(String arg) {
+        def matcher = arg =~ /^(\w+)-(\w+)$/
+        def (fullMatch, src, dst) = matcher[0]
+        [ src:src, dst:dst ]
+    }
 }
 
-def source = fromWeb.collect { spec, times ->
-    parse(spec) + [times:times]
+class WebContent2Model {
+    static Map apply(List<Map> source) {
+        use (MapCategory) {
+            def groups = source.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
+            groups.collectValues { srcs ->
+                srcs.collectValues { schedules ->
+                    schedules.collectValues { variants ->
+                        def all = Parse.times(variants.all.first().times)
+                        def novaki = Parse.times(variants.novaki.first().times)
+                        def kerestinec = Parse.times(variants.kerestinec.first().times)
+
+                        all.collect { timeMap ->
+                            timeMap + [ novaki : timeMap in novaki, kerestinec : timeMap in kerestinec ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+class Format {
+    static String time(Map timeMap) {
+        def modifier = (timeMap.novaki ? 'N' : '') +
+                       (timeMap.kerestinec ? 'K' : '') +
+                       (timeMap.star ? '*' : '')
+
+        timeMap.time + (modifier ? " $modifier" : '')
+    }
+
+    static String line(Map line) {
+        "${line.src}->${line.dst}"
+    }
 }
 
 class MapCategory {
     static Map collectValues(Map input, Closure f) {
         input.collectEntries { key, value -> [key, f(value)] }
-    }
-}
-
-def normalizeTime(timeString) {
-    def t = timeString.replaceAll(/\./, ',')
-    t.length() <= 4 ? '0'+t : t
-}
-def parseTime(timeString) {
-    [ time : normalizeTime(timeString - '**' - '*'), star : timeString.startsWith('*') ]
-}
-def parseTimes (times) {
-    times.tokenize(' ').collect { parseTime(it) }
-}
-
-def source2model(source) {
-    use(MapCategory) {
-        def groups = source.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
-        groups.collectValues { srcs ->
-            srcs.collectValues { schedules ->
-                schedules.collectValues { variants ->
-                    def all = parseTimes(variants.all.first().times)
-                    def novaki = parseTimes(variants.novaki.first().times)
-                    def kerestinec = parseTimes(variants.kerestinec.first().times)
-
-                    all.collect { timeMap ->
-                        timeMap + [ novaki : timeMap in novaki, kerestinec : timeMap in kerestinec ]
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -87,16 +105,6 @@ def dayOfWeekForToday = {
     else if (day == Calendar.SUNDAY) 'sunday'
     else 'workday'
 }
-def prettyPrintTime = { timeMap ->
-    def modifier = (timeMap.novaki ? 'N' : '') +
-                   (timeMap.kerestinec ? 'K' : '') +
-                   (timeMap.star ? '*' : '')
-
-    timeMap.time + (modifier ? " $modifier" : '')
-}
-def prettyLine = { line ->
-    "${line.src}->${line.dst}" as String
-}
 
 def findArg = { name -> args.find { it == name } }
 def hasArg = { name -> !!findArg(name) }
@@ -104,9 +112,12 @@ def option = { name -> hasArg('--' + name) ? name : null }
 
 def absolute = hasArg('--absolute')
 def schedule = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
-def line = parseLine(option('smb-akz') ?: 'akz-smb')
+def line = Parse.lineArg(option('smb-akz') ?: 'akz-smb')
 
-def model = source2model(source)
+def source = webContent.collect { spec, times ->
+    Parse.webContentKey(spec) + [times:times]
+}
+def model = WebContent2Model.apply(source)
 def now = new Date().format('HH,mm')
 
 def lineTimes = model[line.src][line.dst][schedule]
@@ -114,5 +125,5 @@ if (!absolute) {
     lineTimes = lineTimes.findAll { it.time > now }
 }
 
-println "${prettyLine(line)} @$schedule"
-println lineTimes.collect { prettyPrintTime(it) }.join('\n')
+println "${Format.line(line)} @$schedule"
+println lineTimes.collect(Format.&time).join('\n')
