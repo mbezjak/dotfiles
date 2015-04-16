@@ -59,7 +59,11 @@ class Parse {
 }
 
 class WebContent2Model {
-    static Map apply(List<Map> source) {
+    static Map apply(Map webContent) {
+        def source = webContent.collect { spec, times ->
+            Parse.webContentKey(spec) + [times:times]
+        }
+
         use (MapCategory) {
             def groups = source.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
             groups.collectValues { srcs ->
@@ -114,10 +118,7 @@ def absolute = hasArg('--absolute')
 def schedule = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
 def line = Parse.lineArg(option('smb-akz') ?: 'akz-smb')
 
-def source = webContent.collect { spec, times ->
-    Parse.webContentKey(spec) + [times:times]
-}
-def model = WebContent2Model.apply(source)
+def model = WebContent2Model.apply(webContent)
 def now = new Date().format('HH,mm')
 
 def lineTimes = model[line.src][line.dst][schedule]
