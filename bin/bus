@@ -60,8 +60,9 @@ class Parse {
 
 class WebContent2Model {
     static Map apply(Map webContent) {
-        def source = webContent.collect { spec, times ->
-            Parse.webContentKey(spec) + [times:times]
+        def source = webContent.collectMany { key, times ->
+            def baseInfo = Parse.webContentKey(key)
+            Parse.times(times).collect { baseInfo + it }
         }
 
         use (MapCategory) {
@@ -69,12 +70,11 @@ class WebContent2Model {
             groups.collectValues { srcs ->
                 srcs.collectValues { schedules ->
                     schedules.collectValues { variants ->
-                        def all = Parse.times(variants.all.first().times)
-                        def novaki = Parse.times(variants.novaki.first().times)
-                        def kerestinec = Parse.times(variants.kerestinec.first().times)
+                        def novaki = variants.novaki*.time
+                        def kerestinec = variants.kerestinec*.time
 
-                        all.collect { timeMap ->
-                            timeMap + [ novaki : timeMap in novaki, kerestinec : timeMap in kerestinec ]
+                        variants.all.collect { timeMap ->
+                            timeMap + [ novaki : timeMap.time in novaki, kerestinec : timeMap.time in kerestinec ]
                         }
                     }
                 }
