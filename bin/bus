@@ -58,23 +58,29 @@ class Parse {
     }
 }
 
+class MapCategory {
+    static Map collectValues(Map input, Closure f) {
+        input.collectEntries { key, value -> [key, f(value)] }
+    }
+}
+
 class WebContent2Model {
     static Map apply(Map webContent) {
-        def source = webContent.collectMany { key, times ->
+        def routesWithVariant = webContent.collectMany { key, times ->
             def baseInfo = Parse.webContentKey(key)
             Parse.times(times).collect { baseInfo + it }
         }
+        def groups = routesWithVariant.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
 
         use (MapCategory) {
-            def groups = source.groupBy([{ it.src }, { it.dst }, { it.schedule }, { it.variant }])
             groups.collectValues { srcs ->
                 srcs.collectValues { schedules ->
                     schedules.collectValues { variants ->
                         def novaki = variants.novaki*.time
                         def kerestinec = variants.kerestinec*.time
 
-                        variants.all.collect { timeMap ->
-                            timeMap + [ novaki : timeMap.time in novaki, kerestinec : timeMap.time in kerestinec ]
+                        variants.all.collect { route ->
+                            route + [ novaki : route.time in novaki, kerestinec : route.time in kerestinec ]
                         }
                     }
                 }
@@ -84,12 +90,12 @@ class WebContent2Model {
 }
 
 class Format {
-    static String time(Map timeMap) {
-        def modifier = (timeMap.novaki ? 'N' : '') +
-                       (timeMap.kerestinec ? 'K' : '') +
-                       (timeMap.star ? '*' : '')
+    static String time(Map route) {
+        def modifier = (route.novaki ? 'N' : '') +
+                       (route.kerestinec ? 'K' : '') +
+                       (route.star ? '*' : '')
 
-        timeMap.time + (modifier ? " $modifier" : '')
+        route.time + (modifier ? " $modifier" : '')
     }
 
     static String line(Map line) {
@@ -97,34 +103,42 @@ class Format {
     }
 }
 
-class MapCategory {
-    static Map collectValues(Map input, Closure f) {
-        input.collectEntries { key, value -> [key, f(value)] }
+class Now {
+    @Lazy static Date date = new Date()
+    @Lazy static String dayOfWeek = {
+        def day = Now.date[Calendar.DAY_OF_WEEK]
+        if (day == Calendar.SATURDAY) 'saturday'
+        else if (day == Calendar.SUNDAY) 'sunday'
+        else 'workday'
+    }()
+}
+
+@groovy.transform.TupleConstructor
+class Arguments {
+    String[] args
+
+    String find(String name) { args.find { it == name } }
+    boolean has(String name) { !!find(name) }
+    Object option(String name) { has('--' + name) ? name : null }
+
+    Map process() {
+        [
+            absolute : has('--absolute'),
+            line : Parse.lineArg(option('smb-akz') ?: 'akz-smb'),
+            schedule : option('workday') ?: option('saturday') ?: option('sunday') ?: Now.dayOfWeek
+        ]
     }
 }
 
-def dayOfWeekForToday = {
-    def day = new Date()[Calendar.DAY_OF_WEEK]
-    if (day == Calendar.SATURDAY) 'saturday'
-    else if (day == Calendar.SUNDAY) 'sunday'
-    else 'workday'
-}
-
-def findArg = { name -> args.find { it == name } }
-def hasArg = { name -> !!findArg(name) }
-def option = { name -> hasArg('--' + name) ? name : null }
-
-def absolute = hasArg('--absolute')
-def schedule = option('workday') ?: option('saturday') ?: option('sunday') ?: dayOfWeekForToday()
-def line = Parse.lineArg(option('smb-akz') ?: 'akz-smb')
 
 def model = WebContent2Model.apply(webContent)
-def now = new Date().format('HH,mm')
+def opts = new Arguments(args).process()
 
-def lineTimes = model[line.src][line.dst][schedule]
-if (!absolute) {
+def lineTimes = model[opts.line.src][opts.line.dst][opts.schedule]
+if (!opts.absolute) {
+    def now = Now.date.format('HH,mm')
     lineTimes = lineTimes.findAll { it.time > now }
 }
 
-println "${Format.line(line)} @$schedule"
+println "${Format.line(opts.line)} @$opts.schedule"
 println lineTimes.collect(Format.&time).join('\n')
