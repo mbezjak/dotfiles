@@ -48,7 +48,7 @@ class Parse {
     }
 
     static List<Map> times(String times) {
-        times.tokenize(' ').collect(Parse.&time)
+        times.replaceAll(/\*\* /, '**').tokenize(' ').collect(Parse.&time)
     }
 
     static Map lineArg(String arg) {
