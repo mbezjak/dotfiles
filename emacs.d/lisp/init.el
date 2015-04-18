@@ -49,6 +49,10 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
+(require 'dash)
+(require 's)
+(require 'f)
+
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'my-functions)
@@ -63,9 +67,6 @@
 ;;; INITS
 
 (move-text-default-bindings)
-(require 'dash)
-(require 's)
-(require 'f)
 (require 'my-helm)
 (require 'my-yasnippet)
 
