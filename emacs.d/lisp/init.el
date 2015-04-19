@@ -1,22 +1,58 @@
-;; disable early in initialization to avoid flicker
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(tooltip-mode -1)
+(blink-cursor-mode -1)
 
+(mouse-wheel-mode)
 (column-number-mode)
 (global-subword-mode)
 (show-paren-mode)
+
+(setq-default tab-width      4
+              c-basic-offset 4
+              fill-column    80
+              indent-tabs-mode      nil
+              indicate-empty-lines  t
+              require-final-newline t
+              sentence-end-double-space nil)
+
+(setq frame-title-format '(buffer-file-name "%f" ("%b"))
+      inhibit-startup-screen t
+      visible-bell t
+      shift-select-mode nil
+      mouse-yank-at-point t
+      whitespace-style '(face trailing tabs)
+      whitespace-line-column 80
+      uniquify-buffer-name-style 'forward
+      recentf-max-saved-items 50
+      bookmark-save-flag 1
+      imenu-auto-rescan t
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      diff-switches "-u"
+
+      ;; use keys that all in the same row
+      aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
+
+      ;; respect case when inserting into buffer, ignore when searching for candidates
+      company-dabbrev-downcase nil
+      company-dabbrev-ignore-case 'yes
+
+      ;; start garbage collection every 100MB to improve performance
+      gc-cons-threshold 100000000)
+
+(set-face-background 'mode-line "SkyBlue")
+
+(random t) ;; seed the random number generator
+
 
 (make-directory "~/.emacs.d/managed" 'parents)
 (defun my-managed-file (name)
   "Create a file path where managed files are put."
   (concat user-emacs-directory "managed/" name))
 
-(setq custom-file (my-managed-file "custom.el"))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-(setq recentf-save-file (my-managed-file "recentf")
+(setq custom-file (my-managed-file "custom.el")
+      recentf-save-file (my-managed-file "recentf")
       auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
       bookmark-default-file (my-managed-file "bookmarks")
       url-configuration-directory (my-managed-file "url/")
@@ -24,31 +60,12 @@
       save-place-file (my-managed-file "places")
       backup-directory-alist `(("." . ,(my-managed-file "backups"))))
 
-(setq-default tab-width      4
-              c-basic-offset 4
-              fill-column    80
-              indent-tabs-mode     nil
-              indicate-empty-lines t
-              imenu-auto-rescan    t)
+(when (file-exists-p custom-file)
+  (load custom-file))
 
-(setq recentf-max-saved-items 50
-      bookmark-save-flag 1
-      require-final-newline t)
-
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-
-;; respect case when inserting into buffer, ignore case when searching for candidates
-(setq company-dabbrev-downcase nil
-      company-dabbrev-ignore-case 'yes)
-
-;; Start garbage collection every 100MB to improve Emacs performance
-(setq gc-cons-threshold 100000000)
-
-(set-face-background 'mode-line "SkyBlue")
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-
 (require 'dash)
 (require 's)
 (require 'f)

@@ -37,23 +37,6 @@
 
 ;;; Code:
 
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (tooltip-mode -1)
-  (mouse-wheel-mode t)
-  (blink-cursor-mode -1))
-
-(setq visible-bell t
-      inhibit-startup-message t
-      sentence-end-double-space nil
-      shift-select-mode nil
-      mouse-yank-at-point t
-      uniquify-buffer-name-style 'forward
-      whitespace-style '(face trailing tabs)
-      whitespace-line-column 80
-      ediff-window-setup-function 'ediff-setup-windows-plain
-      diff-switches "-u")
-
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
@@ -68,7 +51,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'auto-tail-revert-mode 'tail-mode)
 
-(random t) ;; Seed the random-number generator
+
 
 ;; Hippie expand: at times perhaps too hip
 (eval-after-load 'hippie-exp
