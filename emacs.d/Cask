@@ -1,3 +1,4 @@
+(source gnu)
 (source melpa)
 
 (depends-on "dash")
@@ -35,7 +36,7 @@
 (depends-on "sbt-mode")
 (depends-on "ensime")
 (depends-on "clojure-mode")
-(depends-on "inf-clojure")
+(depends-on "cider")
 (depends-on "js2-mode")
 (depends-on "markdown-mode")
 
