@@ -31,6 +31,8 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u"
 
+      magit-last-seen-setup-instructions "1.4.0"
+
       ;; use keys that all in the same row
       aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
 
