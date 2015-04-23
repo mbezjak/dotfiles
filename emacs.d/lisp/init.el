@@ -141,12 +141,16 @@
      (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)))
 
 
-(defun my-groovy-not-electric ()
-  (setq c-electric-flag nil)) ; annoying, especially for colon!
+(defun my-groovy-offset-fixes ()
+  (c-set-offset 'arglist-intro 0)
+  (c-set-offset 'arglist-close 0)
+  (c-set-offset 'arglist-cont '+)
+  (c-set-offset 'arglist-cont-nonempty '+)
+  (c-set-offset 'label 0))
 
 (eval-after-load "groovy-mode"
   '(progn
-     (add-hook 'groovy-mode-hook 'my-groovy-not-electric)))
+     (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)))
 
 
 (require 'ensime)
