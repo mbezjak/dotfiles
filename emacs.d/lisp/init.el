@@ -82,9 +82,6 @@
 
 (my-register-buffer-save-on-focus-out)
 
-
-;;; INITS
-
 (move-text-default-bindings)
 (require 'my-helm)
 (require 'my-yasnippet)
