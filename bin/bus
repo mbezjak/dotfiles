@@ -75,13 +75,19 @@ class WebContent2Model {
         use (MapCategory) {
             groups.collectValues { srcs ->
                 srcs.collectValues { schedules ->
-                    schedules.collectValues { variants ->
+                    schedules.collectEntries { schedule, variants ->
                         def novaki = variants.novaki*.time
                         def kerestinec = variants.kerestinec*.time
 
-                        variants.all.collect { route ->
-                            route + [ novaki : route.time in novaki, kerestinec : route.time in kerestinec ]
+                        def routes = variants.all.collect { route ->
+                            route + [
+                                novaki : route.time in novaki,
+                                kerestinec : route.time in kerestinec,
+                                star : schedule in ['saturday', 'sunday'] ? true : route.star
+                            ]
                         }
+
+                        [schedule, routes]
                     }
                 }
             }
