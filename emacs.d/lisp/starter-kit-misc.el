@@ -47,11 +47,6 @@
    (add-hook 'text-mode-hook 'turn-on-flyspell)))
 
 
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-
-
 ;; Hippie expand: at times perhaps too hip
 (eval-after-load 'hippie-exp
   '(progn
