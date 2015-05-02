@@ -44,10 +44,6 @@
 ;; hook value will repeatedly add it since there's no way to ensure
 ;; that a byte-compiled lambda doesn't already exist in the list.
 
-(defun esk-local-column-number-mode ()
-  (make-local-variable 'column-number-mode)
-  (column-number-mode t))
-
 (defun esk-local-comment-auto-fill ()
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode t))
@@ -72,7 +68,6 @@
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
           1 font-lock-warning-face t))))
 
-(add-hook 'prog-mode-hook 'esk-local-column-number-mode)
 (add-hook 'prog-mode-hook 'esk-local-comment-auto-fill)
 (add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'esk-pretty-lambdas)
