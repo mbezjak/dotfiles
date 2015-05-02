@@ -45,6 +45,12 @@
 
 (set-face-background 'mode-line "SkyBlue")
 
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(eval-after-load "ispell"
+  '(when (executable-find ispell-program-name)
+     (add-hook 'text-mode-hook 'turn-on-flyspell)))
+
 (random t) ;; seed the random number generator
 
 
