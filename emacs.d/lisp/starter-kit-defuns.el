@@ -48,10 +48,6 @@
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode t))
 
-(defun esk-turn-on-hl-line-mode ()
-  (when (> (display-color-cells) 8)
-    (hl-line-mode t)))
-
 (defun esk-turn-on-save-place-mode ()
   (require 'saveplace)
   (setq save-place t))
