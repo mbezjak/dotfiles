@@ -51,6 +51,9 @@
   '(when (executable-find ispell-program-name)
      (add-hook 'text-mode-hook 'turn-on-flyspell)))
 
+; shorter way to answer yes/no questions
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (random t) ;; seed the random number generator
 
 
