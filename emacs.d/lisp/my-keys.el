@@ -44,6 +44,7 @@
 (global-set-key (kbd "<f12> l")    'my-org-agenda-remove-later)
 (global-set-key (kbd "C-x \\")     'align-regexp)
 (global-set-key (kbd "C-`")        'align-regexp)
+(global-set-key (kbd "C-x C-m")    'shell)
 (global-set-key (kbd "C-]")        'my-jump-to-workspace)
 (global-set-key (kbd "M-K")        'my-kill-current-buffer)
 (global-set-key (kbd "M-I")        'my-org-insert-link)
