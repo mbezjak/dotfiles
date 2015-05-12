@@ -93,8 +93,11 @@
 
     (setq gommons-referring-buffer current-buffer)
 
-    (setq compilation-finish-functions nil)
-    (when onfinish (add-hook 'compilation-finish-functions onfinish))
+    (set (make-local-variable 'compilation-finish-functions) nil)
+    (when onfinish
+      (save-excursion
+        (pop-to-buffer buffer-name)
+        (add-hook 'compilation-finish-functions onfinish)))
 
     (cd basedir)
     (compilation-start cmd nil buffer-name-fn)))
