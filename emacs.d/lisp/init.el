@@ -99,7 +99,6 @@
 (require 'uniquify)
 (require 'starter-kit-defuns)
 (require 'starter-kit-misc)
-(require 'starter-kit-bindings)
 (require 'starter-kit-eshell)
 (require 'starter-kit-lisp)
 
