@@ -47,6 +47,9 @@
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
+(add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
+
 (eval-after-load "ispell"
   '(when (executable-find ispell-program-name)
      (add-hook 'text-mode-hook 'turn-on-flyspell)))
@@ -98,7 +101,6 @@
 
 (require 'uniquify)
 (require 'starter-kit-defuns)
-(require 'starter-kit-misc)
 (require 'starter-kit-lisp)
 
 (add-hook 'after-init-hook 'global-company-mode)
@@ -130,6 +132,13 @@
 (add-to-list 'projectile-globally-ignored-directories "build")
 (add-to-list 'projectile-globally-ignored-files "*.log")
 
+(eval-after-load 'hippie-exp
+  '(progn
+     (dolist (f '(try-expand-line try-expand-list try-complete-file-name-partially))
+       (delete f hippie-expand-try-functions-list))
+
+     ;; Add this back in at the end of the list.
+     (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t)))
 
 ;; To use:
 ;; $ pacman --sync perl-text-markdown
