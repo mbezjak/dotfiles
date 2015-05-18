@@ -70,8 +70,5 @@
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
-(defun esk-prog-mode-hook ()
-  (run-hooks 'prog-mode-hook))
-
 (provide 'starter-kit-defuns)
 ;;; starter-kit-defuns.el ends here
