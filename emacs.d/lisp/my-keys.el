@@ -72,10 +72,10 @@
 (global-set-key (kbd "C-c q") 'join-line)
 
 ;; general cleanup
-(global-set-key (kbd "C-c n") 'esk-cleanup-buffer)
+(global-set-key (kbd "C-c n") 'my-cleanup-buffer)
 
 ;; eval and replace anywhere
-(global-set-key (kbd "C-c e") 'esk-eval-and-replace)
+(global-set-key (kbd "C-c e") 'my-eval-and-replace)
 
 ;; use regex search by default
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
