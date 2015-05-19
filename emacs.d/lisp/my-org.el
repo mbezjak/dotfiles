@@ -82,6 +82,11 @@
   (interactive)
   (beginning-of-buffer)
 
+  (search-forward-regexp "^\* EXPIRES")
+  (beginning-of-line)
+  (org-sort-entries nil ?t)
+  (org-cycle)
+
   (search-forward-regexp "^\* DEADLINED")
   (beginning-of-line)
   (org-sort-entries nil ?t)
