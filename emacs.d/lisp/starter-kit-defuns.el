@@ -44,30 +44,12 @@
 ;; hook value will repeatedly add it since there's no way to ensure
 ;; that a byte-compiled lambda doesn't already exist in the list.
 
-(defun esk-local-comment-auto-fill ()
-  (set (make-local-variable 'comment-auto-fill-only-comments) t)
-  (auto-fill-mode t))
-
 (defun esk-turn-on-save-place-mode ()
   (require 'saveplace)
   (setq save-place t))
 
-(defun esk-pretty-lambdas ()
-  (font-lock-add-keywords
-   nil `(("(?\\(lambda\\>\\)"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    ,(make-char 'greek-iso8859-7 107))
-                    nil))))))
 
-(defun esk-add-watchwords ()
-  (font-lock-add-keywords
-   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
-          1 font-lock-warning-face t))))
-
-(add-hook 'prog-mode-hook 'esk-local-comment-auto-fill)
 (add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
-(add-hook 'prog-mode-hook 'esk-pretty-lambdas)
-(add-hook 'prog-mode-hook 'esk-add-watchwords)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 (provide 'starter-kit-defuns)

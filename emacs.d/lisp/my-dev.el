@@ -7,9 +7,27 @@
   "Ensure trailing whitespaces are deleted."
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
+(defun my-local-comment-auto-fill ()
+  (set (make-local-variable 'comment-auto-fill-only-comments) t)
+  (auto-fill-mode t))
+
+(defun my-pretty-lambdas ()
+  (font-lock-add-keywords
+   nil `(("(?\\(lambda\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                    ,(make-char 'greek-iso8859-7 107))
+                    nil))))))
+
+(defun my-add-watchwords ()
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+          1 font-lock-warning-face t))))
+
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save)
-
+(add-hook 'prog-mode-hook 'my-local-comment-auto-fill)
+(add-hook 'prog-mode-hook 'my-pretty-lambdas)
+(add-hook 'prog-mode-hook 'my-add-watchwords)
 
 (provide 'my-dev)
