@@ -50,7 +50,6 @@
 
 
 (add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
-(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 (provide 'starter-kit-defuns)
 ;;; starter-kit-defuns.el ends here

@@ -29,5 +29,6 @@
 (add-hook 'prog-mode-hook 'my-local-comment-auto-fill)
 (add-hook 'prog-mode-hook 'my-pretty-lambdas)
 (add-hook 'prog-mode-hook 'my-add-watchwords)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 (provide 'my-dev)
