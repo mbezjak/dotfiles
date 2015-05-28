@@ -62,6 +62,7 @@ add-to-path ~/workspace/devilish/bin
 add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
 add-to-path ~/.cask/bin
+add-to-path ~/.npm-packages/bin
 add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 
