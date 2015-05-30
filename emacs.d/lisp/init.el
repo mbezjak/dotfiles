@@ -100,7 +100,6 @@
 
 
 (require 'uniquify)
-(require 'starter-kit-defuns)
 (require 'starter-kit-lisp)
 
 (add-hook 'after-init-hook 'global-company-mode)

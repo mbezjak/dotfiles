@@ -23,12 +23,17 @@
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
           1 font-lock-warning-face t))))
 
+(defun my-turn-on-save-place-mode ()
+  (require 'saveplace)
+  (setq save-place t))
+
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save)
 (add-hook 'prog-mode-hook 'my-local-comment-auto-fill)
 (add-hook 'prog-mode-hook 'my-pretty-lambdas)
 (add-hook 'prog-mode-hook 'my-add-watchwords)
+(add-hook 'prog-mode-hook 'my-turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 (provide 'my-dev)
