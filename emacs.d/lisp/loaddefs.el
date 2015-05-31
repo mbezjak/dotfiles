@@ -3,9 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads (gommons-mode) "gommons-mode" "gommons-mode.el"
-;;;;;;  (20862 11732 760713 328000))
-;;; Generated autoloads from gommons-mode.el
+;;;### (autoloads nil "gommons-mode" "../../../../.emacs.d/lisp/gommons-mode.el"
+;;;;;;  "c5595446e63cc5904681ad4ed2c3ab82")
+;;; Generated autoloads from ../../../../.emacs.d/lisp/gommons-mode.el
 
 (autoload 'gommons-mode "gommons-mode" "\
 Toggle gommons mode.
@@ -17,9 +17,9 @@ The following commands are available:
 
 ;;;***
 
-;;;### (autoloads (gradle-mode) "gradle-mode" "gradle-mode.el" (20780
-;;;;;;  35089 375866 475000))
-;;; Generated autoloads from gradle-mode.el
+;;;### (autoloads nil "gradle-mode" "../../../../.emacs.d/lisp/gradle-mode.el"
+;;;;;;  "f62ec717cf054092330d4e2d84b3371c")
+;;; Generated autoloads from ../../../../.emacs.d/lisp/gradle-mode.el
 
 (autoload 'gradle-mode "gradle-mode" "\
 Major mode for editing build.gradle.
@@ -30,9 +30,9 @@ Major mode for editing build.gradle.
 
 ;;;***
 
-;;;### (autoloads (kin-mode) "kin-mode" "kin-mode.el" (20874 6552
-;;;;;;  751551 873000))
-;;; Generated autoloads from kin-mode.el
+;;;### (autoloads nil "kin-mode" "../../../../.emacs.d/lisp/kin-mode.el"
+;;;;;;  "883efe53a35c78b4e6fa1cf610e67f01")
+;;; Generated autoloads from ../../../../.emacs.d/lisp/kin-mode.el
 
 (autoload 'kin-mode "kin-mode" "\
 Major mode for editing build.kin.
@@ -43,9 +43,13 @@ Major mode for editing build.kin.
 
 ;;;***
 
-;;;### (autoloads nil nil ("bmk-bmenu-state.el" "custom.el" "init.el"
-;;;;;;  "my-dev.el" "my-functions.el" "my-keys.el" "my-org.el" "my-packages.el"
-;;;;;;  "my-yasnippet.el") (20880 55888 484019 579000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/lisp/gommons-mode.el"
+;;;;;;  "../../../../.emacs.d/lisp/gradle-mode.el" "../../../../.emacs.d/lisp/init.el"
+;;;;;;  "../../../../.emacs.d/lisp/kin-mode.el" "../../../../.emacs.d/lisp/my-dev.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-functions.el" "../../../../.emacs.d/lisp/my-helm.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-keys.el" "../../../../.emacs.d/lisp/my-lisp.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-org.el" "../../../../.emacs.d/lisp/my-yasnippet.el")
+;;;;;;  (21866 57223 714616 905000))
 
 ;;;***
 
