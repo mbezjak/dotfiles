@@ -95,12 +95,10 @@
 (my-register-buffer-save-on-focus-out)
 
 (move-text-default-bindings)
+(require 'uniquify)
 (require 'my-helm)
 (require 'my-yasnippet)
-
-
-(require 'uniquify)
-(require 'starter-kit-lisp)
+(require 'my-lisp)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
