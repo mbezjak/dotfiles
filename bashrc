@@ -1,6 +1,6 @@
 #-*-Shell-Script-*-
 
-# If not running interactively, don't do anything
+# don't do anything if not running interactively
 [[ $- != *i* ]] && return
 
 function __prompt_command {
@@ -24,13 +24,20 @@ function __prompt_command {
 
     PS1="${statuscolor}${laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
 }
-export PROMPT_COMMAND=__prompt_command
-
 function source-if {
     local -r file="$1"
     [[ -f "$file" ]] && source "$file"
     return 0
 }
+function add-to-path {
+    local -r dir=$(realpath --strip --canonicalize-missing "$1")
+    if [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]]; then
+        export PATH="$PATH:$dir"
+    fi
+    return 0
+}
+
+export PROMPT_COMMAND=__prompt_command
 source-if /usr/share/git/completion/git-completion.bash
 source-if /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWSTASHSTATE=true
@@ -47,13 +54,6 @@ alias vi='vim'
 source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
 
-function add-to-path {
-    local -r dir=$(realpath --strip --canonicalize-missing "$1")
-    if [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]]; then
-        export PATH="$PATH:$dir"
-    fi
-    return 0
-}
 add-to-path ~/bin
 add-to-path ~/Dropbox/bin
 add-to-path ~/workspace/dotfiles/bin
