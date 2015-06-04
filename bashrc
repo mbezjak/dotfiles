@@ -47,9 +47,8 @@ export GIT_PS1_SHOWUPSTREAM=auto
 HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
-export EDITOR=vim
-export VISUAL=vim
-alias vi='vim'
+export EDITOR='emacs --no-window-system'
+export VISUAL='emacs --no-window-system'
 
 source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
@@ -71,6 +70,7 @@ have gem && add-to-path "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias less='less --ignore-case'
+alias vi='vim'
 
 # ls
 alias l='ls -l --human-readable'

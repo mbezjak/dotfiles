@@ -132,7 +132,8 @@
 
 
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
-(add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t)
 (add-hook 'kill-emacs-query-functions 'my-org-ask-clock-out)
+(when window-system
+  (add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t))
 
 (provide 'my-org)

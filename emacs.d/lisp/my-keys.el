@@ -1,5 +1,6 @@
 ;; avoiding mistakes
-(global-unset-key (kbd "C-x C-c"))    ; save-buffers-kill-terminal; shutdown with alt + F4
+(when window-system
+  (global-unset-key (kbd "C-x C-c"))) ; save-buffers-kill-terminal; shutdown with alt + F4
 (global-unset-key (kbd "C-z"))        ; suspend-frame
 (global-unset-key (kbd "C-x C-z"))    ; suspend-frame
 (global-unset-key (kbd "C-t"))        ; transpose-chars
