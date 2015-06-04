@@ -37,13 +37,13 @@ function add-to-path {
     return 0
 }
 
-export PROMPT_COMMAND=__prompt_command
+PROMPT_COMMAND=__prompt_command
 source-if /usr/share/git/completion/git-completion.bash
 source-if /usr/share/git/completion/git-prompt.sh
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
 HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
