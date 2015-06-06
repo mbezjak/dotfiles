@@ -24,6 +24,28 @@ function __prompt_command {
 
     PS1="${statuscolor}${laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
 }
+function cd-alias {
+    local name="$1"
+    local dir="$2"
+
+    [[ -d "$dir" ]] && {
+        # example:
+        # ct() { cd "/tmp"; }
+        eval "$name() { cd \"$dir/\$1\"; }"
+        # example:
+        # _ct() {
+        #   local cur="${COMP_WORDS[COMP_CWORD]}"
+        #   COMPREPLY=($(cd "/tmp" && compgen -d "$cur"|sort))
+        # }
+        eval """
+_$name() {
+  local cur=\"\${COMP_WORDS[COMP_CWORD]}\"
+  COMPREPLY=(\$(cd \"$dir\" && compgen -d \"\$cur\"|sort))
+}
+"""
+        complete -o nospace -S '/' -F "_$name" "$name"
+    }
+}
 function source-if {
     local -r file="$1"
     [[ -f "$file" ]] && source "$file"
@@ -37,19 +59,8 @@ function add-to-path {
     return 0
 }
 
-PROMPT_COMMAND=__prompt_command
 source-if /usr/share/git/completion/git-completion.bash
 source-if /usr/share/git/completion/git-prompt.sh
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM=auto
-HISTCONTROL=ignoreboth # ignorespace + ignoredups
-HISTFILESIZE=1000000   # 1M
-HISTSIZE=10000         # 10k
-export EDITOR='emacs --no-window-system'
-export VISUAL='emacs --no-window-system'
-
 source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
 
@@ -65,6 +76,20 @@ add-to-path ~/.npm-packages/bin
 add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 
+cd-alias cw      "$HOME/workspace"
+cd-alias ct      /tmp
+cd-alias dropdir "$HOME/Dropbox"
+
+export EDITOR='emacs --no-window-system'
+export VISUAL='emacs --no-window-system'
+HISTCONTROL=ignoreboth # ignorespace + ignoredups
+HISTFILESIZE=1000000   # 1M
+HISTSIZE=10000         # 10k
+PROMPT_COMMAND=__prompt_command
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
 
 # modified commands
 alias grep='grep --color=auto'
@@ -209,33 +234,6 @@ AUR votes      : %w"
             grep -v /usr/include/
     }
 }
-
-cd_alias() {
-    local name="$1"
-    local dir="$2"
-
-    [[ -d "$dir" ]] && {
-        # example:
-        # ct() { cd "/tmp"; }
-        eval "$name() { cd \"$dir/\$1\"; }"
-        # example:
-        # _ct() {
-        #   local cur="${COMP_WORDS[COMP_CWORD]}"
-        #   COMPREPLY=($(cd "/tmp" && compgen -d "$cur"|sort))
-        # }
-        eval """
-_$name() {
-  local cur=\"\${COMP_WORDS[COMP_CWORD]}\"
-  COMPREPLY=(\$(cd \"$dir\" && compgen -d \"\$cur\"|sort))
-}
-"""
-        complete -o nospace -S '/' -F "_$name" "$name"
-    }
-}
-
-cd_alias cw "$HOME/workspace"
-cd_alias ct /tmp
-cd_alias dropdir "$HOME/Dropbox"
 
 
 # randomized learning
