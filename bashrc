@@ -115,13 +115,13 @@ alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias 7mms='xdg-open ~/Documents/health/7mms.png &'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
-openports() { ss --tcp --processes "$@" | sed '1d' | column -t; }
-t() {
+function openports { ss --tcp --processes "$@" | sed '1d' | column -t; }
+function t {
     local -r ext=$1
     tree --prune -P '*.'$ext
 }
-backup() { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
-org-notes-backup() {
+function backup { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
+function org-notes-backup {
     cd ~/Dropbox/notes
     git commit --message='Automated backup'
 }
@@ -183,17 +183,17 @@ have pacman && {
 
     alias paclog='less +G /var/log/pacman.log'
     alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
-    pacedit() { sudo $EDITOR /etc/$1; }
-    pacrm() { sudo rm --interactive /etc/$1.pacnew; }
+    function pacedit { sudo $EDITOR /etc/$1; }
+    function pacrm { sudo rm --interactive /etc/$1.pacnew; }
     have meld && {
-        pacmeld() { meld /etc/$1{,.pacnew} 2> /dev/null & }
+        function pacmeld { meld /etc/$1{,.pacnew} 2> /dev/null & }
     }
 
-    pacman-ls-updates() {
+    function pacman-ls-updates {
         ls --time-style=iso -lrt /var/lib/pacman/local
     }
 
-    pacman-aur-info() {
+    function pacman-aur-info {
         local -r format="\
 Name           : %n
 Version        : %V
