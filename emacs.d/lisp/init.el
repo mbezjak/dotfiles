@@ -100,7 +100,8 @@
 (require 'my-yasnippet)
 (require 'my-lisp)
 
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook #'global-company-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 (require 'monky)
