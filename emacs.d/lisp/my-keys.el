@@ -5,6 +5,7 @@
 (global-unset-key (kbd "C-x C-z"))    ; suspend-frame
 (global-unset-key (kbd "C-t"))        ; transpose-chars
 (global-unset-key (kbd "C-/"))        ; undo; use C-_
+(global-unset-key (kbd "C-x C-f"))    ; replaced by helm-find-files
 
 ;; replaced by move-text
 (global-unset-key (kbd "C-M-<up>"))   ; backward-up-list

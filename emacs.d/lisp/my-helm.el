@@ -16,6 +16,7 @@
 (global-set-key (kbd "M-o") 'helm-occur)
 (global-set-key (kbd "M-i") 'helm-swoop)
 (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
