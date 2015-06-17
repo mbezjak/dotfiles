@@ -13,6 +13,7 @@
 ; needed explicitly for some reason
 (depends-on "elisp-slime-nav")
 
+(depends-on "psession")
 (depends-on "magit")
 (depends-on "monky")
 (depends-on "yasnippet")

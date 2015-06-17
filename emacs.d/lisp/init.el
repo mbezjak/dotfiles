@@ -73,7 +73,8 @@
       url-configuration-directory (my-managed-file "url/")
       eshell-directory-name (my-managed-file "eshell/")
       save-place-file (my-managed-file "places")
-      backup-directory-alist `(("." . ,(my-managed-file "backups"))))
+      backup-directory-alist `(("." . ,(my-managed-file "backups")))
+      psession-elisp-objects-default-directory (my-managed-file "elisp-objects"))
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -104,6 +105,16 @@
 (add-hook 'after-init-hook #'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(setq psession-object-to-save-alist
+      '((ioccur-history . "ioccur-history.el")
+        (extended-command-history . "extended-command-history.el")
+        (helm-external-command-history . "helm-external-command-history.el")
+        (helm-surfraw-engines-history . "helm-surfraw-engines-history.el")
+        (helm-ff-history . "helm-ff-history.el")
+        (helm-grep-history . "helm-grep-history.el")
+        (psession--save-buffers-alist . "psession-save-buffers-alist.el")
+        (psession--winconf-alist . "psession-winconf-alist.el")))
+(psession-mode)
 
 (require 'monky)
 (set-face-foreground 'monky-diff-add  "green4")
