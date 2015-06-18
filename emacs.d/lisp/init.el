@@ -111,10 +111,14 @@
         (helm-external-command-history . "helm-external-command-history.el")
         (helm-surfraw-engines-history . "helm-surfraw-engines-history.el")
         (helm-ff-history . "helm-ff-history.el")
-        (helm-grep-history . "helm-grep-history.el")
-        (psession--save-buffers-alist . "psession-save-buffers-alist.el")
-        (psession--winconf-alist . "psession-winconf-alist.el")))
+        (helm-grep-history . "helm-grep-history.el")))
 (psession-mode)
+(dolist (fn '(psession--dump-some-buffers-to-list
+              psession--restore-some-buffers
+              psession-save-last-winconf
+              psession-restore-last-winconf))
+  (remove-hook 'kill-emacs-hook fn)
+  (remove-hook 'emacs-startup-hook fn))
 
 (require 'monky)
 (set-face-foreground 'monky-diff-add  "green4")
