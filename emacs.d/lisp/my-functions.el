@@ -6,7 +6,7 @@
   (let (x1 x2 (download-buffer (url-retrieve-synchronously url)))
     (save-excursion
       (set-buffer download-buffer)
-      (beginning-of-buffer)
+      (goto-char (point-min))
       (setq x1 (search-forward "<title>"))
       (search-forward "</title>")
       (setq x2 (search-backward "<"))
