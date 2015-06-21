@@ -4,8 +4,7 @@
 (defun my-get-html-title-from-url (url)
   "Return content in <title> tag."
   (let (x1 x2 (download-buffer (url-retrieve-synchronously url)))
-    (save-excursion
-      (set-buffer download-buffer)
+    (with-current-buffer download-buffer
       (goto-char (point-min))
       (setq x1 (search-forward "<title>"))
       (search-forward "</title>")
