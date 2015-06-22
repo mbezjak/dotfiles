@@ -82,7 +82,7 @@
 ;; functions
 (defun my-org-agenda-sort ()
   (interactive)
-  (beginning-of-buffer)
+  (goto-char (point-min))
 
   (search-forward-regexp "^\* EXPIRES")
   (beginning-of-line)
