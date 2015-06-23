@@ -6,7 +6,7 @@
 # name: $1
 # --
 $0")
-(yas/global-mode 1)
+(yas-global-mode)
 
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
