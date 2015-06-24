@@ -2,6 +2,11 @@
 (when (file-directory-p "~/lib/org-mode/lisp")
   (add-to-list 'load-path "~/lib/org-mode/lisp"))
 
+(eval-when-compile
+  (require 'org)
+  (require 'org-habit)
+  (require 'org-crypt)
+  (require 'org-mobile))
 
 (defun my-org-note (name)
   "File name from org note NAME."
