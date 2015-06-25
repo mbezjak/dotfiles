@@ -1,3 +1,6 @@
+(eval-when-compile
+ (require 'paredit))
+
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
 (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode)
