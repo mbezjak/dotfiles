@@ -1,3 +1,7 @@
+(eval-when-compile
+  (require 'org)
+  (require 'projectile))
+
 ;; avoiding mistakes
 (when window-system
   (global-unset-key (kbd "C-x C-c"))) ; save-buffers-kill-terminal; shutdown with alt + F4
