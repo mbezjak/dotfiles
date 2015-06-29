@@ -1,9 +1,8 @@
 (eval-when-compile
   (require 'saveplace))
 
-(add-to-list 'auto-mode-alist '("\\.m\\'"    . octave-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'"   . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'"  . octave-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
 (defun my-delete-trailing-whitespace-before-save ()
