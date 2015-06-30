@@ -1,6 +1,3 @@
-(eval-when-compile
-  (require 'saveplace))
-
 (add-to-list 'auto-mode-alist '("\\.m\\'"  . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
