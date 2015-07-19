@@ -48,6 +48,9 @@ $(gem-table)
 EOF
     return 0
 }
+function list-napalm {
+    napalm show
+}
 
 
 declare -r dir=~/Dropbox/packages/$(computer-type)
@@ -65,5 +68,6 @@ have npm  && list-npm              > npm
 have pip  && list-python-eggs pip  > pip
 have pip2 && list-python-eggs pip2 > pip2
 have gem  && list-gems             > gem
+have napalm && list-napalm         > napalm
 
 exit 0
