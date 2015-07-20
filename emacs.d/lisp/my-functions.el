@@ -109,4 +109,16 @@
       (f-delete generated-autoload-file))
     (update-directory-autoloads dir)))
 
+(defun my-align-multi (start end regexp)
+  "Align selection by repeating REGEXP."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end
+                (concat "\\(\\s-*\\)" regexp "\\(\\s-*\\)")
+                1 1 t))
+
+(defun my-align-spock-table (start end)
+  "Align spockframework data table."
+  (interactive "r")
+  (my-align-multi start end "|"))
+
 (provide 'my-functions)
