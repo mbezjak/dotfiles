@@ -130,11 +130,7 @@
      (set-face-foreground 'diff-added "green4")
      (set-face-foreground 'diff-removed "red3")))
 
-(eval-after-load "magit"
-  '(progn
-     (set-face-background 'magit-item-highlight "PaleGoldenrod")
-     (set-face-foreground 'magit-diff-add "green4")
-     (set-face-foreground 'magit-diff-del "red3")))
+(require 'magit)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)

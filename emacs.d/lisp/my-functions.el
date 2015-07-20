@@ -43,8 +43,8 @@
 (defun my-repo-status ()
   "Open git or hg status buffer."
   (interactive)
-  (if (magit-get-top-dir ".")
-      (magit-status ".")
+  (if (magit-inside-worktree-p)
+      (magit-status (magit-toplevel "."))
     (monky-status)))
 
 (defun my-save-buffer-on-focus-out ()
