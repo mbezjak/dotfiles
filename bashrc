@@ -127,6 +127,10 @@ function org-notes-backup {
 }
 function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
 
+# http://www.nurkiewicz.com/2012/09/accessing-clipboard-in-linux-terminal.html
+alias ctrlc='xclip -selection c'
+alias ctrlv='xclip -selection c -o'
+
 # command dependent
 have dolphin && alias d='dolphin . &> /dev/null'
 
