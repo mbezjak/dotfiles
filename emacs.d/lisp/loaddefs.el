@@ -30,26 +30,13 @@ Major mode for editing build.gradle.
 
 ;;;***
 
-;;;### (autoloads nil "kin-mode" "../../../../.emacs.d/lisp/kin-mode.el"
-;;;;;;  "883efe53a35c78b4e6fa1cf610e67f01")
-;;; Generated autoloads from ../../../../.emacs.d/lisp/kin-mode.el
-
-(autoload 'kin-mode "kin-mode" "\
-Major mode for editing build.kin.
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("build\\.kin\\'" . kin-mode))
-
-;;;***
-
 ;;;### (autoloads nil nil ("../../../../.emacs.d/lisp/gommons-mode.el"
 ;;;;;;  "../../../../.emacs.d/lisp/gradle-mode.el" "../../../../.emacs.d/lisp/init.el"
-;;;;;;  "../../../../.emacs.d/lisp/kin-mode.el" "../../../../.emacs.d/lisp/my-dev.el"
-;;;;;;  "../../../../.emacs.d/lisp/my-functions.el" "../../../../.emacs.d/lisp/my-helm.el"
-;;;;;;  "../../../../.emacs.d/lisp/my-keys.el" "../../../../.emacs.d/lisp/my-lisp.el"
-;;;;;;  "../../../../.emacs.d/lisp/my-org.el" "../../../../.emacs.d/lisp/my-yasnippet.el")
-;;;;;;  (21866 57223 714616 905000))
+;;;;;;  "../../../../.emacs.d/lisp/my-dev.el" "../../../../.emacs.d/lisp/my-functions.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-helm.el" "../../../../.emacs.d/lisp/my-keys.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-lisp.el" "../../../../.emacs.d/lisp/my-org.el"
+;;;;;;  "../../../../.emacs.d/lisp/my-yasnippet.el") (21947 12651
+;;;;;;  195266 812000))
 
 ;;;***
 
