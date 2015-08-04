@@ -266,12 +266,15 @@ b:2
        (add-hook 'haskell-mode-hook (lambda () (ghc-init))))))
 
 
+(require 'flycheck)
+(flycheck-define-checker groovy
+  "A groovy syntax checker using groovy compiler.
 
-(defun flycheck-groovy-write-compiler ()
-  "Write the compilation program to disk."
-  (let* ((dir (flycheck-temp-dir-system))
-         (file (expand-file-name "compiler.groovy" dir))
-         (prog "import org.codehaus.groovy.control.*
+See `http://www.groovy-lang.org/mailing-lists.html#nabble-td365810'
+and `http://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/control/CompilationUnit.html#compile%28int%29'."
+
+  :command ("groovy" "-e"
+            (eval "import org.codehaus.groovy.control.*
 
 file = new File(args[0])
 unit = new CompilationUnit()
@@ -282,20 +285,7 @@ try {
 } catch (MultipleCompilationErrorsException e) {
     e.errorCollector.write(new PrintWriter(System.out, true), null)
 }
-"))
-
-    (write-region prog nil file nil 'no-message)
-    file))
-
-(require 'flycheck)
-(flycheck-define-checker groovy
-  "A groovy syntax checker using groovy compiler.
-
-See `http://www.groovy-lang.org/mailing-lists.html#nabble-td365810'
-and `http://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/control/CompilationUnit.html#compile%28int%29'."
-
-  :command ("groovy"
-            (eval (flycheck-groovy-write-compiler))
+")
             source)
   :error-patterns
   ((error line-start (file-name) ": " line ":" (message) " @ line " line ", column " column "." line-end))
