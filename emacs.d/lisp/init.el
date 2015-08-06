@@ -274,7 +274,7 @@ See `http://www.groovy-lang.org/mailing-lists.html#nabble-td365810'
 and `http://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/control/CompilationUnit.html#compile%28int%29'."
 
   :command ("groovy" "-e"
-            (eval "import org.codehaus.groovy.control.*
+            "import org.codehaus.groovy.control.*
 
 file = new File(args[0])
 unit = new CompilationUnit()
@@ -285,7 +285,7 @@ try {
 } catch (MultipleCompilationErrorsException e) {
     e.errorCollector.write(new PrintWriter(System.out, true), null)
 }
-")
+"
             source)
   :error-patterns
   ((error line-start (file-name) ": " line ":" (message) " @ line " line ", column " column "." line-end))
