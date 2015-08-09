@@ -194,33 +194,14 @@ have pacman && {
         ls --time-style=iso -lrt /var/lib/pacman/local
     }
 
-    function pacman-aur-info {
-        local -r format="\
-Name           : %n
-Version        : %V
-Description    : %d
-Architecture   : %a
-URL            : %U
-Provides       : %P
-Depends On     : %D
-Optional Deps  : %O
-Required By    : %N
-Conflicts With : %C
-Replaces       : %R
-Maintainer     : %m
-File URL       : %u
-AUR votes      : %w"
-        package-query --aur --format "$format" "$@"
-    }
-
     alias psp='sudo pacman --sync'
     alias prs='sudo pacman --remove --recursive'
     alias pss='pacman --sync --search'
     alias psi='pacman --sync --info --info'
     alias pqs='pacman --query --search'
     alias pqi='pacman --query --info --info'
-    alias pas='package-query --aur --search'
-    alias pai='pacman-aur-info'
+    alias pas='aura --aursync --search'
+    alias pai='aura --aursync --info'
     alias pql='pacman --query --list'
     alias pqo='pacman --query --owns'
     alias pqm='pacman --query --foreign'
