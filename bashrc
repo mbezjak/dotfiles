@@ -188,9 +188,7 @@ have pacman && {
     alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
     function pacedit { sudo $EDITOR /etc/$1; }
     function pacrm { sudo rm --interactive /etc/$1.pacnew; }
-    have meld && {
-        function pacmeld { meld /etc/$1{,.pacnew} 2> /dev/null & }
-    }
+    function pacmeld { meld /etc/$1{,.pacnew} 2> /dev/null & }
 
     function pacman-ls-updates {
         ls --time-style=iso -lrt /var/lib/pacman/local
