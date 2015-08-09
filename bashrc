@@ -182,8 +182,7 @@ have systemctl && {
 }
 
 have pacman && {
-    alias pu='sudo pacman --sync --refresh --sysupgrade'
-    have packer && alias pu='packer -Syu'
+    alias pu='sudo pacman --sync --refresh --sysupgrade && sudo aura --aursync --delmakedeps --diff --sysupgrade'
 
     alias paclog='less +G /var/log/pacman.log'
     alias pacfiles="find /etc -name '*\.pac*' 2> /dev/null"
