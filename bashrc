@@ -202,6 +202,7 @@ have pacman && {
     alias pqi='pacman --query --info --info'
     alias pas='aura --aursync --search'
     alias pai='aura --aursync --info'
+    alias pab='aura --aursync --pkgbuild'
     alias pql='pacman --query --list'
     alias pqo='pacman --query --owns'
     alias pqm='pacman --query --foreign'
