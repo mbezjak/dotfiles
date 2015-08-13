@@ -113,7 +113,6 @@ alias hist='history | grep'
 alias pg='ps -Afww | grep -i'
 alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
-alias 7mms='xdg-open ~/Documents/health/7mms.png &'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
 function openports { ss --tcp --processes "$@" | sed '1d' | column -t; }
 function t {
