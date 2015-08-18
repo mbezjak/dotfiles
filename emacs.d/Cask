@@ -20,7 +20,7 @@
 (depends-on "move-text")
 (depends-on "htmlize")
 (depends-on "free-keys")
-(depends-on "ace-jump-mode")
+(depends-on "avy")
 (depends-on "ace-window")
 (depends-on "company")
 (depends-on "projectile")
