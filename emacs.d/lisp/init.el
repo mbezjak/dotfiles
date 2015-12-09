@@ -8,6 +8,7 @@
 (column-number-mode)
 (global-subword-mode)
 (show-paren-mode)
+(delete-selection-mode)
 (global-auto-revert-mode)
 
 (setq-default tab-width      4
