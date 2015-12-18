@@ -30,5 +30,6 @@
 (add-hook 'prog-mode-hook 'my-pretty-lambdas)
 (add-hook 'prog-mode-hook 'my-add-watchwords)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'goto-address-mode)
 
 (provide 'my-dev)
