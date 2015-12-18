@@ -17,7 +17,8 @@
               indent-tabs-mode      nil
               indicate-empty-lines  t
               require-final-newline t
-              sentence-end-double-space nil)
+              sentence-end-double-space nil
+              save-place nil)
 
 (setq frame-title-format '(buffer-file-name "%f" ("%b"))
       inhibit-startup-screen t
