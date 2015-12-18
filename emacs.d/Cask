@@ -20,6 +20,7 @@
 (depends-on "move-text")
 (depends-on "htmlize")
 (depends-on "free-keys")
+(depends-on "discover-my-major")
 (depends-on "avy")
 (depends-on "ace-window")
 (depends-on "company")
