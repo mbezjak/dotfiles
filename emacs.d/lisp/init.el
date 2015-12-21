@@ -90,6 +90,7 @@
 (require 'dash)
 (require 's)
 (require 'f)
+(require 'use-package)
 
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))

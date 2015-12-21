@@ -11,6 +11,7 @@
 (depends-on "idle-highlight-mode")
 (depends-on "elisp-slime-nav")
 
+(depends-on "use-package")
 (depends-on "psession")
 (depends-on "magit")
 (depends-on "monky")
