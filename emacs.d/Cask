@@ -9,8 +9,6 @@
 ; starter-kit dependencies
 (depends-on "paredit")
 (depends-on "idle-highlight-mode")
-
-; needed explicitly for some reason
 (depends-on "elisp-slime-nav")
 
 (depends-on "psession")
