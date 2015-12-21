@@ -31,6 +31,7 @@
 (depends-on "helm-swoop")
 (depends-on "helm-descbinds")
 (depends-on "flycheck")
+(depends-on "anzu")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")
