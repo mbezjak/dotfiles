@@ -136,6 +136,8 @@
      (set-face-foreground 'diff-removed "red3")))
 
 (require 'magit)
+(global-diff-hl-mode)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)

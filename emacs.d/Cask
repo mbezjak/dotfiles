@@ -19,6 +19,7 @@
 (depends-on "yasnippet")
 (depends-on "move-text")
 (depends-on "htmlize")
+(depends-on "diff-hl")
 (depends-on "free-keys")
 (depends-on "discover-my-major")
 (depends-on "avy")
