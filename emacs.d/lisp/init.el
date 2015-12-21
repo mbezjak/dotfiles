@@ -126,10 +126,13 @@
   (remove-hook 'kill-emacs-hook fn)
   (remove-hook 'emacs-startup-hook fn))
 
-(require 'monky)
-(set-face-foreground 'monky-diff-add  "green4")
-(set-face-foreground 'monky-diff-del  "red3")
-(setq monky-process-type 'cmdserver)
+(use-package
+ monky
+ :init
+ (setq monky-process-type 'cmdserver)
+ :config
+ (set-face-foreground 'monky-diff-add  "green4")
+ (set-face-foreground 'monky-diff-del  "red3"))
 
 (eval-after-load 'diff-mode
   '(progn
