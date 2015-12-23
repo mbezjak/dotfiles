@@ -111,20 +111,24 @@
 (add-hook 'after-init-hook #'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(setq psession-object-to-save-alist
-      '((ioccur-history . "ioccur-history.el")
-        (extended-command-history . "extended-command-history.el")
-        (helm-external-command-history . "helm-external-command-history.el")
-        (helm-surfraw-engines-history . "helm-surfraw-engines-history.el")
-        (helm-ff-history . "helm-ff-history.el")
-        (helm-grep-history . "helm-grep-history.el")))
-(psession-mode)
-(dolist (fn '(psession--dump-some-buffers-to-list
-              psession--restore-some-buffers
-              psession-save-last-winconf
-              psession-restore-last-winconf))
-  (remove-hook 'kill-emacs-hook fn)
-  (remove-hook 'emacs-startup-hook fn))
+(use-package
+  psession
+  :init
+  (setq psession-object-to-save-alist
+        '((ioccur-history . "ioccur-history.el")
+          (extended-command-history . "extended-command-history.el")
+          (helm-external-command-history . "helm-external-command-history.el")
+          (helm-surfraw-engines-history . "helm-surfraw-engines-history.el")
+          (helm-ff-history . "helm-ff-history.el")
+          (helm-grep-history . "helm-grep-history.el")))
+  :config
+  (psession-mode)
+  (dolist (fn '(psession--dump-some-buffers-to-list
+                psession--restore-some-buffers
+                psession-save-last-winconf
+                psession-restore-last-winconf))
+    (remove-hook 'kill-emacs-hook fn)
+    (remove-hook 'emacs-startup-hook fn)))
 
 (use-package
  monky
