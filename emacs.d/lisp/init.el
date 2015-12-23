@@ -176,9 +176,11 @@
          (setq markdown-command cmd)))))
 
 
-(eval-after-load "coffee-mode"
-  '(progn
-     (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-buffer)))
+(use-package
+  coffee-mode
+  :no-require t
+  :config
+  (bind-key "M-r" 'coffee-compile-buffer coffee-mode-map))
 
 
 (defun my-groovy-offset-fixes ()
