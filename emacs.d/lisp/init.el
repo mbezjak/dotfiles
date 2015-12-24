@@ -263,16 +263,18 @@ b:2
   (setq c-recognize-colon-labels nil)
   (c-set-offset 'arglist-cont-nonempty 0))
 
-(eval-after-load "groovy-mode"
-  '(progn
-     (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)))
+(use-package
+  groovy-mode
+  :no-require t
+  :config
+  (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes))
 
-
-(eval-after-load 'scala-mode2
-  '(progn
-     (require 'ensime)
-     (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)))
-
+(use-package
+  scala-mode2
+  :no-require t
+  :config
+  (require 'ensime)
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 (eval-after-load "haskell-mode"
   '(progn
