@@ -153,15 +153,21 @@
   :config
   (global-anzu-mode +1))
 
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
-(setq projectile-enable-caching t
-      projectile-cache-file (my-managed-file "projectile.cache")
-      projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
-(add-to-list 'projectile-globally-ignored-directories "target")
-(add-to-list 'projectile-globally-ignored-directories "build")
-(add-to-list 'projectile-globally-ignored-files "*.log")
+(use-package
+  projectile
+  :init
+  (setq projectile-keymap-prefix (kbd "M-F")
+        projectile-completion-system 'helm
+        projectile-enable-caching t
+        projectile-cache-file (my-managed-file "projectile.cache")
+        projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
+  :config
+  (projectile-global-mode)
+  (helm-projectile-on)
+  (add-to-list 'projectile-globally-ignored-directories "target")
+  (add-to-list 'projectile-globally-ignored-directories "build")
+  (add-to-list 'projectile-globally-ignored-files "*.log"))
+
 
 (eval-after-load 'hippie-exp
   '(progn

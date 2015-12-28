@@ -92,8 +92,5 @@
 ;; shift + arrow keys
 (windmove-default-keybindings)
 
-;; must be set before projectile is loaded
-(setq projectile-keymap-prefix (kbd "M-F"))
-
 
 (provide 'my-keys)
