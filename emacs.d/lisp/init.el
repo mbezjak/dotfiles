@@ -266,6 +266,7 @@ b:2
 (use-package
   groovy-mode
   :no-require t
+  :mode "build\\.kin\\'"
   :config
   (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes))
 
