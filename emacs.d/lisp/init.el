@@ -155,6 +155,7 @@
 
 (use-package
   projectile
+  :diminish projectile-mode
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
         projectile-completion-system 'helm
