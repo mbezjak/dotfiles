@@ -178,14 +178,15 @@
      ;; Add this back in at the end of the list.
      (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t)))
 
-;; To use:
-;; $ pacman --sync perl-text-markdown
-(eval-after-load "markdown-mode"
-  '(progn
-     (let ((cmd "/usr/bin/vendor_perl/Markdown.pl"))
-       (when (file-exists-p cmd)
-         (setq markdown-command cmd)))))
-
+(use-package
+  markdown-mode
+  :no-require t
+  :config
+  ;; To use:
+  ;; $ pacman --sync perl-text-markdown
+  (let ((cmd "/usr/bin/vendor_perl/Markdown.pl"))
+    (when (file-exists-p cmd)
+      (setq markdown-command cmd))))
 
 (use-package
   coffee-mode
