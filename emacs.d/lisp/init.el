@@ -169,7 +169,6 @@
   (add-to-list 'projectile-globally-ignored-directories "build")
   (add-to-list 'projectile-globally-ignored-files "*.log"))
 
-
 (use-package
   hippie-exp
   :no-require t
@@ -291,12 +290,14 @@ b:2
   (require 'ensime)
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
-(eval-after-load "haskell-mode"
-  '(progn
-     (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-     (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(use-package
+  haskell-mode
+  :no-require t
+  :config
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-     ;; To use:
-     ;; $ cabal install ghc-mod
-     (when (file-executable-p "~/.cabal/bin/ghc-mod")
-       (add-hook 'haskell-mode-hook (lambda () (ghc-init))))))
+  ;; To use:
+  ;; $ cabal install ghc-mod
+  (when (file-executable-p "~/.cabal/bin/ghc-mod")
+    (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
