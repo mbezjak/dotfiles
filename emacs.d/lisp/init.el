@@ -128,10 +128,12 @@
     (remove-hook 'kill-emacs-hook fn)
     (remove-hook 'emacs-startup-hook fn)))
 
-(eval-after-load 'diff-mode
-  '(progn
-     (set-face-foreground 'diff-added "green4")
-     (set-face-foreground 'diff-removed "red3")))
+(use-package
+  diff-mode
+  :no-require t
+  :config
+  (set-face-foreground 'diff-added "green4")
+  (set-face-foreground 'diff-removed "red3"))
 
 (use-package
   monky
