@@ -148,8 +148,11 @@
   :init
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
-(global-diff-hl-mode)
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+(use-package
+  diff-hl
+  :config
+  (global-diff-hl-mode)
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
 
 (use-package
   anzu
