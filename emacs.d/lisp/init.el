@@ -34,8 +34,6 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u"
 
-      magit-last-seen-setup-instructions "1.4.0"
-
       ;; use keys that all in the same row
       aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
 
@@ -130,6 +128,11 @@
     (remove-hook 'kill-emacs-hook fn)
     (remove-hook 'emacs-startup-hook fn)))
 
+(eval-after-load 'diff-mode
+  '(progn
+     (set-face-foreground 'diff-added "green4")
+     (set-face-foreground 'diff-removed "red3")))
+
 (use-package
   monky
   :init
@@ -138,12 +141,11 @@
   (set-face-foreground 'monky-diff-add  "green4")
   (set-face-foreground 'monky-diff-del  "red3"))
 
-(eval-after-load 'diff-mode
-  '(progn
-     (set-face-foreground 'diff-added "green4")
-     (set-face-foreground 'diff-removed "red3")))
+(use-package
+  magit
+  :init
+  (setq magit-last-seen-setup-instructions "1.4.0"))
 
-(require 'magit)
 (global-diff-hl-mode)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
