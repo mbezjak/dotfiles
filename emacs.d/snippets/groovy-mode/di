@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: di
+# name: di
+# --
+$1 = ref('$1')
