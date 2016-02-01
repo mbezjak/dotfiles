@@ -62,6 +62,10 @@
 (defun my-unregister-buffer-save-on-focus-out ()
   (remove-hook 'focus-out-hook 'my-save-buffer-on-focus-out))
 
+(defun my-xml-pretty-format ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (region-beginning) (region-end) "xmllint --format -" (buffer-name) t)))
 
 
 ;; ported from starter-kit
