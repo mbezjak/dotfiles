@@ -206,6 +206,9 @@ have pacman && {
     alias pqo='pacman --query --owns'
     alias pqm='pacman --query --foreign'
     alias pdt='pacman --query --deps --unrequired'
+    alias pfl='pacman --files --list'
+    alias pfo='pacman --files --owns'
+    alias pfs='pacman --files --search'
 
     function pqb { pacman --query --list "$1" | grep --color=never /usr/bin; }
     function pqf {
