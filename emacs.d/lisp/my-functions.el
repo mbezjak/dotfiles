@@ -21,16 +21,6 @@
   (interactive)
   (kill-buffer))
 
-(defun my-duplicate-line ()
-  "Duplicate current line."
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (forward-line 1)
-  (yank))
-
 (defun my-project-version-at-point ()
   "Get the version for the project at point"
   (interactive)

@@ -161,6 +161,10 @@
   (global-anzu-mode +1))
 
 (use-package
+  duplicate-thing
+  :bind ("C-M-<down>" . duplicate-thing))
+
+(use-package
   projectile
   :diminish projectile-mode
   :init

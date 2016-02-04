@@ -50,7 +50,6 @@
 (global-set-key (kbd "M-I")        'my-org-insert-link)
 (global-set-key (kbd "M-L")        'browse-url)
 (global-set-key (kbd "M-P")        'browse-url-at-point)
-(global-set-key (kbd "C-M-<down>") 'my-duplicate-line)
 (global-set-key (kbd "C-c SPC")    'avy-goto-word-1)
 (global-set-key (kbd "C-.")        'ace-window)
 (global-set-key (kbd "M-/") '(lambda ()
