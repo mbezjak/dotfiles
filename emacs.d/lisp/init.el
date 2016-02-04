@@ -33,6 +33,9 @@
       imenu-auto-rescan t
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u"
+      dired-recursive-copies 'always
+      dired-recursive-deletes 'top
+      dired-listing-switches "-lha"
 
       ;; use keys that all in the same row
       aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
