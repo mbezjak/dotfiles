@@ -171,6 +171,10 @@
   (volatile-highlights-mode t))
 
 (use-package
+  expand-region
+  :bind ("C-:" . er/expand-region))
+
+(use-package
   projectile
   :diminish projectile-mode
   :init

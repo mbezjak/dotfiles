@@ -33,6 +33,7 @@
 (depends-on "anzu")
 (depends-on "duplicate-thing")
 (depends-on "volatile-highlights")
+(depends-on "expand-region")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")
