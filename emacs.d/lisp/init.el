@@ -165,6 +165,12 @@
   :bind ("C-M-<down>" . duplicate-thing))
 
 (use-package
+  volatile-highlights
+  :diminish volatile-highlights-mode
+  :config
+  (volatile-highlights-mode t))
+
+(use-package
   projectile
   :diminish projectile-mode
   :init
