@@ -28,6 +28,7 @@ ignorewsamount = True
 ignoreblanklines = True
 
 [alias]
+d = !$HG diff --color=on | diff-so-fancy
 log = log --follow
 l = log --graph
 show = log --patch --rev

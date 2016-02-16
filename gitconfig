@@ -21,6 +21,7 @@
         l = log --graph --decorate
         last = log --decorate -1
         last3 = log --decorate -3
+        d = !git diff --color | diff-so-fancy
         b = branch
         ff = merge --ff-only
         forget = rm --cached
