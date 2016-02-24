@@ -80,7 +80,8 @@
       eshell-directory-name (my-managed-file "eshell/")
       save-place-file (my-managed-file "places")
       backup-directory-alist `(("." . ,(my-managed-file "backups")))
-      psession-elisp-objects-default-directory (my-managed-file "elisp-objects"))
+      psession-elisp-objects-default-directory (my-managed-file "elisp-objects")
+      user-emacs-ensime-directory (my-managed-file "ensime"))
 
 (when (file-exists-p custom-file)
   (load custom-file))
