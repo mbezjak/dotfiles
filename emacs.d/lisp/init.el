@@ -81,7 +81,9 @@
       save-place-file (my-managed-file "places")
       backup-directory-alist `(("." . ,(my-managed-file "backups")))
       psession-elisp-objects-default-directory (my-managed-file "elisp-objects")
-      user-emacs-ensime-directory (my-managed-file "ensime"))
+      user-emacs-ensime-directory (my-managed-file "ensime")
+      keyfreq-file (my-managed-file "keyfreq")
+      keyfreq-file-lock (my-managed-file "keyfreq.lock"))
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -131,6 +133,12 @@
                 psession-restore-last-winconf))
     (remove-hook 'kill-emacs-hook fn)
     (remove-hook 'emacs-startup-hook fn)))
+
+(use-package
+  keyfreq
+  :config
+  (keyfreq-mode)
+  (keyfreq-autosave-mode))
 
 (use-package
   diff-mode

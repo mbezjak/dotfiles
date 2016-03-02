@@ -20,6 +20,7 @@
 (depends-on "htmlize")
 (depends-on "diff-hl")
 (depends-on "free-keys")
+(depends-on "keyfreq")
 (depends-on "discover-my-major")
 (depends-on "avy")
 (depends-on "ace-window")
