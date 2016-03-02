@@ -6,6 +6,7 @@
 (global-unset-key (kbd "C-t"))        ; transpose-chars
 (global-unset-key (kbd "C-/"))        ; undo; use C-_
 (global-unset-key (kbd "C-x C-f"))    ; replaced by helm-find-files
+(global-unset-key (kbd "C-a"))        ; replaced by my-move-beginning-of-line
 
 ;; replaced by move-text
 (global-unset-key (kbd "C-M-<up>"))   ; backward-up-list
@@ -57,6 +58,9 @@
                                (if company-mode
                                    (company-complete)
                                  (hippie-expand nil))))
+
+;; toggle between back-to-indentation and move-beginning-of-line
+(global-set-key (kbd "C-a") 'my-move-beginning-of-line)
 
 ;; explore new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
