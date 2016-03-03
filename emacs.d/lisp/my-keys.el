@@ -8,6 +8,8 @@
 (global-unset-key (kbd "C-x C-f"))    ; replaced by helm-find-files
 (global-unset-key (kbd "C-a"))        ; replaced by my-move-beginning-of-line
 (global-unset-key (kbd "C-d"))        ; replaced by my-delete-line
+(global-unset-key (kbd "<escape>"))
+(global-unset-key (kbd "C-g"))
 
 ;; replaced by move-text
 (global-unset-key (kbd "C-M-<up>"))   ; backward-up-list
@@ -65,6 +67,9 @@
 
 ;; delete line and keep column position
 (global-set-key (kbd "C-d") 'my-delete-line)
+
+;; easier to use
+(global-set-key (kbd "<escape>") 'keyboard-quit)
 
 ;; explore new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
