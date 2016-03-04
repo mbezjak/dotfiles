@@ -34,7 +34,7 @@
                                       helm-source-files-in-current-dir))
 
 (when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
+  (setq helm-net-prefer-curl t))
 
 (when (executable-find "ack-grep")
   (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
