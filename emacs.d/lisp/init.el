@@ -313,10 +313,9 @@ b:2
   groovy-mode
   :no-require t
   :mode "build\\.kin\\'"
-  :bind (:map groovy-mode-map
-              ("C-d" . my-delete-line))
   :config
-  (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes))
+  (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)
+  (bind-key "C-d" 'my-delete-line groovy-mode-map))
 
 (use-package
   scala-mode2
