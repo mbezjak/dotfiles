@@ -14,7 +14,7 @@
 (bind-key "C-M-]" 'helm-find-files)
 (bind-key "M-<f8>" 'helm-for-files)
 (bind-key "C-x C-i" 'helm-semantic-or-imenu)
-(bind-key "M-o" 'helm-swoop)
+(bind-key "M-i" 'helm-swoop)
 (bind-key "C-x C-f" 'helm-find-files)
 
 (define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)

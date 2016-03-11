@@ -17,7 +17,7 @@
 (unbind-key "M-i")
 
 
-(bind-key "M-i" 'previous-line)
+(bind-key "M-o" 'previous-line)
 (bind-key "M-k" 'next-line)
 
 
