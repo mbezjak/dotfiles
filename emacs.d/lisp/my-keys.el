@@ -16,6 +16,11 @@
 (unbind-key "M-o")
 (unbind-key "M-i")
 
+
+(bind-key "M-i" 'previous-line)
+(bind-key "M-k" 'next-line)
+
+
 ;; jump to directory
 (defmacro my-jump-macro (fnname dir)
   `(defun ,fnname () (interactive) (my-find-file-in-dir ,dir)))
