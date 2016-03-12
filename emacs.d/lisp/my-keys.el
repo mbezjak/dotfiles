@@ -80,6 +80,8 @@
 (bind-key "C-c y" 'bury-buffer)
 (bind-key "C-c r" 'revert-buffer)
 
+(bind-key "C-z" 'undo)
+
 ;; better than M-S-6
 (bind-key "C-c q" 'join-line)
 
