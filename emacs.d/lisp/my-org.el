@@ -108,8 +108,8 @@
 
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in org-mode."
-  (local-unset-key (kbd "C-c ["))
-  (local-unset-key (kbd "C-c ]")))
+  (unbind-key "C-c [")
+  (unbind-key "C-c ]"))
 
 (defun my-org-insert-link ()
   "Insert org link where default description is set to html title."

@@ -10,12 +10,16 @@
               (if (file-exists-p (concat buffer-file-name "c"))
                   (delete-file (concat buffer-file-name "c"))))))
 
-(define-key emacs-lisp-mode-map (kbd "C-c v") 'eval-buffer)
+(bind-keys :map emacs-lisp-mode-map
+           ("C-c v" . eval-buffer))
 
 ;;; Enhance Lisp Modes
 
-(define-key read-expression-map (kbd "TAB") 'completion-at-point)
-(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
+(bind-keys :map read-expression-map
+           ("TAB" . completion-at-point))
+
+(bind-keys :map lisp-mode-shared-map
+           ("RET" . reindent-then-newline-and-indent))
 
 ;; TODO: look into parenface package
 (defface my-paren-face
@@ -29,8 +33,9 @@
 (eval-after-load 'paredit
   ;; need a binding that works in the terminal
   '(progn
-     (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
-     (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
+     (bind-keys :map paredit-mode-map
+                ("M-)" . paredit-forward-slurp-sexp)
+                ("M-(" . paredit-backward-slurp-sexp))))
 
 (dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
   (when (> (display-color-cells) 8)

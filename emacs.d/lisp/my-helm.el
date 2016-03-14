@@ -2,25 +2,28 @@
 (require 'helm-files)
 (require 'helm-config)
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-map (kbd "C-z") 'helm-select-action) ; list potential actions
-(define-key helm-map (kbd "<escape>") 'helm-keyboard-quit)
+(bind-keys ("M-x" . helm-M-x)
+           ("M-y" . helm-show-kill-ring)
+           ("M-[" . helm-projectile-find-file)
+           ("M-]" . projectile-switch-project)
+           ("C-M-]" . helm-find-files)
+           ("M-<f8>" . helm-for-files)
+           ("C-x C-i" . helm-semantic-or-imenu)
+           ("M-i" . helm-swoop)
+           ("C-x C-f" . helm-find-files))
 
-(bind-key "M-x" 'helm-M-x)
-(bind-key "M-y" 'helm-show-kill-ring)
-(bind-key "M-[" 'helm-projectile-find-file)
-(bind-key "M-]" 'projectile-switch-project)
-(bind-key "C-M-]" 'helm-find-files)
-(bind-key "M-<f8>" 'helm-for-files)
-(bind-key "C-x C-i" 'helm-semantic-or-imenu)
-(bind-key "M-i" 'helm-swoop)
-(bind-key "C-x C-f" 'helm-find-files)
+(bind-keys :map helm-map
+           ("<tab>" . helm-execute-persistent-action)
+           ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
+           ("C-z" . helm-select-action)
+           ("<escape>" . helm-keyboard-quit))
 
-(define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
-(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+(bind-keys :map helm-find-files-map
+           ("M-l" . helm-find-files-up-one-level))
 
-(define-key helm-find-files-map (kbd "M-l") 'helm-find-files-up-one-level)
+(bind-keys :map isearch-mode-map
+           ("M-o" . helm-occur-from-isearch)
+           ("M-i" . helm-swoop-from-isearch))
 
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-always-two-windows t
