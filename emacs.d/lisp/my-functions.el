@@ -145,4 +145,11 @@ point reaches the beginning or end of the buffer, stop there."
     (kill-whole-line)
     (move-to-column column-index)))
 
+(defun my-complete ()
+  "Complete using company-mode or if not available then hippie-expand"
+  (interactive)
+  (if company-mode
+      (company-complete)
+    (hippie-expand nil)))
+
 (provide 'my-functions)
