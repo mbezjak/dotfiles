@@ -31,6 +31,8 @@
 (bind-keys
  ("M-o" . previous-line)
  ("M-k" . next-line)
+ ("M-j" . backward-char)
+ ("M-l" . forward-char)
 
  ("C-d" . my-delete-line) ; delete line and keep column position
 
