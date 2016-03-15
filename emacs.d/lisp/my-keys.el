@@ -31,7 +31,14 @@
 (bind-keys
  ("M-o" . previous-line)
  ("M-k" . next-line)
- ("C-n" . make-frame-command))
+
+ ("C-d" . my-delete-line) ; delete line and keep column position
+
+ ("<escape>" . keyboard-quit)
+ ("C-z" . undo)
+ ("C-n" . make-frame-command)
+ ("C--" . text-scale-decrease)
+ ("C-+" . text-scale-increase))
 
 
 ;; jump to directory
@@ -74,22 +81,11 @@
 ;; toggle between back-to-indentation and move-beginning-of-line
 (bind-key "C-a" 'my-move-beginning-of-line)
 
-;; delete line and keep column position
-(bind-key "C-d" 'my-delete-line)
-
-;; easier to use
-(bind-key "<escape>" 'keyboard-quit)
-
 ;; explore new modes
 (bind-key "C-<f10>" 'menu-bar-mode)
 
-(bind-key "C-+" 'text-scale-increase)
-(bind-key "C--" 'text-scale-decrease)
-
 (bind-key "C-c y" 'bury-buffer)
 (bind-key "C-c r" 'revert-buffer)
-
-(bind-key "C-z" 'undo)
 
 ;; better than M-S-6
 (bind-key "C-c q" 'join-line)
