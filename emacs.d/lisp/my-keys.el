@@ -25,6 +25,7 @@
 (unbind-key "C-g")
 (unbind-key "C-M-<up>")
 (unbind-key "C-M-<down>")
+(unbind-key "C-x 5 2")
 
 
 ;; ergoemacs like
