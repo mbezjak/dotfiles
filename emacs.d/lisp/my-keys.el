@@ -38,7 +38,8 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
  ("C--" . text-scale-decrease)
- ("C-+" . text-scale-increase))
+ ("C-+" . text-scale-increase)
+ ("C-=" . text-scale-increase))
 
 
 ;; jump to directory
