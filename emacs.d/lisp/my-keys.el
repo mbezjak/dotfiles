@@ -27,8 +27,11 @@
 (unbind-key "C-M-<down>")
 
 
-(bind-key "M-o" 'previous-line)
-(bind-key "M-k" 'next-line)
+;; ergoemacs like
+(bind-keys
+ ("M-o" . previous-line)
+ ("M-k" . next-line)
+ ("C-n" . make-frame-command))
 
 
 ;; jump to directory
