@@ -35,6 +35,8 @@
  ("M-l" . forward-char)
 
  ("C-d" . my-delete-line) ; delete line and keep column position
+ ("M-e" . backward-kill-word)
+ ("M-r" . kill-word)
 
  ("<escape>" . keyboard-quit)
  ("C-z" . undo)
