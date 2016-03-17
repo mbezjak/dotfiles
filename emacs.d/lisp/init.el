@@ -112,8 +112,15 @@
 (require 'my-yasnippet)
 (require 'my-lisp)
 
-(add-hook 'after-init-hook #'global-company-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(add-hook 'after-init-hook #'global-company-mode)
+(use-package
+  company
+  :no-require t
+  :config
+  (bind-keys :map company-active-map
+             ("<escape>" . company-abort)))
 
 (use-package
   psession
