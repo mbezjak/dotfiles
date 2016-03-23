@@ -16,6 +16,8 @@
            ("<tab>" . helm-execute-persistent-action)
            ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
            ("C-z" . helm-select-action)
+           ("M-k" . helm-next-line)
+           ("M-o" . helm-previous-line)
            ("<escape>" . helm-keyboard-quit))
 
 (bind-keys :map helm-find-files-map
@@ -24,11 +26,6 @@
 (bind-keys :map isearch-mode-map
            ("M-o" . helm-occur-from-isearch)
            ("M-i" . helm-swoop-from-isearch))
-
-(eval-after-load 'helm-swoop
-  '(bind-keys :map helm-swoop-map
-              ("M-k" . helm-next-line)
-              ("M-o" . helm-previous-line)))
 
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-always-two-windows t
