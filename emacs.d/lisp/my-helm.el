@@ -25,6 +25,11 @@
            ("M-o" . helm-occur-from-isearch)
            ("M-i" . helm-swoop-from-isearch))
 
+(eval-after-load 'helm-swoop
+  '(bind-keys :map helm-swoop-map
+              ("M-k" . helm-next-line)
+              ("M-o" . helm-previous-line)))
+
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-always-two-windows t
       helm-split-window-default-side 'right
