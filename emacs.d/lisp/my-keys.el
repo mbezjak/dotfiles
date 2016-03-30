@@ -51,6 +51,9 @@
  ("C-+" . text-scale-increase)
  ("C-=" . text-scale-increase))
 
+(bind-keys :map isearch-mode-map
+           ("C-f" . isearch-repeat-forward))
+
 
 ;; jump to directory
 (defmacro my-jump-macro (fnname dir)
