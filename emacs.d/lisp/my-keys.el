@@ -21,6 +21,7 @@
 (when window-system (unbind-key "C-x C-c"))
 (unbind-key "C-x C-z")
 (unbind-key "C-x C-f")
+(unbind-key "C-x C-s")
 (unbind-key "C-t")
 (unbind-key "C-g")
 (unbind-key "C-M-<up>")
@@ -43,6 +44,7 @@
  ("M-r" . kill-word)
 
  ("<escape>" . keyboard-quit)
+ ("C-s" . save-buffer)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
  ("C--" . text-scale-decrease)
