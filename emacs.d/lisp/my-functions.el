@@ -138,7 +138,7 @@ point reaches the beginning or end of the buffer, stop there."
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
-(defun my-delete-line ()
+(defun my-delete-line-keep-column-position ()
   "Delete current line and keep point at current column."
   (interactive)
   (let ((column-index (current-column)))

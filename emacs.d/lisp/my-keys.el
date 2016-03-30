@@ -35,7 +35,7 @@
  ("M-j" . backward-char)
  ("M-l" . forward-char)
 
- ("C-d" . my-delete-line) ; delete line and keep column position
+ ("C-d" . my-delete-line-keep-column-position)
  ("M-e" . backward-kill-word)
  ("M-r" . kill-word)
 

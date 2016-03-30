@@ -323,7 +323,7 @@ b:2
   :config
   (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)
   (bind-keys :map groovy-mode-map
-             ("C-d" . my-delete-line)
+             ("C-d" . my-delete-line-keep-column-position)
              ("M-e" . backward-kill-word)))
 
 (use-package
