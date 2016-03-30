@@ -110,8 +110,6 @@
 ;; use regex search by default
 (bind-key "M-%" 'query-replace-regexp)
 (bind-key "C-/" 'query-replace-regexp)
-(bind-key "C-M-s" 'isearch-forward)
-(bind-key "C-M-r" 'isearch-backward)
 (bind-key "C-M-%" 'query-replace)
 
 ;; unrestricted help search
