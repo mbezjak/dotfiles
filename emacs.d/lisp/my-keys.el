@@ -45,7 +45,7 @@
 
  ("M-2" . delete-window)
  ("M-4" . split-window-right)
- ("M-S-4" . split-window-below)
+ ("M-$" . split-window-below)
 
  ("<escape>" . keyboard-quit)
  ("C-s" . save-buffer)
