@@ -35,6 +35,9 @@
  ("M-j" . backward-char)
  ("M-l" . forward-char)
 
+ ("C-f" . isearch-forward-regexp)
+ ("C-S-f" . isearch-backward-regexp)
+
  ("C-d" . my-delete-line-keep-column-position)
  ("M-e" . backward-kill-word)
  ("M-r" . kill-word)
@@ -103,8 +106,6 @@
 (bind-key "C-c e" 'my-eval-and-replace)
 
 ;; use regex search by default
-(bind-key "C-s" 'isearch-forward-regexp)
-(bind-key "C-r" 'isearch-backward-regexp)
 (bind-key "M-%" 'query-replace-regexp)
 (bind-key "C-/" 'query-replace-regexp)
 (bind-key "C-M-s" 'isearch-forward)
