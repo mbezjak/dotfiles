@@ -22,11 +22,11 @@
 (unbind-key "C-x C-z")
 (unbind-key "C-x C-f")
 (unbind-key "C-x C-s")
+(unbind-key "C-x 0")
 (unbind-key "C-t")
 (unbind-key "C-g")
 (unbind-key "C-M-<up>")
 (unbind-key "C-M-<down>")
-(unbind-key "C-x 5 2")
 
 
 ;; ergoemacs like
