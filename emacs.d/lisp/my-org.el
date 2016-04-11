@@ -111,6 +111,11 @@
   (unbind-key "C-c [")
   (unbind-key "C-c ]"))
 
+(defun my-org-rebind-keys ()
+  "Rebind keys that are useful in org-mode."
+  (bind-keys :map org-agenda-keymap
+             ("C-s" . org-save-all-org-buffers)))
+
 (defun my-org-insert-link ()
   "Insert org link where default description is set to html title."
   (interactive)
@@ -133,6 +138,7 @@
 
 
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
+(add-hook 'org-mode-hook 'my-org-rebind-keys)
 (add-hook 'kill-emacs-query-functions 'my-org-ask-clock-out)
 (when window-system
   (add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t))
