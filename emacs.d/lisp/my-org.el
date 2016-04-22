@@ -113,7 +113,9 @@
 
 (defun my-org-rebind-keys ()
   "Rebind keys that are useful in org-mode."
-  (bind-keys :map org-agenda-keymap
+  (bind-keys :map org-mode-map
+             ("M-e" . backward-kill-word)
+             :map org-agenda-keymap
              ("C-s" . org-save-all-org-buffers)))
 
 (defun my-org-insert-link ()
