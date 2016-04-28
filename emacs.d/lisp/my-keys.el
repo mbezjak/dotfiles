@@ -62,7 +62,9 @@
  ("C-+" . text-scale-increase)
  ("C-=" . text-scale-increase))
 
-(bind-keys :map isearch-mode-map
+(bind-keys :map minibuffer-local-map
+           ("<escape>" . minibuffer-keyboard-quit)
+           :map isearch-mode-map
            ("C-f" . isearch-repeat-forward)
            ("C-S-f" . isearch-repeat-backward))
 
