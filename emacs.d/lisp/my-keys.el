@@ -25,6 +25,7 @@
 (unbind-key "C-x 0")
 (unbind-key "C-t")
 (unbind-key "C-g")
+(unbind-key "C-p")
 (unbind-key "C-<backspace>")
 (unbind-key "C-<delete>")
 (unbind-key "M-<backspace>")
