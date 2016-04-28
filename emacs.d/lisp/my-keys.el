@@ -63,7 +63,8 @@
  ("C-=" . text-scale-increase))
 
 (bind-keys :map isearch-mode-map
-           ("C-f" . isearch-repeat-forward))
+           ("C-f" . isearch-repeat-forward)
+           ("C-S-f" . isearch-repeat-backward))
 
 
 ;; jump to directory
