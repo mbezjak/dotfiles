@@ -36,6 +36,8 @@
  ("M-k" . next-line)
  ("M-j" . backward-char)
  ("M-l" . forward-char)
+ ("M-i" . backward-word)
+ ("M-p" . forward-word)
 
  ("C-f" . isearch-forward-regexp)
  ("C-S-f" . isearch-backward-regexp)
