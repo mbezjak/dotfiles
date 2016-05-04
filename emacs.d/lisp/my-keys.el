@@ -1,9 +1,6 @@
 ;; M-x describe-personal-keybindings RET
 
 (unbind-key "M-1")
-(unbind-key "M-2")
-(unbind-key "M-3")
-(unbind-key "M-4")
 (unbind-key "M-5")
 (unbind-key "M-6")
 (unbind-key "M-7")
@@ -14,10 +11,7 @@
 (unbind-key "M-'")
 (unbind-key "M-.")
 (unbind-key "M-,")
-(unbind-key "M-i")
-(unbind-key "M-r")
 (unbind-key "M-s")
-(unbind-key "M-j")
 (when window-system (unbind-key "C-x C-c"))
 (unbind-key "C-x C-z")
 (unbind-key "C-x C-f")
