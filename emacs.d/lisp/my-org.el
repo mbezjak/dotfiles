@@ -115,6 +115,7 @@
   "Rebind keys that are useful in org-mode."
   (bind-keys :map org-mode-map
              ("M-e" . backward-kill-word)
+             ("M-p" . forward-word)
              :map org-agenda-keymap
              ("C-s" . org-save-all-org-buffers)))
 
