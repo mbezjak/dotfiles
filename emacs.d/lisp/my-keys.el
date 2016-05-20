@@ -67,6 +67,7 @@
  ("M-r" . kill-word)
 
  ("M-2" . delete-window)
+ ("C-M-2" . delete-other-windows)
  ("M-3" . split-window-below)
  ("M-4" . split-window-right)
 
