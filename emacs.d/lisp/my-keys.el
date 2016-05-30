@@ -45,7 +45,6 @@
 (unbind-key "M-<backspace>")
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
-(unbind-key "M-d")
 (unbind-key "C-M-<up>")
 (unbind-key "C-M-<down>")
 
@@ -65,6 +64,7 @@
  ("C-d" . my-delete-line-keep-column-position)
  ("M-e" . backward-kill-word)
  ("M-r" . kill-word)
+ ("M-d" . zap-to-char)
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
