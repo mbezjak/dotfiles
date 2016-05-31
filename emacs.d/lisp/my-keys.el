@@ -17,6 +17,8 @@
  ("M-e" . backward-kill-word)
  ("M-r" . kill-word)
  ("M-d" . zap-to-char)
+ ("M-s" . just-one-space)
+ ("C-M-s" . delete-horizontal-space)
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
@@ -24,6 +26,7 @@
  ("M-4" . split-window-right)
 
  ("<escape>" . keyboard-quit)
+ ("M-SPC" . set-mark-command)
  ("C-s" . save-buffer)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
@@ -135,7 +138,6 @@
 (unbind-key "M-'")
 (unbind-key "M-.")
 (unbind-key "M-,")
-(unbind-key "M-s")
 (unbind-key "M-z")
 (when window-system (unbind-key "C-x C-c"))
 (unbind-key "C-x C-z")
@@ -144,6 +146,7 @@
 (unbind-key "C-t")
 (unbind-key "C-g")
 (unbind-key "C-p")
+(unbind-key "C-@")
 (unbind-key "C-<backspace>")
 (unbind-key "C-<delete>")
 (unbind-key "M-<backspace>")
