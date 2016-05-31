@@ -136,6 +136,7 @@
 (unbind-key "M-.")
 (unbind-key "M-,")
 (unbind-key "M-s")
+(unbind-key "M-z")
 (when window-system (unbind-key "C-x C-c"))
 (unbind-key "C-x C-z")
 (unbind-key "C-x C-s")
