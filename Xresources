@@ -1,0 +1,10 @@
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.dpi: 96
+
+emacs.fullscreen: fullheight
+emacs.geometry: 120x100
