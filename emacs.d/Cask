@@ -40,7 +40,7 @@
 (depends-on "ghc")
 (depends-on "coffee-mode")
 (depends-on "groovy-mode")
-(depends-on "scala-mode2")
+(depends-on "scala-mode")
 (depends-on "sbt-mode")
 (depends-on "ensime")
 (depends-on "clojure-mode")

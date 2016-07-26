@@ -327,7 +327,7 @@ b:2
              ("M-e" . backward-kill-word)))
 
 (use-package
-  scala-mode2
+  scala-mode
   :no-require t
   :config
   (require 'ensime)
