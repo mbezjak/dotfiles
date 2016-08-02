@@ -11,7 +11,7 @@
  ("M-p" . forward-word)
 
  ("C-f" . isearch-forward-regexp)
- ("C-S-f" . isearch-backward-regexp)
+ ("S-C-f" . isearch-backward-regexp)
 
  ("C-d" . my-delete-line-keep-column-position)
  ("M-e" . backward-kill-word)
@@ -28,6 +28,7 @@
  ("<escape>" . keyboard-quit)
  ("M-SPC" . set-mark-command)
  ("C-s" . save-buffer)
+ ("S-C-s" . write-file)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
  ("C--" . text-scale-decrease)
