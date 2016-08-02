@@ -101,7 +101,6 @@
 (require 'my-functions)
 (require 'my-org)
 (require 'my-dev)
-(require 'my-keys)
 (load-file (concat user-emacs-directory "lisp/loaddefs.el"))
 
 (my-register-buffer-save-on-focus-out)
@@ -111,6 +110,8 @@
 (require 'my-helm)
 (require 'my-yasnippet)
 (require 'my-lisp)
+
+(require 'my-keys)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

@@ -29,6 +29,7 @@
  ("M-SPC" . set-mark-command)
  ("C-s" . save-buffer)
  ("S-C-s" . write-file)
+ ("C-o" . helm-find-files)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
  ("C--" . text-scale-decrease)
