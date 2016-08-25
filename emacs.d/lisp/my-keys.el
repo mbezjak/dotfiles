@@ -23,7 +23,6 @@
  ("C-M-s" . delete-horizontal-space)
 
  ("M-x" . helm-M-x)
- ("M-y" . helm-show-kill-ring)
  ("M-[" . helm-projectile-find-file)
  ("M-]" . projectile-switch-project)
  ("C-M-]" . helm-find-files)
@@ -43,6 +42,7 @@
  ("S-C-s" . write-file)
  ("C-o" . helm-find-files)
  ("C-q" . my-kill-current-buffer)
+ ("C-v" . helm-show-kill-ring)
  ("S-C-q" . quoted-insert)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
@@ -176,6 +176,7 @@
 (unbind-key "C-t")
 (unbind-key "C-g")
 (unbind-key "C-p")
+(unbind-key "S-C-v")
 (unbind-key "C-@")
 (unbind-key "C-<backspace>")
 (unbind-key "C-<delete>")
