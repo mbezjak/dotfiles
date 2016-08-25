@@ -2,31 +2,6 @@
 (require 'helm-files)
 (require 'helm-config)
 
-(bind-keys ("M-x" . helm-M-x)
-           ("M-y" . helm-show-kill-ring)
-           ("M-[" . helm-projectile-find-file)
-           ("M-]" . projectile-switch-project)
-           ("C-M-]" . helm-find-files)
-           ("M-<f8>" . helm-for-files)
-           ("C-x C-i" . helm-semantic-or-imenu)
-           ("M-f" . helm-swoop)
-           ("C-x C-f" . helm-find-files))
-
-(bind-keys :map helm-map
-           ("<tab>" . helm-execute-persistent-action)
-           ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
-           ("C-z" . helm-select-action)
-           ("M-k" . helm-next-line)
-           ("M-o" . helm-previous-line)
-           ("<escape>" . helm-keyboard-quit))
-
-(bind-keys :map helm-find-files-map
-           ("M-l" . helm-find-files-up-one-level))
-
-(bind-keys :map isearch-mode-map
-           ("M-o" . helm-occur-from-isearch)
-           ("M-i" . helm-swoop-from-isearch))
-
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-always-two-windows t
       helm-split-window-default-side 'right

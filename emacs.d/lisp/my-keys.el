@@ -22,6 +22,16 @@
  ("M-s" . just-one-space)
  ("C-M-s" . delete-horizontal-space)
 
+ ("M-x" . helm-M-x)
+ ("M-y" . helm-show-kill-ring)
+ ("M-[" . helm-projectile-find-file)
+ ("M-]" . projectile-switch-project)
+ ("C-M-]" . helm-find-files)
+ ("M-<f8>" . helm-for-files)
+ ("C-x C-i" . helm-semantic-or-imenu)
+ ("M-f" . helm-swoop)
+ ("C-x C-f" . helm-find-files)
+
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
  ("M-3" . split-window-below)
@@ -45,6 +55,21 @@
            :map isearch-mode-map
            ("C-f" . isearch-repeat-forward)
            ("C-S-f" . isearch-repeat-backward))
+
+(bind-keys :map helm-map
+           ("<tab>" . helm-execute-persistent-action)
+           ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
+           ("C-z" . helm-select-action)
+           ("M-k" . helm-next-line)
+           ("M-o" . helm-previous-line)
+           ("<escape>" . helm-keyboard-quit))
+
+(bind-keys :map helm-find-files-map
+           ("M-l" . helm-find-files-up-one-level))
+
+(bind-keys :map isearch-mode-map
+           ("M-o" . helm-occur-from-isearch)
+           ("M-i" . helm-swoop-from-isearch))
 
 
 ;; jump to directory
