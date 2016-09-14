@@ -85,7 +85,8 @@ export VISUAL='emacs --no-window-system'
 HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
-PROMPT_COMMAND=__prompt_command
+# compatibility with existing PROMPT_COMMAND for autojump (man autojump)
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} __prompt_command"
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
