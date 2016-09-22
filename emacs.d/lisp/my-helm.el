@@ -20,5 +20,6 @@
 
 (helm-mode 1)
 (helm-descbinds-mode)
+(diminish 'helm-mode)
 
 (provide 'my-helm)

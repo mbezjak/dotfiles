@@ -120,6 +120,7 @@
 (add-hook 'after-init-hook #'global-company-mode)
 (use-package
   company
+  :diminish company-mode
   :no-require t
   :config
   (bind-keys :map company-active-map
