@@ -340,7 +340,7 @@ b:2
     :config
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
-               ("C-I" . groovy-imports-add-import-dwim))))
+               ("C-M-i" . groovy-imports-add-import-dwim))))
 
 (use-package
   scala-mode
