@@ -35,6 +35,7 @@
 (depends-on "duplicate-thing")
 (depends-on "volatile-highlights")
 (depends-on "expand-region")
+(depends-on "groovy-imports")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")

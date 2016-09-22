@@ -327,7 +327,14 @@ b:2
   (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)
   (bind-keys :map groovy-mode-map
              ("C-d" . my-delete-line-keep-column-position)
-             ("M-e" . backward-kill-word)))
+             ("M-e" . backward-kill-word))
+
+  (use-package
+    groovy-imports
+    :config
+    (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
+    (bind-keys :map groovy-mode-map
+               ("C-I" . groovy-imports-add-import-dwim))))
 
 (use-package
   scala-mode
