@@ -198,6 +198,11 @@
   :bind ("C-:" . er/expand-region))
 
 (use-package
+  indent-guide
+  :config
+  (indent-guide-global-mode))
+
+(use-package
   projectile
   :diminish projectile-mode
   :init

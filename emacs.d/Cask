@@ -36,6 +36,7 @@
 (depends-on "volatile-highlights")
 (depends-on "expand-region")
 (depends-on "groovy-imports")
+(depends-on "indent-guide")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")
