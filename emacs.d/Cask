@@ -49,6 +49,7 @@
 (depends-on "cider")
 (depends-on "js2-mode")
 (depends-on "json-mode")
+(depends-on "web-mode")
 (depends-on "markdown-mode")
 
 (depends-on "4clojure")
