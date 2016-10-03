@@ -105,8 +105,6 @@
 (require 'my-dev)
 (load-file (concat user-emacs-directory "lisp/loaddefs.el"))
 
-(my-register-buffer-save-on-focus-out)
-
 (move-text-default-bindings)
 (require 'uniquify)
 (require 'my-helm)
@@ -365,3 +363,9 @@ b:2
   web-mode
   :no-require t
   :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
+
+(use-package
+  super-save
+  :diminish super-save-mode
+  :config
+  (super-save-mode))

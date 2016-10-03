@@ -37,21 +37,6 @@
       (magit-status (magit-toplevel "."))
     (monky-status)))
 
-(defun my-save-buffer-on-focus-out ()
-  "Save buffer when emacs loses focus"
-  (interactive)
-  (unless (or buffer-read-only
-              (minibufferp)
-              (s-starts-with? "*" (buffer-name)))
-    (save-buffer)))
-
-(defun my-register-buffer-save-on-focus-out ()
-  (my-unregister-buffer-save-on-focus-out)
-  (add-hook 'focus-out-hook 'my-save-buffer-on-focus-out))
-
-(defun my-unregister-buffer-save-on-focus-out ()
-  (remove-hook 'focus-out-hook 'my-save-buffer-on-focus-out))
-
 (defun my-xml-pretty-format ()
   (interactive)
   (save-excursion
