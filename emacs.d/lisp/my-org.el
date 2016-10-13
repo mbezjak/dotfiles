@@ -46,23 +46,22 @@
 ;; https://aur.archlinux.org/packages/plantuml/
 (setq org-plantuml-jar-path "/opt/plantuml/plantuml.jar")
 
-(eval-after-load "org"
-  '(progn
-     (add-to-list 'org-modules 'org-habit t)
-     (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
+(with-eval-after-load 'org
+  (add-to-list 'org-modules 'org-habit t)
+  (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
 
-     (org-babel-do-load-languages 'org-babel-load-languages
-                                  '((gnuplot . t)
-                                    (plantuml . t)
-                                    (dot . t)
-                                    (sh . t)
-                                    (emacs-lisp . t)))
+  (org-babel-do-load-languages 'org-babel-load-languages
+                               '((gnuplot . t)
+                                 (plantuml . t)
+                                 (dot . t)
+                                 (sh . t)
+                                 (emacs-lisp . t)))
 
-     (add-hook 'org-mode-hook #'(lambda () (flycheck-mode -1)))
+  (add-hook 'org-mode-hook #'(lambda () (flycheck-mode -1)))
 
-     ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
-     (require 'org-crypt)
-     (org-crypt-use-before-save-magic)))
+  ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
+  (require 'org-crypt)
+  (org-crypt-use-before-save-magic))
 
 ;; org-agenda-custom-commands and org-capture-templates
 (load (concat org-directory "/org-custom"))
