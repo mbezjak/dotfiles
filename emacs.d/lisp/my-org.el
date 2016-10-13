@@ -59,6 +59,21 @@
 
   (add-hook 'org-mode-hook #'(lambda () (flycheck-mode -1)))
 
+  ;; when in calendar mode, shift+keys do not switch windows
+  (let ((map org-read-date-minibuffer-local-map))
+    (define-key map [(shift up)]
+      (lambda () (interactive)
+        (org-eval-in-calendar '(calendar-backward-week 1))))
+    (define-key map [(shift down)]
+                (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-forward-week 1))))
+    (define-key map [(shift left)]
+                (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-backward-day 1))))
+    (define-key map [(shift right)]
+                (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-forward-day 1)))))
+
   ;; http://orgmode.org/worg/org-tutorials/encrypting-files.html
   (require 'org-crypt)
   (org-crypt-use-before-save-magic))
