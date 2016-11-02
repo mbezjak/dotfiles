@@ -27,9 +27,6 @@
       org-habit-show-done-always-green t
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
-      org-mobile-directory "~/Dropbox/MobileOrg"
-      org-mobile-inbox-for-pull (my-org-note "refile")
-      org-mobile-agendas '("m")
       org-latex-preview-ltxpng-directory (my-managed-file "ltxpng/")
       org-id-locations-file (my-managed-file "org-id-locations")
       org-extend-today-until 5
@@ -140,9 +137,6 @@
          (title (my-get-html-title-from-url url)))
     (org-insert-link nil url title)))
 
-(defun my-org-push-on-emacs-exit ()
-  (when (functionp 'org-mobile-push) (org-mobile-push)))
-
 ; http://lists.gnu.org/archive/html/emacs-orgmode/2014-02/msg00088.html
 (defun my-org-ask-clock-out ()
   "Ask the user before clocking out.
@@ -157,7 +151,5 @@
 (add-hook 'org-mode-hook 'my-org-unbind-keys)
 (add-hook 'org-mode-hook 'my-org-rebind-keys)
 (add-hook 'kill-emacs-query-functions 'my-org-ask-clock-out)
-(when window-system
-  (add-hook 'kill-emacs-hook 'my-org-push-on-emacs-exit t))
 
 (provide 'my-org)
