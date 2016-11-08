@@ -169,6 +169,7 @@
 (unbind-key "M-.")
 (unbind-key "M-,")
 (unbind-key "M-z")
+(unbind-key "M-b")
 (unbind-key "M-m")
 (when window-system (unbind-key "C-x C-c"))
 (unbind-key "C-x C-z")
