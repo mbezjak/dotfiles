@@ -13,6 +13,7 @@
  ("M-p" . forward-word)
 
  ("C-f" . isearch-forward-regexp)
+ ("C-r" . isearch-backward-regexp)
  ("S-C-f" . isearch-backward-regexp)
 
  ("C-d" . my-delete-line-keep-column-position)
