@@ -17,7 +17,7 @@
       my-org-note-habit   (my-org-note "habit")
       my-org-note-pool    (my-org-note "pool")
       my-org-note-meta    (my-org-note "meta")
-      my-org-note-archive (my-org-note "archive")
+      my-org-note-archive (my-org-note "archive/archive")
       org-default-notes-file my-org-note-pool
       org-agenda-files       (list my-org-note-agenda my-org-note-habit my-org-note-pool)
       org-archive-location   (concat my-org-note-archive "::")
