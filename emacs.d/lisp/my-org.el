@@ -108,7 +108,9 @@
   (beginning-of-line)
   (org-sort-entries nil ?t)
   (org-cycle)
-  (org-cycle))
+  (org-cycle)
+
+  (save-buffer))
 
 (defun my-org-agenda-remove-later ()
   "Remove agenda items with `later` tag."
