@@ -197,6 +197,7 @@
 
 (use-package
   indent-guide
+  :diminish indent-guide-mode
   :config
   (indent-guide-global-mode))
 
