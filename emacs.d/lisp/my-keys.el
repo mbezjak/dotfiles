@@ -108,7 +108,6 @@
 (bind-key "M-L"        'browse-url)
 (bind-key "M-P"        'browse-url-at-point)
 (bind-key "C-c SPC"    'avy-goto-word-1)
-(bind-key "C-."        'ace-window)
 (bind-key "M-/"        'my-complete)
 
 ;; toggle between back-to-indentation and move-beginning-of-line
