@@ -181,6 +181,7 @@
 (unbind-key "C-x 0")
 (unbind-key "C-t")
 (unbind-key "C-g")
+(unbind-key "C-b")
 (unbind-key "S-C-v")
 (unbind-key "C-@")
 (unbind-key "C-<backspace>")
