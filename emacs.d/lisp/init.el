@@ -215,7 +215,8 @@
   (helm-projectile-on)
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
-  (add-to-list 'projectile-globally-ignored-files "*.log"))
+  (add-to-list 'projectile-globally-ignored-files "*.log")
+  (add-to-list 'projectile-globally-ignored-files "*-all.js"))
 
 (use-package
   hippie-exp
