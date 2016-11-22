@@ -89,16 +89,11 @@
 ;; rest
 (bind-key "M-<f1>"     'kmacro-start-macro-or-insert-counter)
 (bind-key "<f1>"       'kmacro-end-or-call-macro)
-(bind-key "M-<f6>"     'point-to-register)
-(bind-key "<f6>"       'jump-to-register)
 (bind-key "<f8>"       'my-repo-status)
 (bind-key "M-<f9>"     'previous-buffer)
 (bind-key "M-<f10>"    'next-buffer)
 (bind-key "<f12> s"    'my-org-agenda-sort)
 (bind-key "<f12> d"    'org-decrypt-entry)
-(bind-key "<f12> p"    'my-project-version-at-point)
-(bind-key "<f12> l"    'my-org-agenda-remove-later)
-(bind-key "C-x \\"     'align-regexp)
 (bind-key "C-`"        'align-regexp)
 (bind-key "C-~"        'my-align-multi)
 (bind-key "C-!"        'my-align-spock-table)
@@ -107,7 +102,6 @@
 (bind-key "M-I"        'my-org-insert-link)
 (bind-key "M-L"        'browse-url)
 (bind-key "M-P"        'browse-url-at-point)
-(bind-key "C-c SPC"    'avy-goto-word-1)
 (bind-key "M-/"        'my-complete)
 
 ;; toggle between back-to-indentation and move-beginning-of-line
@@ -116,11 +110,7 @@
 ;; explore new modes
 (bind-key "C-<f10>" 'menu-bar-mode)
 
-(bind-key "C-c y" 'bury-buffer)
 (bind-key "C-c r" 'revert-buffer)
-
-;; better than M-S-6
-(bind-key "C-c q" 'join-line)
 
 ;; general cleanup
 (bind-key "C-c n" 'my-cleanup-buffer)
@@ -129,9 +119,7 @@
 (bind-key "C-c e" 'my-eval-and-replace)
 
 ;; use regex search by default
-(bind-key "M-%" 'query-replace-regexp)
 (bind-key "C-/" 'query-replace-regexp)
-(bind-key "C-M-%" 'query-replace)
 
 ;; unrestricted help search
 (define-key 'help-command "a" 'apropos)
