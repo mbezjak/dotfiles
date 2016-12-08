@@ -7,7 +7,6 @@
 # --
 $0")
 (yas-global-mode)
-(diminish 'yas-minor-mode)
 
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
