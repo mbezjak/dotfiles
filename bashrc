@@ -170,6 +170,10 @@ have mvn && {
     export MAVEN_OPTS="-Xms256m -Xmx512m"
 }
 
+have sbt && {
+    export SBT_OPTS="-Xmx4g"
+}
+
 have boot && [[ $(java-major-version) = 7 ]] && {
     # suggested: https://github.com/boot-clj/boot/wiki/JVM-Options
     export BOOT_JVM_OPTIONS='-XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled'
