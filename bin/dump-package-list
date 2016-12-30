@@ -20,7 +20,7 @@ function list-python-eggs {
     local -r pip="$1"
     local pkg
     local location
-    for pkg in $($pip list | awk '{print $1}'); do
+    for pkg in $($pip list --format=columns | tail -n +3 | awk '{print $1}'); do
         location=$($pip show "$pkg" | awk '/Location:/{print $2}')
         if ! known-to-pacman "$location"; then
             echo "$pkg - $location"
