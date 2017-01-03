@@ -107,9 +107,6 @@
 ;; toggle between back-to-indentation and move-beginning-of-line
 (bind-key "C-a" 'my-move-beginning-of-line)
 
-;; explore new modes
-(bind-key "C-<f10>" 'menu-bar-mode)
-
 (bind-key "C-c r" 'revert-buffer)
 
 ;; general cleanup
@@ -160,6 +157,7 @@
 (unbind-key "M-,")
 (unbind-key "M-z")
 (unbind-key "M-b")
+(unbind-key "M-v")
 (unbind-key "M-m")
 (unbind-key "M-g g")
 (unbind-key "M-g M-g")
@@ -177,6 +175,7 @@
 (unbind-key "M-<backspace>")
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
+(unbind-key "<f10>")
 
 ;; used by duplicate-thing.el
 (unbind-key "C-M-<up>")
