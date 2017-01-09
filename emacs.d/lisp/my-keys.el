@@ -23,6 +23,8 @@
  ("M-d" . zap-to-char)
  ("M-s" . just-one-space)
  ("C-M-s" . delete-horizontal-space)
+ ("M-D" . delete-rectangle)
+ ("M-R" . string-rectangle)
 
  ("M-x" . helm-M-x)
  ("M-[" . helm-projectile-find-file)
