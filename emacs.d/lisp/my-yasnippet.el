@@ -16,8 +16,9 @@ $0")
   (let* ((default-pkg "foo")
          (fullpath (or (buffer-file-name) default-pkg))
          (dirs (or (file-name-directory fullpath) default-pkg))
-         (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\)/"
+         (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\|coffeescript\\)/"
                          ".*/src/groovy/"
+                         ".*/src/coffee/"
                          ".*/test/\\(unit\\|integration\\)/"
                          ".*/grails-app/\\(controllers\\|services\\|domain\\)/"
                          ".*/app/"
@@ -27,6 +28,12 @@ $0")
          (reduction (lambda (path regex) (replace-regexp-in-string regex "" path t)))
          (pkg (-reduce-from reduction dirs replacements)))
     (replace-regexp-in-string "/" "." pkg)))
+
+(defun my-yas-buffer-namespace-name ()
+  (let ((package-name (my-yas-buffer-package-name)))
+    (if (s-starts-with? "hx" package-name)
+        package-name
+      (s-concat "Hx." package-name))))
 
 
 (provide 'my-yasnippet)

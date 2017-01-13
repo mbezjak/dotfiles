@@ -2,8 +2,5 @@
 # key: fn
 # expand-env: ((yas/indent-line 'fixed))
 # --
-###*
-$2
-###
-${1:fn} = ->
+`(s-concat (my-yas-buffer-namespace-name) "." (my-yas-buffer-class-name))` = ->
     $0
