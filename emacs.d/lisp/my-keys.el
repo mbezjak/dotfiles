@@ -44,6 +44,7 @@
  ("M-SPC" . set-mark-command)
  ("C-s" . save-buffer)
  ("S-C-s" . write-file)
+ ("S-C-r" . my-rename-file-and-buffer)
  ("C-o" . helm-find-files)
  ("C-p" . recenter-top-bottom)
  ("C-q" . my-kill-current-buffer)

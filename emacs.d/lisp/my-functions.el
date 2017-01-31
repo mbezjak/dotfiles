@@ -137,4 +137,32 @@ point reaches the beginning or end of the buffer, stop there."
       (company-complete)
     (hippie-expand nil)))
 
+;; http://stackoverflow.com/questions/17829619/rename-current-buffer-and-related-file-in-emacs
+;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+(defun my-rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file name new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
+
+(defun my-groovy-change-class-name-to (new-name)
+  (save-excursion
+    (goto-char 1)
+    (when (re-search-forward "^class [^ ]+ ")
+      (replace-match (concat "class " new-name " ")))))
+
+(defun my-groovy-rename-class (new-name)
+  (interactive "sNew name: ")
+  (my-rename-file-and-buffer (concat new-name "." (f-ext (buffer-file-name))))
+  (my-groovy-change-class-name-to new-name))
+
 (provide 'my-functions)

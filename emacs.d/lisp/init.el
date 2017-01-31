@@ -333,7 +333,8 @@ b:2
   (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)
   (bind-keys :map groovy-mode-map
              ("C-d" . my-delete-line-keep-column-position)
-             ("M-e" . backward-kill-word))
+             ("M-e" . backward-kill-word)
+             ("S-C-r" . my-groovy-rename-class))
 
   (use-package
     groovy-imports
