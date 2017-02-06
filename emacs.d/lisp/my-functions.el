@@ -141,7 +141,7 @@ point reaches the beginning or end of the buffer, stop there."
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun my-rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
+  (interactive "sNew file name: ")
   (let ((name (buffer-name))
         (filename (buffer-file-name)))
     (if (not filename)
@@ -161,8 +161,19 @@ point reaches the beginning or end of the buffer, stop there."
       (replace-match (concat "class " new-name " ")))))
 
 (defun my-groovy-rename-class (new-name)
-  (interactive "sNew name: ")
+  (interactive "sNew class name: ")
   (my-rename-file-and-buffer (concat new-name "." (f-ext (buffer-file-name))))
   (my-groovy-change-class-name-to new-name))
+
+(defun my-coffee-change-fn-name-to (new-name)
+  (save-excursion
+    (goto-char 1)
+    (when (re-search-forward "\.[a-zA-Z0-9_]+ =")
+      (replace-match (concat "." new-name " =")))))
+
+(defun my-coffee-rename-fn (new-name)
+  (interactive "sNew fn name: ")
+  (my-rename-file-and-buffer (concat new-name "." (f-ext (buffer-file-name))))
+  (my-coffee-change-fn-name-to new-name))
 
 (provide 'my-functions)

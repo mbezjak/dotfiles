@@ -242,7 +242,9 @@
   coffee-mode
   :no-require t
   :config
-  (bind-key "M-C" 'coffee-compile-buffer coffee-mode-map))
+  (bind-keys :map coffee-mode-map
+             ("M-C" . coffee-compile-buffer)
+             ("S-C-r" . my-coffee-rename-fn)))
 
 
 (defun my-groovy-offset-fixes ()
