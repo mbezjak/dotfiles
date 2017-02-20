@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: ns
+# name: ns
+# --
+(ns ${1:`(my-yas-buffer-clojure-namespace)`})
+
+$0

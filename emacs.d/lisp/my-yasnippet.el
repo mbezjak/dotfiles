@@ -19,6 +19,7 @@ $0")
          (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\|coffeescript\\)/"
                          ".*/src/groovy/"
                          ".*/src/coffee/"
+                         ".*/src/"
                          ".*/test/\\(unit\\|integration\\)/"
                          ".*/grails-app/\\(controllers\\|services\\|domain\\)/"
                          ".*/app/"
@@ -34,6 +35,11 @@ $0")
     (if (s-starts-with? "hx" package-name)
         package-name
       (s-concat "Hx." package-name))))
+
+(defun my-yas-buffer-clojure-namespace ()
+  (let ((package (my-yas-buffer-package-name))
+        (base-name (f-base (buffer-file-name))))
+    (s-concat package "." base-name)))
 
 
 (provide 'my-yasnippet)
