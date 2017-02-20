@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# key: odfname
-# name: odfname
-# --
-<field name="$1">$2</field>

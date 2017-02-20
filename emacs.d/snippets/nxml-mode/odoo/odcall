@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# key: odcall
-# name: odcall
-# --
-<t t-call="$1">
-  $0
-</t>

@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# key: oddata
-# name: oddata
-# --
-<openerp>
-  <data>
-    $0
-  </data>
-</openerp>

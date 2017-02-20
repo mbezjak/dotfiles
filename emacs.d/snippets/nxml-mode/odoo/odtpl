@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# key: odtpl
-# name: odtpl
-# --
-<template id="$1">
-  $0
-</template>

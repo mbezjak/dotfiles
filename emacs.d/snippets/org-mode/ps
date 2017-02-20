@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# key: ps
-# --
-problem:
-- $0
-
-solution:
--

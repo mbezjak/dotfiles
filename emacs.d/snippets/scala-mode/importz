@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# key: importz
-# --
-import scalaz._
-import Scalaz._
