@@ -38,6 +38,7 @@
 (depends-on "groovy-imports")
 (depends-on "indent-guide")
 (depends-on "super-save")
+(depends-on "pomidor")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")
