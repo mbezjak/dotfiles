@@ -374,3 +374,9 @@ b:2
   :diminish super-save-mode
   :config
   (super-save-mode))
+
+(use-package
+  alert
+  :no-require t
+  :config
+  (setq alert-default-style 'libnotify))
