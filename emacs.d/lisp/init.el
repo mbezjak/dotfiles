@@ -376,6 +376,13 @@ b:2
   (super-save-mode))
 
 (use-package
+  pomidor
+  :no-require t
+  :config
+  (setq pomidor-sound-tick nil
+        pomidor-sound-tack nil))
+
+(use-package
   alert
   :no-require t
   :config
