@@ -1,0 +1,6 @@
+# key: fna
+# name: fna
+# expand-env: ((yas/indent-line 'fixed))
+# --
+`(s-concat (my-yas-buffer-namespace-name) "." (my-yas-buffer-class-name))` = ($1) ->
+    $0
