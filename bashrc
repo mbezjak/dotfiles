@@ -158,8 +158,27 @@ have grails && {
     alias gp='grails package'
     alias gpn='grails package --non-interactive'
     alias gt='grails test-app'
-    alias gr='grails run-app'
-    alias gr-sql='grails -Dlogsql=true run-app'
+    function gr {
+        local opts=
+        while [[ -n "$1" ]]; do
+            if [[ "$1" == sql ]]; then
+                opts="$opts -Dlogsql=true"
+            elif [[ "$1" == siesta ]]; then
+                opts="$opts -Dgrails.env=siesta_test"
+            elif [[ "$1" =~ ^port=.+$ ]]; then
+                opts="$opts -Dserver.port=${1#port=}"
+            else
+                opts="$opts $1"
+            fi
+            shift
+        done
+
+        if [[ -n "$opts" ]]; then
+            echo "Using opts =$opts"
+        fi
+
+        run-grails $opts run-app
+    }
 }
 
 have gradle && {
