@@ -25,6 +25,9 @@
  ("C-M-s" . delete-horizontal-space)
  ("M-D" . delete-rectangle)
  ("M-R" . string-rectangle)
+ ("M-Y" . capitalize-word)
+ ("M-U" . upcase-word)
+ ("M-J" . downcase-word)
 
  ("M-x" . helm-M-x)
  ("M-[" . helm-projectile-find-file)
@@ -167,6 +170,8 @@
 (unbind-key "M-b")
 (unbind-key "M-v")
 (unbind-key "M-m")
+(unbind-key "M-c")
+(unbind-key "M-u")
 (unbind-key "M-g g")
 (unbind-key "M-g M-g")
 (when window-system (unbind-key "C-x C-c"))
