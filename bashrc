@@ -126,6 +126,19 @@ function org-notes-backup {
     git commit --message='Automated backup'
 }
 function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
+function fcat {
+    local -r search="$1"
+    local -r result=$(files "$search" | head -n 1)
+    if [[ -n "$result" ]]; then
+        echo "cat $result"
+        cat "$result"
+    else
+        echo "No file matching: $search"
+    fi
+
+    return 0
+}
+
 
 # http://www.nurkiewicz.com/2012/09/accessing-clipboard-in-linux-terminal.html
 alias ctrlc='xclip -selection c'
