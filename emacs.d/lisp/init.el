@@ -215,8 +215,11 @@
   (helm-projectile-on)
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
-  (add-to-list 'projectile-globally-ignored-files "*.log")
-  (add-to-list 'projectile-globally-ignored-files "*-all.js"))
+  (add-to-list 'projectile-globally-ignored-files "*-all.js")
+  (--each '(".log" ".png" ".gif" ".jar")
+    (add-to-list 'projectile-globally-ignored-file-suffixes it))
+  (--each '("*.png" "*.gif" "*.jar" "*.log")
+    (add-to-list 'grep-find-ignored-files it)))
 
 (use-package
   hippie-exp
