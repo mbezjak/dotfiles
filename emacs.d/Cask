@@ -40,6 +40,7 @@
 (depends-on "super-save")
 (depends-on "pomidor")
 (depends-on "which-key")
+(depends-on "dumb-jump")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")

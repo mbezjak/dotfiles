@@ -394,3 +394,9 @@ b:2
   which-key
   :config
   (which-key-mode))
+
+(use-package
+  dumb-jump
+  :config
+  (dumb-jump-mode)
+  (setq dumb-jump-selector 'helm))
