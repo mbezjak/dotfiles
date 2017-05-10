@@ -388,5 +388,10 @@ b:2
 (use-package
   alert
   :no-require t
+
+(use-package
+  which-key
+  :config
+  (which-key-mode))
   :config
   (setq alert-default-style 'libnotify))
