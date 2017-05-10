@@ -369,7 +369,6 @@ b:2
 
 (use-package
   web-mode
-  :no-require t
   :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
 
 (use-package
@@ -380,18 +379,18 @@ b:2
 
 (use-package
   pomidor
-  :no-require t
-  :config
+  :commands pomidor
+  :init
   (setq pomidor-sound-tick nil
         pomidor-sound-tack nil))
 
 (use-package
   alert
   :no-require t
+  :init
+  (setq alert-default-style 'libnotify))
 
 (use-package
   which-key
   :config
   (which-key-mode))
-  :config
-  (setq alert-default-style 'libnotify))
