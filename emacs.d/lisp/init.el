@@ -83,9 +83,7 @@
       save-place-file (my-managed-file "places")
       backup-directory-alist `(("." . ,(my-managed-file "backups")))
       psession-elisp-objects-default-directory (my-managed-file "elisp-objects")
-      ensime-startup-dirname (my-managed-file "ensime")
-      keyfreq-file (my-managed-file "keyfreq")
-      keyfreq-file-lock (my-managed-file "keyfreq.lock"))
+      ensime-startup-dirname (my-managed-file "ensime"))
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -114,16 +112,14 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (add-hook 'after-init-hook #'global-company-mode)
-(use-package
-  company
+(use-package company
   :diminish company-mode
   :no-require t
   :config
   (bind-keys :map company-active-map
              ("<escape>" . company-abort)))
 
-(use-package
-  psession
+(use-package psession
   :init
   (setq psession-object-to-save-alist
         '((ioccur-history . "ioccur-history.el")
@@ -141,66 +137,58 @@
     (remove-hook 'kill-emacs-hook fn)
     (remove-hook 'emacs-startup-hook fn)))
 
-(use-package
-  keyfreq
+(use-package keyfreq
+  :init
+  (setq keyfreq-file (my-managed-file "keyfreq")
+        keyfreq-file-lock (my-managed-file "keyfreq.lock"))
   :config
   (keyfreq-mode)
   (keyfreq-autosave-mode))
 
-(use-package
-  diff-mode
+(use-package diff-mode
   :no-require t
   :config
   (set-face-foreground 'diff-added "green4")
   (set-face-foreground 'diff-removed "red3"))
 
-(use-package
-  monky
+(use-package monky
   :init
   (setq monky-process-type 'cmdserver)
   :config
   (set-face-foreground 'monky-diff-add  "green4")
   (set-face-foreground 'monky-diff-del  "red3"))
 
-(use-package
-  magit
+(use-package magit
   :init
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
-(use-package
-  diff-hl
+(use-package diff-hl
   :config
   (global-diff-hl-mode)
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
 
-(use-package
-  anzu
+(use-package anzu
   :diminish anzu-mode
   :config
   (global-anzu-mode +1))
 
-(use-package
-  duplicate-thing
+(use-package duplicate-thing
   :bind ("C-M-<down>" . duplicate-thing))
 
-(use-package
-  volatile-highlights
+(use-package volatile-highlights
   :diminish volatile-highlights-mode
   :config
   (volatile-highlights-mode t))
 
-(use-package
-  expand-region
+(use-package expand-region
   :bind ("C-:" . er/expand-region))
 
-(use-package
-  indent-guide
+(use-package indent-guide
   :diminish indent-guide-mode
   :config
   (indent-guide-global-mode))
 
-(use-package
-  projectile
+(use-package projectile
   :diminish projectile-mode
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
@@ -219,8 +207,7 @@
   (--each '("*.png" "*.gif" "*.jar" "*.log")
     (add-to-list 'grep-find-ignored-files it)))
 
-(use-package
-  hippie-exp
+(use-package hippie-exp
   :no-require t
   :config
   (dolist (f '(try-expand-line try-expand-list try-complete-file-name-partially))
@@ -229,8 +216,7 @@
   ;; Add this back in at the end of the list.
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t))
 
-(use-package
-  markdown-mode
+(use-package markdown-mode
   :no-require t
   :config
   ;; To use:
@@ -239,8 +225,7 @@
     (when (file-exists-p cmd)
       (setq markdown-command cmd))))
 
-(use-package
-  coffee-mode
+(use-package coffee-mode
   :no-require t
   :config
   (bind-keys :map coffee-mode-map
@@ -328,8 +313,7 @@ b:2
   (setq c-recognize-colon-labels nil)
   (c-set-offset 'arglist-cont-nonempty 0))
 
-(use-package
-  groovy-mode
+(use-package groovy-mode
   :no-require t
   :mode "build\\.kin\\'"
   :config
@@ -339,8 +323,7 @@ b:2
              ("M-e" . backward-kill-word)
              ("S-C-r" . my-groovy-rename-class))
 
-  (use-package
-    groovy-imports
+  (use-package groovy-imports
     :config
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
@@ -353,15 +336,13 @@ b:2
   :no-require t
   :diminish gommons-mode)
 
-(use-package
-  scala-mode
+(use-package scala-mode
   :no-require t
   :config
   (require 'ensime)
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
-(use-package
-  haskell-mode
+(use-package haskell-mode
   :no-require t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
@@ -372,36 +353,30 @@ b:2
   (when (file-executable-p "~/.cabal/bin/ghc-mod")
     (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
 
-(use-package
-  web-mode
+(use-package web-mode
   :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
 
-(use-package
-  super-save
+(use-package super-save
   :diminish super-save-mode
   :config
   (super-save-mode))
 
-(use-package
-  pomidor
+(use-package pomidor
   :commands pomidor
   :init
   (setq pomidor-sound-tick nil
         pomidor-sound-tack nil))
 
-(use-package
-  alert
+(use-package alert
   :no-require t
   :init
   (setq alert-default-style 'libnotify))
 
-(use-package
-  which-key
+(use-package which-key
   :config
   (which-key-mode))
 
-(use-package
-  dumb-jump
+(use-package dumb-jump
   :config
   (dumb-jump-mode)
   (setq dumb-jump-selector 'helm))
