@@ -103,8 +103,6 @@
 (require 'my-functions)
 (require 'my-org)
 (require 'my-dev)
-(load-file (concat user-emacs-directory "lisp/loaddefs.el"))
-
 (move-text-default-bindings)
 (require 'uniquify)
 (require 'my-helm)
@@ -347,6 +345,13 @@ b:2
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
                ("C-M-i" . groovy-imports-add-import-dwim))))
+
+(use-package gradle-mode
+  :mode "build\\.gradle\\'")
+
+(use-package gommons-mode
+  :no-require t
+  :diminish gommons-mode)
 
 (use-package
   scala-mode

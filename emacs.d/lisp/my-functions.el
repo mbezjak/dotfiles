@@ -80,14 +80,6 @@
           "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
           "culpa qui officia deserunt mollit anim id est laborum."))
 
-(defun my-generate-autoloads-in-emacs.d ()
-  "Regenerate emacs.d/lisp/loaddefs.el"
-  (let* ((dir (f-expand "~/.emacs.d/lisp"))
-         (generated-autoload-file (f-join dir "loaddefs.el")))
-    (when (f-exists? generated-autoload-file)
-      (f-delete generated-autoload-file))
-    (update-directory-autoloads dir)))
-
 (defun my-align-multi (start end regexp)
   "Align selection by repeating REGEXP."
   (interactive "r\nsAlign regexp: ")
