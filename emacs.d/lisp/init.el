@@ -69,21 +69,21 @@
 (random t) ;; seed the random number generator
 
 
-(make-directory "~/.emacs.d/managed" 'parents)
-(defun my-managed-file (name)
-  "Create a file path where managed files are put."
-  (concat user-emacs-directory "managed/" name))
+(make-directory "~/.emacs.d/var" 'parents)
+(defun my-var-file (name)
+  "Create a file path where var files are put."
+  (concat user-emacs-directory "var/" name))
 
-(setq custom-file (my-managed-file "custom.el")
-      recentf-save-file (my-managed-file "recentf")
-      auto-save-list-file-prefix (my-managed-file "auto-save-list/saves-")
-      bookmark-default-file (my-managed-file "bookmarks")
-      url-configuration-directory (my-managed-file "url/")
-      eshell-directory-name (my-managed-file "eshell/")
-      save-place-file (my-managed-file "places")
-      backup-directory-alist `(("." . ,(my-managed-file "backups")))
-      psession-elisp-objects-default-directory (my-managed-file "elisp-objects")
-      ensime-startup-dirname (my-managed-file "ensime"))
+(setq custom-file (my-var-file "custom.el")
+      recentf-save-file (my-var-file "recentf")
+      auto-save-list-file-prefix (my-var-file "auto-save-list/saves-")
+      bookmark-default-file (my-var-file "bookmarks")
+      url-configuration-directory (my-var-file "url/")
+      eshell-directory-name (my-var-file "eshell/")
+      save-place-file (my-var-file "places")
+      backup-directory-alist `(("." . ,(my-var-file "backups")))
+      psession-elisp-objects-default-directory (my-var-file "elisp-objects")
+      ensime-startup-dirname (my-var-file "ensime"))
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -139,8 +139,8 @@
 
 (use-package keyfreq
   :init
-  (setq keyfreq-file (my-managed-file "keyfreq")
-        keyfreq-file-lock (my-managed-file "keyfreq.lock"))
+  (setq keyfreq-file (my-var-file "keyfreq")
+        keyfreq-file-lock (my-var-file "keyfreq.lock"))
   :config
   (keyfreq-mode)
   (keyfreq-autosave-mode))
@@ -194,8 +194,8 @@
   (setq projectile-keymap-prefix (kbd "M-F")
         projectile-completion-system 'helm
         projectile-enable-caching t
-        projectile-cache-file (my-managed-file "projectile.cache")
-        projectile-known-projects-file (my-managed-file "projectile-bookmarks.eld"))
+        projectile-cache-file (my-var-file "projectile.cache")
+        projectile-known-projects-file (my-var-file "projectile-bookmarks.eld"))
   :config
   (projectile-global-mode)
   (helm-projectile-on)
