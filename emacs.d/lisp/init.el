@@ -82,7 +82,6 @@
       eshell-directory-name (my-var-file "eshell/")
       save-place-file (my-var-file "places")
       backup-directory-alist `(("." . ,(my-var-file "backups")))
-      psession-elisp-objects-default-directory (my-var-file "elisp-objects")
       ensime-startup-dirname (my-var-file "ensime"))
 
 (when (file-exists-p custom-file)
@@ -121,7 +120,8 @@
 
 (use-package psession
   :init
-  (setq psession-object-to-save-alist
+  (setq psession-elisp-objects-default-directory (my-var-file "elisp-objects")
+        psession-object-to-save-alist
         '((ioccur-history . "ioccur-history.el")
           (extended-command-history . "extended-command-history.el")
           (helm-external-command-history . "helm-external-command-history.el")
