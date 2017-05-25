@@ -104,7 +104,9 @@
 
 (require 'my-keys)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(use-package flycheck
+  :defer t
+  :init (global-flycheck-mode))
 
 (use-package company
   :defer t
