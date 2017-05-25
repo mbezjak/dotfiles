@@ -42,10 +42,6 @@
       ;; use keys that all in the same row
       aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
 
-      ;; respect case when inserting into buffer, ignore when searching for candidates
-      company-dabbrev-downcase nil
-      company-dabbrev-ignore-case 'yes
-
       ;; start garbage collection every 100MB to improve performance
       gc-cons-threshold 100000000)
 
@@ -110,13 +106,16 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(add-hook 'after-init-hook #'global-company-mode)
 (use-package company
+  :defer t
   :diminish company-mode
-  :no-require t
+  :bind (:map company-active-map
+              ("<escape>" . company-abort))
+  :init (global-company-mode)
   :config
-  (bind-keys :map company-active-map
-             ("<escape>" . company-abort)))
+  ;; respect case when inserting into buffer, ignore when searching for candidates
+  (setq company-dabbrev-downcase nil
+        company-dabbrev-ignore-case 'yes))
 
 (use-package psession
   :init
