@@ -4,8 +4,6 @@
 [[ $- != *i* ]] && return
 
 function __prompt_command {
-    local -r laststatus=$?
-
     # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash
     local -r iwhite='\[\e[0;97m\]'
     local -r ired='\[\e[0;91m\]'
@@ -14,7 +12,7 @@ function __prompt_command {
     local -r yellow='\[\e[1;33m\]'
     local -r coloroff='\[\e[0m\]'
 
-    if [[ $laststatus == 0 ]]; then
+    if [[ $__laststatus == 0 ]]; then
         local -r statuscolor="${iwhite}"
     else
         local -r statuscolor="${ired}"
@@ -22,7 +20,7 @@ function __prompt_command {
     local -r cwd='\W'
     local -r gitps1=$(__git_ps1 "$red (%s)")
 
-    PS1="${statuscolor}${laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
+    PS1="${statuscolor}${__laststatus} ${green}[${yellow}${cwd}${gitps1}${green}]\$${coloroff} "
 }
 function cd-alias {
     local name="$1"
@@ -86,7 +84,7 @@ HISTCONTROL=ignoreboth # ignorespace + ignoredups
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
 # compatibility with existing PROMPT_COMMAND for autojump (man autojump)
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} __prompt_command"
+PROMPT_COMMAND="__laststatus=\$?; ${PROMPT_COMMAND:+$PROMPT_COMMAND ;} __prompt_command"
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
