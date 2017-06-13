@@ -381,3 +381,6 @@ b:2
   :config
   (dumb-jump-mode)
   (setq dumb-jump-selector 'helm))
+
+(use-package helpful
+  :bind (("C-h F" . helpful-function)))
