@@ -162,7 +162,7 @@ have thg && {
 }
 
 have grails && {
-    export GRAILS_OPTS="-XX:MaxPermSize=512m -Xmx1024M -server"
+    export GRAILS_OPTS="-XX:MaxPermSize=1G -Xmx2G -server"
 
     alias grails=run-grails
     alias gc='grails clean'
