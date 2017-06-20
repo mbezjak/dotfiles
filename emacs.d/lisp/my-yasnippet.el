@@ -21,7 +21,7 @@ $0")
                          ".*/src/coffee/"
                          ".*/src/"
                          ".*/test/\\(unit\\|integration\\)/"
-                         ".*/grails-app/\\(controllers\\|services\\|domain\\)/"
+                         ".*/grails-app/\\(controllers\\|services\\|domain\\|commands\\|taglib\\)/"
                          ".*/app/"
                          ".*/test/"
                          "^/"
