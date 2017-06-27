@@ -75,6 +75,9 @@
   (require 'org-crypt)
   (org-crypt-use-before-save-magic))
 
+(with-eval-after-load 'org-indent
+  (diminish 'org-indent-mode))
+
 ;; org-agenda-custom-commands and org-capture-templates
 (load (concat org-directory "/org-custom"))
 

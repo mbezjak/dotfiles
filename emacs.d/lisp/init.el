@@ -293,6 +293,7 @@
   (setq alert-default-style 'libnotify))
 
 (use-package which-key
+  :diminish which-key-mode
   :config
   (which-key-mode))
 
