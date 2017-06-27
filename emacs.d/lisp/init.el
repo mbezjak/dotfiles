@@ -234,91 +234,10 @@
              ("S-C-r" . my-coffee-rename-fn)))
 
 
-(defun my-groovy-offset-fixes ()
-  "Fixes quirks with indentation. This is still not 100% ok, but it works more
-times than not.
-
-NOTE: in order to see syntactic information:
-1. move point to an interesting location
-2. M-x c-show-syntactic-information RET
-
-The rest can be loaded into groovy-mode buffer and tested by indenting the
-whole buffer:
---------------------------------------------------------------------------------
-
-// the following code should be properly indented
-def map = [
-    a:1,
-    b:2
-]
-
-fn(
-    a:1,
-    b:2
-)
-
-fn [
-    a:1,
-    b:2
-]
-
-fn([
-    a:1,
-    b:2
-])
-
-fn 'a', 'b', [
-    a:1,
-    b:2
-]
-
-def fn = {
-    [
-        a:1,
-        b:2
-    ]
-}
-
-def \"spock spec\"() {
-    setup:
-    def map = [
-        a:1,
-        b:2
-    ]
-
-    expect:
-    map.a == 1
-    map.b == 2
-}
-
-dsl {
-    a = 1
-    b = 2
-    map = [
-        a:1,
-        b:2
-    ]
-}
-
-// this following code currently doesn't work, but such code is used less often
-fn(a:1,
-b:2)
-
-fn 'a',
-'b'
-
-fn 'a', 'b',
-a:1,
-b:2
-"
-  (setq c-recognize-colon-labels nil)
-  (c-set-offset 'arglist-cont-nonempty 0))
-
 (use-package groovy-mode
   :no-require t
   :mode "build\\.kin\\'"
   :config
-  (add-hook 'groovy-mode-hook 'my-groovy-offset-fixes)
   (bind-keys :map groovy-mode-map
              ("C-d" . my-delete-line-keep-column-position)
              ("M-e" . backward-kill-word)
