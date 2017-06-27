@@ -302,4 +302,4 @@
   (setq dumb-jump-selector 'helm))
 
 (use-package helpful
-  :bind (("C-h F" . helpful-function)))
+  :bind (("C-h f" . helpful-function)))
