@@ -304,3 +304,8 @@
 
 (use-package helpful
   :bind (("C-h f" . helpful-function)))
+
+(use-package parinfer
+  :bind (("C-," . parinfer-toggle-mode))
+  :init
+  (add-hook 'clojure-mode-hook 'parinfer-mode))
