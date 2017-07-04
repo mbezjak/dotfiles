@@ -43,6 +43,7 @@
 (depends-on "dumb-jump")
 (depends-on "helpful")
 (depends-on "parinfer")
+(depends-on "clj-refactor")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")

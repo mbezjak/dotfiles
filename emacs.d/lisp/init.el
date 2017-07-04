@@ -313,3 +313,13 @@
   (add-hook 'common-lisp-mode-hook 'parinfer-mode)
   (add-hook 'scheme-mode-hook 'parinfer-mode)
   (add-hook 'lisp-mode-hook 'parinfer-mode))
+
+(use-package clojure-mode
+  :no-require t
+  :config
+  (use-package clj-refactor
+    :config
+    (defun my-clj-refactor-set-keybinding-hook ()
+      (cljr-add-keybindings-with-prefix "C-c C-m"))
+    (add-hook 'clojure-mode-hook 'clj-refactor-mode)
+    (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
