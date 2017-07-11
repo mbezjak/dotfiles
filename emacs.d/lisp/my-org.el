@@ -27,8 +27,7 @@
       org-habit-show-done-always-green t
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
-      org-latex-preview-ltxpng-directory (my-var-file "ltxpng/")
-      org-id-locations-file (my-var-file "org-id-locations")
+      org-latex-preview-ltxpng-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-meta    :maxlevel . 1)

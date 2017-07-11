@@ -64,32 +64,25 @@
 
 (random t) ;; seed the random number generator
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'use-package)
 
-(make-directory "~/.emacs.d/var" 'parents)
-(defun my-var-file (name)
-  "Create a file path where var files are put."
-  (concat user-emacs-directory "var/" name))
+(use-package no-littering
+  :config
+  (require 'recentf)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
-(setq custom-file (my-var-file "custom.el")
-      recentf-save-file (my-var-file "recentf")
-      auto-save-list-file-prefix (my-var-file "auto-save-list/saves-")
-      bookmark-default-file (my-var-file "bookmarks")
-      url-configuration-directory (my-var-file "url/")
-      eshell-directory-name (my-var-file "eshell/")
-      save-place-file (my-var-file "places")
-      backup-directory-alist `(("." . ,(my-var-file "backups")))
-      ensime-startup-dirname (my-var-file "ensime"))
-
+(setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
 
-
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
 (require 'dash)
 (require 's)
 (require 'f)
-(require 'use-package)
 
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
@@ -121,7 +114,7 @@
 
 (use-package psession
   :init
-  (setq psession-elisp-objects-default-directory (my-var-file "elisp-objects")
+  (setq psession-elisp-objects-default-directory (no-littering-expand-var-file-name "elisp-objects")
         psession-object-to-save-alist
         '((ioccur-history . "ioccur-history.el")
           (extended-command-history . "extended-command-history.el")
@@ -140,8 +133,8 @@
 
 (use-package keyfreq
   :init
-  (setq keyfreq-file (my-var-file "keyfreq")
-        keyfreq-file-lock (my-var-file "keyfreq.lock"))
+  (setq keyfreq-file (no-littering-expand-var-file-name "keyfreq")
+        keyfreq-file-lock (no-littering-expand-var-file-name "keyfreq.lock"))
   :config
   (keyfreq-mode)
   (keyfreq-autosave-mode))
@@ -194,9 +187,7 @@
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
         projectile-completion-system 'helm
-        projectile-enable-caching t
-        projectile-cache-file (my-var-file "projectile.cache")
-        projectile-known-projects-file (my-var-file "projectile-bookmarks.eld"))
+        projectile-enable-caching t)
   :config
   (projectile-global-mode)
   (helm-projectile-on)
