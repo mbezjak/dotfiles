@@ -66,6 +66,7 @@
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
+(setq use-package-verbose t)
 (require 'use-package)
 
 (use-package no-littering
