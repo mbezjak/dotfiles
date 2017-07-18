@@ -45,6 +45,8 @@
       ;; start garbage collection every 100MB to improve performance
       gc-cons-threshold 100000000)
 
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 (set-locale-environment "en_US.UTF-8")
 
 (set-face-background 'mode-line "SkyBlue")
