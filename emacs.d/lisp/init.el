@@ -71,7 +71,7 @@
 
 (use-package no-littering
   :config
-  (require 'recentf)
+  (use-package recentf)
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
   (setq auto-save-file-name-transforms
@@ -81,22 +81,22 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(require 'dash)
-(require 's)
-(require 'f)
+(use-package dash)
+(use-package s)
+(use-package f)
 
 ;; my-stuff
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
-(require 'my-functions)
-(require 'my-org)
-(require 'my-dev)
+(use-package my-functions)
+(use-package my-org)
+(use-package my-dev)
 (move-text-default-bindings)
-(require 'uniquify)
-(require 'my-helm)
-(require 'my-yasnippet)
-(require 'my-lisp)
+(use-package uniquify)
+(use-package my-helm)
+(use-package my-yasnippet)
+(use-package my-lisp)
 
-(require 'my-keys)
+(use-package my-keys)
 
 (use-package flycheck
   :defer t
@@ -141,12 +141,13 @@
   (keyfreq-autosave-mode))
 
 (use-package diff-mode
-  :no-require t
+  :defer t
   :config
   (set-face-foreground 'diff-added "green4")
   (set-face-foreground 'diff-removed "red3"))
 
 (use-package monky
+  :defer t
   :init
   (setq monky-process-type 'cmdserver)
   :config
@@ -154,6 +155,8 @@
   (set-face-foreground 'monky-diff-del  "red3"))
 
 (use-package magit
+  :defer t
+  :commands magit-inside-worktree-p
   :init
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
@@ -210,7 +213,7 @@
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t))
 
 (use-package markdown-mode
-  :no-require t
+  :defer t
   :config
   ;; To use:
   ;; $ pacman --sync perl-text-markdown
@@ -219,7 +222,7 @@
       (setq markdown-command cmd))))
 
 (use-package coffee-mode
-  :no-require t
+  :defer t
   :config
   (bind-keys :map coffee-mode-map
              ("M-C" . coffee-compile-buffer)
@@ -227,7 +230,7 @@
 
 
 (use-package groovy-mode
-  :no-require t
+  :defer t
   :mode "build\\.kin\\'"
   :config
   (bind-keys :map groovy-mode-map
@@ -245,17 +248,17 @@
   :mode "build\\.gradle\\'")
 
 (use-package gommons-mode
-  :no-require t
+  :defer t
   :diminish gommons-mode)
 
 (use-package scala-mode
-  :no-require t
+  :defer t
   :config
-  (require 'ensime)
+  (use-package ensime)
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 (use-package haskell-mode
-  :no-require t
+  :defer t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
@@ -307,7 +310,7 @@
   (add-hook 'lisp-mode-hook 'parinfer-mode))
 
 (use-package clojure-mode
-  :no-require t
+  :defer t
   :config
   (use-package clj-refactor
     :config
