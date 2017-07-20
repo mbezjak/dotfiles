@@ -8,7 +8,7 @@ bindsym $mod+space exec i3-dmenu-desktop
 bindsym $mod+Shift+space exec dmenu_run
 bindsym $mod+BackSpace kill
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+f exec firefox
+bindsym $mod+f exec firefox --new-window
 bindsym Print exec spectacle
 
 bindsym $mod+Shift+c reload
