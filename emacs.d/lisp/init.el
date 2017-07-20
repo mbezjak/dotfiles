@@ -251,6 +251,7 @@
 
 (use-package gommons-mode
   :defer t
+  :commands gommons-mode
   :diminish gommons-mode)
 
 (use-package scala-mode
