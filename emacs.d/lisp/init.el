@@ -170,7 +170,7 @@
 (use-package anzu
   :diminish anzu-mode
   :config
-  (global-anzu-mode +1))
+  (global-anzu-mode))
 
 (use-package duplicate-thing
   :bind ("C-M-<down>" . duplicate-thing))
