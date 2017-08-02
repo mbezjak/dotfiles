@@ -39,9 +39,6 @@
       dired-recursive-deletes 'top
       dired-listing-switches "-lha"
 
-      ;; use keys that all in the same row
-      aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
-
       ;; start garbage collection every 100MB to improve performance
       gc-cons-threshold 100000000)
 
