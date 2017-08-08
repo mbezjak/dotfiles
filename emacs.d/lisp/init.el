@@ -31,7 +31,6 @@
       whitespace-line-column 80
       uniquify-buffer-name-style 'forward
       recentf-max-saved-items 50
-      bookmark-save-flag 1
       imenu-auto-rescan t
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u"
