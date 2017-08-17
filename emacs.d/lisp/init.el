@@ -312,6 +312,8 @@
   :defer t
   :config
   (use-package clj-refactor
+    :init
+    (setq cljr-warn-on-eval nil)
     :config
     (defun my-clj-refactor-set-keybinding-hook ()
       (cljr-add-keybindings-with-prefix "C-c C-m"))
