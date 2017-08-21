@@ -1,3 +1,6 @@
+;; start garbage collection every x MB to improve performance
+(setq gc-cons-threshold (* 100 1024 1024))
+
 (package-initialize)
 
 (menu-bar-mode -1)
@@ -36,10 +39,7 @@
       diff-switches "-u"
       dired-recursive-copies 'always
       dired-recursive-deletes 'top
-      dired-listing-switches "-lha"
-
-      ;; start garbage collection every 100MB to improve performance
-      gc-cons-threshold 100000000)
+      dired-listing-switches "-lha")
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
