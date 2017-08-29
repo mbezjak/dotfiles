@@ -44,6 +44,7 @@
 (depends-on "parinfer")
 (depends-on "clj-refactor")
 (depends-on "no-littering")
+(depends-on "smart-mode-line")
 
 (depends-on "haskell-mode")
 (depends-on "ghc")

@@ -45,8 +45,6 @@
 
 (set-locale-environment "en_US.UTF-8")
 
-(set-face-background 'mode-line "SkyBlue")
-
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'goto-address-mode)
 
@@ -319,3 +317,7 @@
       (cljr-add-keybindings-with-prefix "C-c C-m"))
     (add-hook 'clojure-mode-hook 'clj-refactor-mode)
     (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
+
+(use-package smart-mode-line
+  :config
+  (sml/setup))
