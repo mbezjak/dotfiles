@@ -29,7 +29,6 @@
          (version (shell-command-to-string cmd)))
     (message "%s %s" project version)))
 
-(autoload 'magit-get-top-dir "magit")
 (defun my-repo-status ()
   "Open git or hg status buffer."
   (interactive)
