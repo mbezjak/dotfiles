@@ -29,8 +29,6 @@
       visible-bell t
       shift-select-mode nil
       mouse-yank-at-point t
-      whitespace-style '(face trailing tabs)
-      whitespace-line-column 80
       uniquify-buffer-name-style 'forward
       recentf-max-saved-items 50
       imenu-auto-rescan t
@@ -48,7 +46,6 @@
 (add-hook 'text-mode-hook 'goto-address-mode)
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
-(add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
 (eval-after-load "ispell"
   '(when (executable-find ispell-program-name)
@@ -97,6 +94,19 @@
   :diminish subword-mode
   :config
   (global-subword-mode))
+
+(use-package whitespace
+  :defer t
+  :diminish whitespace-mode
+  :init
+  (setq whitespace-style '(face trailing tabs)
+        whitespace-line-column 80)
+  (defun my-delete-trailing-whitespace-before-save ()
+    "Ensure trailing whitespaces are deleted."
+    (add-hook 'before-save-hook 'delete-trailing-whitespace))
+  (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
+  (add-hook 'prog-mode-hook 'whitespace-mode)
+  (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save))
 
 (use-package flycheck
   :defer t

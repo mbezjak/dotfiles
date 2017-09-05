@@ -2,10 +2,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
-(defun my-delete-trailing-whitespace-before-save ()
-  "Ensure trailing whitespaces are deleted."
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
-
 (defun my-local-comment-auto-fill ()
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode t))
@@ -23,8 +19,6 @@
           1 font-lock-warning-face t))))
 
 
-(add-hook 'prog-mode-hook 'whitespace-mode)
-(add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save)
 (add-hook 'prog-mode-hook 'my-local-comment-auto-fill)
 (add-hook 'prog-mode-hook 'my-pretty-lambdas)
 (add-hook 'prog-mode-hook 'my-add-watchwords)
