@@ -11,7 +11,6 @@
 
 (mouse-wheel-mode)
 (column-number-mode)
-(global-subword-mode)
 (show-paren-mode)
 (delete-selection-mode)
 (global-auto-revert-mode)
@@ -93,6 +92,11 @@
 (use-package my-lisp)
 
 (use-package my-keys)
+
+(use-package subword
+  :diminish subword-mode
+  :config
+  (global-subword-mode))
 
 (use-package flycheck
   :defer t
