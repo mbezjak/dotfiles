@@ -198,11 +198,9 @@
   :diminish projectile-mode
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
-        projectile-completion-system 'helm
         projectile-enable-caching t)
   :config
   (projectile-global-mode)
-  (helm-projectile-on)
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
   (add-to-list 'projectile-globally-ignored-files "*-all.js")
@@ -210,6 +208,12 @@
     (add-to-list 'projectile-globally-ignored-file-suffixes it))
   (--each '("*.png" "*.gif" "*.jar" "*.log")
     (add-to-list 'grep-find-ignored-files it)))
+
+(use-package helm-projectile
+  :init
+  (setq projectile-completion-system 'helm)
+  :config
+  (helm-projectile-on))
 
 (use-package hippie-exp
   :no-require t
