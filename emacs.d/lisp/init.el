@@ -42,9 +42,6 @@
 
 (set-locale-environment "en_US.UTF-8")
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'goto-address-mode)
-
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
 (eval-after-load "ispell"
@@ -337,3 +334,30 @@
 (use-package smart-mode-line
   :config
   (sml/setup))
+
+(use-package idle-highlight-mode
+  :defer t
+  :init
+  (add-hook 'prog-mode-hook 'idle-highlight-mode))
+
+(use-package goto-addr
+  :defer t
+  :init
+  (add-hook 'text-mode-hook 'goto-address-mode)
+  (add-hook 'prog-mode-hook 'goto-address-mode))
+
+(use-package js2-mode
+  :mode "\\.js\\'")
+
+(use-package octave
+  :mode ("\\.m\\'" . octave-mode))
+
+(use-package simple
+  :diminish auto-fill-function
+  :init
+  (defun my-local-comment-auto-fill ()
+    (set (make-local-variable 'comment-auto-fill-only-comments) t)
+    (auto-fill-mode t))
+  :config
+  (add-hook 'text-mode-hook 'turn-on-auto-fill)
+  (add-hook 'prog-mode-hook 'my-local-comment-auto-fill))
