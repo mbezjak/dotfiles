@@ -29,7 +29,6 @@
       visible-bell t
       shift-select-mode nil
       mouse-yank-at-point t
-      uniquify-buffer-name-style 'forward
       recentf-max-saved-items 50
       imenu-auto-rescan t
       ediff-window-setup-function 'ediff-setup-windows-plain
@@ -77,12 +76,14 @@
 (use-package my-functions)
 (use-package my-org)
 (use-package my-dev)
-(use-package uniquify)
 (use-package my-helm)
 (use-package my-yasnippet)
 (use-package my-lisp)
-
 (use-package my-keys)
+
+(use-package uniquify
+  :init
+  (setq uniquify-buffer-name-style 'forward))
 
 (use-package move-text
   :init
