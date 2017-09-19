@@ -240,7 +240,7 @@
 
 (use-package groovy-mode
   :defer t
-  :mode "build\\.kin\\'"
+  :mode ("build\\.kin\\'" "build\\.gradle\\'")
   :config
   (bind-keys :map groovy-mode-map
              ("C-d" . my-delete-line-keep-column-position)
@@ -252,9 +252,6 @@
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
                ("C-M-i" . groovy-imports-add-import-dwim))))
-
-(use-package gradle-mode
-  :mode "build\\.gradle\\'")
 
 (use-package gommons-mode
   :defer t
