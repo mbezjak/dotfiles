@@ -77,13 +77,16 @@
 (use-package my-functions)
 (use-package my-org)
 (use-package my-dev)
-(move-text-default-bindings)
 (use-package uniquify)
 (use-package my-helm)
 (use-package my-yasnippet)
 (use-package my-lisp)
 
 (use-package my-keys)
+
+(use-package move-text
+  :init
+  (move-text-default-bindings))
 
 (use-package subword
   :diminish subword-mode
