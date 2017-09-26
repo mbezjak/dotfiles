@@ -29,7 +29,6 @@
       visible-bell t
       shift-select-mode nil
       mouse-yank-at-point t
-      recentf-max-saved-items 50
       imenu-auto-rescan t
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u"
@@ -53,11 +52,15 @@
 
 (use-package no-littering
   :config
-  (use-package recentf)
-  (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory)
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+
+(use-package recentf
+  :init
+  (setq recentf-max-saved-items 50)
+  :config
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
 
 (setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (when (file-exists-p custom-file)
