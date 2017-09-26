@@ -43,10 +43,6 @@
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
-(eval-after-load "ispell"
-  '(when (executable-find ispell-program-name)
-     (add-hook 'text-mode-hook 'turn-on-flyspell)))
-
 ; shorter way to answer yes/no questions
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -362,3 +358,12 @@
   :config
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
   (add-hook 'prog-mode-hook 'my-local-comment-auto-fill))
+
+(use-package ispell
+  :defer t
+  :config
+  (use-package flyspell
+    :if (executable-find ispell-program-name)
+    :defer t
+    :init
+    (add-hook 'text-mode-hook 'turn-on-flyspell)))
