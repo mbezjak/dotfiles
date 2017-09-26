@@ -72,7 +72,6 @@
 (use-package my-dev)
 (use-package my-helm)
 (use-package my-yasnippet)
-(use-package my-lisp)
 (use-package my-keys)
 
 (use-package uniquify
@@ -366,3 +365,22 @@
     :defer t
     :init
     (add-hook 'text-mode-hook 'turn-on-flyspell)))
+
+(use-package elisp-mode
+  :bind (:map emacs-lisp-mode-map
+              ("C-c v" . eval-buffer))
+  :bind (:map lisp-mode-shared-map
+              ("RET" . reindent-then-newline-and-indent))
+  :bind (:map read-expression-map
+              ("TAB" . completion-at-point))
+  :init
+  (defun my-remove-elc-on-save ()
+    "If you're saving an elisp file, likely the .elc is no longer valid."
+    (make-local-variable 'after-save-hook)
+    (add-hook 'after-save-hook
+              (lambda ()
+                (if (file-exists-p (concat buffer-file-name "c"))
+                    (delete-file (concat buffer-file-name "c"))))))
+  (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode))
