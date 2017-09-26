@@ -36,19 +36,17 @@
       dired-recursive-deletes 'top
       dired-listing-switches "-lha")
 
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
-
 (set-locale-environment "en_US.UTF-8")
-
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
-
-; shorter way to answer yes/no questions
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (setq use-package-verbose t)
 (require 'use-package)
+
 
 (use-package no-littering
   :config
@@ -69,9 +67,6 @@
 (use-package dash)
 (use-package s)
 (use-package f)
-
-;; my-stuff
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (use-package my-functions)
 (use-package my-org)
 (use-package my-dev)
