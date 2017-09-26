@@ -364,6 +364,7 @@
   :config
   (use-package flyspell
     :if (executable-find ispell-program-name)
+    :diminish flyspell-mode
     :defer t
     :init
     (add-hook 'text-mode-hook 'turn-on-flyspell)))
