@@ -55,7 +55,7 @@
 
 (use-package recentf
   :init
-  (setq recentf-max-saved-items 50)
+  (setq recentf-max-saved-items 200)
   :config
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory))
