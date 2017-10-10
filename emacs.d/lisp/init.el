@@ -317,6 +317,7 @@
   :defer t
   :config
   (use-package clj-refactor
+    :diminish clj-refactor-mode
     :init
     (setq cljr-warn-on-eval nil)
     :config
