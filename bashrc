@@ -142,7 +142,7 @@ alias ctrlc='xclip -selection c'
 alias ctrlv='xclip -selection c -o'
 
 # command dependent
-have dolphin && alias d='dolphin . &> /dev/null'
+have dolphin && alias d='dolphin . &> /dev/null &'
 
 [[ -z "$JAVA_HOME" && -d /usr/lib/jvm/default ]] && {
     export JAVA_HOME=/usr/lib/jvm/default
