@@ -195,10 +195,6 @@ have gradle && {
     alias gradle=run-gradle
 }
 
-have mvn && {
-    export MAVEN_OPTS="-Xms256m -Xmx512m"
-}
-
 have sbt && {
     export SBT_OPTS="-Xmx4g -XX:MaxPermSize=1g"
 }
