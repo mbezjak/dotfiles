@@ -196,7 +196,7 @@ have gradle && {
 }
 
 have sbt && {
-    export SBT_OPTS="-Xmx4g -XX:MaxPermSize=1g"
+    export SBT_OPTS="-Xmx4g"
 }
 
 have boot && [[ $(java-major-version) = 7 ]] && {
