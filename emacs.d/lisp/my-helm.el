@@ -1,4 +1,6 @@
-(require 'helm)
+(use-package helm :ensure t)
+(use-package helm-descbinds :ensure t)
+
 (require 'helm-files)
 (require 'helm-config)
 

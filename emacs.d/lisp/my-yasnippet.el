@@ -1,4 +1,5 @@
-(require 'yasnippet)
+(use-package yasnippet :ensure t)
+
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (setq yas-new-snippet-default "\
 # -*- mode: snippet -*-

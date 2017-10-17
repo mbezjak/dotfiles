@@ -1,6 +1,11 @@
 ;; start garbage collection every x MB to improve performance
 (setq gc-cons-threshold (* 100 1024 1024))
 
+(setq package-archives
+      '(("gnu"          . "https://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa"        . "https://melpa.org/packages/")))
+(setq package-user-dir (locate-user-emacs-file (concat "elpa-" emacs-version)))
 (package-initialize)
 
 (menu-bar-mode -1)
@@ -42,13 +47,15 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 (setq use-package-verbose t)
 (require 'use-package)
 
 
 (use-package no-littering
+  :ensure t
   :config
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
@@ -64,9 +71,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(use-package dash)
-(use-package s)
-(use-package f)
+(use-package dash :ensure t)
+(use-package s :ensure t)
+(use-package f :ensure t)
 (use-package my-functions)
 (use-package my-org)
 (use-package my-dev)
@@ -79,6 +86,7 @@
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package move-text
+  :ensure t
   :init
   (move-text-default-bindings))
 
@@ -101,10 +109,12 @@
   (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save))
 
 (use-package flycheck
+  :ensure t
   :defer t
   :init (global-flycheck-mode))
 
 (use-package company
+  :ensure t
   :defer t
   :diminish company-mode
   :bind (:map company-active-map
@@ -116,6 +126,7 @@
         company-dabbrev-ignore-case 'yes))
 
 (use-package psession
+  :ensure t
   :init
   (setq psession-elisp-objects-default-directory (no-littering-expand-var-file-name "elisp-objects")
         psession-object-to-save-alist
@@ -135,6 +146,7 @@
     (remove-hook 'emacs-startup-hook fn)))
 
 (use-package keyfreq
+  :ensure t
   :init
   (setq keyfreq-file (no-littering-expand-var-file-name "keyfreq")
         keyfreq-file-lock (no-littering-expand-var-file-name "keyfreq.lock"))
@@ -149,6 +161,7 @@
   (set-face-foreground 'diff-removed "red3"))
 
 (use-package monky
+  :ensure t
   :defer t
   :init
   (setq monky-process-type 'cmdserver)
@@ -157,38 +170,46 @@
   (set-face-foreground 'monky-diff-del  "red3"))
 
 (use-package magit
+  :ensure t
   :defer t
   :commands magit-inside-worktree-p
   :init
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package diff-hl
+  :ensure t
   :config
   (global-diff-hl-mode)
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
 
 (use-package anzu
+  :ensure t
   :diminish anzu-mode
   :config
   (global-anzu-mode))
 
 (use-package duplicate-thing
+  :ensure t
   :bind ("C-M-<down>" . duplicate-thing))
 
 (use-package volatile-highlights
+  :ensure t
   :diminish volatile-highlights-mode
   :config
   (volatile-highlights-mode t))
 
 (use-package expand-region
+  :ensure t
   :bind ("C-:" . er/expand-region))
 
 (use-package indent-guide
+  :ensure t
   :diminish indent-guide-mode
   :config
   (indent-guide-global-mode))
 
 (use-package projectile
+  :ensure t
   :diminish projectile-mode
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
@@ -204,6 +225,7 @@
     (add-to-list 'grep-find-ignored-files it)))
 
 (use-package helm-projectile
+  :ensure t
   :init
   (setq projectile-completion-system 'helm)
   :config
@@ -219,6 +241,7 @@
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t))
 
 (use-package markdown-mode
+  :ensure t
   :defer t
   :config
   ;; To use:
@@ -228,6 +251,7 @@
       (setq markdown-command cmd))))
 
 (use-package coffee-mode
+  :ensure t
   :defer t
   :config
   (bind-keys :map coffee-mode-map
@@ -236,6 +260,7 @@
 
 
 (use-package groovy-mode
+  :ensure t
   :defer t
   :mode ("build\\.kin\\'" "build\\.gradle\\'")
   :config
@@ -245,6 +270,7 @@
              ("S-C-r" . my-groovy-rename-class))
 
   (use-package groovy-imports
+    :ensure t
     :config
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
@@ -256,12 +282,14 @@
   :diminish gommons-mode)
 
 (use-package scala-mode
+  :ensure t
   :defer t
   :config
   (use-package ensime)
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 (use-package haskell-mode
+  :ensure t
   :defer t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
@@ -273,14 +301,17 @@
     (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
 
 (use-package web-mode
+  :ensure t
   :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
 
 (use-package super-save
+  :ensure t
   :diminish super-save-mode
   :config
   (super-save-mode))
 
 (use-package pomidor
+  :ensure t
   :commands pomidor
   :init
   (setq pomidor-sound-tick nil
@@ -292,19 +323,23 @@
   (setq alert-default-style 'libnotify))
 
 (use-package which-key
+  :ensure t
   :diminish which-key-mode
   :config
   (which-key-mode))
 
 (use-package dumb-jump
+  :ensure t
   :config
   (dumb-jump-mode)
   (setq dumb-jump-selector 'helm))
 
 (use-package helpful
+  :ensure t
   :bind (("C-h f" . helpful-function)))
 
 (use-package parinfer
+  :ensure t
   :bind (("C-," . parinfer-toggle-mode))
   :init
   (add-hook 'clojure-mode-hook 'parinfer-mode)
@@ -314,9 +349,11 @@
   (add-hook 'lisp-mode-hook 'parinfer-mode))
 
 (use-package clojure-mode
+  :ensure t
   :defer t
   :config
   (use-package clj-refactor
+    :ensure t
     :diminish clj-refactor-mode
     :init
     (setq cljr-warn-on-eval nil)
@@ -327,10 +364,12 @@
     (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
 
 (use-package smart-mode-line
+  :ensure t
   :config
   (sml/setup))
 
 (use-package idle-highlight-mode
+  :ensure t
   :defer t
   :init
   (add-hook 'prog-mode-hook 'idle-highlight-mode))
@@ -342,6 +381,7 @@
   (add-hook 'prog-mode-hook 'goto-address-mode))
 
 (use-package js2-mode
+  :ensure t
   :mode "\\.js\\'")
 
 (use-package octave
@@ -385,3 +425,14 @@
   (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
   (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode))
+
+(use-package elisp-slime-nav   :ensure t :defer t)
+(use-package helm-swoop        :ensure t :defer t)
+(use-package htmlize           :ensure t :defer t)
+(use-package free-keys         :ensure t :defer t)
+(use-package discover-my-major :ensure t :defer t)
+(use-package ghc               :ensure t :defer t)
+(use-package sbt-mode          :ensure t :defer t)
+(use-package ensime            :ensure t :defer t)
+(use-package cider             :ensure t :defer t)
+(use-package json-mode         :ensure t :defer t)

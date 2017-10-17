@@ -1,5 +1,2 @@
-/.cask/
-/eshell/
 /var/
-
-/tramp
+/elpa-*/

@@ -1,6 +1,2 @@
---ignore-directory=is:.cask
---ignore-directory=is:backups
---ignore-directory=is:eshell
 --ignore-directory=is:var
---ignore-file=is:places
---ignore-file=is:tramp
+--ignore-directory=is:elpa-25.3.1
