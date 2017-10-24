@@ -436,3 +436,4 @@
 (use-package ensime            :ensure t :defer t)
 (use-package cider             :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
+(use-package paradox           :ensure t :defer t)
