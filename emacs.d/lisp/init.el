@@ -384,6 +384,10 @@
   :ensure t
   :mode "\\.js\\'")
 
+(use-package rjsx-mode
+  :ensure t
+  :mode "components\\/.*\\.js\\'")
+
 (use-package octave
   :mode ("\\.m\\'" . octave-mode))
 
