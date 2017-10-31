@@ -59,6 +59,8 @@ function add-to-path {
 
 source-if /usr/share/git/completion/git-completion.bash
 source-if /usr/share/git/completion/git-prompt.sh
+source-if /usr/share/fzf/completion.bash
+source-if /usr/share/fzf/key-bindings.bash
 source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
 
