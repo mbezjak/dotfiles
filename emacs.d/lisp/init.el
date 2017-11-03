@@ -386,7 +386,9 @@
 
 (use-package rjsx-mode
   :ensure t
-  :mode "components\\/.*\\.js\\'")
+  :mode "components\\/.*\\.js\\'"
+  :bind (:map rjsx-mode-map
+         ("C-d" . my-delete-line-keep-column-position)))
 
 (use-package octave
   :mode ("\\.m\\'" . octave-mode))
