@@ -432,6 +432,10 @@
   (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode))
 
+(use-package java-mode
+  :bind (:map java-mode-map
+              ("C-d" . my-delete-line-keep-column-position)))
+
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
 (use-package htmlize           :ensure t :defer t)
