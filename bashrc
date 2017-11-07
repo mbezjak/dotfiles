@@ -107,6 +107,7 @@ eval $(dircolors -b) # colored ls output
 
 # new commands
 alias e='emacs --no-window-system'
+alias reload='source ~/.bashrc'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias du1='du --max-depth=1 --human-readable'
