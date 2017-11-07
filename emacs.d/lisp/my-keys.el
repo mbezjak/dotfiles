@@ -2,16 +2,18 @@
 
 
 ;; ergoemacs like
-(bind-keys
- ("M-o" . previous-line)
- ("M-k" . next-line)
- ("M-O" . scroll-down-command)
- ("M-K" . scroll-up-command)
- ("M-j" . backward-char)
- ("M-l" . forward-char)
- ("M-i" . backward-word)
- ("M-p" . forward-word)
+(when window-system
+  (bind-keys
+   ("M-o" . previous-line)
+   ("M-k" . next-line)
+   ("M-O" . scroll-down-command)
+   ("M-K" . scroll-up-command)
+   ("M-j" . backward-char)
+   ("M-l" . forward-char)
+   ("M-i" . backward-word)
+   ("M-p" . forward-word)))
 
+(bind-keys
  ("C-f" . isearch-forward-regexp)
  ("C-r" . isearch-backward-regexp)
  ("S-C-f" . isearch-backward-regexp)
