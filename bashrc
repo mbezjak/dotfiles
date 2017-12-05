@@ -116,7 +116,7 @@ alias pg='ps -Afww | grep -i'
 alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
-function openports { ss --tcp --processes "$@" | sed '1d' | column -t; }
+function openports { ss --tcp --numeric --listening --processes "$@" | sed '1d' | column -t; }
 function t {
     local -r ext=$1
     tree --prune -P '*.'$ext
