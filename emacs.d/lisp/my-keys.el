@@ -39,6 +39,7 @@
  ("C-x C-i" . helm-semantic-or-imenu)
  ("M-f" . helm-swoop)
  ("C-x C-f" . helm-find-files)
+ ("M-S" . helm-projectile-grep)
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
