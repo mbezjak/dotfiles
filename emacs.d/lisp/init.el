@@ -281,12 +281,13 @@
   :commands gommons-mode
   :diminish gommons-mode)
 
+(use-package ensime
+  :ensure t
+  :defer t)
+
 (use-package scala-mode
   :ensure t
-  :defer t
-  :config
-  (use-package ensime)
-  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+  :defer t)
 
 (use-package haskell-mode
   :ensure t
