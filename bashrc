@@ -199,6 +199,10 @@ have gradle && {
     alias gradle=run-gradle
 }
 
+have lein && {
+    alias lein=run-lein
+}
+
 have sbt && {
     export SBT_OPTS="-Xmx4g"
 }
