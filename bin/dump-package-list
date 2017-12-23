@@ -62,7 +62,7 @@ pacman --query --explicit          > explicit
 pacman-explicit-no-base            > explicit-no-base
 pacman --query --deps              > deps
 pacman --query --foreign           > foreign
-pacman --query --deps --unrequired > unrequired
+pacman --query --deps --unrequired || ignore > unrequired
 pacman --query --info              > details
 have npm  && list-npm              > npm
 have pip  && list-python-eggs pip  > pip
