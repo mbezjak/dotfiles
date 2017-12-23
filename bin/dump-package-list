@@ -51,6 +51,10 @@ EOF
 function list-napalm {
     napalm show
 }
+function list-workspace {
+    ls -1 ~/workspace
+}
+
 
 
 declare -r dir=~/Dropbox/packages/$(computer-type)
@@ -70,5 +74,6 @@ have pip  && list-python-eggs pip  > pip
 have pip2 && list-python-eggs pip2 > pip2
 have gem  && list-gems             > gem
 have napalm && list-napalm         > napalm
+list-workspace                     > workspace
 
 exit 0
