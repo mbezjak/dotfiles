@@ -1,0 +1,9 @@
+[Unit]
+Description=Hetzner Backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/mbezjak/workspace/dotfiles/bin/hetzner-backup.sh
+
+[Install]
+WantedBy=multi-user.target
