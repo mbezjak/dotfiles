@@ -1,0 +1,10 @@
+[Unit]
+Description=Dump package list Timer
+
+[Timer]
+Unit=dump-package-list.service
+OnCalendar=daily
+Persistent=True
+
+[Install]
+WantedBy=timers.target

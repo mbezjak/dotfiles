@@ -1,0 +1,10 @@
+[Unit]
+Description=Dump package list
+
+[Service]
+Environment="PATH=/home/mbezjak/workspace/dotfiles/bin:/home/mbezjak/workspace/poly-devel/bin:/usr/bin"
+Type=oneshot
+ExecStart=/home/mbezjak/workspace/dotfiles/bin/dump-package-list
+
+[Install]
+WantedBy=multi-user.target
