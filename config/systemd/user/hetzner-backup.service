@@ -1,5 +1,6 @@
 [Unit]
 Description=Hetzner Backup
+After=network-online.target
 
 [Service]
 Type=oneshot
