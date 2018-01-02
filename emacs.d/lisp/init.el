@@ -262,7 +262,7 @@
 (use-package groovy-mode
   :ensure t
   :defer t
-  :mode ("build\\.kin\\'" "build\\.gradle\\'")
+  :mode ("build\\.kin\\'" "build\\.gradle\\'" "\\.drw\\'")
   :config
   (bind-keys :map groovy-mode-map
              ("C-d" . my-delete-line-keep-column-position)
