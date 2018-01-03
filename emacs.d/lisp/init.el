@@ -123,7 +123,8 @@
   :config
   ;; respect case when inserting into buffer, ignore when searching for candidates
   (setq company-dabbrev-downcase nil
-        company-dabbrev-ignore-case 'yes))
+        company-dabbrev-ignore-case 'yes
+        company-show-numbers t))
 
 (use-package psession
   :ensure t
