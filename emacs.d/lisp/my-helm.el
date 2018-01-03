@@ -6,12 +6,7 @@
 
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
       helm-always-two-windows t
-      helm-split-window-default-side 'right
-      helm-for-files-preferred-list '(helm-source-buffers-list
-                                      helm-source-recentf
-                                      helm-source-bookmarks
-                                      helm-source-file-cache
-                                      helm-source-files-in-current-dir))
+      helm-split-window-default-side 'right)
 
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
