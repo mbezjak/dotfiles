@@ -5,7 +5,6 @@
 (require 'helm-config)
 
 (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
-      helm-always-two-windows t
       helm-split-window-default-side 'right)
 
 (when (executable-find "curl")
