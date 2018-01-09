@@ -31,15 +31,7 @@
  ("M-U" . upcase-word)
  ("M-J" . downcase-word)
 
- ("M-x" . helm-M-x)
- ("M-[" . helm-projectile-find-file)
  ("M-]" . projectile-switch-project)
- ("C-M-]" . helm-find-files)
- ("M-<f8>" . helm-for-files)
- ("C-x C-i" . helm-semantic-or-imenu)
- ("M-f" . helm-swoop)
- ("C-x C-f" . helm-find-files)
- ("M-S" . helm-projectile-grep)
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
@@ -52,10 +44,8 @@
  ("S-C-s" . write-file)
  ("S-C-r" . my-rename-file-and-buffer)
  ("S-C-M-s" . sort-lines)
- ("C-o" . helm-find-files)
  ("C-p" . recenter-top-bottom)
  ("C-q" . my-kill-current-buffer)
- ("C-v" . helm-show-kill-ring)
  ("S-C-q" . quoted-insert)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
@@ -70,22 +60,6 @@
            :map isearch-mode-map
            ("C-f" . isearch-repeat-forward)
            ("C-S-f" . isearch-repeat-backward))
-
-(bind-keys :map helm-map
-           ("<tab>" . helm-execute-persistent-action)
-           ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
-           ("C-z" . helm-select-action)
-           ("M-k" . helm-next-line)
-           ("M-o" . helm-previous-line)
-           ("<escape>" . helm-keyboard-quit))
-
-(bind-keys :map helm-find-files-map
-           ("M-l" . helm-find-files-up-one-level))
-
-(bind-keys :map isearch-mode-map
-           ("M-o" . helm-occur-from-isearch)
-           ("M-i" . helm-swoop-from-isearch))
-
 
 ;; jump to directory
 (defmacro my-jump-macro (fnname dir)
