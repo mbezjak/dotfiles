@@ -205,7 +205,7 @@ have lein && {
 }
 
 have sbt && {
-    export SBT_OPTS="-Xmx4g"
+    export SBT_OPTS="-Xmx4g -XX:MaxPermSize=1G"
 }
 
 have boot && [[ $(java-major-version) = 7 ]] && {
