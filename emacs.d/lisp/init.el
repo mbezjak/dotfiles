@@ -39,7 +39,8 @@
       diff-switches "-u"
       dired-recursive-copies 'always
       dired-recursive-deletes 'top
-      dired-listing-switches "-lha")
+      dired-listing-switches "-lha"
+      isearch-allow-scroll t)
 
 (set-locale-environment "en_US.UTF-8")
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
