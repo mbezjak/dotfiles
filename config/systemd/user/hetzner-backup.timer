@@ -1,5 +1,6 @@
 [Unit]
 Description=Hetzner Backup Timer
+After=network-online.target
 
 [Timer]
 Unit=hetzner-backup.service
