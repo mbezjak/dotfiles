@@ -457,10 +457,10 @@
 
 (use-package elisp-mode
   :bind (:map emacs-lisp-mode-map
-              ("C-c v" . eval-buffer))
-  :bind (:map lisp-mode-shared-map
-              ("RET" . reindent-then-newline-and-indent))
-  :bind (:map read-expression-map
+              ("C-c v" . eval-buffer)
+         :map lisp-mode-shared-map
+              ("RET" . reindent-then-newline-and-indent)
+         :map read-expression-map
               ("TAB" . completion-at-point))
   :init
   (defun my-remove-elc-on-save ()
