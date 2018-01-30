@@ -1,11 +1,15 @@
 ;; start garbage collection every x MB to improve performance
 (setq gc-cons-threshold (* 100 1024 1024))
 
-(setq package-archives
-      '(("gnu"          . "https://elpa.gnu.org/packages/")
-        ("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("melpa"        . "https://melpa.org/packages/")))
 (setq package-user-dir (locate-user-emacs-file (concat "elpa-" emacs-version)))
+(setq package-archives
+      '(("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa"        . "https://melpa.org/packages/")
+        ("gnu"          . "https://elpa.gnu.org/packages/")))
+(setq package-archive-priorities
+      '(("melpa-stable" . 10)
+        ("melpa" . 5)
+        ("gnu" . 0)))
 (package-initialize)
 
 (menu-bar-mode -1)
