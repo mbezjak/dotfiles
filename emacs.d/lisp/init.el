@@ -484,6 +484,7 @@
 
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
+(use-package helm-ag           :ensure t :defer t)
 (use-package htmlize           :ensure t :defer t)
 (use-package free-keys         :ensure t :defer t)
 (use-package discover-my-major :ensure t :defer t)
