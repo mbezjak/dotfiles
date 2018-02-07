@@ -482,6 +482,12 @@
   :bind (:map java-mode-map
               ("C-d" . my-delete-line-keep-column-position)))
 
+(use-package cider
+  :ensure t
+  :defer t
+  :init
+  (setq cider-default-repl-command "lein"))
+
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
 (use-package helm-ag           :ensure t :defer t)
@@ -491,6 +497,5 @@
 (use-package ghc               :ensure t :defer t)
 (use-package sbt-mode          :ensure t :defer t)
 (use-package ensime            :ensure t :defer t)
-(use-package cider             :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
