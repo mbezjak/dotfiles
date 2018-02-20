@@ -105,7 +105,7 @@
   :defer t
   :diminish whitespace-mode
   :init
-  (setq whitespace-style '(face trailing tabs)
+  (setq whitespace-style '(face trailing tabs empty)
         whitespace-line-column 80)
   (defun my-delete-trailing-whitespace-before-save ()
     "Ensure trailing whitespaces are deleted."
