@@ -46,9 +46,7 @@
       dired-listing-switches "-lha")
 
 ;; trying out scroll setup from frontmacs
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
+(setq scroll-preserve-screen-position 1)
 
 (set-locale-environment "en_US.UTF-8")
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
