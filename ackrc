@@ -16,6 +16,7 @@
 --ignore-directory=is:.ensime_cache
 --ignore-directory=is:dotfiles/emacs.d/var
 --ignore-directory=is:.metadata
+--ignore-directory=is:xexperiment
 --ignore-directory=is:xforeign
 --ignore-directory=is:xattic
 --ignore-directory=is:xincubation
