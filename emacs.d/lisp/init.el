@@ -93,8 +93,15 @@
 
 (use-package move-text
   :ensure t
+  :disabled t
   :init
   (move-text-default-bindings))
+
+(use-package drag-stuff
+  :ensure t
+  :init
+  (drag-stuff-global-mode)
+  (drag-stuff-define-keys))
 
 (use-package subword
   :diminish subword-mode
