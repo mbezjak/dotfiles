@@ -93,12 +93,14 @@
 
 (use-package move-text
   :ensure t
-  :disabled t
   :init
   (move-text-default-bindings))
 
 (use-package drag-stuff
   :ensure t
+  ;; unlike move-text, drag-stuff does not play well with org-mode
+  ;; https://github.com/rejeep/drag-stuff.el/issues/6
+  :disabled t
   :init
   (drag-stuff-global-mode)
   (drag-stuff-define-keys))
