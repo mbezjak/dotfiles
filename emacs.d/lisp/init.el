@@ -219,6 +219,7 @@
   :bind ("C-:" . er/expand-region))
 
 (use-package indent-guide
+  :disabled t
   :ensure t
   :diminish indent-guide-mode
   :config
