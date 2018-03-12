@@ -498,7 +498,8 @@
   :ensure t
   :defer t
   :init
-  (setq cider-default-repl-command "lein"))
+  (setq cider-default-repl-command "lein"
+        cider-repl-pop-to-buffer-on-connect nil))
 
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
