@@ -501,6 +501,24 @@
   (setq cider-default-repl-command "lein"
         cider-repl-pop-to-buffer-on-connect nil))
 
+;; temporary override C-f, C-r, S-C-f in my-keys.el
+(use-package swiper-helm
+  :disabled t
+  :ensure t
+  :bind (("C-f" . swiper-helm)
+         :map swiper-helm-keymap
+         ("C-f" . helm-next-line)))
+
+;; temporary override C-f, C-r, S-C-f in my-keys.el
+(use-package swiper
+  :ensure t
+  :bind (("C-f" . swiper)
+         :map swiper-map
+         ("<escape>" . minibuffer-keyboard-quit)
+         ("C-f" . ivy-next-line)
+         ("C-r" . ivy-previous-line)
+         ("C-p" . swiper-recenter-top-bottom)))
+
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
 (use-package helm-ag           :ensure t :defer t)
