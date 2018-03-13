@@ -517,7 +517,9 @@
          ("<escape>" . minibuffer-keyboard-quit)
          ("C-f" . ivy-next-line)
          ("C-r" . ivy-previous-line)
-         ("C-p" . swiper-recenter-top-bottom)))
+         ("C-p" . swiper-recenter-top-bottom))
+  :init
+  (setq ivy-wrap t))
 
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
