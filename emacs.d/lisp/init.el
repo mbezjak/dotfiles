@@ -500,7 +500,9 @@
   :init
   (setq cider-default-repl-command "lein"
         cider-repl-pop-to-buffer-on-connect nil
-        cider-repl-use-pretty-printing t))
+        cider-repl-use-pretty-printing t)
+  :config
+  (add-hook 'cider-mode-hook #'cider-auto-test-mode))
 
 ;; temporary override C-f, C-r, S-C-f in my-keys.el
 (use-package swiper-helm
