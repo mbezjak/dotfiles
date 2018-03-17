@@ -502,7 +502,8 @@
         cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-pretty-printing t)
   :config
-  (add-hook 'cider-mode-hook #'cider-auto-test-mode))
+  (add-hook 'cider-mode-hook #'cider-auto-test-mode)
+  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion))
 
 ;; temporary override C-f, C-r, S-C-f in my-keys.el
 (use-package swiper-helm
