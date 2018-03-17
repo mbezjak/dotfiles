@@ -249,7 +249,8 @@
          ("M-l" . helm-find-files-up-one-level)
          :map isearch-mode-map
          ("M-o" . helm-occur-from-isearch)
-         ("M-i" . helm-swoop-from-isearch))
+         ("M-i" . helm-swoop-from-isearch)
+         ("C-/" . isearch-query-replace))
   :init
   (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
         helm-split-window-default-side 'right)
@@ -515,6 +516,7 @@
 
 ;; temporary override C-f, C-r, S-C-f in my-keys.el
 (use-package swiper
+  :disabled t
   :ensure t
   :bind (("C-f" . swiper)
          :map swiper-map
