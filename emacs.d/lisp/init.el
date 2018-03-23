@@ -506,10 +506,10 @@
   :config
   (add-hook 'cider-mode-hook #'cider-auto-test-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+  (use-package cider-eval-sexp-fu :ensure t)
   (use-package helm-cider
     :ensure t
     :config (helm-cider-mode)))
-  (use-package cider-eval-sexp-fu :ensure t)
 
 ;; temporary override C-f, C-r, S-C-f in my-keys.el
 (use-package swiper-helm
