@@ -509,6 +509,7 @@
   (use-package helm-cider
     :ensure t
     :config (helm-cider-mode)))
+  (use-package cider-eval-sexp-fu :ensure t)
 
 ;; temporary override C-f, C-r, S-C-f in my-keys.el
 (use-package swiper-helm
