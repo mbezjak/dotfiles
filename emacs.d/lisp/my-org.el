@@ -14,12 +14,10 @@
       org-log-done       'time
       org-directory      "~/Dropbox/notes"
       my-org-note-agenda  (my-org-note "agenda")
-      my-org-note-habit   (my-org-note "habit")
-      my-org-note-pool    (my-org-note "pool")
       my-org-note-meta    (my-org-note "meta")
       my-org-note-archive (my-org-note "archive/archive")
-      org-default-notes-file my-org-note-pool
-      org-agenda-files       (list my-org-note-agenda my-org-note-habit my-org-note-pool)
+      org-default-notes-file my-org-note-agenda
+      org-agenda-files       (list my-org-note-agenda)
       org-archive-location   (concat my-org-note-archive "::")
       org-global-properties '(("BENEFIT_ALL" . "1 2 3 4 5 6 7 8 0.5 0"))
       org-habit-show-habits-only-for-today nil
@@ -31,8 +29,7 @@
       org-extend-today-until 5
       org-refile-targets '((nil :maxlevel . 1)
                            (my-org-note-meta    :maxlevel . 1)
-                           (my-org-note-agenda  :maxlevel . 1)
-                           (my-org-note-pool    :maxlevel . 1))
+                           (my-org-note-agenda  :maxlevel . 1))
       org-agenda-prefix-format '((agenda . " %i %-10:c%?-12t% s %-8e")
                                  (timeline . "  % s")
                                  (todo . " %i %-12:c")
