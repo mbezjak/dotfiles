@@ -108,6 +108,13 @@ point reaches the beginning or end of the buffer, stop there."
     (kill-whole-line)
     (move-to-column column-index)))
 
+(defun my-delete-region-or-line ()
+  "Delete region if active or current line."
+  (interactive)
+  (if (use-region-p)
+      (call-interactively 'kill-region)
+    (call-interactively 'my-delete-line-keep-column-position)))
+
 (defun my-complete ()
   "Complete using company-mode or if not available then hippie-expand"
   (interactive)

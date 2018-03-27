@@ -19,7 +19,7 @@
  ("S-C-f" . isearch-backward-regexp)
  ("C-l" . goto-line)
 
- ("C-d" . my-delete-line-keep-column-position)
+ ("C-d" . my-delete-region-or-line)
  ("M-e" . backward-kill-word)
  ("M-r" . kill-word)
  ("M-d" . zap-to-char)
