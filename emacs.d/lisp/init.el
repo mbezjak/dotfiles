@@ -324,7 +324,7 @@
   :mode ("build\\.kin\\'" "build\\.gradle\\'" "\\.drw\\'")
   :config
   (bind-keys :map groovy-mode-map
-             ("C-d" . my-delete-line-keep-column-position)
+             ("C-d" . my-delete-region-or-line)
              ("M-e" . backward-kill-word)
              ("S-C-r" . my-groovy-rename-class))
 
@@ -448,7 +448,7 @@
   :ensure t
   :mode "components\\/.*\\.js\\'"
   :bind (:map rjsx-mode-map
-         ("C-d" . my-delete-line-keep-column-position)))
+         ("C-d" . my-delete-region-or-line)))
 
 (use-package octave
   :mode ("\\.m\\'" . octave-mode))
@@ -494,15 +494,18 @@
 
 (use-package java-mode
   :bind (:map java-mode-map
-              ("C-d" . my-delete-line-keep-column-position)))
+              ("C-d" . my-delete-region-or-line)))
 
 (use-package cider
   :ensure t
+  ;:pin melpa
   :defer t
   :init
   (setq cider-default-repl-command "lein"
         cider-repl-pop-to-buffer-on-connect nil
-        cider-repl-use-pretty-printing t)
+        cider-repl-use-pretty-printing t
+        cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk"
+                              "~/lib/clojure/src"))
   :config
   (add-hook 'cider-mode-hook #'cider-auto-test-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
