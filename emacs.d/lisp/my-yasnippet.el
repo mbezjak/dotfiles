@@ -34,7 +34,8 @@ $0")
 
 (defun my-yas-buffer-namespace-name ()
   (let ((package-name (my-yas-buffer-package-name)))
-    (if (s-starts-with? "hx" package-name)
+    (if (or (s-starts-with? "hx" package-name)
+            (s-starts-with? "hr" package-name))
         package-name
       (s-concat "Hx." package-name))))
 
