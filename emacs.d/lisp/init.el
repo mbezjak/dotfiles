@@ -303,7 +303,6 @@
   :ensure t
   :defer t
   :config
-  ;; To use:
   ;; $ pacman --sync perl-text-markdown
   (let ((cmd "/usr/bin/vendor_perl/Markdown.pl"))
     (when (file-exists-p cmd)
@@ -316,7 +315,6 @@
   (bind-keys :map coffee-mode-map
              ("M-C" . coffee-compile-buffer)
              ("S-C-r" . my-coffee-rename-fn)))
-
 
 (use-package groovy-mode
   :ensure t
@@ -355,7 +353,6 @@
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-  ;; To use:
   ;; $ cabal install ghc-mod
   (when (file-executable-p "~/.cabal/bin/ghc-mod")
     (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
