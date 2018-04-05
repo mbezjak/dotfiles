@@ -442,7 +442,8 @@
 
 (use-package js2-mode
   :ensure t
-  :mode "\\.js\\'")
+  :mode "\\.js\\'"
+  :interpreter "node")
 
 (use-package rjsx-mode
   :ensure t
