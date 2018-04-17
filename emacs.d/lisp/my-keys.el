@@ -90,9 +90,6 @@
 
 (bind-key "C-c r" 'revert-buffer)
 
-;; eval and replace anywhere
-(bind-key "C-c e" 'my-eval-and-replace)
-
 ;; use regex search by default
 (bind-key "C-/" 'query-replace-regexp)
 
