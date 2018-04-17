@@ -28,22 +28,10 @@
   (save-excursion
     (shell-command-on-region (region-beginning) (region-end) "xmllint --format -" (buffer-name) t)))
 
-
 ;; ported from starter-kit
 (defun my-untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
-
-(defun my-indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-(defun my-cleanup-buffer ()
-  "Perform a bunch of operations on the whitespace content of a buffer."
-  (interactive)
-  (my-indent-buffer)
-  (my-untabify-buffer)
-  (delete-trailing-whitespace))
 
 (defun my-eval-and-replace ()
   "Replace the preceding sexp with its value."

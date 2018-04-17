@@ -90,9 +90,6 @@
 
 (bind-key "C-c r" 'revert-buffer)
 
-;; general cleanup
-(bind-key "C-c n" 'my-cleanup-buffer)
-
 ;; eval and replace anywhere
 (bind-key "C-c e" 'my-eval-and-replace)
 
