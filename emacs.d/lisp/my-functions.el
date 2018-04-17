@@ -19,7 +19,7 @@
 (defun my-repo-status ()
   "Open git or hg status buffer."
   (interactive)
-  (if (magit-inside-worktree-p)
+  (if (magit-inside-worktree-p 'noerror)
       (magit-status (magit-toplevel "."))
     (monky-status)))
 
