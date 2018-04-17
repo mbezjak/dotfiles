@@ -64,6 +64,7 @@
 
 (defun my-org-rebind-keys ()
   "Rebind keys that are useful in org-mode."
+  (require 'org-agenda)
   (bind-keys :map org-mode-map
              ("M-e" . backward-kill-word)
              ("M-p" . forward-word)
