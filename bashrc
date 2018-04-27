@@ -206,6 +206,7 @@ have lein && {
 
 have sbt && {
     export SBT_OPTS="-Xmx4g"
+    alias sbt=run-sbt
 }
 
 have boot && [[ $(java-major-version) = 7 ]] && {
