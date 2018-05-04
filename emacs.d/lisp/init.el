@@ -1,5 +1,15 @@
 ;; start garbage collection every x MB to improve performance
 (setq gc-cons-threshold (* 100 1024 1024))
+(setq gc-cons-percentage 0.6)
+
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
 
 (setq package-user-dir (locate-user-emacs-file (concat "elpa-" emacs-version)))
 (setq package-archives
@@ -567,3 +577,6 @@
 (use-package ensime            :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1024 1024))
