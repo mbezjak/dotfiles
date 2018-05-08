@@ -214,10 +214,6 @@
   :config
   (global-anzu-mode))
 
-(use-package duplicate-thing
-  :ensure t
-  :bind ("C-M-<down>" . duplicate-thing))
-
 (use-package volatile-highlights
   :ensure t
   :diminish volatile-highlights-mode
@@ -552,8 +548,8 @@
          ("C-c n" . crux-cleanup-buffer-or-region)
          ("C-c u" . crux-view-url)
          ("C-c e" . crux-eval-and-replace)
-         ("C-c D" . crux-delete-file-and-buffer)))
-         ;("C-c d" . crux-duplicate-current-line-or-region)
+         ("C-c D" . crux-delete-file-and-buffer)
+         ("C-M-<down>" . crux-duplicate-current-line-or-region)))
          ;("C-c M-d" . crux-duplicate-and-comment-current-line-or-region)
          ;("C-c r" . crux-rename-file-and-buffer)
          ;("C-c t" . crux-visit-term-buffer)
