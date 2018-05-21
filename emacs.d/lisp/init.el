@@ -416,6 +416,7 @@
   :defer t
   :config
   (use-package clj-refactor
+    :disabled t ;; not compatible with current cider
     :ensure t
     :diminish clj-refactor-mode
     :init
