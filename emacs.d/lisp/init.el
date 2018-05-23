@@ -510,7 +510,7 @@
         cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-pretty-printing t
         cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk"
-                              "~/lib/clojure/src"))
+                              "~/lib/clojure-src"))
   :config
   (add-hook 'cider-mode-hook #'cider-auto-test-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
