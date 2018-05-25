@@ -283,6 +283,7 @@
   (projectile-global-mode)
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
+  (add-to-list 'projectile-globally-ignored-directories "node_modules")
   (add-to-list 'projectile-globally-ignored-files "*-all.js")
   (--each '(".log" ".png" ".gif" ".jar")
     (add-to-list 'projectile-globally-ignored-file-suffixes it))
