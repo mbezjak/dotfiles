@@ -140,6 +140,10 @@ function fcat {
 
     return 0
 }
+function cdr {
+    cd $(mktemp --directory)
+    pwd
+}
 
 
 # http://www.nurkiewicz.com/2012/09/accessing-clipboard-in-linux-terminal.html
