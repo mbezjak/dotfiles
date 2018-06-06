@@ -565,13 +565,18 @@
 (use-package helm-swoop        :ensure t :defer t)
 (use-package helm-ag           :ensure t :defer t)
 (use-package htmlize           :ensure t :defer t)
-(use-package free-keys         :ensure t :defer t)
 (use-package discover-my-major :ensure t :defer t)
 (use-package ghc               :ensure t :defer t)
 (use-package sbt-mode          :ensure t :defer t)
 (use-package ensime            :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
+
+(use-package free-keys
+  :ensure t
+  :defer t
+  :init
+  (setq free-keys-modifiers '("" "C" "M" "C-M" "C-S")))
 
 (use-package monokai-theme
   :ensure t
