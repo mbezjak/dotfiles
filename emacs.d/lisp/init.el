@@ -573,5 +573,10 @@
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 
+(use-package monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai 'no-confirm))
+
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1024 1024))
