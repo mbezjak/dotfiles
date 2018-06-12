@@ -155,6 +155,8 @@
 (unbind-key "M-<backspace>")
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
+(unbind-key "<f2>")
+(unbind-key "<f3>")
 (unbind-key "<f10>")
 
 ;; used by duplicate-thing.el
