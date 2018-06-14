@@ -278,9 +278,17 @@
   :diminish projectile-mode
   :init
   (setq projectile-keymap-prefix (kbd "M-F")
-        projectile-enable-caching t)
+        projectile-enable-caching t
+        projectile-create-missing-test-files t)
   :config
   (projectile-global-mode)
+  (defun projectile-create-test-file-for (impl-file-path)
+    (let* ((test-file (projectile--test-name-for-impl-name impl-file-path))
+           (test-dir (replace-regexp-in-string "src/main/" "src/test/" (file-name-directory impl-file-path))))
+      (unless (file-exists-p (expand-file-name test-file test-dir))
+        (progn (unless (file-exists-p test-dir)
+                 (make-directory test-dir :create-parents))
+               (concat test-dir test-file)))))
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
