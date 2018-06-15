@@ -284,7 +284,9 @@
   (projectile-global-mode)
   (defun projectile-create-test-file-for (impl-file-path)
     (let* ((test-file (projectile--test-name-for-impl-name impl-file-path))
-           (test-dir (replace-regexp-in-string "src/main/" "src/test/" (file-name-directory impl-file-path))))
+           (test-dir (thread-last (file-name-directory impl-file-path)
+                       (replace-regexp-in-string "src/main/" "src/test/") ; gradle
+                       (replace-regexp-in-string "src/groovy/" "test/unit/")))) ; grails
       (unless (file-exists-p (expand-file-name test-file test-dir))
         (progn (unless (file-exists-p test-dir)
                  (make-directory test-dir :create-parents))
