@@ -580,6 +580,7 @@
 (use-package sbt-mode          :ensure t :defer t)
 (use-package ensime            :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
+(use-package yaml-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 
 (use-package free-keys
