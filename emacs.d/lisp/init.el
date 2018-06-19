@@ -580,7 +580,6 @@
 (use-package sbt-mode          :ensure t :defer t)
 (use-package ensime            :ensure t :defer t)
 (use-package json-mode         :ensure t :defer t)
-(use-package yaml-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 
 (use-package free-keys
@@ -601,6 +600,13 @@
   :ensure t
   :config
   (load-theme 'monokai 'no-confirm))
+
+(use-package yaml-mode
+  :ensure t
+  :defer t
+  :init
+  (setq yaml-indent-offset 4))
+
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1024 1024))
