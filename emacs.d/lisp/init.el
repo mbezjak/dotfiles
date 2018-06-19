@@ -588,6 +588,14 @@
   :init
   (setq free-keys-modifiers '("" "C" "M" "C-M" "C-S")))
 
+(use-package zoom
+  :ensure t
+  :diminish zoom-mode
+  :init
+  (setq zoom-size '(80 . 0.618))
+  :config
+  (zoom-mode))
+
 (use-package monokai-theme
   :ensure t
   :config
