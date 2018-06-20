@@ -607,6 +607,10 @@
   :init
   (setq yaml-indent-offset 4))
 
+(use-package toggle-quotes
+  :ensure t
+  :bind (("C-'" . toggle-quotes)))
+
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1024 1024))
