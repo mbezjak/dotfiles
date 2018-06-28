@@ -592,8 +592,6 @@
 (use-package zoom
   :ensure t
   :diminish zoom-mode
-  :init
-  (setq zoom-size '(80 . 0.618))
   :config
   (zoom-mode))
 
