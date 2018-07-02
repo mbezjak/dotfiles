@@ -582,6 +582,7 @@
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 (use-package dockerfile-mode   :ensure t :defer t)
+(use-package rust-mode         :ensure t :defer t)
 
 (use-package free-keys
   :ensure t
