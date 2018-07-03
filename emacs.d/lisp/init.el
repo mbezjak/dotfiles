@@ -611,6 +611,10 @@
   :ensure t
   :bind (("C-'" . toggle-quotes)))
 
+(use-package avy
+  :ensure t
+  :bind (("C-:" . avy-goto-char)))
+
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1024 1024))
