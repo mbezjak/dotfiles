@@ -68,6 +68,11 @@
   (bind-keys :map org-mode-map
              ("M-e" . backward-kill-word)
              ("M-p" . forward-word)
+             ;; reserved for windmove
+             ("S-<right>" . nil)
+             ("S-<left>" . nil)
+             ("S-<up>" . nil)
+             ("S-<down>" . nil)
              :map org-agenda-keymap
              ("C-s" . org-save-all-org-buffers)))
 
