@@ -20,6 +20,7 @@ $0")
          (dirs (or (file-name-directory fullpath) default-pkg))
          (replacements '(".*/src/\\(main\\|test\\)/\\(java\\|groovy\\|scala\\|coffeescript\\)/"
                          ".*/src/groovy/"
+                         ".*/src/integration-test/groovy/"
                          ".*/src/coffee/"
                          ".*/src/"
                          ".*/test/\\(unit\\|integration\\)/"
