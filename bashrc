@@ -209,7 +209,7 @@ have lein && {
 }
 
 have sbt && {
-    export SBT_OPTS="-Xmx4g"
+    export SBT_OPTS="-XX:MaxPermSize=1G -Xmx4g"
     alias sbt=run-sbt
 }
 
