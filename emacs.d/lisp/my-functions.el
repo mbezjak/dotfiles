@@ -93,6 +93,18 @@ point reaches the beginning or end of the buffer, stop there."
       (call-interactively 'kill-region)
     (call-interactively 'my-delete-line-keep-column-position)))
 
+(defun my-split-window-below ()
+  "Split window below and focus it."
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun my-split-window-right ()
+  "Split window right and focus it."
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
 (defun my-complete ()
   "Complete using company-mode or if not available then hippie-expand"
   (interactive)

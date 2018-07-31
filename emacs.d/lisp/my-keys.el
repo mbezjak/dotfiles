@@ -35,8 +35,8 @@
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
- ("M-3" . split-window-below)
- ("M-4" . split-window-right)
+ ("M-3" . my-split-window-below)
+ ("M-4" . my-split-window-right)
 
  ("<escape>" . keyboard-quit)
  ("M-SPC" . set-mark-command)
