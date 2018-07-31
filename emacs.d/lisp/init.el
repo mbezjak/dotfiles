@@ -307,6 +307,13 @@
   :config
   (helm-projectile-on))
 
+(use-package helm-org-rifle
+  :init
+  (defun my-org-rifle-solution ()
+    (interactive)
+    (helm-org-rifle-files (list (my-org-note "solution"))))
+  :bind (("C-\\ s" . my-org-rifle-solution)))
+
 (use-package hippie-exp
   :no-require t
   :config
