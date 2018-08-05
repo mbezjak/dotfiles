@@ -5,6 +5,8 @@ After=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/home/mbezjak/workspace/dotfiles/bin/hetzner-backup.sh
+Restart=always
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
