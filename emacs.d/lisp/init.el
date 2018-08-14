@@ -572,8 +572,6 @@
          ("C-S-M-<down>" . crux-duplicate-and-comment-current-line-or-region)
          ("C-S-r" . crux-rename-file-and-buffer)
          ("C-c t" . crux-visit-term-buffer)
-         ("C-c I" . crux-find-user-init-file)
-         ("C-c S" . crux-find-shell-init-file)
          ("C-c j" . crux-top-join-line)
          ("M-E" . crux-kill-line-backwards)
          ("C-c i" . crux-ispell-word-then-abbrev)))
