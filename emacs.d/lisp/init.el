@@ -622,6 +622,19 @@
   :ensure t
   :bind (("C-:" . avy-goto-char)))
 
+(use-package hydra
+  :ensure t
+  :config
+  (defhydra my-hydra-open-quick (:color blue :hint nil)
+    "Open file"
+    ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
+    ("s" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
+    ("w" (find-file (my-org-note "work")) "work.org")
+    ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
+    ("f" (find-file (my-org-note "refile")) "refile.org")
+    ("q" nil "quit"))
+  (bind-key "C-\\" 'my-hydra-open-quick/body))
+
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1024 1024))
