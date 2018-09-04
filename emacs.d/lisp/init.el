@@ -411,6 +411,7 @@
 
 (use-package dumb-jump
   :ensure t
+  :pin melpa
   :config
   (dumb-jump-mode)
   (setq dumb-jump-selector 'helm))
