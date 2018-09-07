@@ -297,7 +297,7 @@
   (add-to-list 'projectile-globally-ignored-files "*-all.js")
   (--each '(".log" ".png" ".gif" ".jar")
     (add-to-list 'projectile-globally-ignored-file-suffixes it))
-  (--each '("*.png" "*.jpg" "*.gif" "*.jar" "*.log" "*.pdf")
+  (--each '("*.png" "*.jpg" "*.gif" "*.jar" "*.log" "*.pdf" "*.jasper")
     (add-to-list 'grep-find-ignored-files it)))
 
 (use-package helm-projectile
