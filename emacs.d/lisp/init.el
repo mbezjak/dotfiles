@@ -578,6 +578,7 @@
          ("C-c i" . crux-ispell-word-then-abbrev)))
 
 (use-package try               :ensure t :defer t)
+(use-package elmacro           :ensure t :defer t)
 (use-package elisp-slime-nav   :ensure t :defer t)
 (use-package helm-swoop        :ensure t :defer t)
 (use-package helm-ag           :ensure t :defer t)
