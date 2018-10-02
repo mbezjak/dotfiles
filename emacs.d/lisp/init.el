@@ -584,6 +584,7 @@
 (use-package helm-ag           :ensure t :defer t)
 (use-package htmlize           :ensure t :defer t)
 (use-package discover-my-major :ensure t :defer t)
+(use-package restclient        :ensure t :defer t)
 (use-package ghc               :ensure t :defer t)
 (use-package sbt-mode          :ensure t :defer t)
 (use-package ensime            :ensure t :defer t)
