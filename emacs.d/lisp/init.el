@@ -592,6 +592,9 @@
 (use-package dockerfile-mode   :ensure t :defer t)
 (use-package rust-mode         :ensure t :defer t)
 
+;; needs: aura -A js-beautify
+(use-package web-beautify      :ensure t :defer t)
+
 (use-package free-keys
   :ensure t
   :defer t
