@@ -357,11 +357,6 @@
     (bind-keys :map groovy-mode-map
                ("C-M-i" . groovy-imports-add-import-dwim))))
 
-(use-package gommons-mode
-  :defer t
-  :commands gommons-mode
-  :diminish gommons-mode)
-
 (use-package ensime
   :ensure t
   :defer t)
