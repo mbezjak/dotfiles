@@ -586,7 +586,24 @@
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 (use-package dockerfile-mode   :ensure t :defer t)
-(use-package rust-mode         :ensure t :defer t)
+
+(use-package cargo         :ensure t :defer t)
+(use-package flycheck-rust :ensure t :defer t)
+
+(use-package racer
+  :ensure t
+  :defer t
+  :init
+  (setq racer-rust-src-path "/usr/src/rust/src"))
+
+(use-package rust-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'rust-mode-hook 'cargo-minor-mode)
+  (add-hook 'rust-mode-hook 'racer-mode)
+  (add-hook 'rust-mode-hook 'eldoc-mode)
+  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
 
 ;; needs: aura -A js-beautify
 (use-package web-beautify      :ensure t :defer t)
