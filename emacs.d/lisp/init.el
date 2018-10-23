@@ -309,10 +309,10 @@
 
 (use-package helm-org-rifle
   :init
+  ; used below as a hydra
   (defun my-org-rifle-solution ()
     (interactive)
-    (helm-org-rifle-files (list (my-org-note "solution"))))
-  :bind (("C-\\ s" . my-org-rifle-solution)))
+    (helm-org-rifle-files (list (my-org-note "solution")))))
 
 (use-package hippie-exp
   :no-require t
@@ -646,7 +646,8 @@
   (defhydra my-hydra-open-quick (:color blue :hint nil)
     "Open file"
     ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
-    ("s" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
+    ("s" (my-org-rifle-solution) "search solution.org")
+    ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
     ("w" (find-file (my-org-note "work")) "work.org")
     ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
     ("f" (find-file (my-org-note "refile")) "refile.org")
