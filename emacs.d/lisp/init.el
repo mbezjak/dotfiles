@@ -606,6 +606,11 @@
   (add-hook 'rust-mode-hook 'eldoc-mode)
   (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
 
+(use-package unfill
+  :ensure t
+  :defer t
+  :bind (("M-Q" . unfill-paragraph)))
+
 ;; needs: aura -A js-beautify
 (use-package web-beautify      :ensure t :defer t)
 
