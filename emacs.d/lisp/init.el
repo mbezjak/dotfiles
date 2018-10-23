@@ -586,6 +586,7 @@
 (use-package json-mode         :ensure t :defer t)
 (use-package paradox           :ensure t :defer t)
 (use-package dockerfile-mode   :ensure t :defer t)
+(use-package pacfiles-mode     :ensure t :defer t)
 
 (use-package cargo         :ensure t :defer t)
 (use-package flycheck-rust :ensure t :defer t)
