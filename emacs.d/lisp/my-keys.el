@@ -49,6 +49,7 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
 
+ ("<f5>" . revert-buffer)
  ("<f12> p" . pomidor))
 
 (bind-keys :map minibuffer-local-map
