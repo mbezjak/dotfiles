@@ -22,6 +22,7 @@
 --ignore-directory=is:xincubation
 --ignore-file=ext:cache
 --ignore-file=ext:iws
+--ignore-file=ext:unl
 --ignore-file=match:/^\.ensime$/
 --ignore-file=match:/deployJava[.]js$/
 --ignore-file=match:/[.-]all[.]js$/
