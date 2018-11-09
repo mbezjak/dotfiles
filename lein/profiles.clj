@@ -4,4 +4,4 @@
  :dev {:dependencies [[com.cemerick/pomegranate "1.0.0"]]}
 
  :user {:plugins [[lein-pprint "1.1.2"]
-                  [polylith/lein-polylith "0.1.1"]]}}
+                  [polylith/lein-polylith "0.2.0"]]}}
