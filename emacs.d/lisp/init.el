@@ -308,6 +308,7 @@
   (helm-projectile-on))
 
 (use-package helm-org-rifle
+  :ensure t
   :init
   ; used below as a hydra
   (defun my-org-rifle-solution ()
