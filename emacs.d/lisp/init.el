@@ -520,8 +520,7 @@
   ;:pin melpa
   :defer t
   :init
-  (setq cider-default-repl-command "lein"
-        cider-repl-pop-to-buffer-on-connect nil
+  (setq cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-pretty-printing t
         cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk"
                               "~/lib/clojure-src"))
