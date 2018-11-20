@@ -450,9 +450,7 @@
 
 (use-package idle-highlight-mode
   :ensure t
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook 'idle-highlight-mode))
+  :hook (prog-mode . idle-highlight-mode))
 
 (use-package goto-addr
   :defer t
