@@ -20,6 +20,8 @@
       '(("melpa-stable" . 10)
         ("melpa" . 5)
         ("gnu" . 0)))
+(setq package-pinned-packages
+      '((use-package . "melpa")))
 (package-initialize)
 
 (menu-bar-mode -1)
