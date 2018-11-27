@@ -108,15 +108,6 @@
   :init
   (move-text-default-bindings))
 
-(use-package drag-stuff
-  :ensure t
-  ;; unlike move-text, drag-stuff does not play well with org-mode
-  ;; https://github.com/rejeep/drag-stuff.el/issues/6
-  :disabled t
-  :init
-  (drag-stuff-global-mode)
-  (drag-stuff-define-keys))
-
 (use-package subword
   :diminish subword-mode
   :config
@@ -225,13 +216,6 @@
   :ensure t
   :bind (("C-=" . er/expand-region)
          ("C--" . er/contract-region)))
-
-(use-package indent-guide
-  :disabled t
-  :ensure t
-  :diminish indent-guide-mode
-  :config
-  (indent-guide-global-mode))
 
 (use-package helm
   :ensure t
@@ -527,27 +511,6 @@
   (use-package helm-cider
     :ensure t
     :config (helm-cider-mode)))
-
-;; temporary override C-f, C-r, S-C-f in my-keys.el
-(use-package swiper-helm
-  :disabled t
-  :ensure t
-  :bind (("C-f" . swiper-helm)
-         :map swiper-helm-keymap
-         ("C-f" . helm-next-line)))
-
-;; temporary override C-f, C-r, S-C-f in my-keys.el
-(use-package swiper
-  :disabled t
-  :ensure t
-  :bind (("C-f" . swiper)
-         :map swiper-map
-         ("<escape>" . minibuffer-keyboard-quit)
-         ("C-f" . ivy-next-line)
-         ("C-r" . ivy-previous-line)
-         ("C-p" . swiper-recenter-top-bottom))
-  :init
-  (setq ivy-wrap t))
 
 (use-package crux
   :ensure t
