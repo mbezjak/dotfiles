@@ -206,9 +206,8 @@
 
 (use-package diff-hl
   :ensure t
-  :config
-  (global-diff-hl-mode)
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  :hook ((after-init . global-diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode)))
 
 (use-package anzu
   :ensure t
@@ -420,13 +419,12 @@
 
 (use-package parinfer
   :ensure t
-  :bind (("C-," . parinfer-toggle-mode))
-  :init
-  (add-hook 'clojure-mode-hook 'parinfer-mode)
-  (add-hook 'emacs-lisp-mode-hook 'parinfer-mode)
-  (add-hook 'common-lisp-mode-hook 'parinfer-mode)
-  (add-hook 'scheme-mode-hook 'parinfer-mode)
-  (add-hook 'lisp-mode-hook 'parinfer-mode))
+  :hook ((clojure-mode . parinfer-mode)
+         (emacs-lisp-mode . parinfer-mode)
+         (common-lisp-mode . parinfer-mode)
+         (scheme-mode . parinfer-mode)
+         (lisp-mode . parinfer-mode))
+  :bind (("C-," . parinfer-toggle-mode)))
 
 (use-package clojure-mode
   :ensure t
@@ -453,10 +451,8 @@
   :hook (prog-mode . idle-highlight-mode))
 
 (use-package goto-addr
-  :defer t
-  :init
-  (add-hook 'text-mode-hook 'goto-address-mode)
-  (add-hook 'prog-mode-hook 'goto-address-mode))
+  :hook ((text-mode . goto-address-mode)
+         (prog-mode . goto-address-mode)))
 
 (use-package js2-mode
   :ensure t
@@ -478,9 +474,8 @@
   (defun my-local-comment-auto-fill ()
     (set (make-local-variable 'comment-auto-fill-only-comments) t)
     (auto-fill-mode t))
-  :config
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
-  (add-hook 'prog-mode-hook 'my-local-comment-auto-fill))
+  :hook ((text-mode . turn-on-auto-fill)
+         (prog-mode . my-local-comment-auto-fill)))
 
 (use-package ispell
   :defer t
@@ -488,9 +483,7 @@
   (use-package flyspell
     :if (executable-find ispell-program-name)
     :diminish flyspell-mode
-    :defer t
-    :init
-    (add-hook 'text-mode-hook 'turn-on-flyspell)))
+    :hook ((text-mode . turn-on-flyspell))))
 
 (use-package elisp-mode
   :bind (:map emacs-lisp-mode-map
@@ -601,12 +594,10 @@
 
 (use-package rust-mode
   :ensure t
-  :defer t
-  :config
-  (add-hook 'rust-mode-hook 'cargo-minor-mode)
-  (add-hook 'rust-mode-hook 'racer-mode)
-  (add-hook 'rust-mode-hook 'eldoc-mode)
-  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
+  :hook ((rust-mode . cargo-minor-mode)
+         (rust-mode . racer-mode)
+         (rust-mode . eldoc-mode)
+         (flycheck-mode . flycheck-rust-setup)))
 
 (use-package unfill
   :ensure t
