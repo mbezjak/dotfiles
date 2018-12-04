@@ -191,9 +191,7 @@
 (use-package magit
   :ensure t
   :defer t
-  :commands magit-inside-worktree-p
-  :init
-  (setq magit-last-seen-setup-instructions "1.4.0"))
+  :commands magit-inside-worktree-p)
 
 (use-package diff-hl
   :ensure t
