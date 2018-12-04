@@ -179,19 +179,9 @@
   (set-face-foreground 'diff-added "green4")
   (set-face-foreground 'diff-removed "red3"))
 
-(use-package monky
-  :ensure t
-  :defer t
-  :init
-  (setq monky-process-type 'cmdserver)
-  :config
-  (set-face-foreground 'monky-diff-add  "green4")
-  (set-face-foreground 'monky-diff-del  "red3"))
-
 (use-package magit
   :ensure t
-  :defer t
-  :commands magit-inside-worktree-p)
+  :bind (("<f8>" . magit-status)))
 
 (use-package diff-hl
   :ensure t
