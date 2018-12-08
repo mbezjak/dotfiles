@@ -52,9 +52,12 @@
 (with-eval-after-load 'org-indent
   (diminish 'org-indent-mode))
 
-;; org-agenda-custom-commands and org-capture-templates
-(load (concat org-directory "/org-custom"))
+(setq my-org-capture-template-work
+      '("w" "work" entry (file+headline "work.org" "WEEK")
+        "* %?"))
 
+(setq org-capture-templates
+      (list my-org-capture-template-work))
 
 ;; functions
 (defun my-org-unbind-keys ()
