@@ -551,12 +551,6 @@
   :init
   (setq free-keys-modifiers '("" "C" "M" "C-M" "C-S")))
 
-(use-package zoom
-  :ensure t
-  :diminish zoom-mode
-  :config
-  (zoom-mode))
-
 (use-package monokai-theme
   :ensure t
   :config
