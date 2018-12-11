@@ -84,9 +84,10 @@
 (use-package dash :ensure t)
 (use-package s :ensure t)
 (use-package f :ensure t)
-(use-package my-functions)
+(use-package my-functions
+  :hook ((prog-mode . my-pretty-lambdas)
+         (prog-mode . my-add-watchwords)))
 (use-package my-org)
-(use-package my-dev)
 (use-package my-yasnippet)
 (use-package my-keys)
 
