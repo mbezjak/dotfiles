@@ -68,13 +68,6 @@
   :ensure t
   :config)
 
-(use-package recentf
-  :init
-  (setq recentf-max-saved-items 200)
-  :config
-  (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory))
-
 (setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -88,6 +81,10 @@
 (use-package my-org)
 (use-package my-yasnippet)
 (use-package my-keys)
+
+(use-package recentf
+  :init
+  (setq recentf-max-saved-items 200))
 
 (use-package uniquify
   :init
