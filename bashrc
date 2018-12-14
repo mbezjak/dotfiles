@@ -101,6 +101,7 @@ alias vi='vim'
 # ls
 alias l='ls -l --human-readable'
 alias ll='l --all'
+alias lf='ls --full-time'
 alias lr='l --recursive'
 alias lt='ll -t --reverse'
 alias lm='ll | less'
