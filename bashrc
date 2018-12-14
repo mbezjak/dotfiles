@@ -160,7 +160,7 @@ have dolphin && alias d='dolphin . &> /dev/null &'
 
 have git && {
     alias g='git'
-    alias gs='git s' # damn ghostscript; this typo happened few times too many
+    alias gs='git s' # damn ghostscript; this typo happened way too many times
     complete -o bashdefault -o default -o nospace -F _git g
 }
 
