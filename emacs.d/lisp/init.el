@@ -65,8 +65,7 @@
 
 
 (use-package no-littering
-  :ensure t
-  :config)
+  :ensure t)
 
 (setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (when (file-exists-p custom-file)
