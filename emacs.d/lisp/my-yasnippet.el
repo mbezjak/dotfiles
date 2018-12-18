@@ -1,12 +1,6 @@
 (use-package yasnippet :ensure t)
 
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(setq yas-new-snippet-default "\
-# -*- mode: snippet -*-
-# key: $1
-# name: $1
-# --
-$0")
 (yas-global-mode)
 (diminish 'yas-minor-mode)
 
