@@ -71,13 +71,21 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(use-package dash :ensure t)
-(use-package s :ensure t)
-(use-package f :ensure t)
+(use-package dash
+  :ensure t)
+
+(use-package s
+  :ensure t)
+
+(use-package f
+  :ensure t)
+
 (use-package my-functions
   :hook ((prog-mode . my-pretty-lambdas)
          (prog-mode . my-add-watchwords)))
+
 (use-package my-org)
+
 (use-package my-keys)
 
 (use-package yasnippet
@@ -511,24 +519,73 @@
          ("M-E" . crux-kill-line-backwards)
          ("C-c i" . crux-ispell-word-then-abbrev)))
 
-(use-package try               :ensure t :defer t)
-(use-package elmacro           :ensure t :defer t)
-(use-package elisp-slime-nav   :ensure t :defer t)
-(use-package helm-swoop        :ensure t :defer t)
-(use-package helm-ag           :ensure t :defer t)
-(use-package htmlize           :ensure t :defer t)
-(use-package discover-my-major :ensure t :defer t)
-(use-package restclient        :ensure t :defer t)
-(use-package ghc               :ensure t :defer t)
-(use-package sbt-mode          :ensure t :defer t)
-(use-package ensime            :ensure t :defer t)
-(use-package json-mode         :ensure t :defer t)
-(use-package paradox           :ensure t :defer t)
-(use-package dockerfile-mode   :ensure t :defer t)
-(use-package pacfiles-mode     :ensure t :defer t)
+(use-package try
+  :ensure t
+  :defer t)
 
-(use-package cargo         :ensure t :defer t)
-(use-package flycheck-rust :ensure t :defer t)
+(use-package elmacro
+  :ensure t
+  :defer t)
+
+(use-package elisp-slime-nav
+  :ensure t
+  :defer t)
+
+(use-package helm-swoop
+  :ensure t
+  :defer t)
+
+(use-package helm-ag
+  :ensure t
+  :defer t)
+
+(use-package htmlize
+  :ensure t
+  :defer t)
+
+(use-package discover-my-major
+  :ensure t
+  :defer t)
+
+(use-package restclient
+  :ensure t
+  :defer t)
+
+(use-package ghc
+  :ensure t
+  :defer t)
+
+(use-package sbt-mode
+  :ensure t
+  :defer t)
+
+(use-package ensime
+  :ensure t
+  :defer t)
+
+(use-package json-mode
+  :ensure t
+  :defer t)
+
+(use-package paradox
+  :ensure t
+  :defer t)
+
+(use-package dockerfile-mode
+  :ensure t
+  :defer t)
+
+(use-package pacfiles-mode
+  :ensure t
+  :defer t)
+
+(use-package cargo
+  :ensure t
+  :defer t)
+
+(use-package flycheck-rust
+  :ensure t
+  :defer t)
 
 (use-package racer
   :ensure t
@@ -549,7 +606,9 @@
   :bind (("M-Q" . unfill-paragraph)))
 
 ;; needs: aura -A js-beautify
-(use-package web-beautify      :ensure t :defer t)
+(use-package web-beautify
+  :ensure t
+  :defer t)
 
 (use-package free-keys
   :ensure t
