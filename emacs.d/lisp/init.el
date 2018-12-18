@@ -78,8 +78,15 @@
   :hook ((prog-mode . my-pretty-lambdas)
          (prog-mode . my-add-watchwords)))
 (use-package my-org)
-(use-package my-yasnippet)
 (use-package my-keys)
+
+(use-package yasnippet
+  :ensure t
+  :diminish yas-minor-mode
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :config
+  (yas-global-mode))
 
 (use-package recentf
   :init
