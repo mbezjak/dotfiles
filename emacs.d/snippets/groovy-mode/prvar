@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: prvar
+# key: prvar
+# --
+println("${1:var} = \${$1}")$0

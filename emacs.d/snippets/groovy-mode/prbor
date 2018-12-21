@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: prbor
+# key: prbor
+# --
+println('${1:-}' * 60)
+$0
+println('$1' * 60)
