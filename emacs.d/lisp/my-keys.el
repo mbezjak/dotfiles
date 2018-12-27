@@ -72,6 +72,7 @@
 ;; rest
 (bind-key "M-<f1>"     'kmacro-start-macro-or-insert-counter)
 (bind-key "<f1>"       'kmacro-end-or-call-macro)
+(bind-key "<f7>"       'my-open-thg)
 (bind-key "M-<f9>"     'previous-buffer)
 (bind-key "M-<f10>"    'next-buffer)
 (bind-key "<f12> d"    'org-decrypt-entry)

@@ -156,6 +156,11 @@ point reaches the beginning or end of the buffer, stop there."
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
           1 font-lock-warning-face t))))
 
+(defun my-open-thg ()
+  (interactive)
+  (let ((repo (f-dirname (buffer-file-name))))
+    (call-process "thg" nil 0 nil "-R" repo "commit")))
+
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
     (f-base file)))
