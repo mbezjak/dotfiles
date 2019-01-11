@@ -251,11 +251,11 @@
   :ensure t
   :diminish projectile-mode
   :init
-  (setq projectile-keymap-prefix (kbd "M-F")
-        projectile-enable-caching t
+  (setq projectile-enable-caching t
         projectile-create-missing-test-files t)
   :config
   (projectile-global-mode)
+  (define-key projectile-mode-map (kbd "M-F") 'projectile-command-map)
   (defun projectile-create-test-file-for (impl-file-path)
     (let* ((test-file (projectile--test-name-for-impl-name impl-file-path))
            (test-dir (thread-last (file-name-directory impl-file-path)
