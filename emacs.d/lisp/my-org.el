@@ -1,6 +1,7 @@
-;; update with: $ ~/bin/update-orgmode.sh
-(when (file-directory-p "~/lib/org-mode/lisp")
-  (add-to-list 'load-path "~/lib/org-mode/lisp"))
+;; must be manually installed
+;; https://github.com/jwiegley/use-package/issues/319
+(use-package org
+  :defer t)
 
 (defun my-org-note (name)
   "File name from org note NAME."
