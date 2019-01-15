@@ -116,10 +116,10 @@
 
 (use-package whitespace
   :diminish whitespace-mode
-  :hook ((prog-mode . whitespace-mode)
-         (before-save . delete-trailing-whitespace))
+  :hook (prog-mode . whitespace-mode)
   :init
-  (setq whitespace-style '(face trailing tabs empty)))
+  (setq whitespace-action '(auto-cleanup)
+        whitespace-style '(face trailing empty indentation space-after-tab space-before-tab)))
 
 (use-package flycheck
   :ensure t
