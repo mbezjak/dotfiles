@@ -115,17 +115,11 @@
   (global-subword-mode))
 
 (use-package whitespace
-  :defer t
   :diminish whitespace-mode
+  :hook ((prog-mode . whitespace-mode)
+         (before-save . delete-trailing-whitespace))
   :init
-  (setq whitespace-style '(face trailing tabs empty)
-        whitespace-line-column 80)
-  (defun my-delete-trailing-whitespace-before-save ()
-    "Ensure trailing whitespaces are deleted."
-    (add-hook 'before-save-hook 'delete-trailing-whitespace))
-  (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
-  (add-hook 'prog-mode-hook 'whitespace-mode)
-  (add-hook 'prog-mode-hook 'my-delete-trailing-whitespace-before-save))
+  (setq whitespace-style '(face trailing tabs empty)))
 
 (use-package flycheck
   :ensure t
