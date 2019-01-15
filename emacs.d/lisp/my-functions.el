@@ -8,14 +8,6 @@
   (interactive)
   (kill-buffer))
 
-(defun my-project-version-at-point ()
-  "Get the version for the project at point"
-  (interactive)
-  (let* ((project (thing-at-point 'symbol))
-         (cmd (format "cd ~/workspace/%s; version" project))
-         (version (shell-command-to-string cmd)))
-    (message "%s %s" project version)))
-
 (defun my-xml-pretty-format ()
   (interactive)
   (save-excursion
