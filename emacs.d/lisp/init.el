@@ -97,6 +97,7 @@
   (yas-global-mode))
 
 (use-package recentf
+  :defer t
   :init
   (setq recentf-max-saved-items 200))
 
