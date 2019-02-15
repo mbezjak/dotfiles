@@ -323,6 +323,7 @@
   (use-package groovy-imports
     :ensure t
     :config
+    (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
     (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
     (bind-keys :map groovy-mode-map
                ("C-M-i" . groovy-imports-add-import-dwim))))
