@@ -99,9 +99,9 @@ alias less='less --ignore-case'
 alias vi='vim'
 
 # ls
-alias l='ls -l --human-readable'
+alias l='ls -l --human-readable --group-directories-first'
 alias ll='l --all'
-alias lf='ls --full-time'
+alias lf='l --full-time'
 alias lr='l --recursive'
 alias lt='ll -t --reverse'
 alias lm='ll | less'
