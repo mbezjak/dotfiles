@@ -105,6 +105,13 @@ alias lf='l --full-time'
 alias lr='l --recursive'
 alias lt='ll -t --reverse'
 alias lm='ll | less'
+function le() {
+    if [[ -f "$1" ]]; then
+        less "$1"
+    else
+        ll "${1:-$(pwd)}"
+    fi
+}
 eval $(dircolors -b) # colored ls output
 
 # new commands
