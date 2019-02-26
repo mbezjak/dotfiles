@@ -277,6 +277,10 @@ have pacman && {
     }
 }
 
+have kubectl && {
+    source <(kubectl completion bash)
+}
+
 
 # randomized learning
 # http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178
