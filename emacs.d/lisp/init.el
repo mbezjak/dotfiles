@@ -81,12 +81,15 @@
   :ensure t)
 
 (use-package my-functions
+  :ensure nil
   :hook ((prog-mode . my-pretty-lambdas)
          (prog-mode . my-add-watchwords)))
 
-(use-package my-org)
+(use-package my-org
+  :ensure nil)
 
-(use-package my-keys)
+(use-package my-keys
+  :ensure nil)
 
 (use-package yasnippet
   :ensure t
@@ -97,11 +100,13 @@
   (yas-global-mode))
 
 (use-package recentf
+  :ensure nil
   :defer t
   :init
   (setq recentf-max-saved-items 200))
 
 (use-package uniquify
+  :ensure nil
   :init
   (setq uniquify-buffer-name-style 'forward))
 
@@ -111,6 +116,7 @@
   (move-text-default-bindings))
 
 (use-package subword
+  :ensure nil
   :diminish subword-mode
   :config
   (global-subword-mode))
@@ -285,6 +291,7 @@
     (helm-org-rifle-files (list (my-org-note "solution")))))
 
 (use-package hippie-exp
+  :ensure nil
   :no-require t
   :config
   (dolist (f '(try-expand-line try-expand-list try-complete-file-name-partially))
@@ -365,6 +372,7 @@
         pomidor-sound-tack nil))
 
 (use-package alert
+  :ensure nil
   :no-require t
   :init
   (setq alert-default-style 'libnotify))
@@ -420,6 +428,7 @@
   :hook (prog-mode . idle-highlight-mode))
 
 (use-package goto-addr
+  :ensure nil
   :hook ((text-mode . goto-address-mode)
          (prog-mode . goto-address-mode)))
 
@@ -435,9 +444,11 @@
          ("C-d" . my-delete-region-or-line)))
 
 (use-package octave
+  :ensure nil
   :mode ("\\.m\\'" . octave-mode))
 
 (use-package simple
+  :ensure nil
   :diminish auto-fill-function
   :init
   (defun my-local-comment-auto-fill ()
@@ -447,14 +458,17 @@
          (prog-mode . my-local-comment-auto-fill)))
 
 (use-package ispell
+  :ensure nil
   :defer t
   :config
   (use-package flyspell
+    :ensure nil
     :if (executable-find ispell-program-name)
     :diminish flyspell-mode
     :hook ((text-mode . turn-on-flyspell))))
 
 (use-package elisp-mode
+  :ensure nil
   :bind (:map emacs-lisp-mode-map
               ("C-c v" . eval-buffer)
          :map lisp-mode-shared-map
@@ -474,6 +488,7 @@
   (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode))
 
 (use-package java-mode
+  :ensure nil
   :bind (:map java-mode-map
               ("C-d" . my-delete-region-or-line)))
 
