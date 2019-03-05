@@ -110,6 +110,10 @@
   :init
   (setq uniquify-buffer-name-style 'forward))
 
+(use-package rect
+  :ensure nil
+  :bind (("<C-return>" . rectangle-mark-mode)))
+
 (use-package move-text
   :ensure t
   :init
