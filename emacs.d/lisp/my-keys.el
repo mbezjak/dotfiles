@@ -49,8 +49,17 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
 
+ ("<f1>" . kmacro-end-or-call-macro)
+ ("M-<f1>" . kmacro-start-macro-or-insert-counter)
+ ("<f4>" . org-capture)
  ("<f5>" . revert-buffer)
- ("<f12> p" . pomidor))
+ ("<f7>" . my-open-thg)
+ ("<f9>" . org-agenda)
+ ("<f12> p" . pomidor)
+ ("<f12> d" . org-decrypt-entry)
+
+ ("C-c a" . org-agenda)
+ ("C-c r" . revert-buffer))
 
 (bind-keys :map minibuffer-local-map
            ("<escape>" . minibuffer-keyboard-quit)
@@ -64,18 +73,9 @@
 (my-jump-macro my-jump-to-workspace "~/workspace")
 
 
-;; org-mode keys
-(bind-key "C-c a" 'org-agenda)
-(bind-key "<f9>"  'org-agenda)
-(bind-key "<f4>"  'org-capture)
-
 ;; rest
-(bind-key "M-<f1>"     'kmacro-start-macro-or-insert-counter)
-(bind-key "<f1>"       'kmacro-end-or-call-macro)
-(bind-key "<f7>"       'my-open-thg)
 (bind-key "M-<f9>"     'previous-buffer)
 (bind-key "M-<f10>"    'next-buffer)
-(bind-key "<f12> d"    'org-decrypt-entry)
 (bind-key "C-`"        'align-regexp)
 (bind-key "C-~"        'my-align-multi)
 (bind-key "C-!"        'my-align-spock-table)
@@ -84,8 +84,6 @@
 (bind-key "M-L"        'browse-url)
 (bind-key "M-P"        'browse-url-at-point)
 (bind-key "M-/"        'my-complete)
-
-(bind-key "C-c r" 'revert-buffer)
 
 ;; use regex search by default
 (bind-key "C-/" 'query-replace-regexp)
