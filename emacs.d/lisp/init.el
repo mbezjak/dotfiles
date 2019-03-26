@@ -646,6 +646,11 @@
   :ensure t
   :bind (("C-:" . avy-goto-word-1)))
 
+(use-package mwim
+  :ensure t
+  :bind (([remap move-beginning-of-line] . mwim-beginning-of-code-or-line)
+         ([remap move-end-of-line] . mwim-end-of-code-or-line)))
+
 (use-package hydra
   :ensure t
   :config

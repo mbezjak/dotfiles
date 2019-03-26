@@ -85,9 +85,6 @@
 (bind-key "M-P"        'browse-url-at-point)
 (bind-key "M-/"        'my-complete)
 
-;; toggle between back-to-indentation and move-beginning-of-line
-(bind-key "C-a" 'my-move-beginning-of-line)
-
 (bind-key "C-c r" 'revert-buffer)
 
 ;; use regex search by default
