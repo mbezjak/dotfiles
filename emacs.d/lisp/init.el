@@ -461,15 +461,11 @@
   :hook ((text-mode . turn-on-auto-fill)
          (prog-mode . my-local-comment-auto-fill)))
 
-(use-package ispell
+(use-package flyspell
   :ensure nil
-  :defer t
-  :config
-  (use-package flyspell
-    :ensure nil
-    :if (executable-find ispell-program-name)
-    :diminish flyspell-mode
-    :hook ((text-mode . turn-on-flyspell))))
+  :diminish flyspell-mode
+  :if (executable-find "aspell")
+  :hook ((text-mode . turn-on-flyspell)))
 
 (use-package elisp-mode
   :ensure nil
