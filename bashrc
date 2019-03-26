@@ -256,6 +256,7 @@ have pacman && {
     alias psi='pacman --sync --info --info'
     alias pqs='pacman --query --search'
     alias pqi='pacman --query --info --info'
+    alias pap='sudo aura --aursync --unsuppress'
     alias pas='aura --aursync --search'
     alias pai='aura --aursync --info'
     alias pab='aura --aursync --pkgbuild'
