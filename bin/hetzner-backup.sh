@@ -18,7 +18,6 @@ borg create                         \
                                     \
      ~/Documents                    \
      ~/Dropbox                      \
-     ~/lib                          \
      ~/workspace                    \
      ~/.gramps
 
