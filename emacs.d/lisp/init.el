@@ -664,3 +664,7 @@
     ("f" (find-file (my-org-note "refile")) "refile.org")
     ("q" nil "quit"))
   (bind-key "C-\\" 'my-hydra-open-quick/body))
+
+(use-package goto-chg
+  :ensure t
+  :bind(("C-," . goto-last-change)))
