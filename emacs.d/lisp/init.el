@@ -405,7 +405,7 @@
          (common-lisp-mode . parinfer-mode)
          (scheme-mode . parinfer-mode)
          (lisp-mode . parinfer-mode))
-  :bind (("C-," . parinfer-toggle-mode)))
+  :bind (("C-." . parinfer-toggle-mode)))
 
 (use-package clojure-mode
   :ensure t
