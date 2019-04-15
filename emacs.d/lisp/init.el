@@ -137,6 +137,21 @@
   :defer t
   :init (global-flycheck-mode))
 
+(use-package hydra
+  :ensure t
+  :pin melpa ;; https://github.com/abo-abo/hydra/issues/323
+  :config
+  (defhydra my-hydra-open-quick (:color blue :hint nil)
+    "Open file"
+    ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
+    ("s" (my-org-rifle-solution) "search solution.org")
+    ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
+    ("w" (find-file (my-org-note "work")) "work.org")
+    ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
+    ("f" (find-file (my-org-note "refile")) "refile.org")
+    ("q" nil "quit"))
+  (bind-key "C-\\" 'my-hydra-open-quick/body))
+
 (use-package company
   :ensure t
   :defer t
@@ -650,20 +665,6 @@
   :ensure t
   :bind (([remap move-beginning-of-line] . mwim-beginning-of-code-or-line)
          ([remap move-end-of-line] . mwim-end-of-code-or-line)))
-
-(use-package hydra
-  :ensure t
-  :config
-  (defhydra my-hydra-open-quick (:color blue :hint nil)
-    "Open file"
-    ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
-    ("s" (my-org-rifle-solution) "search solution.org")
-    ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
-    ("w" (find-file (my-org-note "work")) "work.org")
-    ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
-    ("f" (find-file (my-org-note "refile")) "refile.org")
-    ("q" nil "quit"))
-  (bind-key "C-\\" 'my-hydra-open-quick/body))
 
 (use-package goto-chg
   :ensure t
