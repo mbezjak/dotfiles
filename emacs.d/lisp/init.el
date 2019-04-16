@@ -191,9 +191,6 @@
 
 (use-package keyfreq
   :ensure t
-  :init
-  (setq keyfreq-file (no-littering-expand-var-file-name "keyfreq")
-        keyfreq-file-lock (no-littering-expand-var-file-name "keyfreq.lock"))
   :config
   (keyfreq-mode)
   (keyfreq-autosave-mode))
