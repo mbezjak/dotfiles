@@ -91,6 +91,10 @@
 (use-package my-keys
   :ensure nil)
 
+(use-package diminish
+  :ensure t
+  :defer t)
+
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
