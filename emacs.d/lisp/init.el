@@ -669,3 +669,8 @@
 (use-package goto-chg
   :ensure t
   :bind(("C-," . goto-last-change)))
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)))
