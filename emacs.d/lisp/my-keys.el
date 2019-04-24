@@ -136,7 +136,6 @@
 (unbind-key "S-C-v")
 (unbind-key "C-@")
 (unbind-key "C-_")
-(unbind-key "C-\\")
 (unbind-key "C-<backspace>")
 (unbind-key "C-<delete>")
 (unbind-key "M-<backspace>")
