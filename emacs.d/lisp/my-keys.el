@@ -30,8 +30,16 @@
  ("M-Y" . capitalize-word)
  ("M-U" . upcase-word)
  ("M-J" . downcase-word)
+ ("M-L" . browse-url)
+ ("M-P" . browse-url-at-point)
 
  ("M-]" . projectile-switch-project)
+ ("C-]" . my-jump-to-project)
+ ("C-`" . align-regexp)
+ ("C-~" . my-align-multi)
+ ("C-!" . my-align-spock-table)
+ ("M-/" . my-complete)
+ ("C-/" . query-replace-regexp)
 
  ("M-2" . delete-window)
  ("C-M-2" . delete-other-windows)
@@ -55,31 +63,20 @@
  ("<f5>" . revert-buffer)
  ("<f7>" . my-open-thg)
  ("<f9>" . org-agenda)
+ ("M-<f9>" . previous-buffer)
+ ("M-<f10>" . next-buffer)
  ("<f12> p" . pomidor)
  ("<f12> d" . org-decrypt-entry)
 
  ("C-c a" . org-agenda)
- ("C-c r" . revert-buffer))
+ ("C-c r" . revert-buffer)
+ ("C-x C-m" . shell))
 
 (bind-keys :map minibuffer-local-map
            ("<escape>" . minibuffer-keyboard-quit)
            :map isearch-mode-map
            ("C-f" . isearch-repeat-forward)
            ("C-S-f" . isearch-repeat-backward))
-
-(bind-key "M-<f9>"     'previous-buffer)
-(bind-key "M-<f10>"    'next-buffer)
-(bind-key "C-`"        'align-regexp)
-(bind-key "C-~"        'my-align-multi)
-(bind-key "C-!"        'my-align-spock-table)
-(bind-key "C-x C-m"    'shell)
-(bind-key "C-]"        'my-jump-to-workspace)
-(bind-key "M-L"        'browse-url)
-(bind-key "M-P"        'browse-url-at-point)
-(bind-key "M-/"        'my-complete)
-
-;; use regex search by default
-(bind-key "C-/" 'query-replace-regexp)
 
 ;; unrestricted help search
 (define-key 'help-command "a" 'apropos)
