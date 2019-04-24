@@ -3,6 +3,10 @@
   (let ((pattern (f-full dir)))
     (helm-find-files-1 pattern)))
 
+(defun my-jump-to-workspace ()
+  (interactive)
+  (my-find-file-in-dir "~/workspace"))
+
 (defun my-kill-current-buffer ()
   "Kill current buffer."
   (interactive)

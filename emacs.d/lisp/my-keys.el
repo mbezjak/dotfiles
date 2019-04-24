@@ -67,13 +67,6 @@
            ("C-f" . isearch-repeat-forward)
            ("C-S-f" . isearch-repeat-backward))
 
-;; jump to directory
-(defmacro my-jump-macro (fnname dir)
-  `(defun ,fnname () (interactive) (my-find-file-in-dir ,dir)))
-(my-jump-macro my-jump-to-workspace "~/workspace")
-
-
-;; rest
 (bind-key "M-<f9>"     'previous-buffer)
 (bind-key "M-<f10>"    'next-buffer)
 (bind-key "C-`"        'align-regexp)
