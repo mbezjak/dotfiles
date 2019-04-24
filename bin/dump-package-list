@@ -40,7 +40,7 @@ function list-gems {
     local location
     while read pkg ver root; do
         location="$root/gems/$pkg-$ver"
-        if ! known-to-pacman "$location"; then
+        if [[ -d "$location" ]] && ! known-to-pacman "$location"; then
             echo "$pkg - $location"
         fi
     done<<EOF
