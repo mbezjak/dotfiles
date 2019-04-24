@@ -146,9 +146,5 @@
 (unbind-key "<f3>")
 (unbind-key "<f10>")
 
-;; used by duplicate-thing.el
-(unbind-key "C-M-<up>")
-(unbind-key "C-M-<down>")
-
 
 (provide 'my-keys)
