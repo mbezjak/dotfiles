@@ -414,6 +414,10 @@
   :ensure t
   :bind (("C-h f" . helpful-function)))
 
+(use-package lispy
+  :ensure t
+  :defer t)
+
 (use-package parinfer
   :ensure t
   :hook ((clojure-mode . parinfer-mode)
@@ -421,7 +425,14 @@
          (common-lisp-mode . parinfer-mode)
          (scheme-mode . parinfer-mode)
          (lisp-mode . parinfer-mode))
-  :bind (("C-." . parinfer-toggle-mode)))
+  :bind (("C-." . parinfer-toggle-mode))
+  :init
+  (setq parinfer-extensions
+        '(defaults
+           pretty-parens
+           lispy
+           smart-tab
+           smart-yank)))
 
 (use-package clojure-mode
   :ensure t
