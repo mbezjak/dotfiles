@@ -275,7 +275,7 @@
   (setq projectile-enable-caching t
         projectile-create-missing-test-files t)
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (define-key projectile-mode-map (kbd "M-F") 'projectile-command-map)
   (defun projectile-create-test-file-for (impl-file-path)
     (let* ((test-file (projectile--test-name-for-impl-name impl-file-path))
