@@ -416,7 +416,8 @@
 
 (use-package lispy
   :ensure t
-  :defer t)
+  :defer t
+  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)))
 
 (use-package parinfer
   :ensure t
