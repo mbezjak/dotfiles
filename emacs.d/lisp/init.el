@@ -656,8 +656,15 @@
 
 (use-package monokai-theme
   :ensure t
+  :disabled t
   :config
   (load-theme 'monokai 'no-confirm))
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one 'no-confirm)
+  (doom-themes-visual-bell-config))
 
 (use-package yaml-mode
   :ensure t
