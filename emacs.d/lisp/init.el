@@ -23,6 +23,7 @@
 
 (mouse-wheel-mode)
 (column-number-mode)
+(size-indication-mode)
 (show-paren-mode)
 (delete-selection-mode)
 (global-auto-revert-mode)
