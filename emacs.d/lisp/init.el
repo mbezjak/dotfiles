@@ -450,10 +450,15 @@
     (add-hook 'clojure-mode-hook 'clj-refactor-mode)
     (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
 
+(use-package smart-mode-line-powerline-theme
+  :ensure t
+  :pin melpa)
+
 (use-package smart-mode-line
   :ensure t
   :config
-  (sml/setup))
+  (setq sml/theme 'powerline)
+  (add-hook 'after-init-hook 'sml/setup))
 
 (use-package idle-highlight-mode
   :ensure t
