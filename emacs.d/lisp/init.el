@@ -457,9 +457,9 @@
 
 (use-package smart-mode-line
   :ensure t
+  :hook ((after-init . sml/setup))
   :config
-  (setq sml/theme 'powerline)
-  (add-hook 'after-init-hook 'sml/setup))
+  (setq sml/theme 'powerline))
 
 (use-package idle-highlight-mode
   :ensure t
