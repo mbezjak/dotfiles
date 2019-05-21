@@ -92,6 +92,28 @@
 (use-package my-keys
   :ensure nil)
 
+(use-package smart-mode-line-powerline-theme
+  :ensure t
+  :pin melpa)
+
+(use-package smart-mode-line
+  :ensure t
+  :hook ((after-init . sml/setup))
+  :config
+  (setq sml/theme 'powerline))
+
+(use-package monokai-theme
+  :ensure t
+  :disabled t
+  :config
+  (load-theme 'monokai 'no-confirm))
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one 'no-confirm)
+  (doom-themes-visual-bell-config))
+
 (use-package diminish
   :ensure t
   :defer t)
@@ -451,16 +473,6 @@
     (add-hook 'clojure-mode-hook 'clj-refactor-mode)
     (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
 
-(use-package smart-mode-line-powerline-theme
-  :ensure t
-  :pin melpa)
-
-(use-package smart-mode-line
-  :ensure t
-  :hook ((after-init . sml/setup))
-  :config
-  (setq sml/theme 'powerline))
-
 (use-package idle-highlight-mode
   :ensure t
   :hook (prog-mode . idle-highlight-mode))
@@ -659,18 +671,6 @@
   :defer t
   :init
   (setq free-keys-modifiers '("" "C" "M" "C-M" "C-S")))
-
-(use-package monokai-theme
-  :ensure t
-  :disabled t
-  :config
-  (load-theme 'monokai 'no-confirm))
-
-(use-package doom-themes
-  :ensure t
-  :config
-  (load-theme 'doom-one 'no-confirm)
-  (doom-themes-visual-bell-config))
 
 (use-package yaml-mode
   :ensure t
