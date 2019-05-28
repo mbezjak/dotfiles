@@ -161,6 +161,7 @@
 
 (use-package flycheck
   :ensure t
+  :diminish flycheck-mode
   :hook ((after-init . global-flycheck-mode)))
 
 (use-package hydra
