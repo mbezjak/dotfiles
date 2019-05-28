@@ -62,7 +62,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (setq use-package-verbose t)
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 
 (use-package no-littering
