@@ -94,8 +94,7 @@
   :ensure nil)
 
 (use-package smart-mode-line-powerline-theme
-  :ensure t
-  :pin melpa)
+  :ensure t)
 
 (use-package smart-mode-line
   :ensure t
@@ -167,7 +166,6 @@
 
 (use-package hydra
   :ensure t
-  :pin melpa ;; https://github.com/abo-abo/hydra/issues/323
   :config
   (defhydra my-hydra-open-quick (:color blue)
     "Open file"
@@ -542,7 +540,6 @@
 
 (use-package cider
   :ensure t
-  ;:pin melpa
   :defer t
   :init
   (setq cider-repl-pop-to-buffer-on-connect nil
