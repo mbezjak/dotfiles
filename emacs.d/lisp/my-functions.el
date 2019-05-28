@@ -7,11 +7,6 @@
   (interactive)
   (my-find-file-in-dir "~/workspace"))
 
-(defun my-kill-current-buffer ()
-  "Kill current buffer."
-  (interactive)
-  (kill-buffer))
-
 (defun my-xml-pretty-format ()
   (interactive)
   (save-excursion

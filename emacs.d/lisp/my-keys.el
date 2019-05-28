@@ -52,7 +52,7 @@
  ("S-C-s" . write-file)
  ("S-C-M-s" . sort-lines)
  ("C-p" . recenter-top-bottom)
- ("C-q" . my-kill-current-buffer)
+ ("C-q" . kill-this-buffer)
  ("S-C-q" . quoted-insert)
  ("C-z" . undo)
  ("C-n" . make-frame-command)
