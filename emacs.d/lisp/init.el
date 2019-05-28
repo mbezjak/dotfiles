@@ -412,7 +412,9 @@
   :commands pomidor
   :init
   (setq pomidor-sound-tick nil
-        pomidor-sound-tack nil))
+        pomidor-sound-tack nil
+        pomidor-sound-overwork nil
+        pomidor-sound-break-over nil))
 
 (use-package alert
   :ensure nil
