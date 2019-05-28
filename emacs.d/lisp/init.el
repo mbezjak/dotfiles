@@ -168,7 +168,7 @@
   :ensure t
   :pin melpa ;; https://github.com/abo-abo/hydra/issues/323
   :config
-  (defhydra my-hydra-open-quick (:color blue :hint nil)
+  (defhydra my-hydra-open-quick (:color blue)
     "Open file"
     ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
     ("s" (my-org-rifle-solution) "search solution.org")
