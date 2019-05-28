@@ -217,6 +217,7 @@
   (keyfreq-autosave-mode))
 
 (use-package diff-mode
+  :ensure nil
   :defer t
   :config
   (set-face-foreground 'diff-added "green4")
