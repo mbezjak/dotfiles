@@ -161,8 +161,7 @@
 
 (use-package flycheck
   :ensure t
-  :defer t
-  :init (global-flycheck-mode))
+  :hook ((after-init . global-flycheck-mode)))
 
 (use-package hydra
   :ensure t
@@ -180,11 +179,10 @@
 
 (use-package company
   :ensure t
-  :defer t
   :diminish company-mode
   :bind (:map company-active-map
               ("<escape>" . company-abort))
-  :init (global-company-mode)
+  :hook ((after-init . global-company-mode))
   :config
   ;; respect case when inserting into buffer, ignore when searching for candidates
   (setq company-dabbrev-downcase nil
