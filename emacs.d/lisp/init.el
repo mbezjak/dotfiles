@@ -440,12 +440,14 @@
 
 (use-package lispy
   :ensure t
+  :diminish lispy-mode
   :defer t
-  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)))
+  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line))
+  :hook ((clojure-mode . lispy-mode)))
 
 (use-package parinfer
   :ensure t
-  :hook ((clojure-mode . parinfer-mode)
+  :hook (;(clojure-mode . parinfer-mode)
          (emacs-lisp-mode . parinfer-mode)
          (common-lisp-mode . parinfer-mode)
          (scheme-mode . parinfer-mode)
