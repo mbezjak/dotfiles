@@ -442,8 +442,14 @@
   :ensure t
   :diminish lispy-mode
   :defer t
-  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line))
-  :hook ((clojure-mode . lispy-mode)))
+  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
+         :map lispy-mode-map
+         (("C-d" . my-delete-region-or-line)
+          ("M-d" . lispy-delete)))
+  :hook ((clojure-mode . lispy-mode))
+  :init
+  (setq lispy-compat '(cider)
+        lispy-key-theme '(special parinfer c-digits)))
 
 (use-package parinfer
   :ensure t
