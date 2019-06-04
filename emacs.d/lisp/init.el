@@ -299,15 +299,17 @@
   :config
   (projectile-mode)
   (define-key projectile-mode-map (kbd "M-F") 'projectile-command-map)
-  (defun projectile-create-test-file-for (impl-file-path)
-    (let* ((test-file (projectile--test-name-for-impl-name impl-file-path))
-           (test-dir (thread-last (file-name-directory impl-file-path)
-                       (replace-regexp-in-string "src/main/" "src/test/") ; gradle
-                       (replace-regexp-in-string "src/groovy/" "test/unit/")))) ; grails
-      (unless (file-exists-p (expand-file-name test-file test-dir))
-        (progn (unless (file-exists-p test-dir)
-                 (make-directory test-dir :create-parents))
-               (concat test-dir test-file)))))
+  (projectile-register-project-type 'gradle '("build.gradle")
+                                    :compile "gradle build"
+                                    :test "gradle test"
+                                    :test-suffix "Spec"
+                                    :src-dir "src/main/"
+                                    :test-dir "src/test/")
+  (projectile-register-project-type 'grails '("application.properties" "grails-app")
+                                    :compile "grails package"
+                                    :test "grails test-app"
+                                    :test-suffix "Spec"
+                                    :test-dir "test/unit/")
   (add-to-list 'projectile-globally-ignored-directories "target")
   (add-to-list 'projectile-globally-ignored-directories "build")
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
