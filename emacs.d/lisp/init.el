@@ -448,7 +448,11 @@
          :map lispy-mode-map
          (("C-d" . my-delete-region-or-line)
           ("M-d" . lispy-delete)))
-  :hook ((clojure-mode . lispy-mode))
+  :hook ((clojure-mode . lispy-mode)
+         (emacs-lisp-mode . lispy-mode)
+         (common-lisp-mode . lispy-mode)
+         (scheme-mode . lispy-mode)
+         (lisp-mode . lispy-mode))
   :init
   (setq lispy-compat '(cider)
         lispy-key-theme '(special parinfer c-digits))
@@ -458,7 +462,8 @@
 
 (use-package parinfer
   :ensure t
-  :hook (;(clojure-mode . parinfer-mode)
+  :disabled t
+  :hook ((clojure-mode . parinfer-mode)
          (emacs-lisp-mode . parinfer-mode)
          (common-lisp-mode . parinfer-mode)
          (scheme-mode . parinfer-mode)
