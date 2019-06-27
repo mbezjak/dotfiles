@@ -293,12 +293,12 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
+  :bind-keymap (("M-F" . projectile-command-map))
   :init
   (setq projectile-enable-caching t
         projectile-create-missing-test-files t)
   :config
   (projectile-mode)
-  (define-key projectile-mode-map (kbd "M-F") 'projectile-command-map)
   (projectile-register-project-type 'gradle '("build.gradle")
                                     :compile "gradle build"
                                     :test "gradle test"
