@@ -53,7 +53,7 @@
 (with-eval-after-load 'org-indent
   (diminish 'org-indent-mode))
 
-(setq my-org-capture-template-work
+(defvar my-org-capture-template-work
       '("w" "work" entry (file+headline "work.org" "WEEK")
         "* %?"))
 
@@ -62,12 +62,12 @@
 
 ;; functions
 (defun my-org-unbind-keys ()
-  "Unset keys that are not useful in org-mode."
+  "Unset keys that are not useful in `org-mode`."
   (unbind-key "C-c [")
   (unbind-key "C-c ]"))
 
 (defun my-org-rebind-keys ()
-  "Rebind keys that are useful in org-mode."
+  "Rebind keys that are useful in `org-mode`."
   (require 'org-agenda)
   (bind-keys :map org-mode-map
              ("M-e" . backward-kill-word)
@@ -82,8 +82,7 @@
 
 ; http://lists.gnu.org/archive/html/emacs-orgmode/2014-02/msg00088.html
 (defun my-org-ask-clock-out ()
-  "Ask the user before clocking out.
-   This is a useful function for adding to `kill-emacs-query-functions'."
+  "Ask the user before clocking out. This is a useful function for adding to `kill-emacs-query-functions'."
   (if (and (featurep 'org-clock)
            (funcall 'org-clocking-p)
            (y-or-n-p "You are currently clocking time, clock out? "))
