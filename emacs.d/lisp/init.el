@@ -153,6 +153,7 @@
   (global-subword-mode))
 
 (use-package whitespace
+  :ensure nil
   :diminish whitespace-mode
   :hook (prog-mode . whitespace-mode)
   :init
