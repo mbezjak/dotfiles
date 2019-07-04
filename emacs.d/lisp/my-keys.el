@@ -71,7 +71,7 @@
 
  ("C-c a" . org-agenda)
  ("C-c r" . revert-buffer)
- ("C-x C-m" . shell))
+ ("C-x C-m" . ansi-term))
 
 (bind-keys :map minibuffer-local-map
            ("<escape>" . minibuffer-keyboard-quit)
