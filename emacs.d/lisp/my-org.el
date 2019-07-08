@@ -8,10 +8,12 @@
   (concat org-directory "/" name ".org"))
 
 (setq org-replace-disputed-keys t
-      calendar-week-start-day   1 ; monday
+      calendar-week-start-day   1       ; monday
       org-startup-indented      t
       org-hide-leading-stars    t
       org-use-speed-commands    t
+      org-cycle-separator-lines 0
+      org-catch-invisible-edits 'show-and-error
       org-log-done       'time
       org-directory      "~/Dropbox/notes"
       my-org-note-agenda  (my-org-note "agenda")
