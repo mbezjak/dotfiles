@@ -448,7 +448,9 @@
   :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
          :map lispy-mode-map
          (("C-d" . my-delete-region-or-line)
-          ("M-d" . lispy-delete)))
+          ("M-d" . lispy-delete)
+          ("M-e" . lispy-backward-kill-word)
+          ("M-r" . lispy-kill-word)))
   :hook ((clojure-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
          (common-lisp-mode . lispy-mode)
