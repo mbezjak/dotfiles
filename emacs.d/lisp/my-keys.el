@@ -141,7 +141,6 @@
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
 (unbind-key "<f2>")
-(unbind-key "<f10>")
 
 
 (provide 'my-keys)
