@@ -57,8 +57,6 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
 
- ("<f1>" . kmacro-end-or-call-macro)
- ("M-<f1>" . kmacro-start-macro-or-insert-counter)
  ("<f4>" . org-capture)
  ("<f5>" . revert-buffer)
  ("<f7>" . my-open-thg-commit)

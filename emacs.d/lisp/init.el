@@ -439,7 +439,8 @@
 
 (use-package helpful
   :ensure t
-  :bind (("C-h f" . helpful-function)))
+  :bind (("<f1>" . helpful-at-point)
+         ("C-h f" . helpful-function)))
 
 (use-package lispy
   :ensure t
