@@ -57,13 +57,13 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
 
- ("<f4>" . org-capture)
  ("<f5>" . revert-buffer)
  ("<f7>" . my-open-thg-commit)
  ("S-<f7>" . my-open-thg)
- ("<f9>" . org-agenda)
  ("M-<f9>" . previous-buffer)
  ("M-<f10>" . next-buffer)
+ ("<f9>" . org-agenda)
+ ("<f10>" . org-capture)
  ("<f12> p" . pomidor)
  ("<f12> d" . org-decrypt-entry)
 
@@ -141,7 +141,6 @@
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
 (unbind-key "<f2>")
-(unbind-key "<f3>")
 (unbind-key "<f10>")
 
 
