@@ -55,12 +55,13 @@
 (with-eval-after-load 'org-indent
   (diminish 'org-indent-mode))
 
-(defvar my-org-capture-template-work
-      '("w" "work" entry (file+headline "work.org" "WEEK")
-        "* %?"))
-
 (setq org-capture-templates
-      (list my-org-capture-template-work))
+      '(("w" "work" entry (file+headline "work.org" "WEEK")
+         "* %?")
+        ("W" "next week" entry (file+headline "work.org" "WEEK")
+         (file "capture/next-week.org")
+         :prepend t
+         :immediate-finish t)))
 
 ;; functions
 (defun my-org-unbind-keys ()
