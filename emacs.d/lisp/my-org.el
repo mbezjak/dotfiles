@@ -61,7 +61,11 @@
         ("W" "next week" entry (file+headline "work.org" "WEEK")
          (file "capture/next-week.org")
          :prepend t
-         :immediate-finish t)))
+         :immediate-finish t)
+        ("d" "deliberate practice" entry (file+headline "work.org" "DELIBERATE PRACTICE")
+         "* try %?
+%x"
+         :prepend t)))
 
 ;; functions
 (defun my-org-unbind-keys ()
