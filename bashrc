@@ -71,6 +71,7 @@ add-to-path ~/workspace/poly-devel/bin
 add-to-path ~/workspace/devilish/bin
 add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
+add-to-path ~/.cargo/bin
 add-to-path ~/.npm-packages/bin
 add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -e 'puts Gem.user_dir')/bin"
