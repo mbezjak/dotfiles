@@ -6,10 +6,12 @@
 (setq package-archives
       '(("melpa-stable" . "https://stable.melpa.org/packages/")
         ("melpa"        . "https://melpa.org/packages/")
+        ("org"          . "https://orgmode.org/elpa/")
         ("gnu"          . "https://elpa.gnu.org/packages/")))
 (setq package-archive-priorities
-      '(("melpa-stable" . 10)
-        ("melpa" . 5)
+      '(("melpa-stable" . 15)
+        ("melpa" . 10)
+        ("org" . 5)
         ("gnu" . 0)))
 (setq package-pinned-packages
       '((use-package . "melpa")))
