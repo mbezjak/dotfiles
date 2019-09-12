@@ -680,6 +680,10 @@
          (rust-mode . eldoc-mode)
          (flycheck-mode . flycheck-rust-setup)))
 
+(use-package go-mode
+  :ensure t
+  :defer t)
+
 (use-package unfill
   :ensure t
   :defer t
