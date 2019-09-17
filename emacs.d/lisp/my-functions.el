@@ -7,6 +7,11 @@
   (interactive)
   (my-find-file-in-dir "~/workspace"))
 
+(defun my-open-dired-here ()
+  (interactive)
+  (let ((dir (f-dirname (buffer-file-name))))
+    (dired dir)))
+
 (defun my-xml-pretty-format ()
   (interactive)
   (save-excursion

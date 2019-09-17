@@ -57,6 +57,7 @@
  ("C-z" . undo)
  ("C-n" . make-frame-command)
 
+ ("<f2>" . my-open-dired-here)
  ("<f5>" . revert-buffer)
  ("<f7>" . my-open-thg-commit)
  ("S-<f7>" . my-open-thg)
@@ -140,7 +141,6 @@
 (unbind-key "M-<backspace>")
 (unbind-key "M-<delete>")
 (unbind-key "M-DEL")
-(unbind-key "<f2>")
 
 
 (provide 'my-keys)
