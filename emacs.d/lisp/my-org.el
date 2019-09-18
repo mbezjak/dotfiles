@@ -3,6 +3,12 @@
 (use-package org
   :defer t)
 
+(use-package org-randomnote
+  :ensure t
+  :bind ("<f12> r" . org-randomnote)
+  :init
+  (setq org-randomnote-candidates (f-glob "~/Dropbox/notes-evernote/*.org")))
+
 (defun my-org-note (name)
   "File name from org note NAME."
   (concat org-directory "/" name ".org"))
