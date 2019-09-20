@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+
+set -o errexit
+
+cd ~/workspace/NixNoteOrg
+
+rm -rf out
+mkdir out
+nixnote2 sync
+nixnote2 export --search='*' --output=out/all.nnex
+go build
+./NixNoteOrg -input out/all.nnex
+rm -rf ~/Sync/notes-evernote
+cp -R out/all ~/Sync/notes-evernote
+
+newline
+tree out/all
+
+exit 0
