@@ -7,7 +7,12 @@
   :ensure t
   :bind ("<f12> r" . org-randomnote)
   :init
-  (setq org-randomnote-candidates (f-glob "~/Dropbox/notes-evernote/*.org")))
+  (setq org-randomnote-candidates
+        (-cons* (f-expand "~/Dropbox/notes/search.org")
+                (f-expand "~/Dropbox/notes/solution.org")
+                (f-expand "~/Dropbox/notes/thm.org")
+                (f-expand "~/Dropbox/notes/write.org")
+                (f-glob "~/Dropbox/notes-evernote/*.org"))))
 
 (defun my-org-note (name)
   "File name from org note NAME."
