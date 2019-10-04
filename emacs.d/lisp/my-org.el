@@ -14,6 +14,10 @@
                 (f-expand "~/Dropbox/notes/write.org")
                 (f-glob "~/Dropbox/notes-evernote/*.org"))))
 
+(use-package org-cliplink
+  :ensure t
+  :defer t)
+
 (defun my-org-note (name)
   "File name from org note NAME."
   (concat org-directory "/" name ".org"))
@@ -74,9 +78,10 @@
          :prepend t
          :immediate-finish t)
         ("d" "deliberate practice" entry (file+headline "work.org" "DELIBERATE PRACTICE")
-         "* try %?
+         "* try %(org-cliplink-capture)
 %x"
-         :prepend t)))
+         :prepend t
+         :immediate-finish t)))
 
 ;; functions
 (defun my-org-unbind-keys ()
