@@ -280,7 +280,8 @@
          ("C-/" . isearch-query-replace))
   :init
   (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
-        helm-split-window-default-side 'right)
+        helm-split-window-default-side 'right
+        helm-find-files-ignore-thing-at-point t)
   (when (executable-find "curl")
     (setq helm-net-prefer-curl t))
   (when (executable-find "ack-grep")
