@@ -8,7 +8,7 @@
   :bind ("<f12> r" . org-randomnote)
   :init
   (setq org-randomnote-candidates
-        (-cons* (f-expand "~/Dropbox/notes/search.org")
+        (-cons* (f-expand "~/Dropbox/notes/3-resource.org")
                 (f-expand "~/Dropbox/notes/solution.org")
                 (f-expand "~/Dropbox/notes/thm.org")
                 (f-expand "~/Dropbox/notes/write.org")
