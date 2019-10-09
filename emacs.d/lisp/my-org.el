@@ -41,6 +41,7 @@
       org-crypt-key nil
       org-latex-preview-ltxpng-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5
+      org-attach-commit nil
       org-refile-targets '((nil :maxlevel . 1)))
 
 (with-eval-after-load 'org
