@@ -729,3 +729,12 @@
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("M-C->" . mc/mark-all-like-this)))
+
+(use-package calfw
+  :ensure t
+  :defer t)
+
+(use-package calfw-org
+  :ensure t
+  :defer t
+  :bind (("<f12> a" . cfw:open-org-calendar)))
