@@ -177,6 +177,8 @@
     ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
     ("w" (find-file (my-org-note "work")) "work.org")
     ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
+    ("a" (find-file (my-org-note "2-area")) "2-area.org")
+    ("r" (find-file (my-org-note "3-resource")) "3-resource.org")
     ("f" (find-file (my-org-note "refile")) "refile.org")
     ("q" nil "quit"))
   (bind-key "C-\\" 'my-hydra-open-quick/body))
