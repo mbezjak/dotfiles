@@ -5,6 +5,6 @@ name := "${1:foo}"
 
 version := "0.1"
 
-scalaVersion := "${2:2.10.3}"
+scalaVersion := "${2:2.13.1}"
 
 scalacOptions ++= Seq("-deprecation", "-feature")
