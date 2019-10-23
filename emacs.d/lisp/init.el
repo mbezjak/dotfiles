@@ -385,14 +385,6 @@
     (bind-keys :map groovy-mode-map
                ("C-M-i" . groovy-imports-add-import-dwim))))
 
-(use-package ensime
-  :ensure t
-  :defer t)
-
-(use-package scala-mode
-  :ensure t
-  :defer t)
-
 (use-package haskell-mode
   :ensure t
   :defer t
@@ -635,6 +627,10 @@
   :defer t)
 
 (use-package ghc
+  :ensure t
+  :defer t)
+
+(use-package scala-mode
   :ensure t
   :defer t)
 
