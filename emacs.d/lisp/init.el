@@ -639,6 +639,7 @@
   :defer t)
 
 (use-package ensime
+  :disabled t
   :ensure t
   :defer t)
 
