@@ -9,7 +9,6 @@
   :init
   (setq org-randomnote-candidates
         (-cons* (f-expand "~/Dropbox/notes/3-resource.org")
-                (f-expand "~/Dropbox/notes/solution.org")
                 (f-glob "~/Dropbox/notes-evernote/*.org"))))
 
 (use-package org-cliplink

@@ -173,7 +173,6 @@
   (defhydra my-hydra-open-quick (:color blue)
     "Open file"
     ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
-    ("s" (my-org-rifle-solution) "search solution.org")
     ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
     ("w" (find-file (my-org-note "work")) "work.org")
     ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
@@ -333,9 +332,10 @@
   (helm-projectile-on))
 
 (use-package helm-org-rifle
+  :disabled t
   :ensure t
   :init
-  ; used below as a hydra
+  ;; used below as a hydra
   (defun my-org-rifle-solution ()
     (interactive)
     (helm-org-rifle-files (list (my-org-note "solution")))))
