@@ -72,7 +72,9 @@
   (diminish 'org-indent-mode))
 
 (setq org-capture-templates
-      '(("w" "work" entry (file+headline "work.org" "WEEK")
+      '(("i" "inbox" entry (file "inbox.org")
+         "* %?")
+        ("w" "work" entry (file+headline "work.org" "WEEK")
          "* %?")
         ("W" "next week" entry (file+headline "work.org" "WEEK")
          (file "capture/next-week.org")
