@@ -491,7 +491,9 @@
     (defun my-clj-refactor-set-keybinding-hook ()
       (cljr-add-keybindings-with-prefix "C-c C-m"))
     (add-hook 'clojure-mode-hook 'clj-refactor-mode)
-    (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook)))
+    (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook))
+  (use-package flycheck-clj-kondo
+    :ensure t))
 
 (use-package idle-highlight-mode
   :ensure t
