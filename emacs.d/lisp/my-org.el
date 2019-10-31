@@ -39,7 +39,10 @@
       org-latex-preview-ltxpng-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5
       org-attach-commit nil
-      org-refile-targets '((nil :maxlevel . 1)))
+      org-refile-targets '((nil :maxlevel . 1)
+                           ("~/Dropbox/notes/3-resource.org" :maxlevel . 1)
+                           ("~/Dropbox/notes/2-area.org" :maxlevel . 1)
+                           ("~/Dropbox/notes/work.org" :maxlevel . 1)))
 
 (with-eval-after-load 'org
   (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
