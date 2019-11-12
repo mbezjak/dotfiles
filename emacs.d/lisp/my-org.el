@@ -5,11 +5,16 @@
 
 (use-package org-randomnote
   :ensure t
-  :bind ("<f12> r" . org-randomnote)
+  :bind ("<f12> r" . my-org-randomnote)
   :init
-  (setq org-randomnote-candidates
-        (-cons* (f-expand "~/Dropbox/notes/3-resource.org")
-                (f-glob "~/Dropbox/notes-evernote/*.org"))))
+  (defun my-org-randomnote ()
+    (interactive)
+    (let ((n (random 2)))
+      (if (zerop n)
+          (let ((org-randomnote-candidates (list (f-expand "~/Dropbox/notes/3-resource.org"))))
+            (org-randomnote))
+        (let ((org-randomnote-candidates (f-glob "~/Dropbox/notes-evernote/*.org")))
+          (org-randomnote))))))
 
 (use-package org-cliplink
   :ensure t
