@@ -323,7 +323,7 @@
     (add-to-list 'projectile-globally-ignored-file-suffixes it))
   (--each '("*.png" "*.jpg" "*.gif" "*.jar" "*.log" "*.pdf" "*.jasper")
     (add-to-list 'grep-find-ignored-files it))
-  (--each '("warp")
+  (--each '("warpgen")
     (add-to-list 'grep-find-ignored-directories it)))
 
 (use-package helm-projectile
