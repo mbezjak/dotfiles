@@ -19,6 +19,28 @@
   (save-excursion
     (shell-command-on-region (region-beginning) (region-end) "xmllint --format -" (buffer-name) t)))
 
+;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el#L37
+(defun my-dos2unix ()
+  "Convert the current buffer to UNIX file format."
+  (interactive)
+  (set-buffer-file-coding-system 'undecided-unix nil))
+
+;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el#L43
+(defun my-unix2dos ()
+  "Convert the current buffer to DOS file format."
+  (interactive)
+  (set-buffer-file-coding-system 'undecided-dos nil))
+
+;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el#L48
+(defun my-delete-carrage-returns ()
+  "Delete `^M' characters in the buffer.
+Same as `replace-string C-q C-m RET RET'."
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\r" nil :noerror)
+      (replace-match ""))))
+
 ;; ported from starter-kit
 (defun my-untabify-buffer ()
   (interactive)
