@@ -9,8 +9,10 @@
 
 (defun my-open-dired-here ()
   (interactive)
-  (let ((dir (f-dirname (buffer-file-name))))
-    (dired dir)))
+  (if-let ((filename (buffer-file-name))
+           (dir (f-dirname filename)))
+      (dired dir)
+    (message "WARNING: Current buffer is not attached to a file!")))
 
 (defun my-xml-pretty-format ()
   (interactive)
