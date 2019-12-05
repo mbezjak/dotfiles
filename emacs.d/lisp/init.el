@@ -167,20 +167,9 @@
   :diminish flycheck-mode
   :hook ((after-init . global-flycheck-mode)))
 
+;; config in notes.el
 (use-package hydra
-  :ensure t
-  :config
-  (defhydra my-hydra-open-quick (:color blue)
-    "Open file"
-    ("i" (let ((vc-follow-symlinks t)) (find-file "~/.emacs.d/init.el")) "init.el")
-    ("S" (let ((vc-follow-symlinks t)) (find-file "~/.bashrc")) "bashrc")
-    ("w" (find-file (my-org-note "work")) "work.org")
-    ("W" (find-file (my-org-note "archive/archive-work")) "archive-work.org")
-    ("a" (find-file (my-org-note "2-area")) "2-area.org")
-    ("r" (find-file (my-org-note "3-resource")) "3-resource.org")
-    ("f" (find-file (my-org-note "inbox")) "inbox.org")
-    ("q" nil "quit"))
-  (bind-key "C-\\" 'my-hydra-open-quick/body))
+  :ensure t)
 
 (use-package company
   :ensure t

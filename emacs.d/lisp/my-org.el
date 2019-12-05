@@ -3,26 +3,15 @@
 (use-package org
   :defer t)
 
+(load-file "~/Sync/notes/config/notes.el")
+
 (use-package org-randomnote
   :ensure t
-  :bind ("<f12> r" . my-org-randomnote)
-  :init
-  (defun my-org-randomnote ()
-    (interactive)
-    (let ((n (random 2)))
-      (if (zerop n)
-          (let ((org-randomnote-candidates (list (f-expand "~/Dropbox/notes/3-resource.org"))))
-            (org-randomnote))
-        (let ((org-randomnote-candidates (f-glob "~/Dropbox/notes-evernote/*.org")))
-          (org-randomnote))))))
+  :bind ("<f12> r" . my-org-randomnote))
 
 (use-package org-cliplink
   :ensure t
   :defer t)
-
-(defun my-org-note (name)
-  "File name from org note NAME."
-  (concat org-directory "/" name ".org"))
 
 (setq org-replace-disputed-keys t
       calendar-week-start-day   1       ; monday
@@ -32,22 +21,11 @@
       org-cycle-separator-lines 0
       org-catch-invisible-edits 'show-and-error
       org-log-done       'time
-      org-directory      "~/Dropbox/notes"
-      my-org-note-agenda  (my-org-note "agenda")
-      my-org-note-archive (my-org-note "archive/archive")
-      org-default-notes-file my-org-note-agenda
-      org-agenda-files       (list my-org-note-agenda)
-      org-archive-location   (concat my-org-note-archive "::")
-      org-global-properties '(("BENEFIT_ALL" . "1 2 3 4 5 6 7 8 0.5 0"))
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
       org-latex-preview-ltxpng-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5
-      org-attach-commit nil
-      org-refile-targets '((nil :maxlevel . 1)
-                           ("~/Dropbox/notes/3-resource.org" :maxlevel . 1)
-                           ("~/Dropbox/notes/2-area.org" :maxlevel . 1)
-                           ("~/Dropbox/notes/work.org" :maxlevel . 1)))
+      org-attach-commit nil)
 
 (with-eval-after-load 'org
   (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
@@ -76,22 +54,6 @@
 (with-eval-after-load 'org-indent
   (diminish 'org-indent-mode))
 
-(setq org-capture-templates
-      '(("i" "inbox" entry (file "inbox.org")
-         "* %?")
-        ("w" "work" entry (file+headline "work.org" "WEEK")
-         "* %?")
-        ("W" "next week" entry (file+headline "work.org" "WEEK")
-         (file "capture/next-week.org")
-         :prepend t
-         :immediate-finish t)
-        ("d" "deliberate practice" entry (file+headline "work.org" "DELIBERATE PRACTICE")
-         "* try %(org-cliplink-capture)
-%x"
-         :prepend t
-         :immediate-finish t)))
-
-;; functions
 (defun my-org-unbind-keys ()
   "Unset keys that are not useful in `org-mode`."
   (unbind-key "C-c [")
