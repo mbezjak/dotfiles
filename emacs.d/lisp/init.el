@@ -333,15 +333,6 @@
   :config
   (helm-projectile-on))
 
-(use-package helm-org-rifle
-  :disabled t
-  :ensure t
-  :init
-  ;; used below as a hydra
-  (defun my-org-rifle-solution ()
-    (interactive)
-    (helm-org-rifle-files (list (my-org-note "solution")))))
-
 (use-package hippie-exp
   :ensure nil
   :no-require t
