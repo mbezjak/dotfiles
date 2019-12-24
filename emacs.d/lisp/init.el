@@ -169,7 +169,18 @@
 
 ;; config in notes.el
 (use-package hydra
-  :ensure t)
+  :ensure t
+  :bind ("<f12> f" . my-hydra-fns/body)
+  :config
+  (defhydra my-hydra-fns (:color amaranth)
+    "Functions"
+    ("x" (my-xml-pretty-format) "Format XML")
+    ("u" (my-dos2unix) "DOS->Unix")
+    ("d" (my-unix2dos) "Unix->DOS")
+    ("c" (my-delete-carrage-returns) "Delete `^M'")
+    ("t" (my-untabify-buffer) "Untabify")
+    ("l" (my-lorem) "Insert lorem")
+    ("q" nil "quit")))
 
 (use-package company
   :ensure t
