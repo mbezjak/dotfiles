@@ -13,6 +13,8 @@
   :ensure t
   :defer t)
 
+(require 'org-attach)
+
 (setq org-replace-disputed-keys t
       calendar-week-start-day   1       ; monday
       org-startup-indented      t
