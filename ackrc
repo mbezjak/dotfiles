@@ -13,7 +13,6 @@
 --ignore-directory=is:build
 --ignore-directory=is:out
 --ignore-directory=is:warpgen
---ignore-directory=is:generated-doc
 --ignore-directory=is:.ensime_cache
 --ignore-directory=is:dotfiles/emacs.d/var
 --ignore-directory=is:.metadata
