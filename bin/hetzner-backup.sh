@@ -17,7 +17,7 @@ borg create                         \
      ::'{hostname}-{now}'           \
                                     \
      ~/Documents                    \
-     ~/Dropbox                      \
+     ~/Sync                         \
      ~/workspace                    \
      ~/.gramps
 

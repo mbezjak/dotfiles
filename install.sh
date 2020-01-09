@@ -18,7 +18,7 @@ cd $(dirname $(readlink -f "$0"))
 mkdir --parents ~/bin
 mkdir --parents ~/Documents
 mkdir --parents ~/downloads
-mkdir --parents --mode=700 ~/Dropbox
+mkdir --parents --mode=700 ~/Sync
 mkdir --parents ~/workspace/{xattic,xforeign}
 mkdir --parents ~/.lein
 mkdir --parents ~/.sbt/0.13/plugins

@@ -65,7 +65,7 @@ source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
 
 add-to-path ~/bin
-add-to-path ~/Dropbox/bin
+add-to-path ~/Sync/bin
 add-to-path ~/workspace/dotfiles/bin
 add-to-path ~/workspace/poly-devel/bin
 add-to-path ~/workspace/devilish/bin
@@ -78,7 +78,6 @@ have gem && add-to-path "$(ruby -e 'puts Gem.user_dir')/bin"
 
 cd-alias cw      "$HOME/workspace"
 cd-alias ct      /tmp
-cd-alias dropdir "$HOME/Dropbox"
 
 export EDITOR='emacs --no-window-system'
 export VISUAL='emacs --no-window-system'
@@ -133,10 +132,10 @@ function t {
 }
 function backup { cp --verbose --archive "$1" "$1"-$(date +%Y%m%d-%H%M%S); }
 function org-notes-backup {
-    cd ~/Dropbox/notes
+    cd ~/Sync/notes
     git commit --message='Automated backup'
 }
-function dropconfl { cd ~/Dropbox && find -iname '*conflict*'; }
+function syncconfl { cd ~/Sync && find -iname '*conflict*'; }
 function fcat {
     local -r search="$1"
     local -r result=$(files "$search" | head -n 1)
