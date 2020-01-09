@@ -79,7 +79,5 @@ bar {
 
 exec --no-startup-id "~/workspace/dotfiles/bin/i3-setup-monitors.sh"
 exec --no-startup-id "setxkbmap -layout hr -variant en"
-exec --no-startup-id dropbox start
-exec --no-startup-id SpiderOakONE
 exec --no-startup-id kmix
 exec --no-startup-id xsetroot -solid "#000000"
