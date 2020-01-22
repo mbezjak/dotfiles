@@ -328,6 +328,7 @@
 
 (use-package helm-projectile
   :ensure t
+  :pin melpa ;; not released in a long time
   :init
   (setq projectile-completion-system 'helm)
   :config
