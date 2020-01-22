@@ -301,6 +301,7 @@
   :bind-keymap (("M-F" . projectile-command-map))
   :init
   (setq projectile-enable-caching t
+        projectile-indexing-method 'native
         projectile-create-missing-test-files t)
   :config
   (projectile-mode)
@@ -315,10 +316,10 @@
                                     :test "grails test-app"
                                     :test-suffix "Spec"
                                     :test-dir "test/unit/")
-  (add-to-list 'projectile-globally-ignored-directories "target")
-  (add-to-list 'projectile-globally-ignored-directories "build")
-  (add-to-list 'projectile-globally-ignored-directories "node_modules")
-  (add-to-list 'projectile-globally-ignored-files "*-all.js")
+  (--each '("target" "build" "node_modules" ".gradle")
+    (add-to-list 'projectile-globally-ignored-directories it))
+  (--each '("*-all.js")
+    (add-to-list 'projectile-globally-ignored-files it))
   (--each '(".log" ".png" ".gif" ".jar")
     (add-to-list 'projectile-globally-ignored-file-suffixes it))
   (--each '("*.png" "*.jpg" "*.gif" "*.jar" "*.log" "*.pdf" "*.jasper")
