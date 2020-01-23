@@ -25,7 +25,7 @@
       org-log-done       'time
       org-tags-exclude-from-inheritance '("crypt")
       org-crypt-key nil
-      org-latex-preview-ltxpng-directory (no-littering-expand-var-file-name "org/ltxpng/")
+      org-preview-latex-image-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5)
 
 (with-eval-after-load 'org
