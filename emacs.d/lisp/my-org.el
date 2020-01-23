@@ -24,6 +24,7 @@
       org-catch-invisible-edits 'show-and-error
       org-log-done       'time
       org-tags-exclude-from-inheritance '("crypt")
+      org-attach-store-link-p 'attached
       org-crypt-key nil
       org-preview-latex-image-directory (no-littering-expand-var-file-name "org/ltxpng/")
       org-extend-today-until 5)
