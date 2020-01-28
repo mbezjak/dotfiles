@@ -233,6 +233,7 @@
 
 (use-package diff-hl
   :ensure t
+  :disabled t                           ; slows things down + don't use it much
   :hook ((after-init . global-diff-hl-mode)
          (dired-mode . diff-hl-dired-mode)))
 
