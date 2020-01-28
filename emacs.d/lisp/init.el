@@ -568,7 +568,6 @@
   (add-hook 'cider-mode-hook #'cider-auto-test-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (use-package cider-eval-sexp-fu
-    :disabled t ;; looks like it's not compatible with cider 0.18.0
     :ensure t)
   (use-package helm-cider
     :ensure t
