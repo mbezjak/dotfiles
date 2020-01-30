@@ -334,7 +334,8 @@
   :ensure t
   :pin melpa ;; not released in a long time
   :init
-  (setq projectile-completion-system 'helm)
+  (setq projectile-completion-system 'helm
+        helm-source-projectile-files-and-dired-list '(helm-source-projectile-files-list))
   :config
   (helm-projectile-on))
 
