@@ -259,6 +259,8 @@
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("M-[" . helm-projectile-find-file)
+         ("M-]" . projectile-switch-project)
+         ("C-]" . my-jump-to-workspace)
          ("C-M-]" . helm-find-files)
          ("M-<f8>" . helm-for-files)
          ("C-x C-i" . helm-semantic-or-imenu)

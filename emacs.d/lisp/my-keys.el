@@ -33,8 +33,6 @@
  ("M-L" . browse-url)
  ("M-P" . browse-url-at-point)
 
- ("M-]" . projectile-switch-project)
- ("C-]" . my-jump-to-workspace)
  ("C-`" . align-regexp)
  ("C-~" . my-align-multi)
  ("C-!" . my-align-spock-table)
