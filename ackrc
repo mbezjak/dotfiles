@@ -14,7 +14,8 @@
 --ignore-directory=is:out
 --ignore-directory=is:warpgen
 --ignore-directory=is:.ensime_cache
---ignore-directory=is:dotfiles/emacs.d/var
+--ignore-directory=is:elpa
+--ignore-directory=is:var
 --ignore-directory=is:.metadata
 --ignore-directory=is:xexperiment
 --ignore-directory=is:xschool
@@ -25,7 +26,6 @@
 --ignore-file=ext:iws
 --ignore-file=ext:unl
 --ignore-file=match:/^\.ensime$/
---ignore-file=match:/deployJava[.]js$/
 --ignore-file=match:/[.-]all[.]js$/
 --ignore-file=match:/[.]log([.]\d{4}[-]\d{2})?$/
 --nogettext

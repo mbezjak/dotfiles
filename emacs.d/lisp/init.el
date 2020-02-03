@@ -2,7 +2,7 @@
 (setq gc-cons-threshold (* 100 1024 1024))
 (setq gc-cons-percentage 0.6)
 
-(setq package-user-dir (locate-user-emacs-file (concat "elpa-" emacs-version)))
+(setq package-user-dir (locate-user-emacs-file "elpa"))
 (setq package-archives
       '(("melpa-stable" . "https://stable.melpa.org/packages/")
         ("melpa"        . "https://melpa.org/packages/")
