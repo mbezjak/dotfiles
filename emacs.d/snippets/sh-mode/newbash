@@ -5,6 +5,7 @@
 #
 
 set -o errexit
+set -o pipefail
 
 $0
 
