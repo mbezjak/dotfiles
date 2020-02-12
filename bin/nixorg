@@ -14,7 +14,7 @@ go build
 rm -rf ~/Sync/notes-evernote
 cp -R out/all ~/Sync/notes-evernote
 cat > ~/Sync/notes-evernote/extra.css <<'EOF'
-p { max-width: 800px; }
+p, h1, h2, h3, h4 { max-width: 800px; }
 body { margin-left: 5em; }
 EOF
 
