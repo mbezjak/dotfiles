@@ -13,10 +13,7 @@ go build
 ./NixNoteOrg -input out/all.nnex
 rm -rf ~/Sync/notes-evernote
 cp -R out/all ~/Sync/notes-evernote
-cat > ~/Sync/notes-evernote/extra.css <<'EOF'
-p, h1, h2, h3, h4 { max-width: 800px; }
-body { margin-left: 5em; }
-EOF
+ln -s ../notes-clips/extra.css ~/Sync/notes-evernote/extra.css
 
 newline
 tree out/all
