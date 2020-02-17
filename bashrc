@@ -178,7 +178,10 @@ have thg && {
 }
 
 have grails && {
-    export GRAILS_OPTS="-XX:MaxPermSize=1G -Xmx2G -server"
+    export GRAILS_OPTS="-Xmx2G -server"
+    if [[ $(java-major-version) == 7 ]]; then
+        export GRAILS_OPTS="-XX:MaxPermSize=1G $GRAILS_OPTS"
+    fi
 
     alias grails=run-grails
     alias gc='grails clean'
@@ -218,6 +221,9 @@ have lein && {
 
 have sbt && {
     export SBT_OPTS="-XX:MaxPermSize=1G -Xmx4g"
+    if [[ $(java-major-version) == 7 ]]; then
+        export SBT_OPTS="-XX:MaxPermSize=1G $SBT_OPTS"
+    fi
     alias sbt=run-sbt
 }
 
