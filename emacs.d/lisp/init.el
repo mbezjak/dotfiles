@@ -180,6 +180,8 @@
     ("c" (my-delete-carrage-returns) "Delete `^M'")
     ("t" (my-untabify-buffer) "Untabify")
     ("l" (my-lorem) "Insert lorem")
+    ("F" flyspell-mode "Flyspell" :toggle t)
+    ("L" auto-fill-mode "Auto fill" :toggle t)
     ("q" nil "quit")))
 
 (use-package company
