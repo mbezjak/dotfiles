@@ -13,7 +13,7 @@ go build
 ./NixNoteOrg -input out/all.nnex
 rm -rf ~/Sync/notes-evernote
 cp -R out/all ~/Sync/notes-evernote
-ln -s ../notes-clips/extra.css ~/Sync/notes-evernote/extra.css
+ln -s ../notes/clips/extra.css ~/Sync/notes-evernote/extra.css
 
 newline
 tree out/all
