@@ -199,8 +199,7 @@
 (use-package psession
   :ensure t
   :init
-  (setq psession-elisp-objects-default-directory (no-littering-expand-var-file-name "elisp-objects")
-        psession-object-to-save-alist
+  (setq psession-object-to-save-alist
         '((ioccur-history . "ioccur-history.el")
           (extended-command-history . "extended-command-history.el")
           (helm-external-command-history . "helm-external-command-history.el")
