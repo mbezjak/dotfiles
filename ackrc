@@ -19,7 +19,7 @@
 --ignore-directory=is:.metadata
 --ignore-directory=is:xtmp
 --ignore-directory=is:xexperiment
---ignore-directory=is:xschool
+--ignore-directory=is:xedu
 --ignore-directory=is:xforeign
 --ignore-directory=is:xattic
 --ignore-directory=is:xincubation
