@@ -81,7 +81,7 @@ cd-alias ct      /tmp
 
 export EDITOR='emacs --no-window-system'
 export VISUAL='emacs --no-window-system'
-HISTCONTROL=ignoreboth # ignorespace + ignoredups
+HISTCONTROL='ignorespace:ignoredups:erasedups'
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
 # compatibility with existing PROMPT_COMMAND for autojump (man autojump)
