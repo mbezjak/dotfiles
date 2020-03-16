@@ -76,8 +76,8 @@ add-to-path ~/.npm-packages/bin
 add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -e 'puts Gem.user_dir')/bin"
 
-cd-alias cw      "$HOME/workspace"
-cd-alias ct      /tmp
+cd-alias cw "$HOME/workspace"
+cd-alias ct /tmp
 
 export EDITOR='emacs --no-window-system'
 export VISUAL='emacs --no-window-system'
