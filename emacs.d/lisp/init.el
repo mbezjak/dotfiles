@@ -289,9 +289,9 @@
         helm-find-files-ignore-thing-at-point t)
   (when (executable-find "curl")
     (setq helm-net-prefer-curl t))
-  (when (executable-find "ack-grep")
-    (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
-          helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
+  (when (executable-find "ack")
+    (setq helm-grep-default-command "ack -Hn --color --smart-case --no-group %e %p %f"
+          helm-grep-default-recurse-command "ack -H --color --smart-case --no-group %e %p %f"))
   :config
   (use-package helm-config)
   (helm-mode)
