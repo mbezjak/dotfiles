@@ -284,6 +284,11 @@ have pacman && {
     }
 }
 
+have etckeeper && {
+    alias etc='sudo etckeeper'
+    alias etv='sudo etckeeper vcs'
+}
+
 have kubectl && {
     source <(kubectl completion bash)
 }
