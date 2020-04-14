@@ -5,7 +5,6 @@
 --type-add=rst:ext:rst
 --type-add=org:ext:org
 --type-add=coffee:ext:coffee
---type-add=jspec:ext:jspec
 --type-add=darwin:ext:drw
 --type-add=gettext:ext:po,pot
 
