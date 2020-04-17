@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+
+set -o errexit
+set -o pipefail
+
+declare -r mountdir=/media/backup
+declare -r cryptname=backup
+
+function usage {
+    local -r prog=$(basename "$0")
+    cat <<EOF
+$prog - backup to external disk
+
+SYNOPSIS
+    $prog open - open encrypted partition
+    $prog close - close encrypted partition
+    $prog work - backup work computer
+    $prog sync - backup syncthing directory
+EOF
+}
+
+function open {
+    sudo cryptsetup open /dev/sda2 $cryptname
+    sudo mkdir -p $mountdir
+    sudo mount -t ext4 /dev/mapper/$cryptname $mountdir
+    ls -al $mountdir
+    return 0
+}
+
+function close {
+    sudo umount $mountdir
+    sudo cryptsetup close $cryptname
+    sudo rm -rf $mountdir
+    return 0
+}
+
+function work {
+    local -r today=$(date --iso-8601=date)
+    local -r dest=$mountdir/work/$today
+    rm -rf $dest
+    mkdir $dest
+    cp -a ~/Documents $dest/Documents
+    cp -a ~/.ssh $dest/ssh
+    cp -a ~/.bash_history $dest/bash_history
+    # less relevant
+    cp -a ~/lib $dest/lib
+    cp -a ~/.config $dest/config
+    cp -a ~/.dbvis $dest/dbvis
+    sync
+    return 0
+}
+
+function syncthing {
+    local -r today=$(date --iso-8601=date)
+    local -r dest=$mountdir/sync/$today
+    rm -rf $dest
+    mkdir $dest
+    cp -a -H -T ~/Sync $dest
+    sync
+    return 0
+}
+
+
+declare -r cmd="$1"
+case "$cmd" in
+    open) open ;;
+    close) close ;;
+    work) work ;;
+    sync) syncthing ;;
+    *) usage && die ;;
+esac
+
+exit 0
