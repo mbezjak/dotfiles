@@ -57,7 +57,7 @@ function list-workspace {
 
 
 
-declare -r dir=~/Sync/backup/packages/$(computer-type)
+declare -r dir=~/Sync/backup/packages/$(hostname)
 mkdir --parents $dir
 cd $dir
 rm -f *
