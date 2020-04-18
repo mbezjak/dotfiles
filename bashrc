@@ -90,7 +90,6 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto
-export BORG_REPO='ssh://u167296@u167296.your-storagebox.de:23/./laptop'
 
 # modified commands
 alias grep='grep --color=auto'

@@ -44,10 +44,6 @@ done
 
 if [[ "$1" == work ]]; then
     install_link hgrc.work .hgrc.local
-elif [[ "$1" == home ]]; then
-    install_link config/systemd/user/hetzner-backup.service .config/systemd/user/hetzner-backup.service
-    install_link config/systemd/user/hetzner-backup.timer .config/systemd/user/hetzner-backup.timer
-    systemctl --user enable hetzner-backup.service hetzner-backup.timer
 fi
 
 # remove dead symbolic links
