@@ -650,7 +650,9 @@
 
 (use-package paradox
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (setq paradox-display-star-count nil))
 
 (use-package dockerfile-mode
   :ensure t
