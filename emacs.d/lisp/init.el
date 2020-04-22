@@ -608,6 +608,7 @@
   :defer t)
 
 (use-package helm-swoop
+  :pin melpa
   :ensure t
   :defer t)
 
