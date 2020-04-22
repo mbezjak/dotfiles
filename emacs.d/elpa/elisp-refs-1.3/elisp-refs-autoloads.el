@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "elisp-refs" "elisp-refs.el" (0 0 0 0))
-;;; Generated autoloads from elisp-refs.el
+;;;### (autoloads nil "elisp-refs" "../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs.el"
+;;;;;;  "f64e32a844c0ddc1f70d7953e3401d15")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs.el
 
 (autoload 'elisp-refs-function "elisp-refs" "\
 Display all the references to function SYMBOL, in all loaded
@@ -54,8 +55,20 @@ If called with a prefix, prompt for a directory to limit the
 search.
 
 \(fn SYMBOL &optional PATH-PREFIX)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "elisp-refs" "../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "elisp-refs" '("elisp-refs-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/elisp-refs-1.3/elisp-refs.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

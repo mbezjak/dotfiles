@@ -6,15 +6,29 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "toggle-quotes" "toggle-quotes.el" (0 0 0 0))
-;;; Generated autoloads from toggle-quotes.el
+;;;### (autoloads nil "toggle-quotes" "../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el"
+;;;;;;  "6fbb24dc5507e9ddd86ebb09eb9aaea6")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el
 
 (autoload 'toggle-quotes "toggle-quotes" "\
 Toggle between single quotes and double quotes.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "toggle-quotes"
+;;;;;;  "../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "toggle-quotes" '("tq/")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

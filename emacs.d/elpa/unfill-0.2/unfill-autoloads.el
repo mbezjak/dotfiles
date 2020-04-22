@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "unfill" "unfill.el" (0 0 0 0))
-;;; Generated autoloads from unfill.el
+;;;### (autoloads nil "unfill" "../../../../../.emacs.d/elpa/unfill-0.2/unfill.el"
+;;;;;;  "ca4e220faa53b588a1f2500340c229a6")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/unfill-0.2/unfill.el
 
 (autoload 'unfill-paragraph "unfill" "\
 Replace newline chars in current paragraph by single spaces.
@@ -27,6 +28,12 @@ Toggle filling/unfilling of the current region, or current paragraph if no regio
 \(fn)" t nil)
 
 (define-obsolete-function-alias 'toggle-fill-unfill 'unfill-toggle)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/unfill-0.2/unfill-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/unfill-0.2/unfill.el") (0 0
+;;;;;;  0 0))
 
 ;;;***
 

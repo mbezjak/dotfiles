@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "org-cliplink" "org-cliplink.el" (0 0 0 0))
-;;; Generated autoloads from org-cliplink.el
+;;;### (autoloads nil "org-cliplink" "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink.el"
+;;;;;;  "ca855804348ca1af18c5b1fd372f3bbd")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink.el
 
 (autoload 'org-cliplink-retrieve-title "org-cliplink" "\
 
@@ -40,28 +41,42 @@ it to the current buffer. Doesn't support Basic Auth. Doesn't
 support cURL transport.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-cliplink"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-cliplink" '("org-cliplink-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "org-cliplink-string" "org-cliplink-string.el"
+;;;### (autoloads "actual autoloads are elsewhere" "org-cliplink-string"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-string.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from org-cliplink-string.el
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-string.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-cliplink-string" '("org-cliplink-")))
 
 ;;;***
 
-;;;### (autoloads nil "org-cliplink-transport" "org-cliplink-transport.el"
+;;;### (autoloads "actual autoloads are elsewhere" "org-cliplink-transport"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-transport.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from org-cliplink-transport.el
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-transport.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-cliplink-transport" '("org-cliplink-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("org-cliplink-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-string.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink-transport.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-cliplink-20190608.2134/org-cliplink.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

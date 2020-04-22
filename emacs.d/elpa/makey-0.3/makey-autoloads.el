@@ -6,15 +6,28 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "makey" "makey.el" (0 0 0 0))
-;;; Generated autoloads from makey.el
+;;;### (autoloads nil "makey" "../../../../../.emacs.d/elpa/makey-0.3/makey.el"
+;;;;;;  "efccbb6ac4e8ddec1a35151e8ba162cd")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/makey-0.3/makey.el
 
 (autoload 'makey-initialize-key-groups "makey" "\
 Initializes KEY-GROUP and creates all the relevant interactive commands.
 
 \(fn KEY-GROUP)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "makey" "../../../../../.emacs.d/elpa/makey-0.3/makey.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/makey-0.3/makey.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "makey" '("makey-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/makey-0.3/makey-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/makey-0.3/makey.el") (0 0 0
+;;;;;;  0))
 
 ;;;***
 

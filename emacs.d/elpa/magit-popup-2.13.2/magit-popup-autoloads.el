@@ -6,14 +6,19 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "magit-popup" "magit-popup.el" (0 0 0 0))
-;;; Generated autoloads from magit-popup.el
+;;;### (autoloads "actual autoloads are elsewhere" "magit-popup"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-popup-2.13.2/magit-popup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/magit-popup-2.13.2/magit-popup.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-popup" '("magit-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("magit-popup-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/magit-popup-2.13.2/magit-popup-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-popup-2.13.2/magit-popup-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-popup-2.13.2/magit-popup.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

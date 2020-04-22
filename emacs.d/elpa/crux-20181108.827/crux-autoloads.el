@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "crux" "crux.el" (0 0 0 0))
-;;; Generated autoloads from crux.el
+;;;### (autoloads nil "crux" "../../../../../.emacs.d/elpa/crux-20181108.827/crux.el"
+;;;;;;  "646b6da090b2c739d9e6765de54600e1")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/crux-20181108.827/crux.el
 
 (autoload 'crux-open-with "crux" "\
 Open visited file in default external program.
@@ -252,8 +253,20 @@ skip typos you don't want to fix with `SPC', and you can
 abort completely with `C-g'.
 
 \(fn P)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "crux" "../../../../../.emacs.d/elpa/crux-20181108.827/crux.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/crux-20181108.827/crux.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "crux" '("crux-" "move-to-mode-line-start")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/crux-20181108.827/crux-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/crux-20181108.827/crux.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

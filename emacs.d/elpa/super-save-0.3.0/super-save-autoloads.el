@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "super-save" "super-save.el" (0 0 0 0))
-;;; Generated autoloads from super-save.el
+;;;### (autoloads nil "super-save" "../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el"
+;;;;;;  "e55b09aabd94ecee8e86d50d66971fa4")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el
 
 (defvar super-save-mode nil "\
 Non-nil if Super-Save mode is enabled.
@@ -23,8 +24,20 @@ or call the function `super-save-mode'.")
 A minor mode that saves your Emacs buffers when they lose focus.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "super-save" "../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "super-save" '("super-save-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/super-save-0.3.0/super-save-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

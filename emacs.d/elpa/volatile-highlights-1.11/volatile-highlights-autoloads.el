@@ -6,11 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "volatile-highlights" "volatile-highlights.el"
+;;;### (autoloads "actual autoloads are elsewhere" "volatile-highlights"
+;;;;;;  "../../../../../.emacs.d/elpa/volatile-highlights-1.11/volatile-highlights.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from volatile-highlights.el
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/volatile-highlights-1.11/volatile-highlights.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "volatile-highlights" '("vhl/" "Vhl/highlight-zero-width-ranges")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/volatile-highlights-1.11/volatile-highlights-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/volatile-highlights-1.11/volatile-highlights.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

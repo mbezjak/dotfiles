@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "mwim" "mwim.el" (0 0 0 0))
-;;; Generated autoloads from mwim.el
+;;;### (autoloads nil "mwim" "../../../../../.emacs.d/elpa/mwim-0.4/mwim.el"
+;;;;;;  "450553307449a2e4475df523b3e42b73")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/mwim-0.4/mwim.el
  (autoload 'mwim-beginning-of-line-or-code "mwim" nil t)
  (autoload 'mwim-beginning-of-code-or-line "mwim" nil t)
  (autoload 'mwim-beginning-of-code-or-line-or-comment "mwim" nil t)
@@ -37,8 +38,19 @@ variable.
 Interactively, with prefix argument, move to the previous position.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "mwim" "../../../../../.emacs.d/elpa/mwim-0.4/mwim.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/mwim-0.4/mwim.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mwim" '("mwim-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/mwim-0.4/mwim-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/mwim-0.4/mwim.el") (0 0 0 0))
 
 ;;;***
 

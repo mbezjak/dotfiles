@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "zoutline" "zoutline.el" (0 0 0 0))
-;;; Generated autoloads from zoutline.el
+;;;### (autoloads "actual autoloads are elsewhere" "zoutline" "../../../../../.emacs.d/elpa/zoutline-0.2.0/zoutline.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/zoutline-0.2.0/zoutline.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "zoutline" '("zo-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/zoutline-0.2.0/zoutline-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/zoutline-0.2.0/zoutline.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

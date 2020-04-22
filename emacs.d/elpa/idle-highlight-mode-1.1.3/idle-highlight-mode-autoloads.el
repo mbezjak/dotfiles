@@ -6,16 +6,29 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "idle-highlight-mode" "idle-highlight-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from idle-highlight-mode.el
+;;;### (autoloads nil "idle-highlight-mode" "../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el"
+;;;;;;  "c1c59c674ef5ee0915591cb7b7f098b9")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el
 
 (autoload 'idle-highlight-mode "idle-highlight-mode" "\
 Idle-Highlight Minor Mode
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "idle-highlight-mode"
+;;;;;;  "../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "idle-highlight-mode" '("idle-highlight-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

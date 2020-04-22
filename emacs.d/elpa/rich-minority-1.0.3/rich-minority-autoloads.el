@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "rich-minority" "rich-minority.el" (0 0 0 0))
-;;; Generated autoloads from rich-minority.el
+;;;### (autoloads nil "rich-minority" "../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority.el"
+;;;;;;  "a64850558d254e25104466bc4c5c5576")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority.el
 
 (autoload 'rm--mode-list-as-string-list "rich-minority" "\
 Return `minor-mode-list' as a simple list of strings.
@@ -32,8 +33,21 @@ the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
 \\{rich-minority-mode-map}
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "rich-minority"
+;;;;;;  "../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rich-minority" '("rm-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rich-minority-1.0.3/rich-minority.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

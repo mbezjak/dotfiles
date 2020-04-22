@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "rust-mode" "rust-mode.el" (0 0 0 0))
-;;; Generated autoloads from rust-mode.el
+;;;### (autoloads nil "rust-mode" "../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode.el"
+;;;;;;  "4d7cf9c1dd172c9d6db624fcb20f77f0")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode.el
 
 (autoload 'rust-mode "rust-mode" "\
 Major mode for Rust code.
@@ -17,8 +18,20 @@ Major mode for Rust code.
 \(fn)" t nil)
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;;;### (autoloads "actual autoloads are elsewhere" "rust-mode" "../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-mode" '("rust" "cargo-compilation-regexps")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-0.4.0/rust-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "psession" "psession.el" (0 0 0 0))
-;;; Generated autoloads from psession.el
+;;;### (autoloads nil "psession" "../../../../../.emacs.d/elpa/psession-1.5/psession.el"
+;;;;;;  "be3aa2f3d674e61b77471e393af19f19")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/psession-1.5/psession.el
 
 (autoload 'psession-save-winconf "psession" "\
 Save persistently current window config to PLACE.
@@ -70,8 +71,20 @@ or call the function `psession-mode'.")
 Persistent emacs sessions.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "psession" "../../../../../.emacs.d/elpa/psession-1.5/psession.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/psession-1.5/psession.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "psession" '("psession-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/psession-1.5/psession-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/psession-1.5/psession.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

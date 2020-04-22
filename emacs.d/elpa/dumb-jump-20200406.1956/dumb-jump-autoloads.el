@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "dumb-jump" "dumb-jump.el" (0 0 0 0))
-;;; Generated autoloads from dumb-jump.el
+;;;### (autoloads nil "dumb-jump" "../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump.el"
+;;;;;;  "905183ca58933f9ce60e8f180292d1f8")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump.el
 
 (defvar dumb-jump-mode-map (let ((map (make-sparse-keymap))) (define-key map (kbd "C-M-g") 'dumb-jump-go) (define-key map (kbd "C-M-p") 'dumb-jump-back) (define-key map (kbd "C-M-q") 'dumb-jump-quick-look) map))
 
@@ -65,8 +66,20 @@ for a description of this minor mode.")
 Minor mode for jumping to variable and function definitions
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "dumb-jump" "../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dumb-jump" '("dumb-jump-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/dumb-jump-20200406.1956/dumb-jump.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

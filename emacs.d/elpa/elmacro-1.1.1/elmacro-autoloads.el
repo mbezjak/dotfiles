@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "elmacro" "elmacro.el" (0 0 0 0))
-;;; Generated autoloads from elmacro.el
+;;;### (autoloads nil "elmacro" "../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el"
+;;;;;;  "d29a51e47b3eb418da654d790c707f08")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el
 
 (autoload 'elmacro-show-last-macro "elmacro" "\
 Show the last macro as emacs lisp with NAME.
@@ -50,8 +51,20 @@ positive, and disable it otherwise. If called from Lisp, enable
 the mode if ARG is omitted or nil.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "elmacro" "../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "elmacro" '("elmacro-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

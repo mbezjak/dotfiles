@@ -6,10 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "eval-sexp-fu" "eval-sexp-fu.el" (0 0 0 0))
-;;; Generated autoloads from eval-sexp-fu.el
+;;;### (autoloads "actual autoloads are elsewhere" "eval-sexp-fu"
+;;;;;;  "../../../../../.emacs.d/elpa/eval-sexp-fu-0.6.0/eval-sexp-fu.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/eval-sexp-fu-0.6.0/eval-sexp-fu.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eval-sexp-fu" '("eval-sexp-fu-" "esf-" "geiser-bounds-of-" "define-e" "turn-on-eval-sexp-fu-flash-mode")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/eval-sexp-fu-0.6.0/eval-sexp-fu-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/eval-sexp-fu-0.6.0/eval-sexp-fu.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

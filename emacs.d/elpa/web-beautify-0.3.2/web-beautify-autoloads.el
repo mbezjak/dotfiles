@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "web-beautify" "web-beautify.el" (0 0 0 0))
-;;; Generated autoloads from web-beautify.el
+;;;### (autoloads nil "web-beautify" "../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el"
+;;;;;;  "ad666d4c475eb360da32cfc6809b8d9b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el
 
 (autoload 'web-beautify-html "web-beautify" "\
 Format region if active, otherwise the current buffer.
@@ -44,8 +45,21 @@ Formatting is done according to the js-beautify command.
 Format the current buffer according to the js-beautify command.
 
 \(fn)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "web-beautify"
+;;;;;;  "../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "web-beautify" '("web-beautify-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "parseedn" "parseedn.el" (0 0 0 0))
-;;; Generated autoloads from parseedn.el
+;;;### (autoloads "actual autoloads are elsewhere" "parseedn" "../../../../../.emacs.d/elpa/parseedn-0.1.0/parseedn.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/parseedn-0.1.0/parseedn.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "parseedn" '("parseedn-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/parseedn-0.1.0/parseedn-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/parseedn-0.1.0/parseedn.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

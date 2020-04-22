@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "anzu" "anzu.el" (0 0 0 0))
-;;; Generated autoloads from anzu.el
+;;;### (autoloads nil "anzu" "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el"
+;;;;;;  "9d2ec30b352542bafc0557c974807b82")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/anzu-0.62/anzu.el
 
 (autoload 'anzu-mode "anzu" "\
 minor-mode which display search information in mode-line.
@@ -70,8 +71,20 @@ See `anzu-mode' for more information on Anzu mode.
 
 
 \(fn ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "anzu" "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/anzu-0.62/anzu.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "anzu" '("anzu-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/anzu-0.62/anzu-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el") (0 0 0
+;;;;;;  0))
 
 ;;;***
 

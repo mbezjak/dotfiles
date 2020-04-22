@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "which-key" "which-key.el" (0 0 0 0))
-;;; Generated autoloads from which-key.el
+;;;### (autoloads nil "which-key" "../../../../../.emacs.d/elpa/which-key-3.4.0/which-key.el"
+;;;;;;  "013e09f6bed8f69ea6ae511b1608f0f9")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/which-key-3.4.0/which-key.el
 
 (defvar which-key-mode nil "\
 Non-nil if Which-Key mode is enabled.
@@ -173,8 +174,20 @@ Show the top-level bindings in KEYMAP using which-key. KEYMAP
 is selected interactively by mode in `minor-mode-map-alist'.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "which-key" "../../../../../.emacs.d/elpa/which-key-3.4.0/which-key.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/which-key-3.4.0/which-key.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "which-key" '("which-key-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/which-key-3.4.0/which-key-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/which-key-3.4.0/which-key.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

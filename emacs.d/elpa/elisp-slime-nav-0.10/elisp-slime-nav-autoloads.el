@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "elisp-slime-nav" "elisp-slime-nav.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from elisp-slime-nav.el
+;;;### (autoloads nil "elisp-slime-nav" "../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el"
+;;;;;;  "d137eafd1033b1fa67f2ac98f12c2e8f")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el
 
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav" "\
 Enable Slime-style navigation of elisp symbols using M-. and M-,
@@ -38,8 +38,21 @@ for the symbol to jump to.
 Argument SYM-NAME is the thing to find.
 
 \(fn SYM-NAME)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "elisp-slime-nav"
+;;;;;;  "../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "elisp-slime-nav" '("elisp-slime-nav-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

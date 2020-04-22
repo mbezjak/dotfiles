@@ -6,16 +6,29 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "org-randomnote" "org-randomnote.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from org-randomnote.el
+;;;### (autoloads nil "org-randomnote" "../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote.el"
+;;;;;;  "077d72821f2b4a9b61c4a11b6aec6626")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote.el
 
 (autoload 'org-randomnote "org-randomnote" "\
 Go to a random note satisfying Org match within a random Org file.
 
 \(fn &optional MATCH)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-randomnote"
+;;;;;;  "../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-randomnote" '("org-randomnote-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-randomnote-20200110.1407/org-randomnote.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

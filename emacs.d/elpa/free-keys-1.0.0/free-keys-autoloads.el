@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "free-keys" "free-keys.el" (0 0 0 0))
-;;; Generated autoloads from free-keys.el
+;;;### (autoloads nil "free-keys" "../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys.el"
+;;;;;;  "55cf5026213270d0e1ef252e0a7f2b5c")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys.el
 
 (autoload 'free-keys "free-keys" "\
 Display free keys in current buffer.
@@ -22,8 +23,20 @@ hitting 'p' in the *Free keys* buffer.  Prefix is supplied in
 format recognized by `kbd', for example \"C-x\".
 
 \(fn &optional PREFIX BUFFER)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "free-keys" "../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "free-keys" '("free-keys-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/free-keys-1.0.0/free-keys.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

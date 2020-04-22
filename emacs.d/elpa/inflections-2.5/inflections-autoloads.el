@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "inflections" "inflections.el" (0 0 0 0))
-;;; Generated autoloads from inflections.el
+;;;### (autoloads nil "inflections" "../../../../../.emacs.d/elpa/inflections-2.5/inflections.el"
+;;;;;;  "d585373f013205a7e55294422fea20e7")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/inflections-2.5/inflections.el
 
 (autoload 'inflection-singularize-string "inflections" "\
 Return the singularized version of STR.
@@ -22,8 +23,21 @@ Return the pluralized version of STR.
 \(fn STR)" nil nil)
 
 (define-obsolete-function-alias 'pluralize-string 'inflection-pluralize-string)
+
+;;;### (autoloads "actual autoloads are elsewhere" "inflections"
+;;;;;;  "../../../../../.emacs.d/elpa/inflections-2.5/inflections.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/inflections-2.5/inflections.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "inflections" '("inflection-" "define-inflectors")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/inflections-2.5/inflections-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/inflections-2.5/inflections.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

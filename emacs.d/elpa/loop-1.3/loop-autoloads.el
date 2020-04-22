@@ -6,10 +6,16 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "loop" "loop.el" (0 0 0 0))
-;;; Generated autoloads from loop.el
+;;;### (autoloads "actual autoloads are elsewhere" "loop" "../../../../../.emacs.d/elpa/loop-1.3/loop.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/loop-1.3/loop.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "loop" '("loop-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/loop-1.3/loop-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/loop-1.3/loop.el") (0 0 0 0))
 
 ;;;***
 

@@ -6,10 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "pcache" "pcache.el" (0 0 0 0))
-;;; Generated autoloads from pcache.el
+;;;### (autoloads "actual autoloads are elsewhere" "pcache" "../../../../../.emacs.d/elpa/pcache-0.4.2/pcache.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pcache-0.4.2/pcache.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pcache" '("pcache-" "constructor" "*pcache-repositor")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/pcache-0.4.2/pcache-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pcache-0.4.2/pcache.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

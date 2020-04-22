@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "sesman" "sesman.el" (0 0 0 0))
-;;; Generated autoloads from sesman.el
+;;;### (autoloads nil "sesman" "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman.el"
+;;;;;;  "f1bb690500ca502dea4362088f1ccb46")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/sesman-0.3.4/sesman.el
 
 (autoload 'sesman-start "sesman" "\
 Start a Sesman session.
@@ -74,26 +75,43 @@ Break any of the previously created links.
 
 \(fn)" t nil)
  (autoload 'sesman-map "sesman" "Session management prefix keymap." t 'keymap)
+
+;;;### (autoloads "actual autoloads are elsewhere" "sesman" "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/sesman-0.3.4/sesman.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sesman" '("sesman-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "sesman-browser" "sesman-browser.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from sesman-browser.el
+;;;### (autoloads nil "sesman-browser" "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-browser.el"
+;;;;;;  "8a326eebce1a4015760a03cacebd5fa3")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-browser.el
 
 (autoload 'sesman-browser "sesman-browser" "\
 Display an interactive session browser.
 See `sesman-browser-mode' for more details.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "sesman-browser"
+;;;;;;  "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-browser.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-browser.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sesman-browser" '("sesman-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("sesman-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-browser.el"
+;;;;;;  "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/sesman-0.3.4/sesman.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

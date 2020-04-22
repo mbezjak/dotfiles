@@ -6,16 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "pacfiles-buttons" "pacfiles-buttons.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from pacfiles-buttons.el
+;;;### (autoloads "actual autoloads are elsewhere" "pacfiles-buttons"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-buttons.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-buttons.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pacfiles-buttons" '("pacfiles-")))
 
 ;;;***
 
-;;;### (autoloads nil "pacfiles-mode" "pacfiles-mode.el" (0 0 0 0))
-;;; Generated autoloads from pacfiles-mode.el
+;;;### (autoloads nil "pacfiles-mode" "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode.el"
+;;;;;;  "c8434f549809d78962cc9d106cd7d609")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode.el
 
 (defalias 'pacfiles 'pacfiles-start)
 
@@ -33,27 +35,43 @@ Revert the pacfiles list buffer without asking for confirmation.
 
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "pacfiles-mode"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pacfiles-mode" '("pacfiles-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "pacfiles-utils" "pacfiles-utils.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from pacfiles-utils.el
+;;;### (autoloads "actual autoloads are elsewhere" "pacfiles-utils"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pacfiles-utils" '("pacfiles--")))
 
 ;;;***
 
-;;;### (autoloads nil "pacfiles-win" "pacfiles-win.el" (0 0 0 0))
-;;; Generated autoloads from pacfiles-win.el
+;;;### (autoloads "actual autoloads are elsewhere" "pacfiles-win"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-win.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-win.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pacfiles-win" '("pacfiles-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("pacfiles-mode-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-buttons.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-mode.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-utils.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pacfiles-mode-1.0/pacfiles-win.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

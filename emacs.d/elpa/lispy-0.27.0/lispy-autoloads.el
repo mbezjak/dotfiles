@@ -6,50 +6,57 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "le-clojure" "le-clojure.el" (0 0 0 0))
-;;; Generated autoloads from le-clojure.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-clojure" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-clojure.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-clojure.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-clojure" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "le-hy" "le-hy.el" (0 0 0 0))
-;;; Generated autoloads from le-hy.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-hy" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-hy.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-hy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-hy" '("lispy--")))
 
 ;;;***
 
-;;;### (autoloads nil "le-julia" "le-julia.el" (0 0 0 0))
-;;; Generated autoloads from le-julia.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-julia" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-julia.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-julia.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-julia" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "le-lisp" "le-lisp.el" (0 0 0 0))
-;;; Generated autoloads from le-lisp.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-lisp" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-lisp.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-lisp.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-lisp" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "le-python" "le-python.el" (0 0 0 0))
-;;; Generated autoloads from le-python.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-python" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-python.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-python.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-python" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "le-scheme" "le-scheme.el" (0 0 0 0))
-;;; Generated autoloads from le-scheme.el
+;;;### (autoloads "actual autoloads are elsewhere" "le-scheme" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-scheme.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/le-scheme.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-scheme" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "lispy" "lispy.el" (0 0 0 0))
-;;; Generated autoloads from lispy.el
+;;;### (autoloads nil "lispy" "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy.el"
+;;;;;;  "eca8525ddcc5d021cb4826713d03dfc7")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/lispy.el
 
 (autoload 'lispy-mode "lispy" "\
 Minor mode for navigating and editing LISP dialects.
@@ -74,26 +81,45 @@ backward through lists, which is useful to move into special.
 \\{lispy-mode-map}
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "lispy" "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/lispy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lispy" '("lh-knight" "lispy-" "mc/cmds-to-run-" "ac-trigger-commands" "unsupported-mode-error" "hydra-lispy-x")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "lispy-inline" "lispy-inline.el" (0 0 0 0))
-;;; Generated autoloads from lispy-inline.el
+;;;### (autoloads "actual autoloads are elsewhere" "lispy-inline"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-inline.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-inline.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lispy-inline" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil "lispy-tags" "lispy-tags.el" (0 0 0 0))
-;;; Generated autoloads from lispy-tags.el
+;;;### (autoloads "actual autoloads are elsewhere" "lispy-tags" "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-tags.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-tags.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "lispy-tags" '("lispy-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("elpa.el" "lispy-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/lispy-0.27.0/elpa.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/le-clojure.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/le-hy.el" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-julia.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/le-lisp.el" "../../../../../.emacs.d/elpa/lispy-0.27.0/le-python.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/le-scheme.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-inline.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy-tags.el"
+;;;;;;  "../../../../../.emacs.d/elpa/lispy-0.27.0/lispy.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

@@ -6,10 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "no-littering" "no-littering.el" (0 0 0 0))
-;;; Generated autoloads from no-littering.el
+;;;### (autoloads "actual autoloads are elsewhere" "no-littering"
+;;;;;;  "../../../../../.emacs.d/elpa/no-littering-1.0.3/no-littering.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/no-littering-1.0.3/no-littering.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "no-littering" '("no-littering-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/no-littering-1.0.3/no-littering-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/no-littering-1.0.3/no-littering.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

@@ -6,11 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "cider-eval-sexp-fu" "cider-eval-sexp-fu.el"
+;;;### (autoloads "actual autoloads are elsewhere" "cider-eval-sexp-fu"
+;;;;;;  "../../../../../.emacs.d/elpa/cider-eval-sexp-fu-1.2/cider-eval-sexp-fu.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from cider-eval-sexp-fu.el
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/cider-eval-sexp-fu-1.2/cider-eval-sexp-fu.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cider-eval-sexp-fu" '("cider-esf--")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/cider-eval-sexp-fu-1.2/cider-eval-sexp-fu-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/cider-eval-sexp-fu-1.2/cider-eval-sexp-fu.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

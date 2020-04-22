@@ -6,15 +6,17 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "buck" "buck.el" (0 0 0 0))
-;;; Generated autoloads from buck.el
+;;;### (autoloads "actual autoloads are elsewhere" "buck" "../../../../../.emacs.d/elpa/ghub-3.3.0/buck.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/buck.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "buck" '("buck-default-host")))
 
 ;;;***
 
-;;;### (autoloads nil "ghub" "ghub.el" (0 0 0 0))
-;;; Generated autoloads from ghub.el
+;;;### (autoloads nil "ghub" "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub.el"
+;;;;;;  "728412fd8d9a9cc9d0e102749d9d8b4b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/ghub.el
 
 (autoload 'ghub-create-token "ghub" "\
 Create, store and return a new token.
@@ -44,47 +46,65 @@ Set `url-http-real-basic-auth-storage' to nil
 and call `auth-source-forget+'.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "ghub" "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/ghub.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ghub" '("auth-source-netrc-parse-next-interesting@save-match-data" "ghub-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "ghub-graphql" "ghub-graphql.el" (0 0 0 0))
-;;; Generated autoloads from ghub-graphql.el
+;;;### (autoloads "actual autoloads are elsewhere" "ghub-graphql"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub-graphql.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/ghub-graphql.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ghub-graphql" '("ghub-")))
 
 ;;;***
 
-;;;### (autoloads nil "glab" "glab.el" (0 0 0 0))
-;;; Generated autoloads from glab.el
+;;;### (autoloads "actual autoloads are elsewhere" "glab" "../../../../../.emacs.d/elpa/ghub-3.3.0/glab.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/glab.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "glab" '("glab-default-host")))
 
 ;;;***
 
-;;;### (autoloads nil "gogs" "gogs.el" (0 0 0 0))
-;;; Generated autoloads from gogs.el
+;;;### (autoloads "actual autoloads are elsewhere" "gogs" "../../../../../.emacs.d/elpa/ghub-3.3.0/gogs.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/gogs.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gogs" '("gogs-default-host")))
 
 ;;;***
 
-;;;### (autoloads nil "gsexp" "gsexp.el" (0 0 0 0))
-;;; Generated autoloads from gsexp.el
+;;;### (autoloads "actual autoloads are elsewhere" "gsexp" "../../../../../.emacs.d/elpa/ghub-3.3.0/gsexp.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/gsexp.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gsexp" '("gsexp-")))
 
 ;;;***
 
-;;;### (autoloads nil "gtea" "gtea.el" (0 0 0 0))
-;;; Generated autoloads from gtea.el
+;;;### (autoloads "actual autoloads are elsewhere" "gtea" "../../../../../.emacs.d/elpa/ghub-3.3.0/gtea.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ghub-3.3.0/gtea.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gtea" '("gtea-default-host")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("ghub-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/ghub-3.3.0/buck.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub-graphql.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub-pkg.el" "../../../../../.emacs.d/elpa/ghub-3.3.0/ghub.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/glab.el" "../../../../../.emacs.d/elpa/ghub-3.3.0/gogs.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ghub-3.3.0/gsexp.el" "../../../../../.emacs.d/elpa/ghub-3.3.0/gtea.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

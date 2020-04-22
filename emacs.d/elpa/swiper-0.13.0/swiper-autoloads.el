@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "swiper" "swiper.el" (0 0 0 0))
-;;; Generated autoloads from swiper.el
+;;;### (autoloads nil "swiper" "../../../../../.emacs.d/elpa/swiper-0.13.0/swiper.el"
+;;;;;;  "3924fe00454416d00591b5eb7455641b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/swiper-0.13.0/swiper.el
 
 (autoload 'swiper-avy "swiper" "\
 Jump to one of the current swiper candidates.
@@ -50,8 +51,20 @@ A `swiper' that's not line-based.
 Like `swiper-isearch' but the first result is before the point.
 
 \(fn &optional INITIAL-INPUT)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "swiper" "../../../../../.emacs.d/elpa/swiper-0.13.0/swiper.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/swiper-0.13.0/swiper.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "swiper" '("swiper-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/swiper-0.13.0/swiper-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/swiper-0.13.0/swiper.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

@@ -6,20 +6,28 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "cargo" "cargo.el" (0 0 0 0))
-;;; Generated autoloads from cargo.el
+;;;### (autoloads nil "cargo" "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el"
+;;;;;;  "d573b57a0dc08dd160a85cfc2274585d")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el
 
 (autoload 'cargo-minor-mode "cargo" "\
 Cargo minor mode. Used to hold keybindings for cargo-mode
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "cargo" "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cargo" '("cargo-minor-mode")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "cargo-process" "cargo-process.el" (0 0 0 0))
-;;; Generated autoloads from cargo-process.el
+;;;### (autoloads nil "cargo-process" "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el"
+;;;;;;  "ed954ca3ed14a889f6dca47529b32726")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el
 
 (autoload 'cargo-process-bench "cargo-process" "\
 Run the Cargo bench command.
@@ -158,12 +166,22 @@ Requires Cargo clippy to be installed.
 Run the last cargo-process command.
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "cargo-process"
+;;;;;;  "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "cargo-process" '("cargo-process-" "rustc-errno")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("cargo-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-pkg.el" "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el"
+;;;;;;  "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el") (0 0
+;;;;;;  0 0))
 
 ;;;***
 
