@@ -370,14 +370,6 @@
     (when (file-exists-p cmd)
       (setq markdown-command cmd))))
 
-(use-package coffee-mode
-  :ensure t
-  :defer t
-  :config
-  (bind-keys :map coffee-mode-map
-             ("M-C" . coffee-compile-buffer)
-             ("S-C-r" . my-coffee-rename-fn)))
-
 (use-package groovy-mode
   :ensure t
   :defer t
@@ -410,6 +402,38 @@
 (use-package web-mode
   :ensure t
   :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
+
+;; needs: aura -A js-beautify
+(use-package web-beautify
+  :ensure t
+  :defer t)
+
+(use-package json-mode
+  :ensure t
+  :defer t)
+
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :interpreter "node")
+
+(use-package rjsx-mode
+  :ensure t
+  :mode "components\\/.*\\.js\\'"
+  :bind (:map rjsx-mode-map
+         ("C-d" . my-delete-region-or-line)))
+
+(use-package coffee-mode
+  :ensure t
+  :defer t
+  :config
+  (bind-keys :map coffee-mode-map
+             ("M-C" . coffee-compile-buffer)
+             ("S-C-r" . my-coffee-rename-fn)))
+
+(use-package restclient
+  :ensure t
+  :defer t)
 
 (use-package super-save
   :ensure t
@@ -514,17 +538,6 @@
   :ensure nil
   :hook ((text-mode . goto-address-mode)
          (prog-mode . goto-address-mode)))
-
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js\\'"
-  :interpreter "node")
-
-(use-package rjsx-mode
-  :ensure t
-  :mode "components\\/.*\\.js\\'"
-  :bind (:map rjsx-mode-map
-         ("C-d" . my-delete-region-or-line)))
 
 (use-package octave
   :ensure nil
@@ -635,10 +648,6 @@
   :ensure t
   :defer t)
 
-(use-package restclient
-  :ensure t
-  :defer t)
-
 (use-package ghc
   :ensure t
   :defer t)
@@ -653,10 +662,6 @@
 
 (use-package ensime
   :disabled t
-  :ensure t
-  :defer t)
-
-(use-package json-mode
   :ensure t
   :defer t)
 
@@ -703,11 +708,6 @@
   :ensure t
   :defer t
   :bind (("M-Q" . unfill-paragraph)))
-
-;; needs: aura -A js-beautify
-(use-package web-beautify
-  :ensure t
-  :defer t)
 
 (use-package free-keys
   :ensure t
