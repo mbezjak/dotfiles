@@ -232,6 +232,17 @@
   :ensure t
   :bind (("<f8>" . magit-status)))
 
+(use-package git-timemachine
+  :ensure t
+  :defer t)
+
+(use-package git-messenger
+  :ensure t
+  :defer t
+  :init
+  (setq git-messenger:show-detail t
+        git-messenger:use-magit-popup t))
+
 (use-package diff-hl
   :ensure t
   :disabled t                           ; slows things down + don't use it much
