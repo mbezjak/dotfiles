@@ -284,8 +284,7 @@ have pacman && {
 }
 
 have etckeeper && {
-    alias etc='sudo etckeeper'
-    alias etv='sudo etckeeper vcs'
+    alias etc='sudo etckeeper vcs log -p'
 }
 
 have kubectl && {
