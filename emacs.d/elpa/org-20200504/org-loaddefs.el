@@ -2742,7 +2742,7 @@ which will prompt for the width.
 
 ;;;***
 
-;;;### (autoloads nil "org-timer" "org-timer.el" "07f32a33f71c5980a9088d2e532ebb14")
+;;;### (autoloads nil "org-timer" "org-timer.el" (0 0 0 0))
 ;;; Generated autoloads from org-timer.el
 
 (autoload 'org-timer-start "org-timer" "\
@@ -2816,6 +2816,8 @@ minutes in the Effort property, if any.  You can ignore this by
 using three `C-u' prefix arguments.
 
 \(fn &optional OPT)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-timer" '("org-timer-")))
 
 ;;;***
 
@@ -3229,7 +3231,7 @@ When ARG is `\\[universal-argument] \\[universal-argument]', display the asynchr
 
 ;;;***
 
-;;;### (autoloads nil "ox-ascii" "ox-ascii.el" "e486804f1465a5da9b378342aab51b39")
+;;;### (autoloads nil "ox-ascii" "ox-ascii.el" (0 0 0 0))
 ;;; Generated autoloads from ox-ascii.el
 
 (autoload 'org-ascii-convert-region-to-ascii "ox-ascii" "\
@@ -3337,13 +3339,20 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-ascii" '("org-ascii-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-beamer" "ox-beamer.el" "49dea3eb21ddbb32ea3d186811c1b7a5")
+;;;### (autoloads nil "ox-beamer" "ox-beamer.el" (0 0 0 0))
 ;;; Generated autoloads from ox-beamer.el
 
 (autoload 'org-beamer-mode "ox-beamer" "\
 Support for editing Beamer oriented Org mode files.
+
+If called interactively, enable Org-Beamer mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -3472,9 +3481,11 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-beamer" '("org-beamer-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-html" "ox-html.el" "b179315dd502a7b96ed34fb1d1fc3332")
+;;;### (autoloads nil "ox-html" "ox-html.el" (0 0 0 0))
 ;;; Generated autoloads from ox-html.el
 
 (put 'org-html-head-include-default-style 'safe-local-variable 'booleanp)
@@ -3578,9 +3589,11 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-html" '("org-html-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-icalendar" "ox-icalendar.el" "c7c03b69aa9a8e7ecce385a1f66a1190")
+;;;### (autoloads nil "ox-icalendar" "ox-icalendar.el" (0 0 0 0))
 ;;; Generated autoloads from ox-icalendar.el
 
 (autoload 'org-icalendar-export-to-ics "ox-icalendar" "\
@@ -3628,9 +3641,11 @@ The file is stored under the name chosen in
 
 \(fn &optional ASYNC)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-icalendar" '("org-icalendar-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-latex" "ox-latex.el" "4bec86b5dcf2a0233f9e984e454809db")
+;;;### (autoloads nil "ox-latex" "ox-latex.el" (0 0 0 0))
 ;;; Generated autoloads from ox-latex.el
 
 (autoload 'org-latex-make-preamble "ox-latex" "\
@@ -3764,6 +3779,8 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-latex" '("org-latex-")))
+
 ;;;***
 
 ;;;### (autoloads nil "ox-man" "ox-man.el" (0 0 0 0))
@@ -3773,7 +3790,7 @@ Return output file name.
 
 ;;;***
 
-;;;### (autoloads nil "ox-md" "ox-md.el" "4ab99e949dbf6e3155ba97413135a505")
+;;;### (autoloads nil "ox-md" "ox-md.el" (0 0 0 0))
 ;;; Generated autoloads from ox-md.el
 
 (autoload 'org-md-export-as-markdown "ox-md" "\
@@ -3843,9 +3860,11 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-md" '("org-md-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-odt" "ox-odt.el" "32287546c7bcd83afbd3574f88226286")
+;;;### (autoloads nil "ox-odt" "ox-odt.el" (0 0 0 0))
 ;;; Generated autoloads from ox-odt.el
 
 (put 'org-odt-preferred-output-format 'safe-local-variable 'stringp)
@@ -3905,9 +3924,11 @@ is non-nil then the newly converted file is opened using
 
 \(fn &optional IN-FILE OUT-FMT OPEN)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-odt" '("org-odt-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-org" "ox-org.el" "80543be9a4dc90f660e5cdded24f4ce7")
+;;;### (autoloads nil "ox-org" "ox-org.el" (0 0 0 0))
 ;;; Generated autoloads from ox-org.el
 
 (autoload 'org-org-export-as-org "ox-org" "\
@@ -3983,9 +4004,11 @@ Return output file name.
 
 \(fn PLIST FILENAME PUB-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-org" '("org-org-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-publish" "ox-publish.el" "f46d54236d7e17146f78453de30487a2")
+;;;### (autoloads nil "ox-publish" "ox-publish.el" (0 0 0 0))
 ;;; Generated autoloads from ox-publish.el
 
 (defalias 'org-publish-project 'org-publish)
@@ -4026,9 +4049,11 @@ the project.
 
 \(fn &optional FORCE ASYNC)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-publish" '("org-publish-")))
+
 ;;;***
 
-;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "15c22ba49acfc76009bf6acb1a301966")
+;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" (0 0 0 0))
 ;;; Generated autoloads from ox-texinfo.el
 
 (autoload 'org-texinfo-export-to-texinfo "ox-texinfo" "\
@@ -4112,6 +4137,8 @@ itemized list in Org syntax in an Texinfo buffer and use this
 command to convert it.
 
 \(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-texinfo" '("org-texinfo-")))
 
 ;;;***
 
