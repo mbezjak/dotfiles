@@ -1226,6 +1226,8 @@ Create a dynamic block capturing a column view table.
 
 \(fn)" t nil)
 
+(eval-after-load 'org '(progn (org-dynamic-block-define "columnview" #'org-columns-insert-dblock)))
+
 (autoload 'org-agenda-columns "org-colview" "\
 Turn on or update column view in the agenda.
 

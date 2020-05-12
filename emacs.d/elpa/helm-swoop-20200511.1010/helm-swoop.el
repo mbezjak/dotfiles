@@ -4,7 +4,7 @@
 ;; Copyright (C) 2013-2018  Shingo Fukuyama
 
 ;; Version: 2.0.0
-;; Package-Version: 20200321.231
+;; Package-Version: 20200511.1010
 ;; Author: Shingo Fukuyama - http://fukuyama.co
 ;; URL: https://github.com/emacsorphanage/helm-swoop
 ;; Created: Oct 24 2013
@@ -96,10 +96,10 @@
 (require 'helm-utils)
 (require 'helm-grep)
 
-(declare-function migemo-search-pattern-get "migemo")
-(declare-function migemo-forward "migemo")
-(declare-function projectile-buffers-with-file-or-process "projectile")
-(declare-function projectile-project-buffers "projectile")
+(declare-function migemo-search-pattern-get "ext:migemo")
+(declare-function migemo-forward "ext:migemo")
+(declare-function projectile-buffers-with-file-or-process "ext:projectile")
+(declare-function projectile-project-buffers "ext:projectile")
 (defvar projectile-buffers-filter-function)
 
 ;;; @ helm-swoop ----------------------------------------------

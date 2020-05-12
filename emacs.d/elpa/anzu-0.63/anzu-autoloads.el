@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "anzu" "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el"
-;;;;;;  "9d2ec30b352542bafc0557c974807b82")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/anzu-0.62/anzu.el
+;;;### (autoloads nil "anzu" "anzu.el" (0 0 0 0))
+;;; Generated autoloads from anzu.el
 
 (autoload 'anzu-mode "anzu" "\
 minor-mode which display search information in mode-line.
@@ -38,53 +37,41 @@ See `anzu-mode' for more information on Anzu mode.
 \(fn &optional ARG)" t nil)
 
 (autoload 'anzu-query-replace-at-cursor "anzu" "\
-
+Replace symbol at cursor with to-string.
 
 \(fn)" t nil)
 
 (autoload 'anzu-query-replace-at-cursor-thing "anzu" "\
-
+Replace symbol at cursor within `anzu-replace-at-cursor-thing' area.
 
 \(fn)" t nil)
 
 (autoload 'anzu-query-replace "anzu" "\
-
+anzu version of `query-replace'.
 
 \(fn ARG)" t nil)
 
 (autoload 'anzu-query-replace-regexp "anzu" "\
-
+anzu version of `query-replace-regexp'.
 
 \(fn ARG)" t nil)
 
 (autoload 'anzu-replace-at-cursor-thing "anzu" "\
-
+anzu-query-replace-at-cursor-thing without query.
 
 \(fn)" t nil)
 
 (autoload 'anzu-isearch-query-replace "anzu" "\
-
+anzu version of `isearch-query-replace'.
 
 \(fn ARG)" t nil)
 
 (autoload 'anzu-isearch-query-replace-regexp "anzu" "\
-
+anzu version of `isearch-query-replace-regexp'.
 
 \(fn ARG)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "anzu" "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/anzu-0.62/anzu.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "anzu" '("anzu-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/anzu-0.62/anzu-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/anzu-0.62/anzu.el") (0 0 0
-;;;;;;  0))
 
 ;;;***
 

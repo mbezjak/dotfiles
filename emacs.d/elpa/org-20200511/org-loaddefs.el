@@ -1271,6 +1271,8 @@ in the buffer and update it.
 
 \(fn &optional ARG)" t nil)
 
+(eval-after-load 'org '(progn (org-dynamic-block-define "clocktable" #'org-clock-report)))
+
 (autoload 'org-clocktable-shift "org-clock" "\
 Try to shift the :block date of the clocktable at point.
 Point must be in the #+BEGIN: line of a clocktable, or this function
@@ -1388,6 +1390,8 @@ PARAMS is a property list of parameters:
 Create a dynamic block capturing a column view table.
 
 \(fn)" t nil)
+
+(eval-after-load 'org '(progn (org-dynamic-block-define "columnview" #'org-columns-insert-dblock)))
 
 (autoload 'org-agenda-columns "org-colview" "\
 Turn on or update column view in the agenda.
