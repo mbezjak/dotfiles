@@ -3,6 +3,9 @@ username = Miro Bezjak <bezjak.miro@gmail.com>
 merge = meld
 ssh = ssh -C
 
+[pager]
+pager = delta --theme='Monokai Extended Bright'
+
 [extensions]
 bookmarks =
 churn =
@@ -28,7 +31,7 @@ ignorewsamount = True
 ignoreblanklines = True
 
 [alias]
-d = !$HG diff --color=on | diff-so-fancy
+d = diff
 log = log --follow
 l = log --graph
 show = log --patch --rev
