@@ -67,8 +67,11 @@ source-if ~/.napalm/profile
 add-to-path ~/bin
 add-to-path ~/Sync/bin
 add-to-path ~/workspace/dotfiles/bin
-add-to-path ~/workspace/poly-devel/bin
-add-to-path ~/workspace/devilish/bin
+if [[ -d ~/workspace/monorepo ]]; then
+    add-to-path ~/workspace/monorepo/bin
+else
+    add-to-path ~/workspace/poly-devel/bin
+fi
 add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
 add-to-path ~/.cargo/bin
