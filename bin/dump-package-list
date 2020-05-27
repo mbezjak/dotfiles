@@ -3,6 +3,9 @@
 
 set -o errexit
 
+function have {
+    type -P "$1" &> /dev/null
+}
 function known-to-pacman {
     local -r file="$1"
     pacman --query --owns "$file" &> /dev/null
@@ -67,7 +70,7 @@ pacman --query --explicit          > explicit
 pacman-explicit-no-base            > explicit-no-base
 pacman --query --deps              > deps
 pacman --query --foreign           > foreign
-pacman --query --deps --unrequired || ignore > unrequired
+pacman --query --deps --unrequired || true > unrequired
 pacman --query --info              > details
 have npm  && list-npm              > npm
 have pip  && list-python-eggs pip  > pip

@@ -2,7 +2,7 @@
 Description=Dump package list
 
 [Service]
-Environment="PATH=/home/mbezjak/workspace/dotfiles/bin:/home/mbezjak/workspace/poly-devel/bin:/usr/bin"
+Environment="PATH=/home/mbezjak/workspace/dotfiles/bin:/usr/bin"
 Type=oneshot
 ExecStart=/home/mbezjak/workspace/dotfiles/bin/dump-package-list
 
