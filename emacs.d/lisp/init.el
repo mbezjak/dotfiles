@@ -316,8 +316,15 @@
   :bind-keymap (("M-F" . projectile-command-map))
   :init
   (setq projectile-enable-caching t
-        projectile-indexing-method 'native
+        projectile-indexing-method 'alien
+        projectile-hg-command "hg locate -0 -I ."
         projectile-create-missing-test-files t)
+  ;; more compatible with monorepo
+  (setq projectile-project-root-files-functions
+        '(projectile-root-local
+          projectile-root-top-down
+          projectile-root-bottom-up
+          projectile-root-top-down-recurring))
   :config
   (projectile-mode)
   (projectile-register-project-type 'gradle '("build.gradle")
