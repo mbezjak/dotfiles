@@ -317,7 +317,7 @@
   :init
   (setq projectile-enable-caching t
         projectile-indexing-method 'alien
-        projectile-hg-command "hg locate -0 -I ."
+        projectile-hg-command "hg files -0 -I ."
         projectile-create-missing-test-files t)
   ;; more compatible with monorepo
   (setq projectile-project-root-files-functions
