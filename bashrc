@@ -80,6 +80,7 @@ add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -e 'puts Gem.user_dir')/bin"
 
 cd-alias cw "$HOME/workspace"
+cd-alias cm "$HOME/workspace/monorepo"
 cd-alias ct /tmp
 
 export EDITOR='emacs --no-window-system'
