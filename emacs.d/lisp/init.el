@@ -751,6 +751,10 @@
          ("C-<" . mc/mark-previous-like-this)
          ("M-C->" . mc/mark-all-like-this)))
 
+(use-package elfeed
+  :ensure t
+  :defer t)
+
 (use-package calfw
   :ensure t
   :defer t)
