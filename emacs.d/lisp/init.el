@@ -753,7 +753,7 @@
 
 (use-package elfeed
   :ensure t
-  :defer t)
+  :bind (("<f12> e" . elfeed)))
 
 (use-package calfw
   :ensure t
