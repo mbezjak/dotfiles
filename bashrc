@@ -88,6 +88,7 @@ export VISUAL='emacs --no-window-system'
 HISTCONTROL='ignorespace:ignoredups:erasedups'
 HISTFILESIZE=1000000   # 1M
 HISTSIZE=10000         # 10k
+shopt -s histappend
 # compatibility with existing PROMPT_COMMAND for autojump (man autojump)
 PROMPT_COMMAND="__laststatus=\$?; ${PROMPT_COMMAND:+$PROMPT_COMMAND ;} __prompt_command"
 GIT_PS1_SHOWSTASHSTATE=true
