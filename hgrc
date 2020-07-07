@@ -32,8 +32,7 @@ ignoreblanklines = True
 
 [alias]
 d = diff
-log = log --follow
-l = log --graph
+l = log --follow --graph
 show = log --patch --rev
 last = log --limit 1 --stat
 last3 = log --limit 3 --stat
