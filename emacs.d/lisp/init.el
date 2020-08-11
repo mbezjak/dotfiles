@@ -134,6 +134,13 @@
   :init
   (setq recentf-max-saved-items 200))
 
+(use-package sh-script
+  :ensure nil
+  :init
+  (defun sh-mode-setup+ ()
+    (add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p))
+  (add-hook 'sh-mode-hook #'sh-mode-setup+))
+
 (use-package uniquify
   :ensure nil
   :init
