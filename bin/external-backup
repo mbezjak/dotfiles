@@ -46,7 +46,9 @@ function work {
     # less relevant
     cp -a ~/lib $dest/lib
     cp -a ~/.config $dest/config
+    cp -a ~/.local $dest/local
     cp -a ~/.dbvis $dest/dbvis
+    cp -a ~/workspace/monorepo/bin $dest/monorepo-bin
     sync
     return 0
 }
