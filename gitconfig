@@ -2,7 +2,7 @@
         name = Miro Bezjak
         email = bezjak.miro@gmail.com
 [core]
-        pager = delta --theme='Monokai Extended Bright'
+        pager = delta --dark
 [color]
         ui = true
 [diff]
