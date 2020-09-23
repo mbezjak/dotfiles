@@ -34,6 +34,7 @@
   (plist-put org-format-latex-options :scale 1.5) ; bigger latex fragment
 
   (add-hook 'org-mode-hook #'(lambda () (flycheck-mode -1)))
+  (add-hook 'org-mode-hook #'(lambda () (electric-indent-mode -1)))
 
   ;; when in calendar mode, shift+keys do not switch windows
   (let ((map org-read-date-minibuffer-local-map))
