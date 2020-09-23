@@ -18,6 +18,7 @@
 (setq org-replace-disputed-keys t
       calendar-week-start-day   1       ; monday
       org-startup-indented      t
+      org-startup-folded        t
       org-hide-leading-stars    t
       org-use-speed-commands    t
       org-cycle-separator-lines 0
