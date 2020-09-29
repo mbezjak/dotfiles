@@ -604,7 +604,7 @@
   :init
   (setq cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-pretty-printing t
-        cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk"
+        cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk/src.zip"
                               "~/lib/clojure-src"))
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
