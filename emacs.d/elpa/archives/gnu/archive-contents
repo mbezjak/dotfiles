@@ -131,7 +131,7 @@
 	   ("John Wiegley" . "jwiegley@gmail.com"))
 	  (:keywords "async"))])
  (auctex .
-	 [(12 2 5)
+	 [(12 3 1)
 	  ((emacs
 	    (24 1))
 	   (cl-lib
@@ -606,7 +606,7 @@
 	       ("Leo Liu" . "sdl.web@gmail.com"))
 	      (:keywords "killing" "convenience"))])
  (ebdb .
-       [(0 6 19)
+       [(0 6 20)
 	((emacs
 	  (25 1))
 	 (cl-lib
@@ -650,7 +650,7 @@
 	      (:maintainer "Markus Triska" . "triska@metalevel.at")
 	      (:url . "https://www.metalevel.at/ediprolog/"))])
  (eev .
-      [(20200928)
+      [(20201013)
        ((emacs
 	 (24 1)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -688,7 +688,7 @@
 	      (:keywords "lisp")
 	      (:url . "http://elpa.gnu.org/packages/el-search.html"))])
  (eldoc .
-	[(1 10 0)
+	[(1 11 0)
 	 ((emacs
 	   (26 3)))
 	 "Show function arglist or variable docstring in echo area" single
@@ -720,9 +720,11 @@
 		     (:keywords "languages" "lisp")
 		     (:url . "http://elpa.gnu.org/packages/elisp-benchmarks.html"))])
  (emms .
-       [(5 42)
+       [(6 2)
 	((cl-lib
-	  (0 5)))
+	  (0 5))
+	 (seq
+	  (0)))
 	"The Emacs Multimedia System" tar
 	((:url . "https://www.gnu.org/software/emms/")
 	 (:maintainer "Yoni Rabkin" . "yrk@gnu.org")
@@ -764,13 +766,13 @@
 		    ("Matthew L. Fidler" . "matthew.fidler@gmail.com"))
 		   (:keywords "convenience"))])
  (excorporate .
-	      [(0 8 3)
+	      [(0 9 1)
 	       ((emacs
 		 (24 1))
 		(fsm
 		 (0 2 1))
 		(soap-client
-		 (3 1 5))
+		 (3 2 0))
 		(url-http-ntlm
 		 (2 0 4))
 		(nadvice
@@ -914,7 +916,7 @@
 		  (:keywords "gnome" "c" "coding style")
 		  (:url . "http://elpa.gnu.org/packages/gnome-c-style.html"))])
  (gnorb .
-	[(1 6 8)
+	[(1 6 9)
 	 ((cl-lib
 	   (0 5)))
 	 "Glue code between Gnus, Org, and BBDB" tar
@@ -939,7 +941,7 @@
 			    (:keywords "maint" "tools")
 			    (:url . "http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html"))])
  (gnugo .
-	[(3 1 0)
+	[(3 1 1)
 	 ((ascii-art-to-unicode
 	   (1 5))
 	  (xpm
@@ -979,6 +981,14 @@
 	     ("Michelangelo Rodriguez" . "michelangelo.rodriguez@gmail.com"))
 	    (:keywords "tools" "accessibility")
 	    (:url . "http://elpa.gnu.org/packages/greader.html"))])
+ (greenbar .
+	   [(1 1)
+	    nil "Mark comint output with \"greenbar\" background" single
+	    ((:url . "http://elpa.gnu.org/packages/greenbar.html")
+	     (:keywords "faces" "terminals")
+	     (:authors
+	      ("Michael R. Mauger" . "michael@mauger.com"))
+	     (:maintainer "Michael R. Mauger" . "michael@mauger.com"))])
  (guess-language .
 		 [(0 0 1)
 		  ((cl-lib
@@ -1090,6 +1100,21 @@
 		  ("Clemens Radermacher" . "clemera@posteo.net"))
 		 (:maintainer "Clemens Radermacher" . "clemera@posteo.net")
 		 (:url . "https://github.com/clemera/ivy-explorer"))])
+ (ivy-posframe .
+	       [(0 5 2)
+		((emacs
+		  (26 0))
+		 (posframe
+		  (0 8 0))
+		 (ivy
+		  (0 13 0)))
+		"Using posframe to show Ivy" single
+		((:keywords "abbrev" "convenience" "matching" "ivy")
+		 (:authors
+		  ("Feng Shu" . "tumashu@163.com")
+		  ("Naoya Yamashita" . "conao3@gmail.com"))
+		 (:maintainer "Feng Shu" . "tumashu@163.com")
+		 (:url . "https://github.com/tumashu/ivy-posframe"))])
  (javaimp .
 	  [(0 7 1)
 	   nil "Add and reorder Java import statements in Maven/Gradle projects" tar
@@ -1123,7 +1148,7 @@
 	      ("Dmitry Gutov" . "dgutov@yandex.ru"))
 	     (:keywords "languages" "javascript"))])
  (json-mode .
-	    [(0 1)
+	    [(0 2)
 	     ((emacs
 	       (25 1)))
 	     "Major mode for editing JSON files" single
@@ -1249,7 +1274,7 @@
 	 ("Nicolas Petton" . "nicolas@petton.fr"))
 	(:maintainer nil . "emacs-devel@gnu.org"))])
  (markchars .
-	    [(0 2 1)
+	    [(0 2 2)
 	     nil "Mark chars fitting certain characteristics" single
 	     ((:url . "http://elpa.gnu.org/packages/markchars.html")
 	      (:authors
@@ -1348,7 +1373,7 @@
 			(:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
 			(:url . "https://gitlab.com/protesilaos/modus-themes"))])
  (multishell .
-	     [(1 1 5)
+	     [(1 1 9)
 	      ((cl-lib
 		(0 5)))
 	      "Easily use multiple shell buffers, local and remote" tar
@@ -1513,7 +1538,7 @@
 	      ("Ian Dunn" . "dunni@gnu.org"))
 	     (:keywords "convenience" "text" "org"))])
  (org-translate .
-		[(0 1 1)
+		[(0 1 2)
 		 ((emacs
 		   (25 1))
 		  (org
@@ -1608,7 +1633,7 @@
 	     ("Phillip Lord" . "phillip.lord@russet.org.uk"))
 	    (:url . "http://elpa.gnu.org/packages/persist.html"))])
  (phps-mode .
-	    [(0 3 62)
+	    [(0 3 65)
 	     ((emacs
 	       (26)))
 	     "Major mode for PHP with Semantic integration" tar
@@ -1634,7 +1659,7 @@
 	   ("Mario Lang" . "mlang@delysid.org"))
 	  (:maintainer "Mario Lang" . "mlang@delysid.org"))])
  (posframe .
-	   [(0 8 0)
+	   [(0 8 2)
 	    ((emacs
 	      (26)))
 	    "Pop a posframe (just a frame) at point" single
@@ -1669,7 +1694,7 @@
 	       ("Scott Andrew Borton" . "scott@pp.htv.fi"))
 	      (:maintainer "John Darrington" . "john@darrington.wattle.id.au"))])
  (python .
-	 [(0 26 1)
+	 [(0 27)
 	  ((emacs
 	    (24 1))
 	   (cl-lib
@@ -1880,7 +1905,7 @@
 		   ("Yoni Rabkin" . "yrk@gnu.org"))
 		  (:keywords "rt" "tickets"))])
  (rudel .
-	[(0 3 1)
+	[(0 3 2)
 	 ((emacs
 	   (24))
 	  (cl-lib
@@ -2017,7 +2042,7 @@
 	    (:maintainer "Phil Sainty" . "psainty@orcon.net.nz")
 	    (:url . "https://savannah.nongnu.org/projects/so-long"))])
  (soap-client .
-	      [(3 1 5)
+	      [(3 2 0)
 	       ((cl-lib
 		 (0 6 1)))
 	       "Access SOAP web services" tar
@@ -2075,7 +2100,7 @@
 		("Alex Harsanyi" . "AlexHarsanyi@gmail.com"))
 	       (:keywords "languages" "sql"))])
  (ssh-deploy .
-	     [(3 1 11)
+	     [(3 1 12)
 	      ((emacs
 		(25)))
 	      "Deployment via Tramp, global or per directory." tar
@@ -2188,7 +2213,7 @@
 	  ("Oleh Krehel" . "ohwoeowho@gmail.com"))
 	 (:keywords "convenience"))])
  (tramp .
-	[(2 4 4 2)
+	[(2 4 4 3)
 	 ((emacs
 	   (24 4)))
 	 "Transparent Remote Access, Multiple Protocol" tar
@@ -2236,7 +2261,7 @@
 	      (:maintainer "Toby Cubitt" . "toby-undo-tree@dr-qubit.org")
 	      (:url . "http://www.dr-qubit.org/emacs.php"))])
  (uni-confusables .
-		  [(0 1)
+		  [(0 2)
 		   nil "Unicode confusables table" tar
 		   ((:maintainer "Teodor Zlatanov" . "tzz@lifelogs.com")
 		    (:url . "http://elpa.gnu.org/packages/uni-confusables.html"))])
@@ -2294,17 +2319,17 @@
 	      ("Sergey Poznyakoff" . "gray@gnu.org.ua"))
 	     (:maintainer "Sergey Poznyakoff" . "gray@gnu.org.ua"))])
  (vdiff .
-	[(0 2 3)
+	[(0 2 4)
 	 ((emacs
 	   (24 4))
 	  (hydra
 	   (0 13 0)))
-	 "A diff tool similar to  vimdiff" single
-	 ((:keywords "diff")
+	 "A diff tool similar to  vimdiff" tar
+	 ((:url . "https://github.com/justbur/emacs-vdiff")
+	  (:maintainer "Justin Burkett" . "justin@burkett.cc")
 	  (:authors
 	   ("Justin Burkett" . "justin@burkett.cc"))
-	  (:maintainer "Justin Burkett" . "justin@burkett.cc")
-	  (:url . "https://github.com/justbur/emacs-vdiff"))])
+	  (:keywords "diff"))])
  (verilog-mode .
 	       [(2020 6 27 14326051)
 		nil "major mode for editing verilog source in Emacs" single
@@ -2348,7 +2373,7 @@
 	(:maintainer "Andrey Kotlarski" . "m00naticus@gmail.com")
 	(:keywords "large files" "utilities"))])
  (wcheck-mode .
-	      [(2019 6 17)
+	      [(2020 10 4)
 	       nil "General interface for text checkers" single
 	       ((:keywords "text" "spell" "check" "languages" "ispell")
 		(:authors
@@ -2376,7 +2401,7 @@
 		("Eric Schulte" . "schulte.eric@gmail.com"))
 	       (:keywords "http" "server" "network"))])
  (webfeeder .
-	    [(1 0 0)
+	    [(1 1 0)
 	     ((emacs
 	       (25 1)))
 	     "Build RSS and Atom webfeeds from HTML files" tar
