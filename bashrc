@@ -67,11 +67,7 @@ source-if ~/.napalm/profile
 add-to-path ~/bin
 add-to-path ~/Sync/bin
 add-to-path ~/workspace/dotfiles/bin
-if [[ -d ~/workspace/monorepo ]]; then
-    add-to-path ~/workspace/monorepo/bin
-else
-    add-to-path ~/workspace/poly-devel/bin
-fi
+add-to-path ~/workspace/poly-devel/bin
 add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
 add-to-path ~/.cargo/bin
@@ -80,7 +76,6 @@ add-to-path ~/lib/visualvm
 have gem && add-to-path "$(ruby -e 'puts Gem.user_dir')/bin"
 
 cd-alias cw "$HOME/workspace"
-cd-alias cm "$HOME/workspace/monorepo"
 cd-alias ct /tmp
 
 export EDITOR='emacs --no-window-system'
