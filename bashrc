@@ -167,7 +167,7 @@ have dolphin && alias d='dolphin . &> /dev/null &'
 have git && {
     alias g='git'
     alias gs='git s' # damn ghostscript; this typo happened way too many times
-    complete -o bashdefault -o default -o nospace -F _git g
+    complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 }
 
 have thg && {
