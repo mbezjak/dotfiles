@@ -1,2 +1,2 @@
-;;; Generated package description from /home/mbezjak/.emacs.d/elpa/crux-20201129.1921/crux.el  -*- no-byte-compile: t -*-
-(define-package "crux" "20201129.1921" "A Collection of Ridiculously Useful eXtensions" '((seq "1.11")) :stars nil :commit "ba4a1f38eee0ae7597f67a1424bbf5c0c09473bf" :keywords '("convenience") :authors '(("Bozhidar Batsov" . "bozhidar@batsov.com")) :maintainer '("Bozhidar Batsov" . "bozhidar@batsov.com") :url "https://github.com/bbatsov/crux")
+;;; Generated package description from /Users/miro/.emacs.d/elpa/crux-20201129.1921/crux.el  -*- no-byte-compile: t -*-
+(define-package "crux" "20201129.1921" "A Collection of Ridiculously Useful eXtensions" '((seq "1.11")) :stars nil :commit "ba4a1f38eee0ae7597f67a1424bbf5c0c09473bf" :authors '(("Bozhidar Batsov" . "bozhidar@batsov.com")) :maintainer '("Bozhidar Batsov" . "bozhidar@batsov.com") :keywords '("convenience") :url "https://github.com/bbatsov/crux")
