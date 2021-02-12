@@ -11,10 +11,11 @@
 --ignore-directory=is:target
 --ignore-directory=is:build
 --ignore-directory=is:out
---ignore-directory=is:warpgen
 --ignore-directory=is:.ensime_cache
+--ignore-directory=is:.clj-kondo
 --ignore-directory=is:elpa
 --ignore-directory=is:var
+--ignore-directory=is:data
 --ignore-directory=is:.metadata
 --ignore-directory=is:xtmp
 --ignore-directory=is:xexperiment
