@@ -15,7 +15,7 @@ $prog - backup to external disk
 SYNOPSIS
     $prog open - open encrypted partition
     $prog close - close encrypted partition
-    $prog work - backup work computer
+    $prog laptop - backup laptop computer
     $prog sync - backup syncthing directory
 EOF
 }
@@ -35,9 +35,9 @@ function close {
     return 0
 }
 
-function work {
+function laptop {
     local -r today=$(date --iso-8601=date)
-    local -r dest=$mountdir/work/$today
+    local -r dest=$mountdir/laptop/$today
     rm -rf $dest
     mkdir $dest
     cp -a ~/Documents $dest/Documents
@@ -47,7 +47,7 @@ function work {
     cp -a ~/lib $dest/lib
     cp -a ~/.config $dest/config
     cp -a ~/.local $dest/local
-    cp -a ~/.dbvis $dest/dbvis
+    cp -a ~/.local/share/local-mail $dest/local-mail
     sync
     return 0
 }
@@ -67,7 +67,7 @@ declare -r cmd="$1"
 case "$cmd" in
     open) open ;;
     close) close ;;
-    work) work ;;
+    laptop) laptop ;;
     sync) syncthing ;;
     *) usage && die ;;
 esac
