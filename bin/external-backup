@@ -44,6 +44,7 @@ function laptop {
     cp -a ~/.ssh $dest/ssh
     cp -a ~/.bash_history $dest/bash_history
     # less relevant
+    cp -a ~/workspace $dest/workspace
     cp -a ~/lib $dest/lib
     cp -a ~/.config $dest/config
     cp -a ~/.local $dest/local
