@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dd
+# key: dd
+# --
+(def ${1:request} $1)$0
