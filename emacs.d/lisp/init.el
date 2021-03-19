@@ -327,12 +327,6 @@
         projectile-indexing-method 'alien
         projectile-hg-command "hg files -0 -I ."
         projectile-create-missing-test-files t)
-  ;; more compatible with monorepo
-  (setq projectile-project-root-files-functions
-        '(projectile-root-local
-          projectile-root-top-down
-          projectile-root-bottom-up
-          projectile-root-top-down-recurring))
   :config
   (projectile-mode)
   (projectile-register-project-type 'gradle '("build.gradle")
