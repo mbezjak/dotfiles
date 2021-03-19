@@ -329,17 +329,6 @@
         projectile-create-missing-test-files t)
   :config
   (projectile-mode)
-  (projectile-register-project-type 'gradle '("build.gradle")
-                                    :compile "gradle build"
-                                    :test "gradle test"
-                                    :test-suffix "Spec"
-                                    :src-dir "src/main/"
-                                    :test-dir "src/test/")
-  (projectile-register-project-type 'grails '("application.properties" "grails-app")
-                                    :compile "grails package"
-                                    :test "grails test-app"
-                                    :test-suffix "Spec"
-                                    :test-dir "test/unit/")
   (--each '("target" "build" "node_modules" ".gradle")
     (add-to-list 'projectile-globally-ignored-directories it))
   (--each '("*-all.js")
