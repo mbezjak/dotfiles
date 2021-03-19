@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# key: newissue
+# --
+TODO $0
+- [ ] first thing
+
+administrative:
+- [ ] jira: mark ready for review
+- [ ] MR: label: "ready for review"
+- [ ] slack: MR ready
+
+https://bloomdiagnostics.atlassian.net/browse/BAC-xxx
+https://gitlab.com/bloomdiagnostics/backend/-/merge_requests/xxx
