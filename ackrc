@@ -28,5 +28,6 @@
 --ignore-file=ext:unl
 --ignore-file=match:/^\.ensime$/
 --ignore-file=match:/[.-]all[.]js$/
+--ignore-file=match:/[.-]lock[.]json$/
 --ignore-file=match:/[.]log([.]\d{4}[-]\d{2})?$/
 --nogettext
