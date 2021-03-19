@@ -29,3 +29,5 @@
         forget = rm --cached
         rollback = reset --soft HEAD^
         authors = !git log --all --format='%aN <%cE>' | sort -u
+[include]
+        path = .gitconfig.work
