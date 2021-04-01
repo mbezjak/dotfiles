@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: requnit
+# key: requnit
+# --
+(:require [`(my-yas-buffer-clojure-non-test-namespace)` :as sut]
+          [clojure.test :refer [deftest is testing]])

@@ -191,7 +191,7 @@ Saves to a temp file and puts the filename in the kill ring."
                          ".*/src/coffee/"
                          ".*/src/main/coffee/"
                          ".*/src/"
-                         ".*/test/\\(unit\\|integration\\)/"
+                         ".*/test/"
                          ".*/grails-app/\\(controllers\\|services\\|domain\\|commands\\|hxcommands\\|taglib\\)/"
                          ".*/app/"
                          ".*/test/"
@@ -209,8 +209,13 @@ Saves to a temp file and puts the filename in the kill ring."
       (s-concat "Hx." package-name))))
 
 (defun my-yas-buffer-clojure-namespace ()
-  (let ((package (my-yas-buffer-package-name))
-        (base-name (f-base (buffer-file-name))))
+  (let ((package (replace-regexp-in-string "_" "-" (my-yas-buffer-package-name)))
+        (base-name (replace-regexp-in-string "_" "-" (f-base (buffer-file-name)))))
     (s-concat package "." base-name)))
+
+(defun my-yas-buffer-clojure-non-test-namespace ()
+  (->> (my-yas-buffer-clojure-namespace)
+       (replace-regexp-in-string "\-test$" "")
+       (replace-regexp-in-string "^unit\." "bloom.")))
 
 (provide 'my-functions)
