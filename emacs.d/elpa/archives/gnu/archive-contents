@@ -592,13 +592,13 @@
 	     ("Chong Yidong" . "cyd@gnu.org"))
 	    (:maintainer "Chong Yidong" . "cyd@gnu.org"))])
  (dts-mode .
-	   [(0 1 0)
-	    nil "Major mode for Device Tree source files" single
-	    ((:url . "http://elpa.gnu.org/packages/dts-mode.html")
-	     (:keywords "languages")
+	   [(0 1 1)
+	    nil "Major mode for Device Tree source files" tar
+	    ((:maintainer "Ben Gamari" . "ben@smart-cactus.org")
 	     (:authors
 	      ("Ben Gamari" . "ben@smart-cactus.org"))
-	     (:maintainer "Ben Gamari" . "ben@smart-cactus.org"))])
+	     (:keywords "languages")
+	     (:url . "https://elpa.gnu.org/packages/dts-mode.html"))])
  (easy-kill .
 	    [(0 9 4)
 	     ((emacs
@@ -897,17 +897,15 @@
 	 (:maintainer nil . "akrl@sdf.org")
 	 (:url . "https://gitlab.com/koral/gcmh"))])
  (ggtags .
-	 [(0 8 13)
+	 [(0 9 0)
 	  ((emacs
-	    (24))
-	   (cl-lib
-	    (0 5)))
-	  "emacs frontend to GNU Global source code tagging system" single
-	  ((:keywords "tools" "convenience")
+	    (25)))
+	  "emacs frontend to GNU Global source code tagging system" tar
+	  ((:url . "https://github.com/leoliu/ggtags")
+	   (:maintainer "Leo Liu" . "sdl.web@gmail.com")
 	   (:authors
 	    ("Leo Liu" . "sdl.web@gmail.com"))
-	   (:maintainer "Leo Liu" . "sdl.web@gmail.com")
-	   (:url . "https://github.com/leoliu/ggtags"))])
+	   (:keywords "tools" "convenience"))])
  (gited .
 	[(0 6 0)
 	 ((emacs
@@ -1610,8 +1608,10 @@
 	      (:maintainer "Michael Heerdegen" . "michael_heerdegen@web.de")
 	      (:url . "https://github.com/michael-heerdegen/on-screen.el"))])
  (org .
-      [(9 4 4)
-       nil "Outline-based notes management and organizer" tar
+      [(9 4 5)
+       ((emacs
+	 (24 3)))
+       "Outline-based notes management and organizer" tar
        ((:url . "https://orgmode.org")
 	(:maintainer "Bastien Guerry" . "bzg@gnu.org")
 	(:authors
@@ -1653,13 +1653,13 @@
 	      ("Nicolas Goaziou" . "mail@nicolasgoaziou.fr"))
 	     (:maintainer "Nicolas Goaziou" . "mail@nicolasgoaziou.fr"))])
  (osc .
-      [(0 2)
-       nil "Open Sound Control protocol library" single
-       ((:url . "http://elpa.gnu.org/packages/osc.html")
-	(:keywords "comm" "processes" "multimedia")
+      [(0 3)
+       nil "Open Sound Control protocol library" tar
+       ((:maintainer "Mario Lang" . "mlang@blind.guru")
 	(:authors
 	 ("Mario Lang" . "mlang@blind.guru"))
-	(:maintainer "Mario Lang" . "mlang@blind.guru"))])
+	(:keywords "comm" "processes" "multimedia")
+	(:url . "https://elpa.gnu.org/packages/osc.html"))])
  (other-frame-window .
 		     [(1 0 6)
 		      ((emacs
@@ -1753,7 +1753,7 @@
 	   ("Mario Lang" . "mlang@delysid.org"))
 	  (:maintainer "Mario Lang" . "mlang@delysid.org"))])
  (posframe .
-	   [(0 8 8)
+	   [(0 9 0)
 	    ((emacs
 	      (26)))
 	    "Pop a posframe (just a frame) at point" tar
@@ -2092,15 +2092,15 @@
 	(:keywords "sequences")
 	(:url . "http://elpa.gnu.org/packages/seq.html"))])
  (setup .
-	[(0 1 1)
+	[(0 1 2)
 	 ((emacs
-	   (24 4)))
+	   (26 1)))
 	 "Helpful Configuration Macro" tar
-	 ((:maintainer "Philip K." . "philipk@posteo.net")
+	 ((:url . "https://git.sr.ht/~zge/setup")
+	  (:maintainer "Philip K." . "philipk@posteo.net")
 	  (:authors
 	   ("Philip K." . "philipk@posteo.net"))
-	  (:keywords "lisp" "local")
-	  (:url . "https://elpa.gnu.org/packages/setup.html"))])
+	  (:keywords "lisp" "local"))])
  (shelisp .
 	  [(0 9 1)
 	   nil "execute elisp in shell" single
@@ -2369,7 +2369,7 @@
 	  ("Oleh Krehel" . "ohwoeowho@gmail.com"))
 	 (:keywords "convenience"))])
  (tramp .
-	[(2 5 0 2)
+	[(2 5 0 3)
 	 ((emacs
 	   (25 1)))
 	 "Transparent Remote Access, Multiple Protocol" tar
@@ -2506,7 +2506,7 @@
 	   ("Justin Burkett" . "justin@burkett.cc"))
 	  (:keywords "diff"))])
  (verilog-mode .
-	       [(2021 2 2 263931197)
+	       [(2021 3 30 243771231)
 		nil "major mode for editing verilog source in Emacs" tar
 		((:url . "https://www.veripool.org")
 		 (:maintainer "Michael McNamara" . "mac@verilog.com")
