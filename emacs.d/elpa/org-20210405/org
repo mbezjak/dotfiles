@@ -17083,7 +17083,7 @@ are passed to Emacs through the ‘emacsclient’ command, so you also need
 to ensure an Emacs server is running.  More precisely, when the
 application calls
 
-     emacsclient org-protocol://PROTOCOL?key1=val1&key2=val2
+     emacsclient "org-protocol://PROTOCOL?key1=val1&key2=val2"
 
 Emacs calls the handler associated to PROTOCOL with argument ‘(:key1
 val1 :key2 val2)’.
@@ -17108,7 +17108,7 @@ Using the ‘store-link’ handler, you can copy links, to that they can be
 inserted using ‘M-x org-insert-link’ or yanking.  More precisely, the
 command
 
-     emacsclient org-protocol://store-link?url=URL&title=TITLE
+     emacsclient "org-protocol://store-link?url=URL&title=TITLE"
 
 stores the following link:
 
@@ -17133,7 +17133,7 @@ File: org,  Node: The capture protocol,  Next: The open-source protocol,  Prev: 
 Activating the “capture” handler pops up a ‘Capture’ buffer in Emacs,
 using acapture template.
 
-     emacsclient org-protocol://capture?template=X?url=URL?title=TITLE?body=BODY
+     emacsclient "org-protocol://capture?template=X&url=URL&title=TITLE&body=BODY"
 
    To use this feature, add a bookmark with an arbitrary name, e.g.,
 ‘Org: capture’, and enter this as ‘Location’:
@@ -23211,50 +23211,50 @@ Node: Cooperation703484
 Node: Conflicts706371
 Node: TTY Keys710968
 Node: Protocols712565
-Node: The store-link protocol714019
-Node: The capture protocol714862
-Node: The open-source protocol716021
-Node: Org Crypt719253
-Node: Org Mobile720785
-Node: Setting up the staging area722136
-Ref: Setting up the staging area-Footnote-1723371
-Ref: Setting up the staging area-Footnote-2723578
-Node: Pushing to the mobile application723750
-Ref: Pushing to the mobile application-Footnote-1724756
-Ref: Pushing to the mobile application-Footnote-2724847
-Ref: Pushing to the mobile application-Footnote-3725214
-Node: Pulling from the mobile application725290
-Ref: Pulling from the mobile application-Footnote-1727598
-Node: Hacking727651
-Node: Hooks (2)728597
-Node: Add-on Packages728920
-Node: Adding Hyperlink Types729458
-Node: Adding Export Back-ends733048
-Node: Tables in Arbitrary Syntax734300
-Node: Radio tables735564
-Node: A LaTeX example737696
-Ref: A LaTeX example-Footnote-1741543
-Ref: A LaTeX example-Footnote-2741586
-Ref: A LaTeX example-Footnote-3741747
-Node: Translator functions742199
-Node: Dynamic Blocks744370
-Node: Special Agenda Views746611
-Ref: Special Agenda Views-Footnote-1750317
-Ref: Special Agenda Views-Footnote-2750524
-Node: Speeding Up Your Agendas750656
-Node: Extracting Agenda Information751710
-Node: Using the Property API755510
-Node: Using the Mapping API758860
-Node: History and Acknowledgments762891
-Ref: From Carsten763084
-Ref: From Bastien766515
-Ref: List of Contributions768647
-Node: GNU Free Documentation License776851
-Ref: ADDENDUM How to use this License for your documents800802
-Node: Main Index802195
-Node: Key Index898860
-Node: Command and Function Index955502
-Node: Variable Index1002397
+Node: The store-link protocol714021
+Node: The capture protocol714866
+Node: The open-source protocol716027
+Node: Org Crypt719259
+Node: Org Mobile720791
+Node: Setting up the staging area722142
+Ref: Setting up the staging area-Footnote-1723377
+Ref: Setting up the staging area-Footnote-2723584
+Node: Pushing to the mobile application723756
+Ref: Pushing to the mobile application-Footnote-1724762
+Ref: Pushing to the mobile application-Footnote-2724853
+Ref: Pushing to the mobile application-Footnote-3725220
+Node: Pulling from the mobile application725296
+Ref: Pulling from the mobile application-Footnote-1727604
+Node: Hacking727657
+Node: Hooks (2)728603
+Node: Add-on Packages728926
+Node: Adding Hyperlink Types729464
+Node: Adding Export Back-ends733054
+Node: Tables in Arbitrary Syntax734306
+Node: Radio tables735570
+Node: A LaTeX example737702
+Ref: A LaTeX example-Footnote-1741549
+Ref: A LaTeX example-Footnote-2741592
+Ref: A LaTeX example-Footnote-3741753
+Node: Translator functions742205
+Node: Dynamic Blocks744376
+Node: Special Agenda Views746617
+Ref: Special Agenda Views-Footnote-1750323
+Ref: Special Agenda Views-Footnote-2750530
+Node: Speeding Up Your Agendas750662
+Node: Extracting Agenda Information751716
+Node: Using the Property API755516
+Node: Using the Mapping API758866
+Node: History and Acknowledgments762897
+Ref: From Carsten763090
+Ref: From Bastien766521
+Ref: List of Contributions768653
+Node: GNU Free Documentation License776857
+Ref: ADDENDUM How to use this License for your documents800808
+Node: Main Index802201
+Node: Key Index898866
+Node: Command and Function Index955508
+Node: Variable Index1002403
 
 End Tag Table
 

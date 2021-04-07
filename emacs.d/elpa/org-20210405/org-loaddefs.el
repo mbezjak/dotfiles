@@ -3969,7 +3969,7 @@ The file is stored under the name chosen in
 
 ;;;***
 
-;;;### (autoloads nil "ox-latex" "ox-latex.el" "97566a33c9da382c16d3261ecd3c8b0c")
+;;;### (autoloads nil "ox-latex" "ox-latex.el" "71f528adfee88e1354c2616b732a933e")
 ;;; Generated autoloads from ox-latex.el
 
 (autoload 'org-latex-make-preamble "ox-latex" "\
@@ -4361,7 +4361,7 @@ the project.
 
 ;;;***
 
-;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "a0ab008018d3e053b81f06074812e264")
+;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "5592eec31971cde4804861895f8762b5")
 ;;; Generated autoloads from ox-texinfo.el
 
 (autoload 'org-texinfo-export-to-texinfo "ox-texinfo" "\
