@@ -291,6 +291,7 @@
          :map helm-map
          ("<tab>" . helm-execute-persistent-action)
          ("C-i" . helm-execute-persistent-action) ; make TAB work in terminal
+         ("<right>" . helm-execute-persistent-action)
          ("C-z" . helm-select-action)
          ("M-k" . helm-next-line)
          ("M-o" . helm-previous-line)
