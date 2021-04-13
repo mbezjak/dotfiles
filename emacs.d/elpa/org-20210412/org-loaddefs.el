@@ -2197,7 +2197,7 @@ if ARG is `toggle'; disable the mode otherwise.
 
 ;;;***
 
-;;;### (autoloads nil "org-macs" "org-macs.el" "b3bdd8cd35ef6e2c6cb68ae1b1fdfa58")
+;;;### (autoloads nil "org-macs" "org-macs.el" (0 0 0 0))
 ;;; Generated autoloads from org-macs.el
 
 (autoload 'org-load-noerror-mustsuffix "org-macs" "\
@@ -2205,20 +2205,28 @@ Load FILE with optional arguments NOERROR and MUSTSUFFIX.
 
 \(fn FILE)" nil t)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-macs" '("org-")))
+
 ;;;***
 
-;;;### (autoloads nil "org-mobile" "org-mobile.el" "707620486fe498c539d1ce68daf5500a")
+;;;### (autoloads nil "org-mobile" "org-mobile.el" (0 0 0 0))
 ;;; Generated autoloads from org-mobile.el
 
 (autoload 'org-mobile-push "org-mobile" "\
 Push the current state of Org affairs to the target directory.
 This will create the index file, copy all agenda files there, and also
-create all custom agenda views, for upload to the mobile phone." t nil)
+create all custom agenda views, for upload to the mobile phone.
+
+\(fn)" t nil)
 
 (autoload 'org-mobile-pull "org-mobile" "\
 Pull the contents of `org-mobile-capture-file' and integrate them.
 Apply all flagged actions, flag entries to be flagged and then call an
-agenda view showing the flagged items." t nil)
+agenda view showing the flagged items.
+
+\(fn)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-mobile" '("org-mobile-")))
 
 ;;;***
 
@@ -2229,7 +2237,7 @@ agenda view showing the flagged items." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "org-num" "org-num.el" "a685f7d11f639138ebe19dc0f815fb41")
+;;;### (autoloads nil "org-num" "org-num.el" (0 0 0 0))
 ;;; Generated autoloads from org-num.el
 
 (autoload 'org-num-default-format "org-num" "\
@@ -2241,12 +2249,14 @@ NUMBERING is a list of numbers.
 (autoload 'org-num-mode "org-num" "\
 Dynamic numbering of headlines in an Org buffer.
 
-If called interactively, enable Org-Num mode if ARG is positive,
-and disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it if
-ARG is `toggle'; disable the mode otherwise.
+If called interactively, enable Org-Num mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-num" '("org-num-")))
 
 ;;;***
 
@@ -2257,7 +2267,7 @@ ARG is `toggle'; disable the mode otherwise.
 
 ;;;***
 
-;;;### (autoloads nil "org-plot" "org-plot.el" "e15a096d7ccb96ba3135c3edd079bf0e")
+;;;### (autoloads nil "org-plot" "org-plot.el" (0 0 0 0))
 ;;; Generated autoloads from org-plot.el
 
 (autoload 'org-plot/gnuplot "org-plot" "\
@@ -2266,6 +2276,8 @@ If not given options will be taken from the +PLOT
 line directly before or after the table.
 
 \(fn &optional PARAMS)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-plot" '("org-plot")))
 
 ;;;***
 
@@ -3384,7 +3396,7 @@ Call the customize function with org as argument.
 
 ;;;***
 
-;;;### (autoloads nil "ox" "ox.el" "c50b70b9cee77ba5338e8569ecf42639")
+;;;### (autoloads nil "ox" "ox.el" "00233a0ed7d3ed979cf064b519f1df2a")
 ;;; Generated autoloads from ox.el
 
 (autoload 'org-export-get-backend "ox" "\
@@ -3969,7 +3981,7 @@ The file is stored under the name chosen in
 
 ;;;***
 
-;;;### (autoloads nil "ox-latex" "ox-latex.el" "71f528adfee88e1354c2616b732a933e")
+;;;### (autoloads nil "ox-latex" "ox-latex.el" "bc892d4d1624352bfe3baa6595befa3d")
 ;;; Generated autoloads from ox-latex.el
 
 (autoload 'org-latex-make-preamble "ox-latex" "\
@@ -4361,7 +4373,7 @@ the project.
 
 ;;;***
 
-;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "5592eec31971cde4804861895f8762b5")
+;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "30503a4ce2301ca27c721968420e2ab9")
 ;;; Generated autoloads from ox-texinfo.el
 
 (autoload 'org-texinfo-export-to-texinfo "ox-texinfo" "\
