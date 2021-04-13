@@ -175,6 +175,22 @@ Saves to a temp file and puts the filename in the kill ring."
   (let ((repo (f-dirname (buffer-file-name))))
     (call-process "thg" nil 0 nil "-R" repo)))
 
+(defun my-no-properties (p)
+  (set-text-properties 0 (length p) nil p)
+  p)
+
+(defun my-clojure-qualified-fn ()
+  (interactive)
+  (save-excursion
+    (end-of-defun)
+    (clojure-backward-logical-sexp 1)
+    (lispy-flow 1)
+    (let* ((ns (my-no-properties (cider-current-ns)))
+           (fn (cider-second-sexp-in-list))
+           (qfn (format "%s/%s" ns fn)))
+      (kill-new qfn)
+      (message "Copied to clipboard: %s" qfn))))
+
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
     (f-base file)))

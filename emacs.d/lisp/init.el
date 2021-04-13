@@ -515,6 +515,8 @@
 (use-package clojure-mode
   :ensure t
   :defer t
+  :bind (:map clojure-mode-map
+         (("M-c" . my-clojure-qualified-fn)))
   :config
   (use-package clj-refactor
     :ensure t
