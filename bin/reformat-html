@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+
+set -o errexit
+set -o pipefail
+
+function usage { echo "Usage: $(basename $0) FILE1 [FILE2...]"; }
+[[ -z "$1" ]] && usage && exit 1
+
+declare -r tmpfile=__a.html
+
+declare f
+for f in "$@"
+do
+    echo "Reformatting: $f"
+    pup --file "$f" > $tmpfile
+    cat <(echo "<!DOCTYPE html>") $tmpfile > "$f"
+    rm $tmpfile
+done
+
+exit 0
