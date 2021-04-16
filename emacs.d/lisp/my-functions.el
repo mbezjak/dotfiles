@@ -175,6 +175,11 @@ Saves to a temp file and puts the filename in the kill ring."
   (let ((repo (f-dirname (buffer-file-name))))
     (call-process "thg" nil 0 nil "-R" repo)))
 
+(defun my-git-mergetool ()
+  (interactive)
+  (let ((dir (projectile-project-root)))
+    (call-process "git" nil 0 nil "mergetool")))
+
 (defun my-no-properties (p)
   (set-text-properties 0 (length p) nil p)
   p)
