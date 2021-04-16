@@ -325,7 +325,7 @@
   :bind-keymap (("M-F" . projectile-command-map))
   :init
   (setq projectile-enable-caching t
-        projectile-indexing-method 'alien
+        projectile-indexing-method 'native
         projectile-hg-command "hg files -0 -I ."
         projectile-create-missing-test-files t)
   :config
