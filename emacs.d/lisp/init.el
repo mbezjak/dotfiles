@@ -285,7 +285,7 @@
          ("C-x C-i" . helm-semantic-or-imenu)
          ("M-f" . helm-swoop)
          ("C-x C-f" . helm-find-files)
-         ("M-S" . helm-projectile-ack)
+         ("M-S" . helm-projectile-rg)
          ("C-o" . helm-find-files)
          ("C-v" . helm-show-kill-ring)
          :map helm-map
