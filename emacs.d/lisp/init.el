@@ -516,7 +516,8 @@
   :ensure t
   :defer t
   :bind (:map clojure-mode-map
-         (("M-c" . my-clojure-qualified-fn)))
+         (("M-c" . my-clojure-copy-qualified-fn)
+          ("M-v" . my-clojure-copy-ns)))
   :config
   (use-package clj-refactor
     :ensure t

@@ -179,7 +179,7 @@ Saves to a temp file and puts the filename in the kill ring."
   (set-text-properties 0 (length p) nil p)
   p)
 
-(defun my-clojure-qualified-fn ()
+(defun my-clojure-copy-qualified-fn ()
   (interactive)
   (save-excursion
     (end-of-defun)
@@ -190,6 +190,12 @@ Saves to a temp file and puts the filename in the kill ring."
            (qfn (format "%s/%s" ns fn)))
       (kill-new qfn)
       (message "Copied to clipboard: %s" qfn))))
+
+(defun my-clojure-copy-ns ()
+  (interactive)
+  (let ((ns (my-no-properties (cider-current-ns))))
+    (kill-new ns)
+    (message "Copied to clipboard: %s" ns)))
 
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
