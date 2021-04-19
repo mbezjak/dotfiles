@@ -2237,7 +2237,7 @@ agenda view showing the flagged items.
 
 ;;;***
 
-;;;### (autoloads nil "org-num" "org-num.el" (0 0 0 0))
+;;;### (autoloads nil "org-num" "org-num.el" "a685f7d11f639138ebe19dc0f815fb41")
 ;;; Generated autoloads from org-num.el
 
 (autoload 'org-num-default-format "org-num" "\
@@ -2249,14 +2249,12 @@ NUMBERING is a list of numbers.
 (autoload 'org-num-mode "org-num" "\
 Dynamic numbering of headlines in an Org buffer.
 
-If called interactively, enable Org-Num mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
+If called interactively, enable Org-Num mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-num" '("org-num-")))
 
 ;;;***
 
@@ -2267,7 +2265,7 @@ if ARG is `toggle'; disable the mode otherwise.
 
 ;;;***
 
-;;;### (autoloads nil "org-plot" "org-plot.el" (0 0 0 0))
+;;;### (autoloads nil "org-plot" "org-plot.el" "e15a096d7ccb96ba3135c3edd079bf0e")
 ;;; Generated autoloads from org-plot.el
 
 (autoload 'org-plot/gnuplot "org-plot" "\
@@ -2276,8 +2274,6 @@ If not given options will be taken from the +PLOT
 line directly before or after the table.
 
 \(fn &optional PARAMS)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-plot" '("org-plot")))
 
 ;;;***
 
@@ -2353,7 +2349,7 @@ prefix argument (`C-u C-u C-u C-c C-w').
 
 ;;;***
 
-;;;### (autoloads nil "org-table" "org-table.el" "777e72a7dd9d0d7411fb1113e5ddb1bf")
+;;;### (autoloads nil "org-table" "org-table.el" "a7de5321defa38cf8d18ea3653a0492c")
 ;;; Generated autoloads from org-table.el
 
 (autoload 'org-table-header-line-mode "org-table" "\
@@ -4373,7 +4369,7 @@ the project.
 
 ;;;***
 
-;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "30503a4ce2301ca27c721968420e2ab9")
+;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "15d8669567ab429533dac698a9c10f38")
 ;;; Generated autoloads from ox-texinfo.el
 
 (autoload 'org-texinfo-export-to-texinfo "ox-texinfo" "\
