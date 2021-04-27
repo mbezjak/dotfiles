@@ -4,8 +4,8 @@
 ;; Copyright (C) 2013-2018  Shingo Fukuyama
 
 ;; Version: 3.0.0
-;; Package-Version: 20200814.448
-;; Package-Commit: 1f7d3cf0d742b199e4ce13fcb8b19c977a44611e
+;; Package-Version: 20210426.547
+;; Package-Commit: 1b3285791f1dc1fde548fe67aec07214d698fd57
 ;; Author: Shingo Fukuyama - http://fukuyama.co
 ;; URL: https://github.com/emacsorphanage/helm-swoop
 ;; Created: Oct 24 2013
@@ -811,7 +811,7 @@ If LINUM is number, lines are separated by LINUM."
       (isearch-exit))
     (helm-swoop :query query)))
 ;; When doing isearch, hand the word over to helm-swoop
-(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+;; (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
 ;; Receive word from evil search ---------------
 (defun helm-swoop-from-evil-search ()

@@ -2237,7 +2237,7 @@ agenda view showing the flagged items.
 
 ;;;***
 
-;;;### (autoloads nil "org-num" "org-num.el" "a685f7d11f639138ebe19dc0f815fb41")
+;;;### (autoloads nil "org-num" "org-num.el" (0 0 0 0))
 ;;; Generated autoloads from org-num.el
 
 (autoload 'org-num-default-format "org-num" "\
@@ -2249,12 +2249,14 @@ NUMBERING is a list of numbers.
 (autoload 'org-num-mode "org-num" "\
 Dynamic numbering of headlines in an Org buffer.
 
-If called interactively, enable Org-Num mode if ARG is positive,
-and disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it if
-ARG is `toggle'; disable the mode otherwise.
+If called interactively, enable Org-Num mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it
+if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-num" '("org-num-")))
 
 ;;;***
 
@@ -4369,7 +4371,7 @@ the project.
 
 ;;;***
 
-;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "15d8669567ab429533dac698a9c10f38")
+;;;### (autoloads nil "ox-texinfo" "ox-texinfo.el" "52b35d10a1e944c090cf65cf564249b7")
 ;;; Generated autoloads from ox-texinfo.el
 
 (autoload 'org-texinfo-export-to-texinfo "ox-texinfo" "\

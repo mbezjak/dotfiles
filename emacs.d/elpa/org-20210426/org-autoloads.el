@@ -1078,14 +1078,6 @@ Add a hook to automatically encrypt entries before a file is saved to disk." nil
 
 ;;;***
 
-;;;### (autoloads "actual autoloads are elsewhere" "org-num" "org-num.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from org-num.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-num" '("org-num-")))
-
-;;;***
-
 ;;;### (autoloads nil "org-pcomplete" "org-pcomplete.el" (0 0 0 0))
 ;;; Generated autoloads from org-pcomplete.el
 
