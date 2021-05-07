@@ -495,23 +495,6 @@
   ;; temporary to get accustom to lispy
   (advice-add 'delete-selection-pre-hook :around 'lispy--delsel-advice))
 
-(use-package parinfer
-  :ensure t
-  :disabled t
-  :hook ((clojure-mode . parinfer-mode)
-         (emacs-lisp-mode . parinfer-mode)
-         (common-lisp-mode . parinfer-mode)
-         (scheme-mode . parinfer-mode)
-         (lisp-mode . parinfer-mode))
-  :bind (("C-." . parinfer-toggle-mode))
-  :init
-  (setq parinfer-extensions
-        '(defaults
-           pretty-parens
-           lispy
-           smart-tab
-           smart-yank)))
-
 (use-package clojure-mode
   :ensure t
   :defer t
