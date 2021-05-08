@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "htmlize" "../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el"
-;;;;;;  "10b2c8cf1b8492673526480a72f2317a")
+;;;;;;  "a330af63f4f6950c4a65215ae69cb2eb")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el
 
 (autoload 'htmlize-buffer "htmlize" "\

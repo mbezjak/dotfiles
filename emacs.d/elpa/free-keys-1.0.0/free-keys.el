@@ -6,6 +6,7 @@
 ;; Maintainer: Matus Goljer <matus.goljer@gmail.com>
 ;; Version: 0.1
 ;; Package-Version: 1.0.0
+;; Package-Commit: edfd69dc369b2647447b7c28c7c1163b1ddf45b4
 ;; Created: 3rd November 2013
 ;; Keywords: convenience
 ;; Package-Requires: ((cl-lib "0.3"))

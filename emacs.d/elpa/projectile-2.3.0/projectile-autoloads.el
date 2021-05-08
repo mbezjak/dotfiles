@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "projectile" "projectile.el" (0 0 0 0))
-;;; Generated autoloads from projectile.el
+;;;### (autoloads nil "projectile" "../../../../../.emacs.d/elpa/projectile-2.3.0/projectile.el"
+;;;;;;  "c6c6ac9b3f90cc468748f99ea4b36f75")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/projectile-2.3.0/projectile.el
 
 (autoload 'projectile-version "projectile" "\
 Get the Projectile version as string.
@@ -574,8 +575,20 @@ Otherwise behave as if called interactively.
 \(fn &optional ARG)" t nil)
 
 (define-obsolete-function-alias 'projectile-global-mode 'projectile-mode "1.0")
+
+;;;### (autoloads "actual autoloads are elsewhere" "projectile" "../../../../../.emacs.d/elpa/projectile-2.3.0/projectile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/projectile-2.3.0/projectile.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "projectile" '("??" "compilation-find-file-projectile-find-compilation-buffer" "def-projectile-commander-method" "delete-file-projectile-remove-from-cache" "projectile-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/projectile-2.3.0/projectile-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/projectile-2.3.0/projectile.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

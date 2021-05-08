@@ -7,16 +7,14 @@
 
 
 ;;;### (autoloads nil "flycheck-rust" "../../../../../.emacs.d/elpa/flycheck-rust-1.1/flycheck-rust.el"
-;;;;;;  "7a2e207cc5efc8936d1bcbe114d8db94")
+;;;;;;  "f04d02a8b3bb205299786c1d278c67b9")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-rust-1.1/flycheck-rust.el
 
 (autoload 'flycheck-rust-setup "flycheck-rust" "\
 Setup Rust in Flycheck.
 
 If the current file is part of a Cargo project, configure
-Flycheck according to the Cargo project layout.
-
-\(fn)" t nil)
+Flycheck according to the Cargo project layout." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "flycheck-rust"
 ;;;;;;  "../../../../../.emacs.d/elpa/flycheck-rust-1.1/flycheck-rust.el"

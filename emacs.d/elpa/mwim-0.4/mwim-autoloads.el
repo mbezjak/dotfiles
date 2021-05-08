@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "mwim" "../../../../../.emacs.d/elpa/mwim-0.4/mwim.el"
-;;;;;;  "450553307449a2e4475df523b3e42b73")
+;;;;;;  "863b22b89c5f8332fc3a0246a3d64870")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/mwim-0.4/mwim.el
  (autoload 'mwim-beginning-of-line-or-code "mwim" nil t)
  (autoload 'mwim-beginning-of-code-or-line "mwim" nil t)

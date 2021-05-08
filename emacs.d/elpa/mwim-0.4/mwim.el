@@ -6,6 +6,7 @@
 ;; Created: 9 Jan 2015
 ;; Version: 0.4
 ;; Package-Version: 0.4
+;; Package-Commit: 462207227b98a6a4356d51419f5ad5ba9356e5cf
 ;; URL: https://github.com/alezost/mwim.el
 ;; Keywords: convenience
 

@@ -13,6 +13,11 @@
 (autoload 'cargo-minor-mode "cargo" "\
 Cargo minor mode. Used to hold keybindings for cargo-mode
 
+If called interactively, enable cargo minor mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "cargo" "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo.el"
@@ -32,37 +37,27 @@ Cargo minor mode. Used to hold keybindings for cargo-mode
 (autoload 'cargo-process-bench "cargo-process" "\
 Run the Cargo bench command.
 With the prefix argument, modify the command's invocation.
-Cargo: Run the benchmarks.
-
-\(fn)" t nil)
+Cargo: Run the benchmarks." t nil)
 
 (autoload 'cargo-process-build "cargo-process" "\
 Run the Cargo build command.
 With the prefix argument, modify the command's invocation.
-Cargo: Compile the current project.
-
-\(fn)" t nil)
+Cargo: Compile the current project." t nil)
 
 (autoload 'cargo-process-clean "cargo-process" "\
 Run the Cargo clean command.
 With the prefix argument, modify the command's invocation.
-Cargo: Remove the target directory.
-
-\(fn)" t nil)
+Cargo: Remove the target directory." t nil)
 
 (autoload 'cargo-process-doc "cargo-process" "\
 Run the Cargo doc command.
 With the prefix argument, modify the command's invocation.
-Cargo: Build this project's and its dependencies' documentation.
-
-\(fn)" t nil)
+Cargo: Build this project's and its dependencies' documentation." t nil)
 
 (autoload 'cargo-process-doc-open "cargo-process" "\
 Run the Cargo doc command with the --open switch.
 With the prefix argument, modify the command's invocation.
-Cargo: Open this project's documentation.
-
-\(fn)" t nil)
+Cargo: Open this project's documentation." t nil)
 
 (autoload 'cargo-process-new "cargo-process" "\
 Run the Cargo new command.
@@ -85,9 +80,7 @@ Cargo: Create a new cargo project in current directory.
 (autoload 'cargo-process-run "cargo-process" "\
 Run the Cargo run command.
 With the prefix argument, modify the command's invocation.
-Cargo: Build and execute src/main.rs.
-
-\(fn)" t nil)
+Cargo: Build and execute src/main.rs." t nil)
 
 (autoload 'cargo-process-run-bin "cargo-process" "\
 Run the Cargo run command --bin <name>.
@@ -114,58 +107,42 @@ Cargo: Search registry for crates.
 (autoload 'cargo-process-test "cargo-process" "\
 Run the Cargo test command.
 With the prefix argument, modify the command's invocation.
-Cargo: Run the tests.
-
-\(fn)" t nil)
+Cargo: Run the tests." t nil)
 
 (autoload 'cargo-process-current-test "cargo-process" "\
 Run the Cargo test command for the current test.
 With the prefix argument, modify the command's invocation.
-Cargo: Run the tests.
-
-\(fn)" t nil)
+Cargo: Run the tests." t nil)
 
 (autoload 'cargo-process-current-file-tests "cargo-process" "\
 Run the Cargo test command for the current file.
 With the prefix argument, modify the command's invocation.
-Cargo: Run the tests.
-
-\(fn)" t nil)
+Cargo: Run the tests." t nil)
 
 (autoload 'cargo-process-update "cargo-process" "\
 Run the Cargo update command.
 With the prefix argument, modify the command's invocation.
-Cargo: Update dependencies listed in Cargo.lock.
-
-\(fn)" t nil)
+Cargo: Update dependencies listed in Cargo.lock." t nil)
 
 (autoload 'cargo-process-fmt "cargo-process" "\
 Run the Cargo fmt command.
 With the prefix argument, modify the command's invocation.
-Requires Cargo Fmt to be installed.
-
-\(fn)" t nil)
+Requires Cargo Fmt to be installed." t nil)
 
 (autoload 'cargo-process-check "cargo-process" "\
 Run the Cargo check command.
 With the prefix argument, modify the command's invocation.
 Cargo: Check compile the current project.
-Requires cargo-check to be installed.
-
-\(fn)" t nil)
+Requires cargo-check to be installed." t nil)
 
 (autoload 'cargo-process-clippy "cargo-process" "\
 Run the Cargo clippy command.
 With the prefix argument, modify the command's invocation.
 Cargo: Clippy compile the current project.
-Requires Cargo clippy to be installed.
-
-\(fn)" t nil)
+Requires Cargo clippy to be installed." t nil)
 
 (autoload 'cargo-process-repeat "cargo-process" "\
-Run the last cargo-process command.
-
-\(fn)" t nil)
+Run the last cargo-process command." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "cargo-process"
 ;;;;;;  "../../../../../.emacs.d/elpa/cargo-0.4.1/cargo-process.el"

@@ -72,7 +72,7 @@ result of `defhydra'.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/hydra-0.15.0/hydra.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hydra" '("hydra-" "defhydra")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "hydra" '("defhydra" "hydra-")))
 
 ;;;***
 

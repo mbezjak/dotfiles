@@ -3,6 +3,7 @@
 ;; Author: Philippe Vaucher <philippe.vaucher@gmail.com>
 ;; URL: https://github.com/Silex/elmacro
 ;; Package-Version: 1.1.1
+;; Package-Commit: 5bf9ba6009226b95e5ba0f50489ccced475753e3
 ;; Keywords: macro, elisp, convenience
 ;; Version: 1.1.1
 ;; Package-Requires: ((s "1.11.0") (dash "2.13.0"))

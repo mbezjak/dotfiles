@@ -6,6 +6,7 @@
 ;; Author: Mickey Petersen <mickey@masteringemacs.org>
 ;; Keywords:
 ;; Package-Version: 0.3
+;; Package-Commit: a61781e69d3b451551e269446e1c5f624ab81137
 ;; Version: 0.3
 ;; Package-Requires: ((cl-lib "0.2"))
 

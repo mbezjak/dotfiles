@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "go-mode" "../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el"
-;;;;;;  "de0fd3bcb8592e123f3b3b4657e1bc5e")
+;;;;;;  "153b0808a60acb4bae253aa2ad9766e1")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el
 
 (autoload 'go-mode "go-mode" "\
@@ -82,9 +82,7 @@ Add this to .emacs to run gofmt on the current buffer when saving:
 \(add-hook 'before-save-hook 'gofmt-before-save).
 
 Note that this will cause ‘go-mode’ to get loaded the first time
-you save any file, kind of defeating the point of autoloading.
-
-\(fn)" t nil)
+you save any file, kind of defeating the point of autoloading." t nil)
 
 (autoload 'godoc "go-mode" "\
 Show Go documentation for QUERY, much like \\<go-mode-map>\\[man].
@@ -101,7 +99,7 @@ Tries to look for a URL at point.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-mode" '("gofmt" "god" "go-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-mode" '("go-" "god" "gofmt")))
 
 ;;;***
 

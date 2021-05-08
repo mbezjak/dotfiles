@@ -8,6 +8,7 @@
 ;;     Sebastian Wiesner <swiesner@lunaryorn.com>
 ;; Version: 0.9
 ;; Package-Version: 0.9
+;; Package-Commit: fd906d3f92d58ecf24169055744409886ceb06ce
 ;; Package-Requires: ((cl-lib "0.3"))
 ;; Keywords: convenience
 ;; URL: http://github.com/cask/epl

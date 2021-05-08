@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "pkg-info" "../../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el"
-;;;;;;  "a0ede30a59fcaaa109bcc70302e4ef0a")
+;;;;;;  "cf3a3d64ea505287a190bfb062177cc1")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el
 
 (autoload 'pkg-info-library-original-version "pkg-info" "\

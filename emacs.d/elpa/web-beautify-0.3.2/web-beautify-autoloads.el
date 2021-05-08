@@ -7,44 +7,32 @@
 
 
 ;;;### (autoloads nil "web-beautify" "../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el"
-;;;;;;  "ad666d4c475eb360da32cfc6809b8d9b")
+;;;;;;  "96a37ff1b0b4aa5cdc4c7e37c0f82896")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el
 
 (autoload 'web-beautify-html "web-beautify" "\
 Format region if active, otherwise the current buffer.
 
-Formatting is done according to the html-beautify command.
-
-\(fn)" t nil)
+Formatting is done according to the html-beautify command." t nil)
 
 (autoload 'web-beautify-html-buffer "web-beautify" "\
-Format the current buffer according to the html-beautify command.
-
-\(fn)" nil nil)
+Format the current buffer according to the html-beautify command." nil nil)
 
 (autoload 'web-beautify-css "web-beautify" "\
 Format region if active, otherwise the current buffer.
 
-Formatting is done according to the css-beautify command.
-
-\(fn)" t nil)
+Formatting is done according to the css-beautify command." t nil)
 
 (autoload 'web-beautify-css-buffer "web-beautify" "\
-Format the current buffer according to the css-beautify command.
-
-\(fn)" nil nil)
+Format the current buffer according to the css-beautify command." nil nil)
 
 (autoload 'web-beautify-js "web-beautify" "\
 Format region if active, otherwise the current buffer.
 
-Formatting is done according to the js-beautify command.
-
-\(fn)" t nil)
+Formatting is done according to the js-beautify command." t nil)
 
 (autoload 'web-beautify-js-buffer "web-beautify" "\
-Format the current buffer according to the js-beautify command.
-
-\(fn)" nil nil)
+Format the current buffer according to the js-beautify command." nil nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "web-beautify"
 ;;;;;;  "../../../../../.emacs.d/elpa/web-beautify-0.3.2/web-beautify.el"

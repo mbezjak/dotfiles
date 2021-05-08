@@ -7,13 +7,11 @@
 
 
 ;;;### (autoloads nil "json-snatcher" "../../../../../.emacs.d/elpa/json-snatcher-1.0.0/json-snatcher.el"
-;;;;;;  "fb03c5862fe333e30cebd46e4826d41a")
+;;;;;;  "4581378e59cba3b420aeeda38152d51c")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/json-snatcher-1.0.0/json-snatcher.el
 
 (autoload 'jsons-print-path "json-snatcher" "\
-Print the path to the JSON value under point, and save it in the kill ring.
-
-\(fn)" t nil)
+Print the path to the JSON value under point, and save it in the kill ring." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "json-snatcher"
 ;;;;;;  "../../../../../.emacs.d/elpa/json-snatcher-1.0.0/json-snatcher.el"

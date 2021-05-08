@@ -25,6 +25,7 @@
 ;; Created: 16 May 2002
 ;; Version: 1.7.3
 ;; Package-Version: 1.7.3
+;; Package-Commit: 16a63aae80db90713fb1f7d378c5d591c2ce15ff
 ;; Keywords: convenience, matching
 ;; URL: https://github.com/emacs-evil/goto-chg
 ;;

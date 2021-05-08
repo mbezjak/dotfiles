@@ -5,6 +5,7 @@
 ;; Author: Phil Hagelberg, Cornelius Mika
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/IdleHighlight
 ;; Package-Version: 1.1.3
+;; Package-Commit: c466f2a9e291f9da1167dc879577b2e1a7880482
 ;; Version: 1.1.3
 ;; Created: 2008-05-13
 ;; Keywords: convenience

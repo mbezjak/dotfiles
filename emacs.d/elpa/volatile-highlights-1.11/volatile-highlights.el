@@ -7,6 +7,7 @@
 ;;          14 March   2010. (re-written as library `volatile-highlights.el')
 ;; Keywords: emulations convenience wp
 ;; Package-Version: 1.11
+;; Package-Commit: fb2abc2d4d4051a9a6b7c8de2fe7564161f01f24
 ;; Revision: $Id: 33de1bedfdf66672608de0f2b6c88655e15a5cd7 $
 ;; URL: http://www.emacswiki.org/emacs/download/volatile-highlights.el
 ;; GitHub: http://github.com/k-talo/volatile-highlights.el

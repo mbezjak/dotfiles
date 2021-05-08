@@ -7,13 +7,11 @@
 
 
 ;;;### (autoloads nil "toggle-quotes" "../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el"
-;;;;;;  "6fbb24dc5507e9ddd86ebb09eb9aaea6")
+;;;;;;  "75928c9a792aea712f9722830019dad1")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el
 
 (autoload 'toggle-quotes "toggle-quotes" "\
-Toggle between single quotes and double quotes.
-
-\(fn)" t nil)
+Toggle between single quotes and double quotes." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "toggle-quotes"
 ;;;;;;  "../../../../../.emacs.d/elpa/toggle-quotes-20140710.926/toggle-quotes.el"

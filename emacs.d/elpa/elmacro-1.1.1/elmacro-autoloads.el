@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "elmacro" "../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el"
-;;;;;;  "d29a51e47b3eb418da654d790c707f08")
+;;;;;;  "1911338f67f33be9884f167c7897f695")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/elmacro-1.1.1/elmacro.el
 
 (autoload 'elmacro-show-last-macro "elmacro" "\
@@ -30,9 +30,7 @@ in the minibuffer.
 \(fn &optional COUNT)" t nil)
 
 (autoload 'elmacro-clear-command-history "elmacro" "\
-Clear the list of recorded commands.
-
-\(fn)" t nil)
+Clear the list of recorded commands." t nil)
 
 (defvar elmacro-mode nil "\
 Non-nil if elmacro mode is enabled.

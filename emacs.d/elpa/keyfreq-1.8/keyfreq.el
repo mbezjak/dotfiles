@@ -1,5 +1,6 @@
 ;;; keyfreq.el --- track command frequencies
 ;; Package-Version: 1.8
+;; Package-Commit: f3a96693e2e4c6893198a0223e3f3c648ae09cec
 ;; -*- coding: utf-8 -*-
 ;;
 ;; Copyright 2009-2010, 2015 by David Capello

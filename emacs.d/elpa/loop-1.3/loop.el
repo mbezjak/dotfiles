@@ -5,6 +5,7 @@
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; Version: 1.3
 ;; Package-Version: 1.3
+;; Package-Commit: c3598bd3ad0677f66e061b3ba51a05d05275283e
 ;; Keywords: loop, while, for each, break, continue
 
 ;; This program is free software; you can redistribute it and/or modify

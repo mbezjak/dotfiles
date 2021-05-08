@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "log4e" "../../../../../.emacs.d/elpa/log4e-0.3.3/log4e.el"
-;;;;;;  "a2a98caf31392b8c601b193541be1da6")
+;;;;;;  "1ece5ab43b684600f8362ee97703f884")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/log4e-0.3.3/log4e.el
 
 (autoload 'log4e-mode "log4e" "\
@@ -19,9 +19,7 @@ Major mode for browsing a buffer made by log4e.
 \(fn)" t nil)
 
 (autoload 'log4e:insert-start-log-quickly "log4e" "\
-Insert logging statment for trace level log at start of current function/macro.
-
-\(fn)" t nil)
+Insert logging statment for trace level log at start of current function/macro." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "log4e" "../../../../../.emacs.d/elpa/log4e-0.3.3/log4e.el"
 ;;;;;;  (0 0 0 0))

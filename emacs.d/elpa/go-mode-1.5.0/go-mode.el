@@ -9,6 +9,7 @@
 ;; Author: The go-mode Authors
 ;; Version: 1.5.0
 ;; Package-Version: 1.5.0
+;; Package-Commit: 35f6826e435c3004dabf134d0f2ae2f31ea7b6a2
 ;; Keywords: languages go
 ;; URL: https://github.com/dominikh/go-mode.el
 ;;

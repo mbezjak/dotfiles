@@ -5,6 +5,7 @@
 ;; Author: Taylor R. Campbell
 ;; Version: 24
 ;; Package-Version: 24
+;; Package-Commit: 82bb75ceb2ddc272d6618d94874b7fc13181a409
 ;; Created: 2005-07-31
 ;; Keywords: lisp
 

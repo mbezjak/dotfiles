@@ -5,6 +5,7 @@
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-git-messenger
 ;; Package-Version: 0.18
+;; Package-Commit: 9297464c010dd8a2d584ac8e012876856655a8b5
 ;; Version: 0.18
 ;; Package-Requires: ((emacs "24.3") (popup "0.5.0"))
 

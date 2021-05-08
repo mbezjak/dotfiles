@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "gntp" "../../../../../.emacs.d/elpa/gntp-0.1/gntp.el"
-;;;;;;  "ce440d83152f1bd1458403792451d514")
+;;;;;;  "fa10022ff0c6621ab8a6c769044da206")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/gntp-0.1/gntp.el
 
 (autoload 'gntp-notify "gntp" "\

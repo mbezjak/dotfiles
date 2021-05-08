@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "discover-my-major" "../../../../../.emacs.d/elpa/discover-my-major-1.0/discover-my-major.el"
-;;;;;;  "16346a008dde48469e2f6872e2874d0e")
+;;;;;;  "a6784a08e496ff6b253976c3fee1c59c")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/discover-my-major-1.0/discover-my-major.el
 
 (autoload 'discover-my-major "discover-my-major" "\

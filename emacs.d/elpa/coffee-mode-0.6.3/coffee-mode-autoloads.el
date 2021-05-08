@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "coffee-mode" "../../../../../.emacs.d/elpa/coffee-mode-0.6.3/coffee-mode.el"
-;;;;;;  "a18a319aa20f0762ea09c939ba113848")
+;;;;;;  "ff73c5f213ab9ec44fd029de545227f2")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/coffee-mode-0.6.3/coffee-mode.el
 
 (autoload 'coffee-mode "coffee-mode" "\

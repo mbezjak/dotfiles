@@ -5,6 +5,7 @@
 ;; Author: Josh Johnston
 ;; URL: https://github.com/joshwnj/json-mode
 ;; Package-Version: 1.7.0
+;; Package-Commit: 9ba01b868a6b138feeff82b9eb0abd331d29325f
 ;; Version: 1.6.0
 ;; Package-Requires: ((json-reformat "0.0.5") (json-snatcher "1.0.0"))
 

@@ -5,6 +5,7 @@
 ;; Author: Hrvoje Niksic <hniksic@gmail.com>
 ;; Keywords: hypermedia, extensions
 ;; Package-Version: 1.55
+;; Package-Commit: 682edbf751f5c255bfd4af0eb714a8bce0737cec
 ;; Version: 1.55
 
 ;; This program is free software; you can redistribute it and/or modify

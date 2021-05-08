@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "super-save" "../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el"
-;;;;;;  "e55b09aabd94ecee8e86d50d66971fa4")
+;;;;;;  "fdbe0abd2310966bc76e45a288b7f63a")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/super-save-0.3.0/super-save.el
 
 (defvar super-save-mode nil "\
@@ -22,6 +22,11 @@ or call the function `super-save-mode'.")
 
 (autoload 'super-save-mode "super-save" "\
 A minor mode that saves your Emacs buffers when they lose focus.
+
+If called interactively, enable Super-Save mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 

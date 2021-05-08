@@ -11,9 +11,7 @@
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck.el
 
 (autoload 'flycheck-manual "flycheck" "\
-Open the Flycheck manual.
-
-\(fn)" t nil)
+Open the Flycheck manual." t nil)
 
 (autoload 'flycheck-mode "flycheck" "\
 Minor mode for on-the-fly syntax checking.
@@ -34,6 +32,8 @@ buffer manually.
 \\{flycheck-mode-map}
 
 \(fn &optional ARG)" t nil)
+
+(put 'global-flycheck-mode 'globalized-minor-mode t)
 
 (defvar global-flycheck-mode nil "\
 Non-nil if Global Flycheck mode is enabled.
@@ -232,7 +232,7 @@ Use this together with the `option', `option-list' and
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("flycheck-" "list-flycheck-errors" "locate-rebar3-project-root" "contains-rebar-config" "help-flycheck-checker-d" "read-flycheck-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("contains-rebar-config" "flycheck-" "help-flycheck-checker-d" "list-flycheck-errors" "locate-rebar3-project-root" "read-flycheck-")))
 
 ;;;***
 

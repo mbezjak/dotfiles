@@ -7,13 +7,11 @@
 
 
 ;;;### (autoloads nil "try" "../../../../../.emacs.d/elpa/try-0.0.1/try.el"
-;;;;;;  "521c136f89cf89f1a4e4fb8fabbb0149")
+;;;;;;  "ca61da9bb2f451e9e34a08e48a6cdf57")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/try-0.0.1/try.el
 
 (autoload 'try-and-refresh "try" "\
-Refreshes package-list before calling `try'.
-
-\(fn)" t nil)
+Refreshes package-list before calling `try'." t nil)
 
 (autoload 'try "try" "\
 Try out a package from your `package-archives' or pass a URL

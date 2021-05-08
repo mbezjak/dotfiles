@@ -6,6 +6,7 @@
 ;; Maintainer: Martin Yrjölä <martin.yrjola@gmail.com>
 ;; URL: <https://github.com/myrjola/diminish.el>
 ;; Package-Version: 0.45
+;; Package-Commit: 0211de96b7cfba9c9dc8d2d392dbd4ccdb22bc65
 ;; Created: Th 19 Feb 98
 ;; Version: 0.45
 ;; Keywords: extensions, diminish, minor, codeprose

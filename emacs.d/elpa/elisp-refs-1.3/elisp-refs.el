@@ -5,6 +5,7 @@
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; Version: 1.3
 ;; Package-Version: 1.3
+;; Package-Commit: 0b6fcdee29d8156ef37477f4e128a148e295c62b
 ;; Keywords: lisp
 ;; Package-Requires: ((dash "2.12.0") (loop "1.2") (s "1.11.0"))
 

@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "markdown-mode" "markdown-mode.el" (0 0 0 0))
-;;; Generated autoloads from markdown-mode.el
+;;;### (autoloads nil "markdown-mode" "../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode.el"
+;;;;;;  "f04061eb8a7b8a1465800927fab7ebe0")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode" "\
 Major mode for editing Markdown files.
@@ -34,9 +35,27 @@ Major mode for viewing GitHub Flavored Markdown content.
 (autoload 'markdown-live-preview-mode "markdown-mode" "\
 Toggle native previewing on save for a specific markdown file.
 
-\(fn &optional ARG)" t nil)
+If called interactively, enable Markdown-Live-Preview mode if ARG
+is positive, and disable it if ARG is zero or negative.  If
+called from Lisp, also enable the mode if ARG is omitted or nil,
+and toggle it if ARG is `toggle'; disable the mode otherwise.
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "markdown-mode" '("gfm-" "markdown" "defun-markdown-")))
+\(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "markdown-mode"
+;;;;;;  "../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "markdown-mode" '("defun-markdown-" "gfm-" "markdown")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/markdown-mode-2.4/markdown-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

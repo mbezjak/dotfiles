@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "alert" "../../../../../.emacs.d/elpa/alert-1.3/alert.el"
-;;;;;;  "47cad835340f01b694ba46485f63faf7")
+;;;;;;  "41f983438fe7ed18bfb62b5e602deaab")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/alert-1.3/alert.el
 
 (autoload 'alert-add-rule "alert" "\

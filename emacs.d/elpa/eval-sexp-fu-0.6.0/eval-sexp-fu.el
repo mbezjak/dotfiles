@@ -4,6 +4,7 @@
 ;; Author: Takeshi Banse <takebi@laafc.net>
 ;; Version: 0.6.0
 ;; Package-Version: 0.6.0
+;; Package-Commit: 36d2fe3bcf602e15ca10a7f487da103515ef391a
 ;; Keywords: lisp, highlight, convenience
 ;; Package-Requires: ((cl-lib "0"))
 

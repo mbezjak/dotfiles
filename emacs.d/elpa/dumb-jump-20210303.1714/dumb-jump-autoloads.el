@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "dumb-jump" "dumb-jump.el" (0 0 0 0))
-;;; Generated autoloads from dumb-jump.el
+;;;### (autoloads nil "dumb-jump" "../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump.el"
+;;;;;;  "9e667d94b02c801626078304a222bba1")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump.el
 
 (defvar dumb-jump-mode-map (let ((map (make-sparse-keymap))) (define-key map (kbd "C-M-g") 'dumb-jump-go) (define-key map (kbd "C-M-p") 'dumb-jump-back) (define-key map (kbd "C-M-q") 'dumb-jump-quick-look) map))
 
@@ -63,8 +64,20 @@ Add this function to `xref-backend-functions' to dumb jump to be
 activiated, whenever it finds a project. It is recommended to add
 it to the end, so that it only gets activated when no better
 option is found." nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "dumb-jump" "../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dumb-jump" '("dumb-jump-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/dumb-jump-20210303.1714/dumb-jump.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

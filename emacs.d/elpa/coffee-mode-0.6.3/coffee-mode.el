@@ -4,6 +4,7 @@
 
 ;; Version: 0.6.3
 ;; Package-Version: 0.6.3
+;; Package-Commit: adfb7ae73d6ee2ef790c780dd3c967e62930e94a
 ;; Keywords: CoffeeScript major mode
 ;; Author: Chris Wanstrath <chris@ozmm.org>
 ;; URL: http://github.com/defunkt/coffee-mode

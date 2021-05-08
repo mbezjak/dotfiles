@@ -5,6 +5,7 @@
 ;; Author: Yasuyuki Oka <yasuyk@gmail.com>
 ;; Version: 0.3.2
 ;; Package-Version: 0.3.2
+;; Package-Commit: aa95055224c24f38736716809fec487cd817c38d
 ;; URL: https://github.com/yasuyk/web-beautify
 
 ;; This program is free software; you can redistribute it and/or modify

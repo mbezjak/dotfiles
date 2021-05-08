@@ -7,43 +7,29 @@
 
 
 ;;;### (autoloads nil "move-text" "../../../../../.emacs.d/elpa/move-text-2.0.8/move-text.el"
-;;;;;;  "25be74a41f6e2735af76540d4cb059a2")
+;;;;;;  "04e35bf5fdfa1d65a2a4ad9a102fd12f")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/move-text-2.0.8/move-text.el
 
 (autoload 'move-text--total-lines "move-text" "\
-Convenience function to get the total lines in the buffer / or narrowed buffer.
-
-\(fn)" nil nil)
+Convenience function to get the total lines in the buffer / or narrowed buffer." nil nil)
 
 (autoload 'move-text--at-first-line-p "move-text" "\
-Predicate, is the point at the first line?
-
-\(fn)" nil nil)
+Predicate, is the point at the first line?" nil nil)
 
 (autoload 'move-text--at-penultimate-line-p "move-text" "\
-Predicate, is the point at the penultimate line?
-
-\(fn)" nil nil)
+Predicate, is the point at the penultimate line?" nil nil)
 
 (autoload 'move-text--last-line-is-just-newline "move-text" "\
-Predicate, is last line just a newline?
-
-\(fn)" nil nil)
+Predicate, is last line just a newline?" nil nil)
 
 (autoload 'move-text--at-last-line-p "move-text" "\
-Predicate, is the point at the last line?
-
-\(fn)" nil nil)
+Predicate, is the point at the last line?" nil nil)
 
 (autoload 'move-text-line-up "move-text" "\
-Move the current line up.
-
-\(fn)" t nil)
+Move the current line up." t nil)
 
 (autoload 'move-text-line-down "move-text" "\
-Move the current line down.
-
-\(fn)" t nil)
+Move the current line down." t nil)
 
 (autoload 'move-text-region "move-text" "\
 Move the current region (START END) up or down by N lines.
@@ -71,9 +57,7 @@ Move the line or region (START END) down by N lines.
 \(fn &optional START END N)" t nil)
 
 (autoload 'move-text-default-bindings "move-text" "\
-Use default bindings for move-text-up and move-text-down (M-up / M-down).
-
-\(fn)" t nil)
+Use default bindings for move-text-up and move-text-down (M-up / M-down)." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "move-text" "../../../../../.emacs.d/elpa/move-text-2.0.8/move-text.el"
 ;;;;;;  (0 0 0 0))

@@ -11,7 +11,7 @@
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/volatile-highlights-1.11/volatile-highlights.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "volatile-highlights" '("vhl/" "Vhl/highlight-zero-width-ranges")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "volatile-highlights" '("Vhl/highlight-zero-width-ranges" "vhl/")))
 
 ;;;***
 

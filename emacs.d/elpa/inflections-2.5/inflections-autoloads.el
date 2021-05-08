@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "inflections" "../../../../../.emacs.d/elpa/inflections-2.5/inflections.el"
-;;;;;;  "d585373f013205a7e55294422fea20e7")
+;;;;;;  "d242c75dc36e7a1dd72fd10d677d9f08")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/inflections-2.5/inflections.el
 
 (autoload 'inflection-singularize-string "inflections" "\
@@ -29,7 +29,7 @@ Return the pluralized version of STR.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/inflections-2.5/inflections.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "inflections" '("inflection-" "define-inflectors")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "inflections" '("define-inflectors" "inflection-")))
 
 ;;;***
 

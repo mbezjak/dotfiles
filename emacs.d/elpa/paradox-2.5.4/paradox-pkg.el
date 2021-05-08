@@ -4,12 +4,12 @@
     (let-alist "1.0.3")
     (spinner "1.7.3")
     (hydra "0.13.2"))
-  :keywords
-  '("package" "packages")
-  :authors
+  :commit "d24fe4a329a939ffa1983886d77a6937e05149e4" :authors
   '(("Artur Malabarba" . "emacs@endlessparentheses.com"))
   :maintainer
   '("Artur Malabarba" . "emacs@endlessparentheses.com")
+  :keywords
+  '("package" "packages")
   :url "https://github.com/Malabarba/paradox")
 ;; Local Variables:
 ;; no-byte-compile: t

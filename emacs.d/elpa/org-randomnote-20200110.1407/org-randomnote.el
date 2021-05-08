@@ -5,6 +5,7 @@
 ;; Author: Michael Fogleman <michaelwfogleman@gmail.com>
 ;; URL: http://github.com/mwfogleman/org-randomnote
 ;; Package-Version: 20200110.1407
+;; Package-Commit: ea8cf4385970637efffff8f79e14576ba6d7ad13
 ;; Version: 0.1.0
 ;; Package-Requires: ((f "0.19.0") (dash "2.12.0") org)
 

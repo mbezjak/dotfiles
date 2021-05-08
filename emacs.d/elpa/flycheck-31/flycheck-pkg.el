@@ -4,12 +4,12 @@
     (let-alist "1.0.4")
     (seq "1.11")
     (emacs "24.3"))
-  :keywords
-  '("convenience" "languages" "tools")
-  :authors
+  :commit "401b115d10e202a1b31f57340438420081af21ce" :authors
   '(("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
   :maintainer
   '("Clément Pit-Claudel" . "clement.pitclaudel@live.com")
+  :keywords
+  '("convenience" "languages" "tools")
   :url "http://www.flycheck.org")
 ;; Local Variables:
 ;; no-byte-compile: t

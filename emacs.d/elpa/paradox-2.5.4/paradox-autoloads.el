@@ -46,9 +46,7 @@ not prevent downloading the actual packages (obviously).
 \(fn &optional NO-FETCH)" t nil)
 
 (autoload 'paradox-enable "paradox" "\
-Enable paradox, overriding the default package-menu.
-
-\(fn)" t nil)
+Enable paradox, overriding the default package-menu." t nil)
 
 (autoload 'paradox-require "paradox" "\
 Like `require', but also install FEATURE if it is absent.

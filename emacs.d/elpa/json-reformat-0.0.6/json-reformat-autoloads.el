@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "json-reformat" "../../../../../.emacs.d/elpa/json-reformat-0.0.6/json-reformat.el"
-;;;;;;  "72e9d079a877cd0a027a386e95192f43")
+;;;;;;  "32fcdfb6fc91bf0a8ea41201cc719414")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/json-reformat-0.0.6/json-reformat.el
 
 (autoload 'json-reformat-region "json-reformat" "\

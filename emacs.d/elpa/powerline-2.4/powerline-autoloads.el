@@ -72,24 +72,16 @@ Return empty space using FACE and leaving RESERVE space on the right.
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/powerline-2.4/powerline-themes.el
 
 (autoload 'powerline-default-theme "powerline-themes" "\
-Setup the default mode-line.
-
-\(fn)" t nil)
+Setup the default mode-line." t nil)
 
 (autoload 'powerline-center-theme "powerline-themes" "\
-Setup a mode-line with major and minor modes centered.
-
-\(fn)" t nil)
+Setup a mode-line with major and minor modes centered." t nil)
 
 (autoload 'powerline-vim-theme "powerline-themes" "\
-Setup a Vim-like mode-line.
-
-\(fn)" t nil)
+Setup a Vim-like mode-line." t nil)
 
 (autoload 'powerline-nano-theme "powerline-themes" "\
-Setup a nano-like mode-line.
-
-\(fn)" t nil)
+Setup a nano-like mode-line." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "powerline-themes"
 ;;;;;;  "../../../../../.emacs.d/elpa/powerline-2.4/powerline-themes.el"

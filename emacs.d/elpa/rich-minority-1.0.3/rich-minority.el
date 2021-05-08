@@ -5,6 +5,7 @@
 ;; Author: Artur Malabarba <emacs@endlessparentheses.com>
 ;; URL: https://github.com/Malabarba/rich-minority
 ;; Package-Version: 1.0.3
+;; Package-Commit: d33d2e357c8eb0b38624dbc51e8b953b08b0cc98
 ;; Package-Requires: ((cl-lib "0.5"))
 ;; Version: 1.0.3
 ;; License: GNU General Public License v3 or newer

@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "makey" "../../../../../.emacs.d/elpa/makey-0.3/makey.el"
-;;;;;;  "efccbb6ac4e8ddec1a35151e8ba162cd")
+;;;;;;  "0e988c0baae8e9575533f35a06e04fe1")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/makey-0.3/makey.el
 
 (autoload 'makey-initialize-key-groups "makey" "\

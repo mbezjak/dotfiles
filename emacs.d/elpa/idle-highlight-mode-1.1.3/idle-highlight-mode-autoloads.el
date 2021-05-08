@@ -7,11 +7,16 @@
 
 
 ;;;### (autoloads nil "idle-highlight-mode" "../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el"
-;;;;;;  "c1c59c674ef5ee0915591cb7b7f098b9")
+;;;;;;  "814af111a19e1a92b8115b712335de63")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/idle-highlight-mode-1.1.3/idle-highlight-mode.el
 
 (autoload 'idle-highlight-mode "idle-highlight-mode" "\
 Idle-Highlight Minor Mode
+
+If called interactively, enable Idle-Highlight mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 

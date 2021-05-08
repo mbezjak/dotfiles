@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "helm-descbinds" "../../../../../.emacs.d/elpa/helm-descbinds-1.13/helm-descbinds.el"
-;;;;;;  "6c876885c1d25bbb36e1b0de03a35bea")
+;;;;;;  "c1a328c74549928ccbc1f2c26784e2de")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-descbinds-1.13/helm-descbinds.el
 
 (defvar helm-descbinds-mode nil "\
@@ -23,17 +23,18 @@ or call the function `helm-descbinds-mode'.")
 (autoload 'helm-descbinds-mode "helm-descbinds" "\
 Use `helm' for `describe-bindings'.
 
+If called interactively, enable Helm-Descbinds mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (autoload 'helm-descbinds-install "helm-descbinds" "\
-Use `helm-descbinds' as a replacement of `describe-bindings'.
-
-\(fn)" t nil)
+Use `helm-descbinds' as a replacement of `describe-bindings'." t nil)
 
 (autoload 'helm-descbinds-uninstall "helm-descbinds" "\
-Restore original `describe-bindings'.
-
-\(fn)" t nil)
+Restore original `describe-bindings'." t nil)
 
 (autoload 'helm-descbinds "helm-descbinds" "\
 A convenient helm version of `describe-bindings'.

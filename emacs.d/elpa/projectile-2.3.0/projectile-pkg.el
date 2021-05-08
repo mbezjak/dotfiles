@@ -1,2 +1,2 @@
-;;; Generated package description from /Users/miro/.emacs.d/elpa/projectile-2.3.0/projectile.el  -*- no-byte-compile: t -*-
-(define-package "projectile" "2.3.0" "Manage and navigate projects in Emacs easily" '((emacs "25.1") (pkg-info "0.4")) :stars nil :commit "18f694931f0afe8b33e34731914e8bae81107b55" :authors '(("Bozhidar Batsov" . "bozhidar@batsov.com")) :maintainer '("Bozhidar Batsov" . "bozhidar@batsov.com") :keywords '("project" "convenience") :url "https://github.com/bbatsov/projectile")
+;;; Generated package description from projectile.el  -*- no-byte-compile: t -*-
+(define-package "projectile" "2.3.0" "Manage and navigate projects in Emacs easily" '((emacs "25.1") (pkg-info "0.4")) :commit "18f694931f0afe8b33e34731914e8bae81107b55" :authors '(("Bozhidar Batsov" . "bozhidar@batsov.com")) :maintainer '("Bozhidar Batsov" . "bozhidar@batsov.com") :keywords '("project" "convenience") :url "https://github.com/bbatsov/projectile")

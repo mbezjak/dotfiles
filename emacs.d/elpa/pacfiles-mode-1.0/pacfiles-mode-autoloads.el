@@ -22,14 +22,10 @@
 (defalias 'pacfiles 'pacfiles-start)
 
 (autoload 'pacfiles-start "pacfiles-mode" "\
-Find and manage pacman backup files in an Arch-based GNU/Linux system.
-
-\(fn)" t nil)
+Find and manage pacman backup files in an Arch-based GNU/Linux system." t nil)
 
 (autoload 'pacfiles-revert-buffer-no-confirm "pacfiles-mode" "\
-Revert the pacfiles list buffer without asking for confirmation.
-
-\(fn)" t nil)
+Revert the pacfiles list buffer without asking for confirmation." t nil)
 
 (autoload 'pacfiles-mode "pacfiles-mode" "\
 

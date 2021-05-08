@@ -178,33 +178,23 @@ Customize THEME (a symbol) with FACES.
 (function-put 'doom-themes-set-faces 'lisp-indent-function 'defun)
 
 (autoload 'doom-themes-org-config "doom-themes" "\
-Enable custom fontification and improves doom-themes integration with org-mode.
-
-\(fn)" nil nil)
+Enable custom fontification and improves doom-themes integration with org-mode." nil nil)
 
 (autoload 'doom-themes-neotree-config "doom-themes" "\
 Install doom-themes' neotree configuration.
 
-Includes an Atom-esque icon theme and highlighting based on filetype.
-
-\(fn)" nil nil)
+Includes an Atom-esque icon theme and highlighting based on filetype." nil nil)
 
 (autoload 'doom-themes-treemacs-config "doom-themes" "\
 Install doom-themes' treemacs configuration.
 
-Includes an Atom-esque icon theme and highlighting based on filetype.
-
-\(fn)" nil nil)
+Includes an Atom-esque icon theme and highlighting based on filetype." nil nil)
 
 (autoload 'doom-themes-visual-bell-config "doom-themes" "\
-Enable flashing the mode-line on error.
-
-\(fn)" nil nil)
+Enable flashing the mode-line on error." nil nil)
 
 (autoload 'doom-themes-visual-bell-fn "doom-themes" "\
-Blink the mode-line red briefly. Set `ring-bell-function' to this to use it.
-
-\(fn)" nil nil)
+Blink the mode-line red briefly. Set `ring-bell-function' to this to use it." nil nil)
 
 (when (and (boundp 'custom-theme-load-path) load-file-name) (let* ((base (file-name-directory load-file-name)) (dir (expand-file-name "themes/" base))) (add-to-list 'custom-theme-load-path (or (and (file-directory-p dir) dir) base))))
 
@@ -213,7 +203,7 @@ Blink the mode-line red briefly. Set `ring-bell-function' to this to use it.
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/doom-themes-2.1.6/doom-themes.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doom-themes" '("doom-themes-" "def-doom-theme")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doom-themes" '("def-doom-theme" "doom-themes-")))
 
 ;;;***
 

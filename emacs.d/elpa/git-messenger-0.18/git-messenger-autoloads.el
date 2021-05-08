@@ -6,15 +6,26 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "git-messenger" "git-messenger.el" (0 0 0 0))
-;;; Generated autoloads from git-messenger.el
+;;;### (autoloads nil "git-messenger" "../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger.el"
+;;;;;;  "50add23355fbf33b070bec12bd401b24")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger.el
 
-(autoload 'git-messenger:popup-message "git-messenger" "\
-
-
-\(fn)" t nil)
+(autoload 'git-messenger:popup-message "git-messenger" nil t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "git-messenger"
+;;;;;;  "../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "git-messenger" '("git-messenger")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/git-messenger-0.18/git-messenger.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

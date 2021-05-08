@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "clj-refactor" "clj-refactor.el" (0 0 0 0))
-;;; Generated autoloads from clj-refactor.el
+;;;### (autoloads nil "clj-refactor" "../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor.el"
+;;;;;;  "53c96090ef522b90367f835bdb8e0109")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor.el
 
 (autoload 'cljr-add-keybindings-with-prefix "clj-refactor" "\
 Bind keys in `cljr--all-helpers' under a PREFIX key.
@@ -290,12 +291,22 @@ toggle it if ARG is `toggle'; disable the mode otherwise.
 \\{clj-refactor-map}
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "clj-refactor"
+;;;;;;  "../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "clj-refactor" '("*cljr--noninteractive*" "cjr--occurrence-count" "clj" "hydra-cljr-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("clj-refactor-compat.el" "clj-refactor-pkg.el")
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor-compat.el"
+;;;;;;  "../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/clj-refactor-2.5.1/clj-refactor.el")
 ;;;;;;  (0 0 0 0))
 
 ;;;***

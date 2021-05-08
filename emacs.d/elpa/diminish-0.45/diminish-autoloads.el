@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "diminish" "../../../../../.emacs.d/elpa/diminish-0.45/diminish.el"
-;;;;;;  "7a4fcc5b8d062d840f8123a52b35e44a")
+;;;;;;  "5ca2c047dc61579856de68b5606251d6")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/diminish-0.45/diminish.el
 
 (autoload 'diminish "diminish" "\
@@ -46,9 +46,7 @@ Echo all active diminished or minor modes as if they were minor.
 The display goes in the echo area; if it's too long even for that,
 you can see the whole thing in the *Messages* buffer.
 This doesn't change the status of any modes; it just lets you see
-what diminished modes would be on the mode-line if they were still minor.
-
-\(fn)" t nil)
+what diminished modes would be on the mode-line if they were still minor." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "diminish" "../../../../../.emacs.d/elpa/diminish-0.45/diminish.el"
 ;;;;;;  (0 0 0 0))

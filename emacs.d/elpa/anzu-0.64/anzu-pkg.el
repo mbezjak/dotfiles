@@ -1,2 +1,2 @@
-;;; Generated package description from /Users/miro/.emacs.d/elpa/anzu-0.64/anzu.el  -*- no-byte-compile: t -*-
-(define-package "anzu" "0.64" "Show number of matches in mode-line while searching" '((emacs "25.1")) :stars nil :commit "bdb3da5028935a4aea55c40769bc191a81afb54e" :authors '(("Syohei YOSHIDA" . "syohex@gmail.com")) :maintainer '("Neil Okamoto" . "neil.okamoto+melpa@gmail.com") :url "https://github.com/emacsorphanage/anzu")
+;;; Generated package description from anzu.el  -*- no-byte-compile: t -*-
+(define-package "anzu" "0.64" "Show number of matches in mode-line while searching" '((emacs "25.1")) :commit "bdb3da5028935a4aea55c40769bc191a81afb54e" :authors '(("Syohei YOSHIDA" . "syohex@gmail.com")) :maintainer '("Neil Okamoto" . "neil.okamoto+melpa@gmail.com") :url "https://github.com/emacsorphanage/anzu")

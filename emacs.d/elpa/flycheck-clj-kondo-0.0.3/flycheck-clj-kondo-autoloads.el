@@ -6,11 +6,18 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "flycheck-clj-kondo" "flycheck-clj-kondo.el"
+;;;### (autoloads "actual autoloads are elsewhere" "flycheck-clj-kondo"
+;;;;;;  "../../../../../.emacs.d/elpa/flycheck-clj-kondo-0.0.3/flycheck-clj-kondo.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from flycheck-clj-kondo.el
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-clj-kondo-0.0.3/flycheck-clj-kondo.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-clj-kondo" '("flycheck-clj-kondo-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/flycheck-clj-kondo-0.0.3/flycheck-clj-kondo-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/flycheck-clj-kondo-0.0.3/flycheck-clj-kondo.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

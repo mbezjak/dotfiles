@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "keyfreq" "../../../../../.emacs.d/elpa/keyfreq-1.8/keyfreq.el"
-;;;;;;  "db86e1936234fe5bde5411f6c3b8773c")
+;;;;;;  "75241678914b205c563357f8aa758b62")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/keyfreq-1.8/keyfreq.el
 
 (defvar keyfreq-mode nil "\
@@ -24,6 +24,11 @@ or call the function `keyfreq-mode'.")
 Keyfreq mode records number of times each command was
 called making it possible to access usage statistics through
 various keyfreq-* functions.
+
+If called interactively, enable Keyfreq mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -42,12 +47,15 @@ Keyfreq Autosave mode automatically saves
 `keyfreq-table' every `keyfreq-autosave-timeout' seconds
 and when emacs is killed.
 
+If called interactively, enable Keyfreq-Autosave mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (autoload 'keyfreq-save-now "keyfreq" "\
-Save keyfreq data now.
-
-\(fn)" t nil)
+Save keyfreq data now." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "keyfreq" "../../../../../.emacs.d/elpa/keyfreq-1.8/keyfreq.el"
 ;;;;;;  (0 0 0 0))

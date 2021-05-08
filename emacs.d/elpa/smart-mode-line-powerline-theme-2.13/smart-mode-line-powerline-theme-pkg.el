@@ -2,12 +2,12 @@
   '((emacs "24.3")
     (powerline "2.2")
     (smart-mode-line "2.5"))
-  :keywords
-  '("mode-line" "faces" "themes")
-  :authors
+  :commit "9a6d821e0c78361ab35c6e403fc582b76558a1a7" :authors
   '(("Artur Malabarba" . "bruce.connor.am@gmail.com"))
   :maintainer
   '("Artur Malabarba" . "bruce.connor.am@gmail.com")
+  :keywords
+  '("mode-line" "faces" "themes")
   :url "http://github.com/Bruce-Connor/smart-mode-line")
 ;; Local Variables:
 ;; no-byte-compile: t

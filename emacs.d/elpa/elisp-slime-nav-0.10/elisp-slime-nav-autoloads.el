@@ -7,11 +7,16 @@
 
 
 ;;;### (autoloads nil "elisp-slime-nav" "../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el"
-;;;;;;  "d137eafd1033b1fa67f2ac98f12c2e8f")
+;;;;;;  "a2e3a3b37e16eb4774d24516dc668313")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/elisp-slime-nav-0.10/elisp-slime-nav.el
 
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav" "\
 Enable Slime-style navigation of elisp symbols using M-. and M-,
+
+If called interactively, enable Elisp-Slime-Nav mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 

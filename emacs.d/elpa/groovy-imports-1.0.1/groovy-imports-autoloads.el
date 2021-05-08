@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "groovy-imports" "groovy-imports.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from groovy-imports.el
+;;;### (autoloads nil "groovy-imports" "../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports.el"
+;;;;;;  "56e32eb6e91341278f88de2c4cd2b3ea")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports.el
 
 (autoload 'groovy-imports-scan-file "groovy-imports" "\
 Scan a groovy-mode buffer, adding any import class -> package
@@ -42,8 +42,21 @@ Add an import statement for the class at point. If no class is
 found, prompt for the class name. If the class's package already
 exists in the cache, add it and return, otherwise prompt for the
 package and cache it for future statements." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "groovy-imports"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "groovy-imports" '("groovy-imports-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-imports-1.0.1/groovy-imports.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

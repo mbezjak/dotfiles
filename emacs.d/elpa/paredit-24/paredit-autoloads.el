@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "paredit" "../../../../../.emacs.d/elpa/paredit-24/paredit.el"
-;;;;;;  "e9221310135d56e38c5c96446b13d2a1")
+;;;;;;  "ea7b054f7b30b9f83fec0cd05f2c990d")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/paredit-24/paredit.el
 
 (autoload 'paredit-mode "paredit" "\
@@ -19,18 +19,21 @@ Paredit behaves badly if parentheses are unbalanced, so exercise
   fixing unbalanced parentheses instead.
 \\<paredit-mode-map>
 
+If called interactively, enable Paredit mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (autoload 'enable-paredit-mode "paredit" "\
-Turn on pseudo-structural editing of Lisp code.
-
-\(fn)" t nil)
+Turn on pseudo-structural editing of Lisp code." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "paredit" "../../../../../.emacs.d/elpa/paredit-24/paredit.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/paredit-24/paredit.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "paredit" '("paredit-" "?\\" "disable-paredit-mode")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "paredit" '("?\\" "disable-paredit-mode" "paredit-")))
 
 ;;;***
 

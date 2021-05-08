@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "psession" "../../../../../.emacs.d/elpa/psession-1.5/psession.el"
-;;;;;;  "be3aa2f3d674e61b77471e393af19f19")
+;;;;;;  "24c444f444ffe200b0a128814c5d6444")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/psession-1.5/psession.el
 
 (autoload 'psession-save-winconf "psession" "\
@@ -40,6 +40,11 @@ or call the function `psession-savehist-mode'.")
 (autoload 'psession-savehist-mode "psession" "\
 Save minibuffer-history variables persistently.
 
+If called interactively, enable Psession-Savehist mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (defvar psession-autosave-mode nil "\
@@ -55,6 +60,11 @@ or call the function `psession-autosave-mode'.")
 (autoload 'psession-autosave-mode "psession" "\
 Auto save emacs session when enabled.
 
+If called interactively, enable Psession-Autosave mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (defvar psession-mode nil "\
@@ -69,6 +79,11 @@ or call the function `psession-mode'.")
 
 (autoload 'psession-mode "psession" "\
 Persistent emacs sessions.
+
+If called interactively, enable Psession mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 

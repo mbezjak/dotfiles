@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "json-mode" "../../../../../.emacs.d/elpa/json-mode-1.7.0/json-mode.el"
-;;;;;;  "6d2f2f41ff0b68df8c4c52ee1992fd2d")
+;;;;;;  "64ddf467438a1744e0e11eaf7f58341b")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/json-mode-1.7.0/json-mode.el
 
 (autoload 'json-mode "json-mode" "\
@@ -17,15 +17,10 @@ Major mode for editing JSON files
 
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 
-(autoload 'json-mode-show-path "json-mode" "\
-
-
-\(fn)" t nil)
+(autoload 'json-mode-show-path "json-mode" nil t nil)
 
 (autoload 'json-mode-beautify "json-mode" "\
-Beautify / pretty-print the active region (or the entire buffer if no active region).
-
-\(fn)" t nil)
+Beautify / pretty-print the active region (or the entire buffer if no active region)." t nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "json-mode" "../../../../../.emacs.d/elpa/json-mode-1.7.0/json-mode.el"
 ;;;;;;  (0 0 0 0))

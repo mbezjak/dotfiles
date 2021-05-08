@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "goto-chg" "../../../../../.emacs.d/elpa/goto-chg-1.7.3/goto-chg.el"
-;;;;;;  "d5dcaa9fefe286b9fe8717e351e0c8a9")
+;;;;;;  "5bd029affea739456edb4d81ff8996e7")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/goto-chg-1.7.3/goto-chg.el
 
 (autoload 'goto-last-change "goto-chg" "\

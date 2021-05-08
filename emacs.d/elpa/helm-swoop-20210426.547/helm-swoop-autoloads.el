@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "helm-swoop" "helm-swoop.el" (0 0 0 0))
-;;; Generated autoloads from helm-swoop.el
+;;;### (autoloads nil "helm-swoop" "../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop.el"
+;;;;;;  "5ae9c6f56646328d13a0f97357eb2970")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop.el
 
 (autoload 'helm-swoop-back-to-last-point "helm-swoop" "\
 Go back to last position where `helm-swoop' was called.
@@ -67,8 +68,20 @@ Start helm-swoop without pre input query." t nil)
 
 (autoload 'helm-multi-swoop-edit "helm-swoop" "\
 Multi swoop edit." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "helm-swoop" "../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-swoop" '("get-buffers-matching-mode" "helm-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-swoop-20210426.547/helm-swoop.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

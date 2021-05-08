@@ -7,7 +7,7 @@
 
 
 ;;;### (autoloads nil "git-commit" "../../../../../.emacs.d/elpa/git-commit-2.90.1/git-commit.el"
-;;;;;;  "812bf4a13989a75400ea4083150aa51c")
+;;;;;;  "8ad2869ef22a0bb4060e0a09f67caa45")
 ;;; Generated autoloads from ../../../../../.emacs.d/elpa/git-commit-2.90.1/git-commit.el
 
 (defvar global-git-commit-mode t "\
@@ -27,19 +27,18 @@ when a Git commit message file is opened.  That usually happens
 when Git uses the Emacsclient as $GIT_EDITOR to have the user
 provide such a commit message.
 
+If called interactively, enable Global Git-Commit mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
 
 (defconst git-commit-filename-regexp "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'")
 
-(autoload 'git-commit-setup-check-buffer "git-commit" "\
+(autoload 'git-commit-setup-check-buffer "git-commit" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'git-commit-setup "git-commit" "\
-
-
-\(fn)" nil nil)
+(autoload 'git-commit-setup "git-commit" nil nil nil)
 
 ;;;### (autoloads "actual autoloads are elsewhere" "git-commit" "../../../../../.emacs.d/elpa/git-commit-2.90.1/git-commit.el"
 ;;;;;;  (0 0 0 0))
