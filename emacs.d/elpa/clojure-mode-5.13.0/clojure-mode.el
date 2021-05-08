@@ -1,18 +1,19 @@
 ;;; clojure-mode.el --- Major mode for Clojure code -*- lexical-binding: t; -*-
 
-;; Copyright © 2007-2020 Jeffrey Chu, Lennart Staflin, Phil Hagelberg
-;; Copyright © 2013-2020 Bozhidar Batsov, Artur Malabarba
+;; Copyright © 2007-2013 Jeffrey Chu, Lennart Staflin, Phil Hagelberg
+;; Copyright © 2013-2021 Bozhidar Batsov, Artur Malabarba
 ;;
 ;; Authors: Jeffrey Chu <jochu0@gmail.com>
 ;;       Lennart Staflin <lenst@lysator.liu.se>
 ;;       Phil Hagelberg <technomancy@gmail.com>
 ;;       Bozhidar Batsov <bozhidar@batsov.com>
 ;;       Artur Malabarba <bruce.connor.am@gmail.com>
+;; Maintainer: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Package-Version: 5.12.0
-;; Package-Commit: 3dc12d3a54ab17dee2db36c8fc48eb9598a17c5e
+;; Package-Version: 5.13.0
+;; Package-Commit: 0e886656c83e6e8771f748ec698bb173adcb0968
 ;; Keywords: languages clojure clojurescript lisp
-;; Version: 5.12.0
+;; Version: 5.13.0
 ;; Package-Requires: ((emacs "25.1"))
 
 ;; This file is not part of GNU Emacs.
@@ -72,7 +73,6 @@
 (require 'align)
 (require 'subr-x)
 (require 'lisp-mnt)
-(require 'project)
 
 (declare-function lisp-fill-paragraph  "lisp-mode" (&optional justify))
 
@@ -248,6 +248,10 @@ Out-of-the box `clojure-mode' understands lein, boot, gradle,
     (define-key map (kbd "s b") #'clojure-let-backward-slurp-sexp)
     (define-key map (kbd "C-a") #'clojure-add-arity)
     (define-key map (kbd "a") #'clojure-add-arity)
+    (define-key map (kbd "-") #'clojure-toggle-ignore)
+    (define-key map (kbd "C--") #'clojure-toggle-ignore)
+    (define-key map (kbd "_") #'clojure-toggle-ignore-surrounding-form)
+    (define-key map (kbd "C-_") #'clojure-toggle-ignore-surrounding-form)
     map)
   "Keymap for Clojure refactoring commands.")
 (fset 'clojure-refactor-map clojure-refactor-map)
@@ -266,6 +270,8 @@ Out-of-the box `clojure-mode' understands lein, boot, gradle,
         ["Cycle if, if-not" clojure-cycle-if]
         ["Cycle when, when-not" clojure-cycle-when]
         ["Cycle not" clojure-cycle-not]
+        ["Toggle #_ ignore form" clojure-toggle-ignore]
+        ["Toggle #_ ignore of surrounding form" clojure-toggle-ignore-surrounding-form]
         ["Add function arity" clojure-add-arity]
         ("ns forms"
          ["Insert ns form at the top" clojure-insert-ns-form]
@@ -295,7 +301,6 @@ Out-of-the box `clojure-mode' understands lein, boot, gradle,
          ["View a Clojure guide" clojure-view-guide]
          ["View a Clojure reference section" clojure-view-reference-section]
          ["View the Clojure cheatsheet" clojure-view-cheatsheet]
-         ["View the Clojure Grimoire" clojure-view-grimoire]
          ["View the Clojure style guide" clojure-view-style-guide])
         "--"
         ["Report a clojure-mode bug" clojure-mode-report-bug]
@@ -438,14 +443,6 @@ The command will prompt you to select one of the available sections."
   (interactive)
   (browse-url clojure-cheatsheet-url))
 
-(defconst clojure-grimoire-url "https://www.conj.io/"
-  "The URL of the Grimoire community documentation site.")
-
-(defun clojure-view-grimoire ()
-  "Open the Clojure Grimoire in your default browser."
-  (interactive)
-  (browse-url clojure-grimoire-url))
-
 (defconst clojure-style-guide-url "https://guide.clojure.style"
   "The URL of the Clojure style guide.")
 
@@ -480,7 +477,7 @@ val} as of Clojure 1.9.")
 (declare-function paredit-close-curly "ext:paredit" t t)
 (declare-function paredit-convolute-sexp "ext:paredit")
 
-(defun clojure--replace-let-bindings-and-indent ()
+(defun clojure--replace-let-bindings-and-indent (&rest _)
   "Replace let bindings and indent."
   (save-excursion
     (backward-sexp)
@@ -560,9 +557,7 @@ replacement for `cljr-expand-let`."
                                        (beginning-of-line-text)
                                        (eq (get-text-property (point) 'face)
                                            'font-lock-doc-face)))
-                                'do-indent)))
-  ;; integration with project.el
-  (add-hook 'project-find-functions #'clojure-current-project))
+                                'do-indent))))
 
 (defcustom clojure-verify-major-mode t
   "If non-nil, warn when activating the wrong `major-mode'."
@@ -808,8 +803,6 @@ any number of matches of `clojure--sym-forbidden-rest-chars'."))
                 "\\(\\sw+\\)?" )
        (1 font-lock-keyword-face)
        (2 font-lock-function-name-face nil t))
-      ;; lambda arguments - %, %&, %1, %2, etc
-      ("\\<%[&1-9]?" (0 font-lock-variable-name-face))
       ;; Special forms
       (,(concat
          "("
@@ -869,14 +862,16 @@ any number of matches of `clojure--sym-forbidden-rest-chars'."))
          "\\>")
        0 font-lock-constant-face)
       ;; Character literals - \1, \a, \newline, \u0000
-      (,(rx "\\" (or any
-                    "newline" "space" "tab" "formfeed" "backspace"
-                    "return"
-                    (: "u" (= 4 (char "0-9a-fA-F")))
-                    (: "o" (repeat 1 3 (char "0-7"))))
-            word-boundary)
-       0 'clojure-character-face)
-
+      (,(rx (group "\\" (or any
+                            "newline" "space" "tab" "formfeed" "backspace"
+                            "return"
+                            (: "u" (= 4 (char "0-9a-fA-F")))
+                            (: "o" (repeat 1 3 (char "0-7")))))
+            (or (not word) word-boundary))
+       1 'clojure-character-face)
+      ;; lambda arguments - %, %&, %1, %2, etc
+      ;; must come after character literals for \% to be handled properly
+      ("\\<%[&1-9]?" (0 font-lock-variable-name-face))
       ;; namespace definitions: (ns foo.bar)
       (,(concat "(\\<ns\\>[ \r\n\t]*"
                 ;; Possibly metadata, shorthand and/or longhand
@@ -1148,6 +1143,13 @@ will align the values like this:
   :package-version '(clojure-mode . "5.1")
   :safe #'listp
   :type '(repeat string))
+
+(defcustom clojure-special-arg-indent-factor
+  2
+  "Factor of the 'lisp-body-indent' used to indent special arguments."
+  :package-version '(clojure-mode . "5.13")
+  :type 'integer
+  :safe 'integerp)
 
 (defvar clojure--beginning-of-reader-conditional-regexp
   "#\\?@(\\|#\\?("
@@ -1474,7 +1476,7 @@ the indentation.
 
 The property value can be
 
-- `defun', meaning indent `defun'-style;
+- `:defn', meaning indent `defn'-style;
 - an integer N, meaning indent the first N arguments specially
   like ordinary function arguments and then indent any further
   arguments like a body;
@@ -1495,7 +1497,7 @@ This function also returns nil meaning don't specify the indentation."
           (last-sexp calculate-lisp-indent-last-sexp)
           (containing-form-column (1- (current-column))))
       (pcase method
-        ((or (pred integerp) `(,method))
+        ((or (and (pred integerp) method) `(,method))
          (let ((pos -1))
            (condition-case nil
                (while (and (<= (point) indent-point)
@@ -1516,7 +1518,8 @@ This function also returns nil meaning don't specify the indentation."
              (clojure--normal-indent last-sexp 'always-align))
             ;; Special arg. Rigidly indent with a large indentation.
             (t
-             (+ (* 2 lisp-body-indent) containing-form-column)))))
+             (+ (* clojure-special-arg-indent-factor lisp-body-indent)
+                containing-form-column)))))
         (`:defn
          (+ lisp-body-indent containing-form-column))
         ((pred functionp)
@@ -1661,17 +1664,11 @@ If REGEX is non-nil, return the position of the # that begins the
 regex at point.  If point is not inside a string or regex, return
 nil."
   (when (nth 3 (syntax-ppss)) ;; Are we really in a string?
-    (save-excursion
-      (save-match-data
-        ;; Find a quote that appears immediately after whitespace,
-        ;; beginning of line, hash, or an open paren, brace, or bracket
-        (re-search-backward "\\(\\s-\\|^\\|#\\|(\\|\\[\\|{\\)\\(\"\\)")
-        (let ((beg (match-beginning 2)))
-          (when beg
-            (if regex
-                (and (char-before beg) (eq ?# (char-before beg)) (1- beg))
-              (when (not (eq ?# (char-before beg)))
-                beg))))))))
+    (let* ((beg (nth 8 (syntax-ppss)))
+           (hash (eq ?# (char-before beg))))
+      (if regex
+          (and hash (1- beg))
+        (and (not hash) beg)))))
 
 (defun clojure-char-at-point ()
   "Return the char at point or nil if at buffer end."
@@ -1735,16 +1732,6 @@ are cached in a buffer local variable (`clojure-cached-project-dir')."
       (setq clojure-cached-project-dir project-dir))
     project-dir))
 
-(defun clojure-current-project (&optional dir-name)
-  "Return the current project as a cons cell usable by project.el.
-
-Call is delegated down to `clojure-project-dir' with
-optional DIR-NAME as argument."
-  (let ((project-dir (clojure-project-dir dir-name)))
-    (if project-dir
-        (cons 'clojure project-dir)
-      nil)))
-
 (defun clojure-project-root-path (&optional dir-name)
   "Return the absolute path to the project's root directory.
 
@@ -1757,10 +1744,6 @@ Return nil if not inside a project."
                                 clojure-build-tool-files))))
     (when (> (length choices) 0)
       (car (sort choices #'file-in-directory-p)))))
-
-;; project.el integration
-(cl-defmethod project-roots ((project (head clojure)))
-  (list (cdr project)))
 
 (defun clojure-project-relative-path (path)
   "Denormalize PATH by making it relative to the project root."
@@ -1854,7 +1837,6 @@ content) are considered part of the preceding sexp."
   (if (clojure-find-ns)
       (save-excursion
         (goto-char (match-beginning 0))
-        (redisplay)
         (let ((beg (point))
               (ns))
           (forward-sexp 1)
@@ -1869,10 +1851,7 @@ content) are considered part of the preceding sexp."
           (goto-char beg)
           (if (looking-at (regexp-quote ns))
               (message "ns form is already sorted")
-            (sleep-for 0.1)
-            (redisplay)
-            (message "ns form has been sorted")
-            (sleep-for 0.1))))
+            (message "ns form has been sorted"))))
     (user-error "Can't find ns form")))
 
 (defconst clojure-namespace-name-regex
@@ -2687,38 +2666,6 @@ lists up."
     (insert sexp)
     (clojure--replace-sexps-with-bindings-and-indent)))
 
-(defun clojure-collect-ns-aliases (ns-form)
-  "Collect all namespace aliases in NS-FORM."
-  (with-temp-buffer
-    (delay-mode-hooks
-      (clojure-mode)
-      (insert ns-form)
-      (goto-char (point-min))
-      (let ((end (point-max))
-            (rgx (rx ":as" (+ space)
-                     (group-n 1 (+ (not (in " ,]\n"))))))
-            (res ()))
-        (while (re-search-forward rgx end 'noerror)
-          (unless (or (clojure--in-string-p) (clojure--in-comment-p))
-            (push (match-string-no-properties 1) res)))
-        res))))
-
-(defun clojure--rename-ns-alias-internal (current-alias new-alias)
-  "Rename a namespace alias CURRENT-ALIAS to NEW-ALIAS."
-  (clojure--find-ns-in-direction 'backward)
-  (let ((rgx (concat ":as +" (regexp-quote current-alias) "\\_>"))
-        (bound (save-excursion (forward-list 1) (point))))
-    (when (search-forward-regexp rgx bound t)
-      (replace-match (concat ":as " new-alias))
-      (save-excursion
-        (while (re-search-forward (concat (regexp-quote current-alias) "/") nil t)
-          (when (not (nth 3 (syntax-ppss)))
-            (replace-match (concat new-alias "/")))))
-      (save-excursion
-        (while (re-search-forward (concat "#::" (regexp-quote current-alias) "{") nil t)
-          (replace-match (concat "#::" new-alias "{"))))
-      (message "Successfully renamed alias '%s' to '%s'" current-alias new-alias))))
-
 ;;;###autoload
 (defun clojure-let-backward-slurp-sexp (&optional n)
   "Slurp the s-expression before the let form into the let form.
@@ -2762,21 +2709,84 @@ With a numeric prefix argument the let is introduced N lists up."
   (interactive)
   (clojure--move-to-let-internal (read-from-minibuffer "Name of bound symbol: ")))
 
+
+;;; Renaming ns aliases
+
+(defun clojure--alias-usage-regexp (alias)
+  "Regexp for matching usages of ALIAS in qualified symbols, keywords and maps.
+When nil, match all namespace usages.
+The first match-group is the alias."
+  (let ((alias (if alias (regexp-quote alias) clojure--sym-regexp)))
+    (concat "#::\\(?1:" alias "\\)[ ,\r\n\t]*{"
+            "\\|"
+            "\\_<\\(?1:" alias "\\)/")))
+
+(defun clojure--rename-ns-alias-usages (current-alias new-alias beg end)
+  "Rename all usages of CURRENT-ALIAS in region BEG to END with NEW-ALIAS."
+  (let ((rgx (clojure--alias-usage-regexp current-alias)))
+    (save-mark-and-excursion
+      (goto-char end)
+      (setq end (point-marker))
+      (goto-char beg)
+      (while (re-search-forward rgx end 'noerror)
+        (when (not (clojure--in-string-p)) ;; replace in comments, but not strings
+          (goto-char (match-beginning 1))
+          (delete-region (point) (match-end 1))
+          (insert new-alias))))))
+
+(defun clojure--collect-ns-aliases (beg end ns-form-p)
+  "Collect all aliases between BEG and END.
+When NS-FORM-P is non-nil, treat the region as a ns form
+and pick up aliases from [... :as alias] forms,
+otherwise pick up alias usages from keywords / symbols."
+  (let ((res ()))
+    (save-excursion
+      (let ((rgx (if ns-form-p
+                     (rx ":as" (+ space)
+                         (group-n 1 (+ (not (in " ,]\n")))))
+                   (clojure--alias-usage-regexp nil))))
+        (goto-char beg)
+        (while (re-search-forward rgx end 'noerror)
+          (unless (or (clojure--in-string-p) (clojure--in-comment-p))
+            (cl-pushnew (match-string-no-properties 1) res
+                        :test #'equal)))
+        (reverse res)))))
+
+(defun clojure--rename-ns-alias-internal (current-alias new-alias)
+  "Rename a namespace alias CURRENT-ALIAS to NEW-ALIAS.
+Assume point is at the start of ns form."
+  (clojure--find-ns-in-direction 'backward)
+  (let ((rgx (concat ":as +" (regexp-quote current-alias) "\\_>"))
+        (bound (save-excursion (forward-list 1) (point-marker))))
+    (when (search-forward-regexp rgx bound t)
+      (replace-match (concat ":as " new-alias))
+      (clojure--rename-ns-alias-usages current-alias new-alias bound (point-max)))))
+
 ;;;###autoload
 (defun clojure-rename-ns-alias ()
-  "Rename a namespace alias."
+  "Rename a namespace alias.
+If a region is active, only pick up and rename aliases within the region."
   (interactive)
-  (save-excursion
-    (clojure--find-ns-in-direction 'backward)
-    (let* ((current-alias (completing-read "Current alias: "
-                                           (clojure-collect-ns-aliases
-                                            (thing-at-point 'list))))
-           (rgx (concat ":as +" (regexp-quote current-alias) "\\_>"))
-           (bound (save-excursion (forward-list 1) (point))))
-      (if (save-excursion (search-forward-regexp rgx bound t))
-          (let ((new-alias (read-from-minibuffer "New alias: ")))
-            (clojure--rename-ns-alias-internal current-alias new-alias))
-        (message "Cannot find namespace alias: '%s'" current-alias)))))
+  (if (use-region-p)
+      (let ((beg (region-beginning))
+            (end (copy-marker (region-end)))
+            current-alias new-alias)
+        ;; while loop for renaming multiple aliases in the region.
+        ;; C-g or leave blank to break out of the loop
+        (while (not (string-empty-p
+                     (setq current-alias
+                           (completing-read "Current alias: "
+                                            (clojure--collect-ns-aliases beg end nil)))))
+          (setq new-alias (read-from-minibuffer (format "Replace %s with: " current-alias)))
+          (clojure--rename-ns-alias-usages current-alias new-alias beg end)))
+    (save-excursion
+      (clojure--find-ns-in-direction 'backward)
+      (let* ((bounds (bounds-of-thing-at-point 'list))
+             (current-alias (completing-read "Current alias: "
+                                             (clojure--collect-ns-aliases
+                                              (car bounds) (cdr bounds) t)))
+             (new-alias (read-from-minibuffer (format "Replace %s with: " current-alias))))
+        (clojure--rename-ns-alias-internal current-alias new-alias)))))
 
 (defun clojure--add-arity-defprotocol-internal ()
   "Add an arity to a signature inside a defprotocol.
@@ -2852,6 +2862,57 @@ Assumes cursor is at beginning of function."
         (funcall jump-up (- n 1))
         (clojure--add-arity-reify-internal)))
       (indent-region beg end-marker))))
+
+
+;;; Toggle Ignore forms
+
+(defun clojure--toggle-ignore-next-sexp (&optional n)
+  "Insert or delete N `#_' ignore macros at the current point.
+Point must be directly before a sexp or the #_ characters.
+When acting on a top level form, insert #_ on a new line
+preceding the form to prevent indentation changes."
+  (let ((rgx (rx-to-string `(repeat ,(or n 1) (seq "#_" (* (in "\r\n" blank)))))))
+    (backward-prefix-chars)
+    (skip-chars-backward "#_ \r\n")
+    (skip-chars-forward " \r\n")
+    (if (looking-at rgx)
+        (delete-region (point) (match-end 0))
+      (dotimes (_ (or  n 1)) (insert-before-markers "#_"))
+      (when (zerop (car (syntax-ppss)))
+        (insert-before-markers "\n")))))
+
+(defun clojure-toggle-ignore (&optional n)
+  "Toggle the #_ ignore reader form for the sexp at point.
+With numeric argument, toggle N number of #_ forms at the same point.
+
+  e.g. with N = 2:
+  |a b c  => #_#_a b c"
+  (interactive "p")
+  (save-excursion
+    (ignore-errors
+      (goto-char (or (nth 8 (syntax-ppss)) ;; beginning of string
+                     (beginning-of-thing 'sexp))))
+    (clojure--toggle-ignore-next-sexp n)))
+
+(defun clojure-toggle-ignore-surrounding-form (&optional arg)
+  "Toggle the #_ ignore reader form for the surrounding form at point.
+With optional ARG, move up by ARG surrounding forms first.
+With universal argument \\[universal-argument], act on the \"top-level\" form."
+  (interactive "P")
+  (save-excursion
+    (if (consp arg)
+        (clojure-toggle-ignore-defun)
+      (condition-case nil
+          (backward-up-list arg t t)
+        (scan-error nil)))
+    (clojure--toggle-ignore-next-sexp)))
+
+(defun clojure-toggle-ignore-defun ()
+  "Toggle the #_ ignore reader form for the \"top-level\" form at point."
+  (interactive)
+  (save-excursion
+    (beginning-of-defun)
+    (clojure--toggle-ignore-next-sexp)))
 
 
 ;;; ClojureScript

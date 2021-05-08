@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "clojure-mode" "../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode.el"
-;;;;;;  "86959f7ce23981b1e06b470de08aa27c")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode.el
+;;;### (autoloads nil "clojure-mode" "clojure-mode.el" (0 0 0 0))
+;;; Generated autoloads from clojure-mode.el
 
 (autoload 'clojure-mode "clojure-mode" "\
 Major mode for editing Clojure code.
@@ -96,7 +95,8 @@ With a numeric prefix argument the let is introduced N lists up.
 Move the form at point to a binding in the nearest let." t nil)
 
 (autoload 'clojure-rename-ns-alias "clojure-mode" "\
-Rename a namespace alias." t nil)
+Rename a namespace alias.
+If a region is active, only pick up and rename aliases within the region." t nil)
 
 (autoload 'clojure-add-arity "clojure-mode" "\
 Add an arity to a function." t nil)
@@ -122,21 +122,8 @@ Major mode for editing ClojureC code.
 (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojurescript-mode))
 
 (add-to-list 'auto-mode-alist '("\\(?:build\\|profile\\)\\.boot\\'" . clojure-mode))
-
-;;;### (autoloads "actual autoloads are elsewhere" "clojure-mode"
-;;;;;;  "../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "clojure-mode" '("add-custom-clojure-indents" "clojure" "define-clojure-indent" "put-clojure-indent")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/clojure-mode-5.12.0/clojure-mode.el")
-;;;;;;  (0 0 0 0))
 
 ;;;***
 
