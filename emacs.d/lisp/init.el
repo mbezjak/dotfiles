@@ -442,7 +442,7 @@
         pomidor-sound-break-over nil))
 
 (use-package alert
-  :ensure nil
+  :ensure t
   :no-require t
   :init
   (setq alert-default-style 'libnotify))
