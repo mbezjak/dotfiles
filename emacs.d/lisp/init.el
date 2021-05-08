@@ -311,7 +311,9 @@
   (helm-mode)
   (use-package helm-descbinds
     :ensure t
-    :config (helm-descbinds-mode)))
+    :config (helm-descbinds-mode))
+  (use-package helm-rg
+    :ensure t))
 
 (use-package projectile
   :ensure t
