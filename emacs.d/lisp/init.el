@@ -625,10 +625,6 @@
   :ensure t
   :defer t)
 
-(use-package ghc
-  :ensure t
-  :defer t)
-
 (use-package scala-mode
   :ensure t
   :defer t)
