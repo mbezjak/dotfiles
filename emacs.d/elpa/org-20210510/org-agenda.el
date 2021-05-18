@@ -6656,9 +6656,6 @@ Any match of REMOVE-RE will be removed from TXT."
 			   (= (match-beginning 0) 0)
 			 t))
 	      (setq txt (replace-match "" nil nil txt))))
-	  ;; Normalize the time(s) to 24 hour
-	  (when s1 (setq s1 (org-get-time-of-day s1 'string t)))
-	  (when s2 (setq s2 (org-get-time-of-day s2 'string t)))
 
 	  ;; Try to set s2 if s1 and
 	  ;; `org-agenda-default-appointment-duration' are set
@@ -6672,7 +6669,11 @@ Any match of REMOVE-RE will be removed from TXT."
 	  ;; Compute the duration
 	  (when s2
 	    (setq duration (- (org-duration-to-minutes s2)
-			      (org-duration-to-minutes s1)))))
+			      (org-duration-to-minutes s1))))
+
+          ;; Normalize the time(s) to 24 hour
+	  (when s1 (setq s1 (org-get-time-of-day s1 'string t)))
+	  (when s2 (setq s2 (org-get-time-of-day s2 'string t))))
 
 	(when (string-match org-tag-group-re txt)
 	  ;; Tags are in the string
@@ -8311,7 +8312,8 @@ When optional argument BACKWARD is set, go backward."
 With prefix ARG, go forward that many times the current span."
   (interactive "p")
   (org-agenda-check-type t 'agenda)
-  (let* ((args (get-text-property (min (1- (point-max)) (point)) 'org-last-args))
+  (let* ((wstart (window-start))
+         (args (get-text-property (min (1- (point-max)) (point)) 'org-last-args))
 	 (span (or (nth 2 args) org-agenda-current-span))
 	 (sd (or (nth 1 args) (org-get-at-bol 'day) org-starting-day))
 	 (greg (calendar-gregorian-from-absolute sd))
@@ -8344,7 +8346,8 @@ With prefix ARG, go forward that many times the current span."
 	  (org-agenda-overriding-arguments
 	   (list (car args) sd span)))
       (org-agenda-redo)
-      (org-agenda-find-same-or-today-or-agenda cnt))))
+      (org-agenda-find-same-or-today-or-agenda cnt))
+    (set-window-start nil wstart)))
 
 (defun org-agenda-earlier (arg)
   "Go backward in time by the current span.
