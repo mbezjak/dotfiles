@@ -49,7 +49,8 @@
       diff-switches "-u"
       dired-recursive-copies 'always
       dired-recursive-deletes 'top
-      dired-listing-switches "-lha --group-directories-first")
+      dired-listing-switches "-lha --group-directories-first"
+      dired-dwim-target t)
 
 ;; trying out scroll setup from frontmacs
 (setq scroll-preserve-screen-position 1)
