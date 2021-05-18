@@ -496,9 +496,21 @@
   :ensure t
   :defer t
   :bind (:map clojure-mode-map
-         (("M-c" . my-clojure-copy-qualified-fn)
-          ("M-v" . my-clojure-copy-ns)))
+              (("M-c" . my-clojure-copy-qualified-fn)
+               ("M-v" . my-clojure-copy-ns)
+               ("M-m" . my-hydra-bloom-backend/body)))
   :config
+  (defhydra my-hydra-bloom-backend (:color amaranth)
+    "Functions"
+    ("e" (my-bloom-backend-eval-debug-fns) "Eval debug fns")
+    ("s" (my-bloom-backend-start) "Start backend" :exit t)
+    ("t" (my-bloom-backend-stop) "Stop backend" :exit t)
+    ("r" (my-bloom-backend-set-replace-responses) "Replace responses" :exit t)
+    ("x" (my-bloom-backend-set-write-json-tree) "Write json-tree.edn" :exit t)
+    ("d" (my-bloom-dired-data) "Open data in dired" :exit t)
+    ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
+    ("m" (my-git-mergetool) "Open Meld" :exit t)
+    ("q" nil "Quit"))
   (use-package clj-refactor
     :ensure t
     :diminish clj-refactor-mode
