@@ -1092,6 +1092,14 @@ Add a hook to automatically encrypt entries before a file is saved to disk." nil
 
 ;;;***
 
+;;;### (autoloads "actual autoloads are elsewhere" "org-refile" "org-refile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from org-refile.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-refile" '("org-")))
+
+;;;***
+
 ;;;### (autoloads nil "org-src" "org-src.el" (0 0 0 0))
 ;;; Generated autoloads from org-src.el
 
@@ -1099,10 +1107,26 @@ Add a hook to automatically encrypt entries before a file is saved to disk." nil
 
 ;;;***
 
+;;;### (autoloads "actual autoloads are elsewhere" "org-table" "org-table.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from org-table.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-table" '("org")))
+
+;;;***
+
 ;;;### (autoloads nil "org-tempo" "org-tempo.el" (0 0 0 0))
 ;;; Generated autoloads from org-tempo.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-tempo" '("org-tempo-")))
+
+;;;***
+
+;;;### (autoloads "actual autoloads are elsewhere" "org-timer" "org-timer.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from org-timer.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-timer" '("org-timer-")))
 
 ;;;***
 
@@ -1124,6 +1148,14 @@ Inserted by installing Org or when a release is made." nil nil)
 ;;; Generated autoloads from ox.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox" '("org-export-")))
+
+;;;***
+
+;;;### (autoloads "actual autoloads are elsewhere" "ox-ascii" "ox-ascii.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ox-ascii.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ox-ascii" '("org-ascii-")))
 
 ;;;***
 

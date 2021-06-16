@@ -692,7 +692,7 @@
 	      (:maintainer "Markus Triska" . "triska@metalevel.at")
 	      (:url . "https://www.metalevel.at/ediprolog/"))])
  (eev .
-      [(20210607)
+      [(20210608)
        ((emacs
 	 (24 4)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -768,7 +768,7 @@
 		     (:keywords "languages" "lisp")
 		     (:url . "https://elpa.gnu.org/packages/elisp-benchmarks.html"))])
  (emms .
-       [(7 2)
+       [(7 4)
 	((cl-lib
 	  (0 5))
 	 (nadvice
@@ -1209,7 +1209,7 @@
 	       ("Oleh Krehel" . "ohwoeowho@gmail.com"))
 	      (:keywords "convenience"))])
  (ivy-posframe .
-	       [(0 6 0)
+	       [(0 6 1)
 		((emacs
 		  (26 0))
 		 (posframe
@@ -1847,7 +1847,7 @@
 	       ("Scott Andrew Borton" . "scott@pp.htv.fi"))
 	      (:maintainer "John Darrington" . "john@darrington.wattle.id.au"))])
  (pyim .
-       [(3 7 9)
+       [(3 8 1)
 	((emacs
 	  (24 4))
 	 (async
@@ -2455,7 +2455,7 @@
 		("David Gonzalez Gandara" . "dggandara@member.fsf.org"))
 	       (:maintainer "David Gonzalez Gandara" . "dggandara@member.fsf.org"))])
  (transient .
-	    [(0 3 4)
+	    [(0 3 5)
 	     ((emacs
 	       (25 1)))
 	     "Transient commands" tar
@@ -2535,6 +2535,16 @@
 	   (:authors
 	    ("Yuan Fu" . "casouri@gmail.com"))
 	   (:keywords "convenience" "text" "table"))])
+ (vc-hgcmd .
+	   [(1 14)
+	    ((emacs
+	      (25 1)))
+	    "VC mercurial backend that uses hg command server" tar
+	    ((:url . "https://github.com/muffinmad/emacs-vc-hgcmd")
+	     (:maintainer "Andrii Kolomoiets" . "andreyk.mad@gmail.com")
+	     (:authors
+	      ("Andrii Kolomoiets" . "andreyk.mad@gmail.com"))
+	     (:keywords "vc"))])
  (vcard .
 	[(0 2 1)
 	 ((emacs
