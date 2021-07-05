@@ -747,6 +747,9 @@
   :defer t
   :bind (("<f12> a" . cfw:open-org-calendar)))
 
+(use-package terraform-mode
+  :ensure t)
+
 ;(use-package lsp-mode
 ;  :ensure t
 ;  :pin melpa
