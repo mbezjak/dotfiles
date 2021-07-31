@@ -341,10 +341,10 @@ With the actual value, the outermost '(not ...)' s-expression is removed."
          (actual-buffer   (generate-new-buffer " *actual*"))
          (diffs (get-text-property (point) 'diffs))
          (actual* (get-text-property (point) 'actual))
-         (expected (cond (diffs (get-text-property (point) 'expected))
-                         (actual* (cider-test--extract-from-actual actual* 1))))
-         (actual (cond (diffs (caar diffs))
-                       (actual* (cider-test--extract-from-actual actual* 2)))))
+         (expected (normalize (cond (diffs (get-text-property (point) 'expected))
+                                    (actual* (cider-test--extract-from-actual actual* 1)))))
+         (actual (normalize (cond (diffs (caar diffs))
+                                  (actual* (cider-test--extract-from-actual actual* 2))))))
     (if (not (and expected actual))
         (message "No test failure at point")
       (with-current-buffer expected-buffer
@@ -396,19 +396,26 @@ With the actual value, the outermost '(not ...)' s-expression is removed."
         (cider-insert (format "%d passed" pass) 'cider-test-success-face t))
       (insert "\n\n"))))
 
+(defun normalize (text)
+  (thread-last
+      text
+    (replace-regexp-in-string "\\\\n" "\n")
+    (replace-regexp-in-string "\\\\\"" "\"")
+    (replace-regexp-in-string "^\"" "")))
+
 (defun cider-test-render-assertion (buffer test)
   "Emit into BUFFER report detail for the TEST assertion."
   (with-current-buffer buffer
     (nrepl-dbind-response test (var context type message expected actual diffs error gen-input)
       (cl-flet ((insert-label (s)
-                  (cider-insert (format "%8s: " s) 'font-lock-comment-face))
+                              (cider-insert (format "%8s: " s) 'font-lock-comment-face))
                 (insert-align-label (s)
-                  (insert (format "%12s" s)))
+                                    (insert (format "%12s" s)))
                 (insert-rect (s)
-                  (insert-rectangle (thread-first s
-                                      cider-font-lock-as-clojure
-                                      (split-string "\n")))
-                  (beginning-of-line)))
+                             (insert-rectangle (thread-first s
+                                                 cider-font-lock-as-clojure
+                                                 (split-string "\n")))
+                             (beginning-of-line)))
         (cider-propertize-region (cider-intern-keys (cdr test))
           (let ((beg (point))
                 (type-face (cider-test-type-simple-face type))
@@ -425,12 +432,12 @@ With the actual value, the outermost '(not ...)' s-expression is removed."
                 (dolist (d diffs)
                   (cl-destructuring-bind (actual (removed added)) d
                     (insert-label "actual")
-                    (insert-rect actual)
+                    (insert-rect (normalize actual))
                     (insert-label "diff")
                     (insert "- ")
-                    (insert-rect removed)
+                    (insert-rect (normalize removed))
                     (insert-align-label "+ ")
-                    (insert-rect added)
+                    (insert-rect (normalize added))
                     (insert "\n")))
               (when actual
                 (insert-label "actual")
