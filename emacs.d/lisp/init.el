@@ -508,6 +508,7 @@
     ("r" (my-bloom-backend-set-replace-responses) "Replace responses" :exit t)
     ("x" (my-bloom-backend-set-write-json-tree) "Write json-tree.edn" :exit t)
     ("d" (my-bloom-dired-data) "Open data in dired" :exit t)
+    ("N" (my-bloom-clojure-sort-ns) "Sort ns" :exit t)
     ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
     ("m" (my-git-mergetool) "Open Meld" :exit t)
     ("q" nil "Quit"))

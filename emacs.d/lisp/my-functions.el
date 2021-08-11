@@ -299,4 +299,18 @@ Saves to a temp file and puts the filename in the kill ring."
   (let ((dir (replace-regexp-in-string "/test/it/" "/test-resources/it/" dired-directory)))
     (dired dir)))
 
+(defun my-bloom-clojure-sort-ns ()
+  (interactive)
+  (save-excursion
+    (cljr-clean-ns)
+    (goto-char (point-min))
+    (search-forward ":require ")
+    (lispy-newline-and-indent-plain)
+    (while (looking-at "\\[")
+      (lispy-oneline)
+      (forward-to-indentation))
+    (forward-line)
+    (when (not (looking-at "^$"))
+      (insert "\n"))))
+
 (provide 'my-functions)
