@@ -1,3 +1,6 @@
+(defun my-random-between (start end)
+  (+ start (random (1+ (- end start)))))
+
 (defun my-find-file-in-dir (dir)
   "Find file in DIR. Don't use filename or url at point."
   (let ((pattern (f-full dir)))
