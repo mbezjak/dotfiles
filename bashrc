@@ -134,7 +134,11 @@ function org-notes-backup {
     cd ~/Sync/notes
     git commit --message='Automated backup'
 }
-function syncconfl { cd ~/Sync && find -iname '*conflict*'; }
+function syncconfl {
+    cd ~/Sync
+    find -name 'index.sync-conflict-2*' -delete
+    find -iname '*conflict*'
+}
 function fcat {
     local -r search="$1"
     local -r result=$(files "$search" | head -n 1)
