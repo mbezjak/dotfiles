@@ -281,17 +281,6 @@ Saves to a temp file and puts the filename in the kill ring."
     (cider-eval-defun-at-point)
     (run-with-idle-timer 0.3 nil (lambda () (message "replace responses true")))))
 
-(defun my-bloom-backend-set-write-json-tree ()
-  (interactive)
-  (with-current-buffer (find-file-noselect (f-join (projectile-project-root) "test/it/support/fs_storage_utils.clj"))
-    (goto-char (point-min))
-    (search-forward-regexp "^(def write-json-tree ")
-    (lispy-kill-word 1)
-    (insert " true")
-    (save-buffer)
-    (cider-eval-defun-at-point)
-    (run-with-idle-timer 0.3 nil (lambda () (message "write json-tree true")))))
-
 (defun my-bloom-dired-data ()
   (interactive)
   (let ((dir (f-join (projectile-project-root) "data")))
