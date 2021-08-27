@@ -123,6 +123,7 @@ alias pg='ps -Afww | grep -i'
 alias k='kill -9'
 alias touchall='find -type f -exec touch {} \;'
 alias gmailbackup='gmvault sync --db-dir ~/Documents/backup/gmvault-db bezjak.miro@gmail.com'
+alias sb='syncthing --browser-only'
 function cheat() { curl cht.sh/$1; }
 function openports { ss --tcp --numeric --listening --processes "$@" | sed '1d' | column -t; }
 function t {
