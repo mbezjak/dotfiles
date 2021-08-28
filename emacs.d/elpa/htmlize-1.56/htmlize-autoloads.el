@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "htmlize" "../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el"
-;;;;;;  "a330af63f4f6950c4a65215ae69cb2eb")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el
+;;;### (autoloads nil "htmlize" "htmlize.el" (0 0 0 0))
+;;; Generated autoloads from htmlize.el
 
 (autoload 'htmlize-buffer "htmlize" "\
 Convert BUFFER to HTML, preserving colors and decorations.
@@ -69,20 +68,8 @@ corresponding source file.
 HTMLize dired-marked files.
 
 \(fn ARG &optional TARGET-DIRECTORY)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "htmlize" "../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "htmlize" '("htmlize-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/htmlize-1.55/htmlize-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/htmlize-1.55/htmlize.el") (0
-;;;;;;  0 0 0))
 
 ;;;***
 
