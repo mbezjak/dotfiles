@@ -278,6 +278,7 @@
          ("C-M-]" . helm-find-files)
          ("M-<f8>" . helm-for-files)
          ("C-x C-i" . helm-semantic-or-imenu)
+         ("M-b" . helm-semantic-or-imenu)
          ("M-f" . helm-swoop)
          ("C-x C-f" . helm-find-files)
          ("M-S" . helm-projectile-rg)
