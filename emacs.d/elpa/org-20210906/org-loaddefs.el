@@ -2267,7 +2267,7 @@ if ARG is `toggle'; disable the mode otherwise.
 
 ;;;***
 
-;;;### (autoloads nil "org-plot" "org-plot.el" "e15a096d7ccb96ba3135c3edd079bf0e")
+;;;### (autoloads nil "org-plot" "org-plot.el" (0 0 0 0))
 ;;; Generated autoloads from org-plot.el
 
 (autoload 'org-plot/gnuplot "org-plot" "\
@@ -2276,6 +2276,8 @@ If not given options will be taken from the +PLOT
 line directly before or after the table.
 
 \(fn &optional PARAMS)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-plot" '("org-plot")))
 
 ;;;***
 
@@ -2286,11 +2288,13 @@ line directly before or after the table.
 
 ;;;***
 
-;;;### (autoloads nil "org-refile" "org-refile.el" "b1142565abb0ee17a214c1066bb075ac")
+;;;### (autoloads nil "org-refile" "org-refile.el" (0 0 0 0))
 ;;; Generated autoloads from org-refile.el
 
 (autoload 'org-refile-copy "org-refile" "\
-Like `org-refile', but preserve the refiled subtree." t nil)
+Like `org-refile', but preserve the refiled subtree.
+
+\(fn)" t nil)
 
 (autoload 'org-refile "org-refile" "\
 Move the entry or entries at point to another heading.
@@ -2341,6 +2345,8 @@ This can be done with a `0' prefix (`C-0 C-c C-w') or a triple
 prefix argument (`C-u C-u C-u C-c C-w').
 
 \(fn &optional ARG DEFAULT-BUFFER RFLOC MSG)" t nil)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-refile" '("org-")))
 
 ;;;***
 

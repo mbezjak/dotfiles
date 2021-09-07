@@ -1,5 +1,5 @@
 (define-package "org"
-  "20210823" "Outline-based notes management and organizer" ( ))
+  "20210906" "Outline-based notes management and organizer" ( ))
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
