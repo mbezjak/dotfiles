@@ -256,19 +256,11 @@ Saves to a temp file and puts the filename in the kill ring."
 
 (defun my-bloom-backend-start ()
   (interactive)
-  (cider-interactive-eval "(debug/start)"))
+  (cider-interactive-eval "(do (load-file \"miro/lib.clj\") (lib/start))"))
 
 (defun my-bloom-backend-stop ()
   (interactive)
   (cider-interactive-eval "(dev/stop)"))
-
-(defun my-bloom-backend-eval-debug-fns ()
-  (interactive)
-  (with-current-buffer (find-file-noselect (f-join (projectile-project-root) "miro/debug.clj"))
-    (goto-char (point-min))
-    (search-forward-regexp ";; fn defs above")
-    (let ((text (buffer-substring-no-properties (point-min) (point))))
-      (cider-interactive-eval text))))
 
 (defun my-bloom-backend-set-replace-responses ()
   (interactive)

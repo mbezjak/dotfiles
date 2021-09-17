@@ -503,7 +503,6 @@
   :config
   (defhydra my-hydra-bloom-backend (:color amaranth)
     "Functions"
-    ("e" (my-bloom-backend-eval-debug-fns) "Eval debug fns")
     ("s" (my-bloom-backend-start) "Start backend" :exit t)
     ("t" (my-bloom-backend-stop) "Stop backend" :exit t)
     ("r" (my-bloom-backend-set-replace-responses) "Replace responses" :exit t)
