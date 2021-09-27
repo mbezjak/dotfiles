@@ -278,11 +278,6 @@ Saves to a temp file and puts the filename in the kill ring."
   (let ((dir (f-join (projectile-project-root) "data")))
     (dired dir)))
 
-(defun my-bloom-dired-open-resources ()
-  (interactive)
-  (let ((dir (replace-regexp-in-string "/test/it/" "/test-resources/it/" dired-directory)))
-    (dired dir)))
-
 (defun my-bloom-clojure-sort-ns ()
   (interactive)
   (save-excursion
