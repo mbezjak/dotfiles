@@ -256,7 +256,7 @@ Saves to a temp file and puts the filename in the kill ring."
 
 (defun my-bloom-backend-start ()
   (interactive)
-  (cider-interactive-eval "(do (load-file \"miro/lib.clj\") (lib/start))"))
+  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/start))"))
 
 (defun my-bloom-backend-stop ()
   (interactive)
