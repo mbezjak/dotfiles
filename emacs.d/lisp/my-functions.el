@@ -287,9 +287,6 @@ Saves to a temp file and puts the filename in the kill ring."
     (lispy-newline-and-indent-plain)
     (while (looking-at "\\[")
       (lispy-oneline)
-      (forward-to-indentation))
-    (forward-line)
-    (when (not (looking-at "^$"))
-      (insert "\n"))))
+      (forward-to-indentation))))
 
 (provide 'my-functions)
