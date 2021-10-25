@@ -12,7 +12,7 @@ function known-to-pacman {
 }
 function list-npm {
     local pkg
-    for pkg in $(npm list --global --depth=0 --parseable=true); do
+    for pkg in $(npm list --depth=0 --parseable=true); do
         if ! known-to-pacman $pkg; then
             echo $pkg
         fi
@@ -60,7 +60,7 @@ function list-workspace {
 
 
 
-declare -r dir=~/Sync/backup/packages/$(hostname)
+declare -r dir=~/Sync/backup/packages/$(hostnamectl hostname)
 mkdir --parents $dir
 cd $dir
 rm -f *
