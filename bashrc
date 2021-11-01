@@ -296,6 +296,14 @@ have kubectl && {
     source <(kubectl completion bash)
 }
 
+[[ -d ~/workspace/backend ]] && {
+    alias bt='cd ~/workspace/backend && INTERNAL_API_PORT=8801 APP_API_PORT=8889 time lein test'
+    alias bl='cd ~/workspace/backend && time lein lint'
+    alias ba='for app in frontend question-editor; do cd ~/workspace/backend/apps/$app && npm install && npm run build; done'
+    export GITLAB_USERNAME="$(pass show Gitlab/username)"
+    export GITLAB_ACCESS_TOKEN="$(pass show Gitlab/access-token)"
+}
+
 
 # randomized learning
 # http://lifehacker.com/how-can-i-quickly-learn-terminal-commands-1494082178
