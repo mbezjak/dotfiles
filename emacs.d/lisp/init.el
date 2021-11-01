@@ -32,6 +32,7 @@
 
 (setq-default tab-width      4
               c-basic-offset 4
+              sgml-basic-offset 4
               fill-column    80
               indent-tabs-mode      nil
               indicate-empty-lines  t
