@@ -283,8 +283,9 @@ Saves to a temp file and puts the filename in the kill ring."
   (save-excursion
     (cljr-clean-ns)
     (goto-char (point-min))
-    (search-forward ":require ")
-    (lispy-newline-and-indent-plain)
+    (search-forward ":require")
+    (next-line)
+    (mwim-beginning-of-code-or-line)
     (while (looking-at "\\[")
       (lispy-oneline)
       (forward-to-indentation))))
