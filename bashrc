@@ -266,7 +266,6 @@ have pacman && {
     alias psi='pacman --sync --info --info'
     alias pqs='pacman --query --search'
     alias pqi='pacman --query --info --info'
-    alias pap='sudo aura --aursync --unsuppress'
     alias pas='aura --aursync --search'
     alias pai='aura --aursync --info'
     alias pab='aura --aursync --pkgbuild'
@@ -285,6 +284,11 @@ have pacman && {
             grep -v /usr/share/locale/   | \
             grep -v /usr/share/licenses/ | \
             grep -v /usr/include/
+    }
+    function pap() {
+        aura -Ap "$1" | aura -P
+        aura -Ap "$1"
+        sudo aura --aursync --unsuppress "$1"
     }
 }
 
