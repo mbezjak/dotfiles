@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "auto-dim-other-buffers" "auto-dim-other-buffers.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from auto-dim-other-buffers.el
+;;;### (autoloads nil "auto-dim-other-buffers" "../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers.el"
+;;;;;;  "dfb5c62e740ead363ff84c554cc92c2e")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers.el
 
 (defvar auto-dim-other-buffers-mode nil "\
 Non-nil if Auto-Dim-Other-Buffers mode is enabled.
@@ -41,8 +41,21 @@ dimmed even though at most one could have focus.  This historic
 behaviour is where the mode gets its name from.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "auto-dim-other-buffers"
+;;;;;;  "../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto-dim-other-buffers" '("adob--" "auto-dim-other-buffers-")))
+
+;;;***
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/auto-dim-other-buffers-20211101.1155/auto-dim-other-buffers.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

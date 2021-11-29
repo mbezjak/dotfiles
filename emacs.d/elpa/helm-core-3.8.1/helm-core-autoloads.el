@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "helm" "helm.el" (0 0 0 0))
-;;; Generated autoloads from helm.el
+;;;### (autoloads nil "helm" "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm.el"
+;;;;;;  "a09ed640216e57b4bd79ebb82029c1ad")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-core-3.8.1/helm.el
 
 (autoload 'helm-configuration "helm" "\
 Customize Helm." t nil)
@@ -222,34 +223,50 @@ Simplified Helm interface with other `helm-buffer'.
 Call `helm' only with SOURCES and BUFFER as args.
 
 \(fn SOURCES BUFFER)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "helm" "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-core-3.8.1/helm.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm" '("helm-" "with-helm-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "helm-lib" "helm-lib.el" (0 0 0 0))
-;;; Generated autoloads from helm-lib.el
+;;;### (autoloads "actual autoloads are elsewhere" "helm-lib" "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-lib.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-lib.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-lib" '("helm-" "with-helm-")))
 
 ;;;***
 
-;;;### (autoloads nil "helm-multi-match" "helm-multi-match.el" (0
-;;;;;;  0 0 0))
-;;; Generated autoloads from helm-multi-match.el
+;;;### (autoloads "actual autoloads are elsewhere" "helm-multi-match"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-multi-match.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-multi-match.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-multi-match" '("helm-m")))
 
 ;;;***
 
-;;;### (autoloads nil "helm-source" "helm-source.el" (0 0 0 0))
-;;; Generated autoloads from helm-source.el
+;;;### (autoloads "actual autoloads are elsewhere" "helm-source"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-source.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-source.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helm-source" '("helm-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("helm-core-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-core-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-core-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-lib.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-multi-match.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm-source.el"
+;;;;;;  "../../../../../.emacs.d/elpa/helm-core-3.8.1/helm.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 

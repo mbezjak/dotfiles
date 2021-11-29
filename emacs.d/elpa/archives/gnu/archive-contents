@@ -18,7 +18,7 @@
 	 ("Leo Liu" . "sdl.web@gmail.com"))
 	(:keywords "tools" "processes" "convenience"))])
  (ada-mode .
-	   [(7 1 9)
+	   [(7 2 0)
 	    ((uniquify-files
 	      (1 0 1))
 	     (wisi
@@ -440,7 +440,7 @@
 		      ("Jackson Ray Hamilton" . "jackson@jacksonrayhamilton.com"))
 		     (:keywords "convenience" "faces" "tools"))])
  (corfu .
-	[(0 15)
+	[(0 16)
 	 ((emacs
 	   (27 1)))
 	 "Completion Overlay Region FUnction" tar
@@ -499,7 +499,7 @@
 	   ("Gary D. Foster" . "Gary.Foster@Corp.Sun.COM"))
 	  (:maintainer "Luke Lee" . "luke.yx.lee@gmail.com"))])
  (csharp-mode .
-	      [(1 1 0)
+	      [(1 1 1)
 	       ((emacs
 		 (26 1)))
 	       "C# mode derived mode" tar
@@ -757,7 +757,7 @@
 	      (:maintainer "Markus Triska" . "triska@metalevel.at")
 	      (:url . "https://www.metalevel.at/ediprolog/"))])
  (eev .
-      [(20211110)
+      [(20211127)
        ((emacs
 	 (24 4)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -1851,7 +1851,7 @@
 	      (:maintainer "Michael Heerdegen" . "michael_heerdegen@web.de")
 	      (:url . "https://github.com/michael-heerdegen/on-screen.el"))])
  (org .
-      [(9 5)
+      [(9 5 1)
        ((emacs
 	 (25 1)))
        "Outline-based notes management and organizer" tar
@@ -2010,7 +2010,7 @@
 	   ("Mario Lang" . "mlang@delysid.org"))
 	  (:maintainer "Mario Lang" . "mlang@delysid.org"))])
  (posframe .
-	   [(1 1 1)
+	   [(1 1 2)
 	    ((emacs
 	      (26 1)))
 	    "Pop a posframe (just a frame) at point" tar
@@ -2293,10 +2293,10 @@
 		[(2 4)
 		 nil "Emacs interface to RT" tar
 		 ((:url . "http://www.nongnu.org/rtliber/")
+		  (:keywords "rt" "tickets")
 		  (:maintainer "Yoni Rabkin" . "yrk@gnu.org")
 		  (:authors
-		   ("Yoni Rabkin" . "yrk@gnu.org"))
-		  (:keywords "rt" "tickets"))])
+		   ("Yoni Rabkin" . "yrk@gnu.org")))])
  (rudel .
 	[(0 3 2)
 	 ((emacs
@@ -2506,12 +2506,12 @@
 	    (:keywords "processes" "mode-line"))])
  (sql-beeline .
 	      [(0 1)
-	       nil "Beeline support for sql.el" single
-	       ((:url . "http://elpa.gnu.org/packages/sql-beeline.html")
-		(:keywords "sql" "hive" "beeline" "hiveserver2")
+	       nil "Beeline support for sql.el" tar
+	       ((:keywords "sql" "hive" "beeline" "hiveserver2")
+		(:maintainer "Filipp Gunbin" . "fgunbin@fastmail.fm")
 		(:authors
 		 ("Filipp Gunbin" . "fgunbin@fastmail.fm"))
-		(:maintainer "Filipp Gunbin" . "fgunbin@fastmail.fm"))])
+		(:url . "https://elpa.gnu.org/packages/sql-beeline.html"))])
  (sql-indent .
 	     [(1 6)
 	      ((cl-lib
@@ -2714,17 +2714,17 @@
 		  [(0 2)
 		   nil "Unicode confusables table" tar
 		   ((:maintainer "Teodor Zlatanov" . "tzz@lifelogs.com")
-		    (:url . "http://elpa.gnu.org/packages/uni-confusables.html"))])
+		    (:url . "https://elpa.gnu.org/packages/uni-confusables.html"))])
  (uniquify-files .
 		 [(1 0 3)
 		  ((emacs
 		    (25 0)))
 		  "Completion style for files, minimizing directories" tar
-		  ((:maintainer "Stephen Leake" . "stephen_leake@stephe-leake.org")
+		  ((:keywords "completion" "table" "uniquify")
+		   (:maintainer "Stephen Leake" . "stephen_leake@stephe-leake.org")
 		   (:authors
 		    ("Stephen Leake" . "stephen_leake@stephe-leake.org"))
-		   (:keywords "completion" "table" "uniquify")
-		   (:url . "http://elpa.gnu.org/packages/uniquify-files.html"))])
+		   (:url . "https://elpa.gnu.org/packages/uniquify-files.html"))])
  (url-http-ntlm .
 		[(2 0 4)
 		 ((cl-lib
@@ -2960,7 +2960,7 @@
 		("Bastien" . "bzg@gnu.org"))
 	       (:maintainer "Bastien" . "bzg@gnu.org"))])
  (wisi .
-       [(3 1 6)
+       [(3 1 7)
 	((emacs
 	  (25 3))
 	 (seq

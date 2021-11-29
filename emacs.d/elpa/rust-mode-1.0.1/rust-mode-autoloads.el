@@ -6,22 +6,26 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "rust-cargo" "rust-cargo.el" (0 0 0 0))
-;;; Generated autoloads from rust-cargo.el
+;;;### (autoloads "actual autoloads are elsewhere" "rust-cargo" "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-cargo.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-cargo.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-cargo" '("rust-")))
 
 ;;;***
 
-;;;### (autoloads nil "rust-compile" "rust-compile.el" (0 0 0 0))
-;;; Generated autoloads from rust-compile.el
+;;;### (autoloads "actual autoloads are elsewhere" "rust-compile"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-compile.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-compile.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-compile" '("cargo-compilation-regexps" "rustc-")))
 
 ;;;***
 
-;;;### (autoloads nil "rust-mode" "rust-mode.el" (0 0 0 0))
-;;; Generated autoloads from rust-mode.el
+;;;### (autoloads nil "rust-mode" "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode.el"
+;;;;;;  "60b74fa400e1cebdbedf208db3d65019")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode.el
 
 (autoload 'rust-mode "rust-mode" "\
 Major mode for Rust code.
@@ -31,36 +35,61 @@ Major mode for Rust code.
 \(fn)" t nil)
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;;;### (autoloads "actual autoloads are elsewhere" "rust-mode" "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-mode" '("rust-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "rust-playpen" "rust-playpen.el" (0 0 0 0))
-;;; Generated autoloads from rust-playpen.el
+;;;### (autoloads "actual autoloads are elsewhere" "rust-playpen"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-playpen.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-playpen.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-playpen" '("rust-")))
 
 ;;;***
 
-;;;### (autoloads nil "rust-rustfmt" "rust-rustfmt.el" (0 0 0 0))
-;;; Generated autoloads from rust-rustfmt.el
+;;;### (autoloads "actual autoloads are elsewhere" "rust-rustfmt"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-rustfmt.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-rustfmt.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-rustfmt" '("rust-")))
 
 ;;;***
 
-;;;### (autoloads nil "rust-utils" "rust-utils.el" (0 0 0 0))
-;;; Generated autoloads from rust-utils.el
+;;;### (autoloads nil "rust-utils" "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-utils.el"
+;;;;;;  "06b4b55b2b5ce62bd12129b7adee182b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-utils.el
 
 (autoload 'rust-dbg-wrap-or-unwrap "rust-utils" "\
 Either remove or add the dbg! macro." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "rust-utils" "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-utils.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-utils.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rust-utils" '("rust-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("rust-mode-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-cargo.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-compile.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-mode.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-playpen.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-rustfmt.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rust-mode-1.0.1/rust-utils.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

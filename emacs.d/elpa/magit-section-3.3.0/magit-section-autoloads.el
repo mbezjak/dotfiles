@@ -6,14 +6,19 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "magit-section" "magit-section.el" (0 0 0 0))
-;;; Generated autoloads from magit-section.el
+;;;### (autoloads "actual autoloads are elsewhere" "magit-section"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-section-3.3.0/magit-section.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/magit-section-3.3.0/magit-section.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "magit-section" '("isearch-clean-overlays@magit-mode" "magit-")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("magit-section-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/magit-section-3.3.0/magit-section-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-section-3.3.0/magit-section-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/magit-section-3.3.0/magit-section.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

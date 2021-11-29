@@ -1,6 +1,9 @@
-;; must be manually installed
 ;; https://github.com/jwiegley/use-package/issues/319
+(assq-delete-all 'org package--builtins)
+(assq-delete-all 'org package--builtin-versions)
+
 (use-package org
+  :ensure t
   :defer t)
 
 (load-file "~/Sync/notes/config/notes.el")

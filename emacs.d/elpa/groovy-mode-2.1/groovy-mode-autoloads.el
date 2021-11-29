@@ -6,9 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "groovy-electric" "groovy-electric.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from groovy-electric.el
+;;;### (autoloads nil "groovy-electric" "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-electric.el"
+;;;;;;  "f7d988eba5b18cbee49944e18435f269")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-electric.el
 
 (autoload 'groovy-electric-mode "groovy-electric" "\
 Toggle Groovy Electric minor mode.
@@ -27,13 +27,21 @@ does not occur inside comments and strings. Note that you must
 have Font Lock enabled. ${ } is expanded when in a GString
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "groovy-electric"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-electric.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-electric.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "groovy-electric" '("groovy-electric-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "groovy-mode" "groovy-mode.el" (0 0 0 0))
-;;; Generated autoloads from groovy-mode.el
+;;;### (autoloads nil "groovy-mode" "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode.el"
+;;;;;;  "a3fa2f7d0dfa41e778c022433f4ece1e")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.g\\(?:ant\\|roovy\\|radle\\)\\'" . groovy-mode))
 
@@ -51,13 +59,21 @@ Key bindings:
 \\{groovy-mode-map}
 
 \(fn)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "groovy-mode"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "groovy-mode" '("groovy-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil "inf-groovy" "inf-groovy.el" (0 0 0 0))
-;;; Generated autoloads from inf-groovy.el
+;;;### (autoloads nil "inf-groovy" "../../../../../.emacs.d/elpa/groovy-mode-2.1/inf-groovy.el"
+;;;;;;  "e37d4a4a52aff797b7ac53f6bcd85c02")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/inf-groovy.el
 
 (autoload 'inf-groovy-keys "inf-groovy" "\
 Set local key defs for inf-groovy in groovy-mode" nil nil)
@@ -110,12 +126,23 @@ process buffer for a list of commands.
 \(fn CMD)" t nil)
 
 (eval-after-load 'groovy-mode (lambda nil (add-hook 'groovy-mode-hook 'inf-groovy-keys)))
+
+;;;### (autoloads "actual autoloads are elsewhere" "inf-groovy" "../../../../../.emacs.d/elpa/groovy-mode-2.1/inf-groovy.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/groovy-mode-2.1/inf-groovy.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "inf-groovy" '("groovy" "inf" "remove-in-string" "switch-to-groovy")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("groovy-mode-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-electric.el"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/groovy-mode.el"
+;;;;;;  "../../../../../.emacs.d/elpa/groovy-mode-2.1/inf-groovy.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 

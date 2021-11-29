@@ -6,8 +6,9 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "dash" "dash.el" (0 0 0 0))
-;;; Generated autoloads from dash.el
+;;;### (autoloads nil "dash" "../../../../../.emacs.d/elpa/dash-2.19.1/dash.el"
+;;;;;;  "82fea3abec1f8263be1e551088255fa8")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dash-2.19.1/dash.el
 
 (autoload 'dash-fontify-mode "dash" "\
 Toggle fontification of Dash special variables.
@@ -56,12 +57,20 @@ See `dash-fontify-mode' for more information on Dash-Fontify mode.
 (autoload 'dash-register-info-lookup "dash" "\
 Register the Dash Info manual with `info-lookup-symbol'.
 This allows Dash symbols to be looked up with \\[info-lookup-symbol]." t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "dash" "../../../../../.emacs.d/elpa/dash-2.19.1/dash.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/dash-2.19.1/dash.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dash" '("!cdr" "!cons" "--" "->" "-a" "-butlast" "-c" "-d" "-e" "-f" "-gr" "-i" "-juxt" "-keep" "-l" "-m" "-no" "-o" "-p" "-r" "-s" "-t" "-u" "-value-to-list" "-when-let" "-zip" "dash-")))
 
 ;;;***
+
+;;;***
 
-;;;### (autoloads nil nil ("dash-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/dash-2.19.1/dash-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/dash-2.19.1/dash-pkg.el" "../../../../../.emacs.d/elpa/dash-2.19.1/dash.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
