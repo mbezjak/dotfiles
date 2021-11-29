@@ -51,7 +51,6 @@
       dired-recursive-copies 'always
       dired-recursive-deletes 'top
       dired-listing-switches "-lha --group-directories-first"
-      dired-dwim-target t
       ;; node / create-react-app dislikes lock files
       create-lockfiles nil)
 
