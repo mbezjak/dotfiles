@@ -21,11 +21,13 @@ mkdir --parents ~/downloads
 mkdir --parents --mode=700 ~/Sync
 mkdir --parents ~/workspace/{xattic,xforeign}
 mkdir --parents ~/.lein
+mkdir --parents ~/.clojure
 mkdir --parents ~/.sbt/0.13/plugins
 mkdir --parents ~/.config/i3
 
 install_link emacs.d .emacs.d
 install_link lein/profiles.clj .lein/profiles.clj
+install_link clojure/deps.edn .clojure/deps.edn
 install_link sbt/0.13/plugins/plugins.sbt .sbt/0.13/plugins/plugins.sbt
 install_link i3/config .config/i3/config
 install_link config/systemd/user/dump-package-list.service .config/systemd/user/dump-package-list.service
