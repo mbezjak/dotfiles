@@ -1,3 +1,6 @@
 {:aliases
  {:outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-             :main-opts ["-m" "antq.core"]}}}
+             :main-opts ["-m" "antq.core"]}
+  :api-diff {:replace-deps {borkdude/api-diff {:git/url "https://github.com/borkdude/api-diff"
+                                               :git/sha "b0ba815d4b7312692270799f1eedbadfbd9ebca8"}}
+             :main-opts ["-m" "borkdude.api-diff"]}}}
