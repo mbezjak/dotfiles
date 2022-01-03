@@ -301,8 +301,9 @@ have kubectl && {
 }
 
 [[ -d ~/workspace/backend ]] && {
-    alias bt='cd ~/workspace/backend && INTERNAL_API_PORT=8801 APP_API_PORT=8889 MOCK_API_PORT=30086 CITEPROC_URL=http://127.0.0.1:30086/citeproc HUBSPOT_URL=http://127.0.0.1:30086/hubspot time lein test'
+    alias bt=~/workspace/backend/bin/test-backend.sh
     alias bl=~/workspace/backend/bin/lint-backend.sh
+    alias bd='cd ~/workspace/backend && docker-compose down && docker-compose up -d'
     alias ba='for app in frontend question-editor; do cd ~/workspace/backend/apps/$app && npm install && npm run build; done'
     export GITLAB_USERNAME="$(pass show Gitlab/username)"
     export GITLAB_ACCESS_TOKEN="$(pass show Gitlab/access-token)"
