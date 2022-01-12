@@ -301,6 +301,7 @@ have kubectl && {
 }
 
 [[ -d ~/workspace/backend ]] && {
+    add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
     alias bl=~/workspace/backend/bin/lint-backend.sh
     alias bd='cd ~/workspace/backend && docker-compose down && docker-compose up -d'
