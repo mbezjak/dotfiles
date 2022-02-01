@@ -14,6 +14,8 @@
         enabled = true
 [push]
         default = matching
+[init]
+        defaultBranch = main
 [alias]
         co = checkout
         ci = commit
