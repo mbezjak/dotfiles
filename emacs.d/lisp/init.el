@@ -473,6 +473,7 @@
 
 (use-package lispy
   :ensure t
+  :pin melpa
   :diminish lispy-mode
   :defer t
   :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
