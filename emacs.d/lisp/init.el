@@ -602,7 +602,7 @@
   :bind (("C-c o" . crux-open-with)
          ("C-S-<return>" . crux-smart-open-line-above)
          ("S-<return>" . crux-smart-open-line)
-         ("C-c n" . crux-cleanup-buffer-or-region)
+         ;; ("C-c n" . crux-cleanup-buffer-or-region)
          ("C-c u" . crux-view-url)
          ("C-c e" . crux-eval-and-replace)
          ("C-c D" . crux-delete-file-and-buffer)
