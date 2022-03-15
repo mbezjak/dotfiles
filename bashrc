@@ -305,7 +305,7 @@ have kubectl && {
     alias bt=~/workspace/backend/bin/test-backend.sh
     alias bl=~/workspace/backend/bin/lint-backend.sh
     alias bd='cd ~/workspace/backend && docker-compose down && docker-compose up -d'
-    alias ba='for app in frontend question-editor; do cd ~/workspace/backend/apps/$app && npm install && npm run build; done'
+    alias ba='cd ~/workspace/backend/frontend && npm install && npm run build'
     export GITLAB_USERNAME="$(pass show Gitlab/username)"
     export GITLAB_ACCESS_TOKEN="$(pass show Gitlab/access-token)"
 }
