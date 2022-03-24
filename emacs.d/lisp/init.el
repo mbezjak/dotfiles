@@ -420,6 +420,12 @@
   :bind (:map rjsx-mode-map
          ("C-d" . my-delete-region-or-line)))
 
+(use-package prettier-js
+  :ensure t
+  :hook ((rjsx-mode . prettier-js-mode)
+         (js2-mode . prettier-js-mode)
+         (json-mode . prettier-js-mode)))
+
 (use-package coffee-mode
   :ensure t
   :defer t
