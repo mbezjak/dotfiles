@@ -787,7 +787,7 @@
 	       ("Leo Liu" . "sdl.web@gmail.com"))
 	      (:keywords "killing" "convenience"))])
  (ebdb .
-       [(0 8 13)
+       [(0 8 14)
 	((emacs
 	  (25 1))
 	 (seq
@@ -798,7 +798,7 @@
 	 (:maintainer "Eric Abrahamsen" . "eric@ericabrahamsen.net")
 	 (:authors
 	  ("Eric Abrahamsen" . "eric@ericabrahamsen.net"))
-	 (:commit . "333c68f7e95590e867ca02742c9f5d612e633c28"))])
+	 (:commit . "c98512ebb6984701bbf090f1eabedb120c51e7bd"))])
  (ebdb-gnorb .
 	     [(1 0 2)
 	      ((gnorb
@@ -830,7 +830,7 @@
 	      (:maintainer "Markus Triska" . "triska@metalevel.at")
 	      (:url . "https://www.metalevel.at/ediprolog/"))])
  (eev .
-      [(20220316)
+      [(20220324)
        ((emacs
 	 (24 4)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -839,7 +839,7 @@
 	(:maintainer "Eduardo Ochs" . "eduardoochs@gmail.com")
 	(:authors
 	 ("Eduardo Ochs" . "eduardoochs@gmail.com"))
-	(:commit . "e77a2a290323171a2c4a63504ae7899f9af646af"))])
+	(:commit . "515e876c5a0f7003cca272de616a60e3160eace6"))])
  (eglot .
 	[(1 8)
 	 ((emacs
@@ -876,15 +876,16 @@
 	      (:keywords "lisp")
 	      (:url . "http://elpa.gnu.org/packages/el-search.html"))])
  (eldoc .
-	[(1 11 0)
+	[(1 11 1)
 	 ((emacs
 	   (26 3)))
-	 "Show function arglist or variable docstring in echo area" single
-	 ((:url . "http://elpa.gnu.org/packages/eldoc.html")
-	  (:keywords "extensions")
+	 "Show function arglist or variable docstring in echo area" tar
+	 ((:keywords "extensions")
+	  (:maintainer "Noah Friedman" . "friedman@splode.com")
 	  (:authors
 	   ("Noah Friedman" . "friedman@splode.com"))
-	  (:maintainer "Noah Friedman" . "friedman@splode.com"))])
+	  (:url . "https://elpa.gnu.org/packages/eldoc.html")
+	  (:commit . "45978f97be89ae989ecf9e7129b88592e70a1f24"))])
  (eldoc-eval .
 	     [(0 2)
 	      nil "Enable eldoc support when minibuffer is in use." tar
@@ -2161,7 +2162,7 @@
 	     ("Phillip Lord" . "phillip.lord@russet.org.uk"))
 	    (:url . "http://elpa.gnu.org/packages/persist.html"))])
  (phps-mode .
-	    [(0 4 19)
+	    [(0 4 20)
 	     ((emacs
 	       (26)))
 	     "Major mode for PHP with code intelligence" tar
@@ -2170,7 +2171,7 @@
 	      (:maintainer "Christian Johansson" . "christian@cvj.se")
 	      (:authors
 	       ("Christian Johansson" . "christian@cvj.se"))
-	      (:commit . "246bcc69675323f5213ca54a348713e6f3879809"))])
+	      (:commit . "3a09d15aa143b175235674f4cd45f92b0b0a6c36"))])
  (pinentry .
 	   [(0 1)
 	    nil "GnuPG Pinentry server implementation" single
