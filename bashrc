@@ -304,7 +304,7 @@ have kubectl && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
     alias bl=~/workspace/backend/bin/lint-backend.sh
-    alias bd='cd ~/workspace/backend && docker-compose down && docker-compose up -d'
+    alias bd='cd ~/workspace/backend && ( [[ $(docker ps -q | wc -l) != 0 ]] && docker stop $(docker ps -q) || true ) && docker-compose up -d'
     alias ba='cd ~/workspace/backend/admin-ui && npm install && npm run build'
     export GITLAB_USERNAME="$(pass show Gitlab/username)"
     export GITLAB_ACCESS_TOKEN="$(pass show Gitlab/access-token)"
