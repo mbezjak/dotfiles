@@ -590,8 +590,10 @@
   :init
   (setq cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-pretty-printing t
-        cider-jdk-src-paths '("/usr/lib/jvm/java-8-openjdk/src.zip"
-                              "~/lib/clojure-src"))
+        cider-enrich-classpath t
+        ;; M-. should still be cider-find-var
+        ;; xref is ok, but with lispy M-. becomes lispy-goto-symbol which doesn't work
+        cider-use-xref nil)
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-mode-hook #'cider-auto-test-mode)
