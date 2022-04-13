@@ -68,6 +68,7 @@ add-to-path ~/bin
 add-to-path ~/Sync/bin
 add-to-path ~/workspace/dotfiles/bin
 add-to-path ~/workspace/poly-devel/bin
+add-to-path ~/Sync/bloom/bin
 add-to-path ~/.local/bin
 add-to-path ~/.cabal/bin
 add-to-path ~/.cargo/bin
