@@ -2152,10 +2152,13 @@ When ARG is nagative, add them above instead"
 (defun lispy-meta-return ()
   "Insert a new heading."
   (interactive)
-  (let ((pt (point)))
+  (let ((pt (point))
+        (lvl (lispy-outline-level)))
     (cond ((lispy--in-comment-p)
-           (end-of-line)
-           (newline))
+           (goto-char (cdr (zo-bnd-subtree)))
+           (when (looking-back "\n+")
+             (delete-region (match-beginning 0) (match-end 0)))
+           (insert "\n\n"))
           ((and (lispy-bolp)
                 (looking-at " *$"))
            (delete-region
@@ -2170,12 +2173,11 @@ When ARG is nagative, add them above instead"
                  (forward-list 1)
                  (newline))
              (newline)
-             (backward-char 1)))))
-  (insert lispy-outline-header
-          (make-string (max (lispy-outline-level) 1)
-                       ?\*)
-          " ")
-  (beginning-of-line))
+             (backward-char 1))))
+    (insert lispy-outline-header
+            (make-string (max lvl 1) ?\*)
+            " ")
+    (beginning-of-line)))
 
 (defun lispy-alt-line (&optional N)
   "Do a context-aware exit, then `newline-and-indent', N times.
@@ -4340,7 +4342,8 @@ Return the result of the last evaluation as a string."
          (res
           (lispy--eval-dwim bnd t)))
     (when lispy-eval-output
-      (setq res (concat lispy-eval-output res)))
+      (unless (looking-at ".*::$")
+        (setq res (concat lispy-eval-output res))))
     (cond ((equal res "")
            (message "(ok)"))
           ((= ?: (char-before (line-end-position)))
@@ -4378,7 +4381,7 @@ If STR is too large, pop it to a buffer instead."
         (special-mode)
         (let ((inhibit-read-only t))
           (delete-region (point-min) (point-max))
-          (insert str)
+          (insert (ansi-color-apply str))
           (ignore-errors (pp-buffer))
           (goto-char (point-min))
           (while (re-search-forward "\\\\n" nil t)
@@ -4655,8 +4658,7 @@ SYM will take on each value of LST with each eval."
          (lispy-message res))
         ((and (fboundp 'object-p) (object-p res))
          (message "(eieio object length %d)" (length res)))
-        ((and (memq major-mode lispy-elisp-modes)
-              (consp res)
+        ((and (consp res)
               (numberp (car res))
               (numberp (cdr res)))
          (lispy-message

@@ -68,8 +68,10 @@
   "Nil if the Clojure middleware in \"lispy-clojure.clj\" wasn't loaded yet.")
 
 (defun lispy--clojure-process-buffer ()
-  (let ((cur-type (cider-repl-type-for-buffer)))
-    (car (cider-repls cur-type nil))))
+  (if (or org-src-mode (eq major-mode 'org-mode))
+      (cadr (first (sesman--all-system-sessions 'CIDER)))
+    (let ((cur-type (cider-repl-type-for-buffer)))
+      (car (cider-repls cur-type nil)))))
 
 (defun lispy--clojure-middleware-loaded-p ()
   (let ((conn (lispy--clojure-process-buffer)))
@@ -109,7 +111,8 @@
                       (lispy--string-dwim))))
           (setq e-str (format "%s (nth %s %d)" sym e-str-1 idx))))
       (format (if (memq this-command '(special-lispy-eval
-                                       special-lispy-eval-and-insert))
+                                       special-lispy-eval-and-insert
+                                       lispy-eval-current-outline))
                   "(lispy.clojure/pp (lispy.clojure/reval %S %S :file %S :line %S))"
                 "(lispy.clojure/reval %S %S :file %S :line %S)")
               e-str
@@ -478,7 +481,7 @@ Besides functions, handles specials, keywords, maps, vectors and sets."
   (let* ((e-str (format "(lispy.clojure/debug-step-in\n'%s)"
                         (lispy--string-dwim)))
          (str (substring-no-properties
-               (lispy--eval-clojure-cider e-str)))
+               (lispy--eval-clojure-1 e-str nil)))
          (old-session (sesman-current-session 'CIDER)))
     (lispy-follow)
     (when (string-match "(clojure.core/in-ns (quote \\([^)]+\\))" str)

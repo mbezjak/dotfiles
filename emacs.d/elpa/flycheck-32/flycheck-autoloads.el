@@ -6,30 +6,53 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "flycheck" "../../../../../.emacs.d/elpa/flycheck-31/flycheck.el"
-;;;;;;  "cdb947b89b328ee5455f34eb0fa57642")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck.el
+;;;### (autoloads nil "flycheck" "flycheck.el" (0 0 0 0))
+;;; Generated autoloads from flycheck.el
 
 (autoload 'flycheck-manual "flycheck" "\
 Open the Flycheck manual." t nil)
 
 (autoload 'flycheck-mode "flycheck" "\
-Minor mode for on-the-fly syntax checking.
-
-When called interactively, toggle `flycheck-mode'.  With prefix
-ARG, enable `flycheck-mode' if ARG is positive, otherwise disable
-it.
-
-When called from Lisp, enable `flycheck-mode' if ARG is omitted,
-nil or positive.  If ARG is `toggle', toggle `flycheck-mode'.
-Otherwise behave as if called interactively.
+Flycheck is a minor mode for on-the-fly syntax checking.
 
 In `flycheck-mode' the buffer is automatically syntax-checked
 using the first suitable syntax checker from `flycheck-checkers'.
 Use `flycheck-select-checker' to select a checker for the current
 buffer manually.
 
+If you run into issues, use `\\[flycheck-verify-setup]' to get help.
+
+Flycheck supports many languages out of the box, and many
+additional ones are available on MELPA.  Adding new ones is very
+easy.  Complete documentation is available online at URL
+`https://www.flycheck.org/en/latest/'.  Please report issues and
+request features at URL `https://github.com/flycheck/flycheck'.
+
+Flycheck displays its status in the mode line.  In the default
+configuration, it looks like this:
+
+`FlyC'     This buffer has not been checked yet.
+`FlyC-'    Flycheck doesn't have a checker for this buffer.
+`FlyC*'    Flycheck is running.  Expect results soon!
+`FlyC:3|2' This buffer contains three warnings and two errors.
+           Use `\\[flycheck-list-errors]' to see the list.
+
+You may also see the following icons:
+`FlyC!'    The checker crashed.
+`FlyC.'    The last syntax check was manually interrupted.
+`FlyC?'    The checker did something unexpected, like exiting with 1
+           but returning no errors.
+
+The following keybindings are available in `flycheck-mode':
+
 \\{flycheck-mode-map}
+\(you can change the prefix by customizing
+`flycheck-keymap-prefix')
+
+If called interactively, enable Flycheck mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is ‘toggle’; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -91,15 +114,23 @@ The following PROPERTIES constitute an error level:
      property for error level categories is `priority', to
      influence the stacking of multiple error level overlays.
 
-`:fringe-bitmap BITMAP'
+`:fringe-bitmap BITMAPS'
      A fringe bitmap symbol denoting the bitmap to use for fringe
-     indicators for this level.  See Info node `(elisp)Fringe
-     Bitmaps' for more information about fringe bitmaps,
-     including a list of built-in fringe bitmaps.
+     indicators for this level, or a cons of two bitmaps (one for
+     narrow fringes and one for wide fringes).  See Info node
+     `(elisp)Fringe Bitmaps' for more information about fringe
+     bitmaps, including a list of built-in fringe bitmaps.
 
 `:fringe-face FACE'
      A face symbol denoting the face to use for fringe indicators
      for this level.
+
+`:margin-spec SPEC'
+     A display specification indicating what to display in the
+     margin when `flycheck-indication-mode' is `left-margin' or
+     `right-margin'.  See Info node `(elisp)Displaying in the
+     Margins'.  If omitted, Flycheck generates an image spec from
+     the fringe bitmap.
 
 `:error-list-face FACE'
      A face symbol denoting the face to use for messages of this
@@ -196,11 +227,12 @@ default `:verify' function of command checkers.
 Define SYMBOL as config file variable for CHECKER, with default FILE-NAME.
 
 SYMBOL is declared as customizable variable using `defcustom', to
-provide a configuration file for the given syntax CHECKER.
+provide configuration files for the given syntax CHECKER.
 CUSTOM-ARGS are forwarded to `defcustom'.
 
 FILE-NAME is the initial value of the new variable.  If omitted,
-the default value is nil.
+the default value is nil.  It can be either a string or a list of
+strings.
 
 Use this together with the `config-file' form in the `:command'
 argument to `flycheck-define-checker'.
@@ -227,41 +259,40 @@ Use this together with the `option', `option-list' and
 (function-put 'flycheck-def-option-var 'lisp-indent-function '3)
 
 (function-put 'flycheck-def-option-var 'doc-string-elt '4)
-
-;;;### (autoloads "actual autoloads are elsewhere" "flycheck" "../../../../../.emacs.d/elpa/flycheck-31/flycheck.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("contains-rebar-config" "flycheck-" "help-flycheck-checker-d" "list-flycheck-errors" "locate-rebar3-project-root" "read-flycheck-")))
+(autoload 'flycheck-define-checker "flycheck" "\
+Define SYMBOL as command syntax checker with DOCSTRING and PROPERTIES.
+
+Like `flycheck-define-command-checker', but PROPERTIES must not
+be quoted.  Also, implicitly define the executable variable for
+SYMBOL with `flycheck-def-executable-var'.
+
+\(fn SYMBOL DOCSTRING &rest PROPERTIES)" nil t)
+
+(function-put 'flycheck-define-checker 'lisp-indent-function '1)
+
+(function-put 'flycheck-define-checker 'doc-string-elt '2)
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("flycheck-" "help-flycheck-checker-d" "list-flycheck-errors")))
 
 ;;;***
-
-;;;***
 
-;;;### (autoloads "actual autoloads are elsewhere" "flycheck-buttercup"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck-buttercup.el"
+;;;### (autoloads nil "flycheck-buttercup" "flycheck-buttercup.el"
 ;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck-buttercup.el
+;;; Generated autoloads from flycheck-buttercup.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-buttercup" '("flycheck-buttercup-format-error-list")))
 
 ;;;***
 
-;;;### (autoloads "actual autoloads are elsewhere" "flycheck-ert"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck-ert.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/flycheck-31/flycheck-ert.el
+;;;### (autoloads nil "flycheck-ert" "flycheck-ert.el" (0 0 0 0))
+;;; Generated autoloads from flycheck-ert.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-ert" '("flycheck-ert-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-ert" '("flycheck-er")))
 
 ;;;***
 
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/flycheck-31/flycheck-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck-buttercup.el"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck-ert.el"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck-pkg.el"
-;;;;;;  "../../../../../.emacs.d/elpa/flycheck-31/flycheck.el") (0
-;;;;;;  0 0 0))
+;;;### (autoloads nil nil ("flycheck-pkg.el") (0 0 0 0))
 
 ;;;***
 
