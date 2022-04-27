@@ -449,10 +449,12 @@ In interactive calls OTHER-WINDOW is set with
 
 This function returns the all contents under the current
 headline, up to the next headline."
-  (let ((beg (progn (org-roam-end-of-meta-data t)
-                    (point)))
-        (end (progn (org-next-visible-heading 1)
-                    (point))))
+  (let ((beg (save-excursion
+               (org-roam-end-of-meta-data t)
+               (point)))
+        (end (save-excursion
+               (org-next-visible-heading 1)
+               (point))))
     (string-trim (buffer-substring-no-properties beg end))))
 
 (defun org-roam-preview-get-contents (file pt)
@@ -655,7 +657,7 @@ References from FILE are excluded."
                                 (shell-command-to-string "rg --pcre2-version"))))
     (let* ((titles (cons (org-roam-node-title node)
                          (org-roam-node-aliases node)))
-           (rg-command (concat "rg -o --vimgrep -P -i "
+           (rg-command (concat "rg -L -o --vimgrep -P -i "
                                (mapconcat (lambda (glob) (concat "-g " glob))
                                           (org-roam--list-files-search-globs org-roam-file-extensions)
                                           " ")

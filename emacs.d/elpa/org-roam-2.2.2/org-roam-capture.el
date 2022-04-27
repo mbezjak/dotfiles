@@ -1,6 +1,6 @@
 ;;; org-roam-capture.el --- Capture functionality -*- coding: utf-8; lexical-binding: t; -*-
 
-;; Copyright © 2020-2021 Jethro Kuan <jethrokuan95@gmail.com>
+;; Copyright © 2020-2022 Jethro Kuan <jethrokuan95@gmail.com>
 
 ;; Author: Jethro Kuan <jethrokuan95@gmail.com>
 ;; URL: https://github.com/org-roam/org-roam
@@ -762,7 +762,10 @@ This function is to be called in the Org-capture finalization process."
 It expands ${var} occurrences in TEMPLATE, and then runs
 org-capture's template expansion.
 When ENSURE-NEWLINE, always ensure there's a newline behind."
-  (let ((template-whitespace-content (org-roam-whitespace-content template)))
+  (let* ((template (if (functionp template)
+                       (funcall template)
+                     template))
+         (template-whitespace-content (org-roam-whitespace-content template)))
     (setq template
           (org-roam-format-template
            template

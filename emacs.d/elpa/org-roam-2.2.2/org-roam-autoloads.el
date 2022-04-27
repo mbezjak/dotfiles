@@ -189,6 +189,14 @@ Activate `org-roam-db-autosync-mode'." nil nil)
 
 ;;;***
 
+;;;### (autoloads nil "org-roam-export" "org-roam-export.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from org-roam-export.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-export" '("org-roam-export--org-html--reference")))
+
+;;;***
+
 ;;;### (autoloads nil "org-roam-graph" "org-roam-graph.el" (0 0 0
 ;;;;;;  0))
 ;;; Generated autoloads from org-roam-graph.el
@@ -228,6 +236,13 @@ that are excluded from identification in Org-roam as
 \(fn &rest DIRECTORIES)" t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-id" '("org-roam-id-")))
+
+;;;***
+
+;;;### (autoloads nil "org-roam-log" "org-roam-log.el" (0 0 0 0))
+;;; Generated autoloads from org-roam-log.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-roam-log" '("org-roam-log-")))
 
 ;;;***
 
