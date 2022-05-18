@@ -178,11 +178,6 @@ Saves to a temp file and puts the filename in the kill ring."
   (let ((repo (f-dirname (buffer-file-name))))
     (call-process "thg" nil 0 nil "-R" repo)))
 
-(defun my-git-mergetool ()
-  (interactive)
-  (let ((dir (projectile-project-root)))
-    (call-process "git" nil 0 nil "mergetool")))
-
 (defun my-no-properties (p)
   (set-text-properties 0 (length p) nil p)
   p)
@@ -261,22 +256,6 @@ Saves to a temp file and puts the filename in the kill ring."
 (defun my-bloom-backend-stop ()
   (interactive)
   (cider-interactive-eval "(dev/stop)"))
-
-(defun my-bloom-backend-set-replace-responses ()
-  (interactive)
-  (with-current-buffer (find-file-noselect (f-join (projectile-project-root) "test/it/support/rest_utils.clj"))
-    (goto-char (point-min))
-    (search-forward-regexp "^(def replace-responses ")
-    (lispy-kill-word 1)
-    (insert " true")
-    (save-buffer)
-    (cider-eval-defun-at-point)
-    (run-with-idle-timer 0.3 nil (lambda () (message "replace responses true")))))
-
-(defun my-bloom-dired-data ()
-  (interactive)
-  (let ((dir (f-join (projectile-project-root) "data")))
-    (dired dir)))
 
 (defun my-bloom-clojure-sort-ns ()
   (interactive)
