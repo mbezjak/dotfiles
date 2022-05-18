@@ -1,14 +1,14 @@
-;;; helpful.el --- a better *help* buffer            -*- lexical-binding: t; -*-
+;;; helpful.el --- A better *help* buffer            -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017-2019  Wilfred Hughes
+;; Copyright (C) 2017-2020  Wilfred Hughes
 
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; URL: https://github.com/Wilfred/helpful
-;; Package-Version: 0.18
-;; Package-Commit: 5a5eb62ae1f9cfdd4897ec6e878ec96231c52bdd
+;; Package-Version: 0.19
+;; Package-Commit: 2afbde902742b1aa64daa31a635ba564f14b35ae
 ;; Keywords: help, lisp
-;; Version: 0.18
-;; Package-Requires: ((emacs "25") (dash "2.12.0") (dash-functional "1.2.0") (s "1.11.0") (f "0.20.0") (elisp-refs "1.2"))
+;; Version: 0.19
+;; Package-Requires: ((emacs "25") (dash "2.18.0") (s "1.11.0") (f "0.20.0") (elisp-refs "1.2"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -48,7 +48,6 @@
 (require 'help)
 (require 'help-fns)
 (require 'dash)
-(require 'dash-functional)
 (require 's)
 (require 'f)
 (require 'find-func)
@@ -183,11 +182,15 @@ can make Helpful very slow.")
 (defun helpful--pretty-print (value)
   "Pretty-print VALUE.
 
-If VALUE is self-referential, or just very big, the user may
-press \\[keyboard-quit] to gracefully stop the printing."
+If VALUE is very big, the user may press \\[keyboard-quit] to
+gracefully stop the printing. If VALUE is self-referential, the
+error will be caught and displayed."
   ;; Inspired by `ielm-eval-input'.
-  (condition-case nil
+  (condition-case err
       (s-trim-right (pp-to-string value))
+    (error
+     (propertize (format "(Display error: %s)" (cadr err))
+                 'face 'font-lock-comment-face))
     (quit
      (propertize "(User quit during pretty-printing.)"
                  'face 'font-lock-comment-face))))
@@ -1316,13 +1319,17 @@ If it fails, attempt to partially macroexpand FORM."
 (defun helpful--tree-any-p (pred tree)
   "Walk TREE, applying PRED to every subtree.
 Return t if PRED ever returns t."
-  (cond
-   ((null tree) nil)
-   ((funcall pred tree) t)
-   ((not (consp tree)) nil)
-   (t (or
-       (helpful--tree-any-p pred (car tree))
-       (helpful--tree-any-p pred (cdr tree))))))
+  (catch 'found
+    (let ((stack (list tree)))
+      (while stack
+        (let ((next (pop stack)))
+          (cond
+           ((funcall pred next)
+            (throw 'found t))
+           ((consp next)
+            (push (car next) stack)
+            (push (cdr next) stack))))))
+    nil))
 
 (defun helpful--find-by-macroexpanding (buf sym callable-p)
   "Search BUF for the definition of SYM by macroexpanding
@@ -1612,12 +1619,12 @@ E.g. (x x y z y) -> ((x . 2) (y . 2) (z . 1))"
 
 (defun helpful--without-advice (sym)
   "Given advised function SYM, return the function object
-without the advice."
+without the advice. Assumes function has been loaded."
   (advice--cd*r
    (advice--symbol-function sym)))
 
 (defun helpful--advised-p (sym)
-  "A list of advice associated with SYM."
+  "Does SYM have advice associated with it?"
   (and (symbolp sym)
        (advice--p (advice--symbol-function sym))))
 
@@ -1818,7 +1825,7 @@ OBJ may be a symbol or a compiled function object."
 
 (defun helpful--make-callees-button (sym source)
   (helpful--button
-   "Find callees"
+   (format "Functions used by %s" sym)
    'helpful-callees-button
    'symbol sym
    'source source))
@@ -1897,7 +1904,7 @@ OBJ may be a symbol or a compiled function object."
             'info-node "(elisp)Autoload"))
           (compiled-button
            (helpful--button
-            "compiled"
+            "byte-compiled"
             'helpful-info-button
             'info-node "(elisp)Byte Compilation"))
           (native-compiled-button
@@ -1955,13 +1962,13 @@ OBJ may be a symbol or a compiled function object."
                           (helpful--buffer-button buf pos)))))
              (primitive-p
               "defined in C source code")
-             ((helpful--kbd-macro-p sym) "")
+             ((helpful--kbd-macro-p sym) nil)
              (t
               "without a source file"))))
 
     (s-word-wrap
      70
-     (format "%s is %s %s %s %s."
+     (format "%s is %s %s %s%s."
              (if (symbolp sym)
                  (helpful--format-symbol sym)
                "This lambda")
@@ -1972,7 +1979,7 @@ OBJ may be a symbol or a compiled function object."
                "a")
              description
              kind
-             defined))))
+             (if defined (concat " " defined) "")))))
 
 (defun helpful--callees (form)
   "Given source code FORM, return a list of all the functions called."
@@ -2076,7 +2083,7 @@ may contain duplicates."
   "Ensure the symbol associated with the current buffer has been loaded."
   (when (and helpful--callable-p
              (symbolp helpful--sym))
-    (let ((fn-obj (helpful--without-advice helpful--sym)))
+    (let ((fn-obj (symbol-function helpful--sym)))
       (when (autoloadp fn-obj)
         (autoload-do-load fn-obj)))))
 
@@ -2252,7 +2259,7 @@ state of the current symbol."
           (insert (helpful--format-docstring docstring)))
         (when version-info
           (insert "\n\n" (s-word-wrap 70 version-info)))
-        (when (helpful--in-manual-p helpful--sym)
+        (when (and (symbolp helpful--sym) (helpful--in-manual-p helpful--sym))
           (insert "\n\n")
           (insert (helpful--make-manual-button helpful--sym)))))
 
@@ -2295,7 +2302,11 @@ state of the current symbol."
      "\n\n"
      (helpful--make-references-button helpful--sym helpful--callable-p))
 
-    (when (and helpful--callable-p source (not primitive-p))
+    (when (and
+           helpful--callable-p
+           (symbolp helpful--sym)
+           source
+           (not primitive-p))
       (insert
        " "
        (helpful--make-callees-button helpful--sym source)))
@@ -2461,7 +2472,14 @@ For example, \"(some-func FOO &optional BAR)\"."
              ((symbolp sym)
               (help-function-arglist sym))
              ((byte-code-function-p sym)
-              (aref sym 0))
+              ;; argdesc can be a list of arguments or an integer
+              ;; encoding the min/max number of arguments. See
+              ;; Byte-Code Function Objects in the elisp manual.
+              (let ((argdesc (aref sym 0)))
+                (if (consp argdesc)
+                    argdesc
+                  ;; TODO: properly handle argdesc values.
+                  nil)))
              (t
               ;; Interpreted function (lambda ...)
               (cadr sym))))
@@ -2737,7 +2755,9 @@ See also `helpful-callable' and `helpful-variable'."
              sexp)
         (when sexp-start
           (goto-char sexp-start)
-          (setq sexp (read (current-buffer)))
+          (setq sexp (condition-case nil
+                         (read (current-buffer))
+                       (error nil)))
           (when (memq (car-safe sexp)
                       (list 'defvar 'defvar-local 'defcustom 'defconst))
             (nth 1 sexp)))))))

@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "helpful" "../../../../../.emacs.d/elpa/helpful-0.18/helpful.el"
-;;;;;;  "d9a4b0637de37f48e7f5414ca54841e4")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/helpful-0.18/helpful.el
+;;;### (autoloads nil "helpful" "helpful.el" (0 0 0 0))
+;;; Generated autoloads from helpful.el
 
 (autoload 'helpful-function "helpful" "\
 Show help for function named SYMBOL.
@@ -55,20 +54,8 @@ Show help for variable named SYMBOL.
 
 (autoload 'helpful-at-point "helpful" "\
 Show help for the symbol at point." t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "helpful" "../../../../../.emacs.d/elpa/helpful-0.18/helpful.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/helpful-0.18/helpful.el
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "helpful" '("helpful-")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/helpful-0.18/helpful-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/helpful-0.18/helpful.el") (0
-;;;;;;  0 0 0))
 
 ;;;***
 
