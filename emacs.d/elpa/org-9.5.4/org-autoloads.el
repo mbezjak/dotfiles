@@ -1180,6 +1180,14 @@ Add a hook to automatically encrypt entries before a file is saved to disk." nil
 
 ;;;***
 
+;;;### (autoloads "actual autoloads are elsewhere" "org-lint" "org-lint.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from org-lint.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-lint" '("org-lint-")))
+
+;;;***
+
 ;;;### (autoloads "actual autoloads are elsewhere" "org-list" "org-list.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from org-list.el

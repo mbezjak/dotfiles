@@ -1297,7 +1297,7 @@ Set `org-capture-templates' to be similar to `org-remember-templates'." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "org-clock" "org-clock.el" "5c0d6c39a5b0f2793ed040a9204ce84b")
+;;;### (autoloads nil "org-clock" "org-clock.el" "69e9f3416c7305700f8a4f6d18ac4655")
 ;;; Generated autoloads from org-clock.el
 
 (autoload 'org-resolve-clocks "org-clock" "\
@@ -1962,7 +1962,7 @@ Describe all keybindings behind `org-babel-key-prefix'." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "org-lint" "org-lint.el" (0 0 0 0))
+;;;### (autoloads nil "org-lint" "org-lint.el" "4f75c166323a2710d98a9a0e881fe8f3")
 ;;; Generated autoloads from org-lint.el
 
 (autoload 'org-lint "org-lint" "\
@@ -1975,8 +1975,6 @@ checker by its name.
 ARG can also be a list of checker names, as symbols, to run.
 
 \(fn &optional ARG)" t nil)
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-lint" '("org-lint-")))
 
 ;;;***
 

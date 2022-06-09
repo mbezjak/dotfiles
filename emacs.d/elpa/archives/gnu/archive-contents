@@ -896,7 +896,7 @@
 	      (:maintainer "Markus Triska" . "triska@metalevel.at")
 	      (:url . "https://www.metalevel.at/ediprolog/"))])
  (eev .
-      [(20220531)
+      [(20220605)
        ((emacs
 	 (24 4)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -905,7 +905,7 @@
 	(:maintainer "Eduardo Ochs" . "eduardoochs@gmail.com")
 	(:authors
 	 ("Eduardo Ochs" . "eduardoochs@gmail.com"))
-	(:commit . "23aad4691ccb9fdf9953b35048a6f59590d3b5ab"))])
+	(:commit . "afc2a0cfe4fe462e74e5c6fe17282f46bf3dbdec"))])
  (eglot .
 	[(1 8)
 	 ((emacs
@@ -1438,16 +1438,16 @@
 	   ("Durand" . "mmemmew@gmail.com"))
 	  (:url . "https://elpa.gnu.org/packages/ilist.html"))])
  (inspector .
-	    [(0 2)
+	    [(0 5)
 	     ((emacs
-	       (25)))
+	       (27)))
 	     "Tool for inspection of Emacs Lisp objects." tar
 	     ((:url . "https://github.com/mmontone/emacs-inspector")
 	      (:keywords "debugging" "tool" "emacs-lisp" "development")
 	      (:maintainer "Mariano Montone" . "marianomontone@gmail.com")
 	      (:authors
 	       ("Mariano Montone" . "marianomontone@gmail.com"))
-	      (:commit . "4769535e4575f463e92b3706bef0aa4966d3214c"))])
+	      (:commit . "69df4a49f3e8260c9a43c227960ead4d821341bc"))])
  (ioccur .
 	 [(2 6)
 	  ((emacs
@@ -1732,7 +1732,7 @@
 	   (:maintainer "Alexey Veretennikov" . "alexey.veretennikov@gmail.com")
 	   (:url . "https://github.com/fourier/loccur"))])
  (logos .
-	[(0 3 2)
+	[(0 4 0)
 	 ((emacs
 	   (27 1)))
 	 "Simple focus mode and extras" tar
@@ -1741,7 +1741,7 @@
 	  (:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
 	  (:authors
 	   ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	  (:commit . "dd25e36b64320f2ba9400a3929443aa81085e697"))])
+	  (:commit . "388bfbd9d8c880898d1832e888d5b41582dd1a85"))])
  (map .
       [(3 2 1)
        ((emacs
@@ -1865,16 +1865,16 @@
 			  ("Protesilaos Stavrou" . "info@protesilaos.com"))
 			 (:keywords "faces" "theme" "accessibility"))])
  (modus-themes .
-	       [(2 3 0)
+	       [(2 4 1)
 		((emacs
 		  (27 1)))
 		"Elegant, highly legible and customizable themes" tar
-		((:url . "https://gitlab.com/protesilaos/modus-themes")
+		((:url . "https://git.sr.ht/~protesilaos/modus-themes")
 		 (:keywords "faces" "theme" "accessibility")
 		 (:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
 		 (:authors
 		  ("Protesilaos Stavrou" . "info@protesilaos.com"))
-		 (:commit . "7b08e3a8e41db1483322f48305f837e705540249"))])
+		 (:commit . "e3ec91232fcdd4d7fe2c48fcdb78b4ac7c6356d5"))])
  (modus-vivendi-theme .
 		      [(0 13 2)
 		       ((emacs
@@ -1896,15 +1896,16 @@
 	       (:authors
 		("Dave Love" . "fx@gnu.org")))])
  (multishell .
-	     [(1 1 9)
+	     [(1 1 10)
 	      ((cl-lib
 		(0 5)))
-	      "Easily use multiple shell buffers, local and remote" tar
+	      "Organize use of multiple shell buffers, local and remote" tar
 	      ((:url . "https://github.com/kenmanheimer/EmacsMultishell")
+	       (:keywords "processes")
 	       (:maintainer "Ken Manheimer" . "ken.manheimer@gmail.com")
 	       (:authors
 		("Ken Manheimer" . "ken.manheimer@gmail.com"))
-	       (:keywords "processes"))])
+	       (:commit . "aa1433b8df6d950e8592c7e878922b4ec5374569"))])
  (muse .
        [(3 20 2)
 	nil "Authoring and publishing tool for Emacs" tar
@@ -2095,7 +2096,7 @@
 	       ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 	      (:commit . "92008e762b30cb445a2227e458cbb9a5e1b1d4e8"))])
  (org .
-      [(9 5 3)
+      [(9 5 4)
        ((emacs
 	 (25 1)))
        "Outline-based notes management and organizer" tar
@@ -2104,7 +2105,7 @@
 	(:maintainer "Bastien Guerry" . "bzg@gnu.org")
 	(:authors
 	 ("Carsten Dominik" . "carsten.dominik@gmail.com"))
-	(:commit . "69c588947d1be9bca1eb8c773f2a8ff117d264ba"))])
+	(:commit . "e0b05b07528dea684f3439c017370436b8d37b50"))])
  (org-edna .
 	   [(1 1 2)
 	    ((emacs
