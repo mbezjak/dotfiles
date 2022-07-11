@@ -52,7 +52,6 @@ function laptop {
     cp -a ~/Documents $dest/Documents
     # less relevant
     cp -a ~/workspace $dest/workspace
-    cp -a ~/lib $dest/lib
     cp -a ~/.config $dest/config
     cp -a ~/.local $dest/local
     cp -a ~/.local/share/local-mail $dest/local-mail
