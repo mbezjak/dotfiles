@@ -1,0 +1,2 @@
+;;; Generated package description from idle-highlight-mode.el  -*- no-byte-compile: t -*-
+(define-package "idle-highlight-mode" "20220710.709" "Highlight the word the point is on" '((emacs "27.1")) :stars nil :commit "dd07a8f465adb76c05d4712d03e093e9fdb79485" :authors '(("Phil Hagelberg, Cornelius Mika, Campbell Barton")) :maintainer '("Campbell Barton" . "ideasman42@gmail.com") :keywords '("convenience") :url "https://codeberg.org/ideasman42/emacs-idle-highlight-mode")
