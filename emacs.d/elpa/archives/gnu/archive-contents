@@ -251,7 +251,7 @@
 	      ("Serghei Iakovlev" . "egrep@protonmail.ch"))
 	     (:keywords "languages"))])
  (boxy .
-       [(1 1 0)
+       [(1 1 1)
 	((emacs
 	  (26 1)))
 	"A boxy layout framework" tar
@@ -260,7 +260,7 @@
 	 (:maintainer "Tyler Grinn" . "tylergrinn@gmail.com")
 	 (:authors
 	  ("Tyler Grinn" . "tylergrinn@gmail.com"))
-	 (:commit . "68b1c6db7bb585e5942ab2e12765cf80cfcfb619"))])
+	 (:commit . "350bc70ed16c4eccc3b20114347cbdc3591140f3"))])
  (boxy-headings .
 		[(2 1 3)
 		 ((emacs
@@ -490,7 +490,7 @@
 			("Ingo Lohmar" . "i.lohmar@gmail.com"))
 		       (:keywords "abbrev" "convenience" "matching"))])
  (compat .
-	 [(28 1 1 3)
+	 [(28 1 2 0)
 	  ((emacs
 	    (24 3))
 	   (nadvice
@@ -501,7 +501,7 @@
 	   (:maintainer "Compat Development" . "~pkal/compat-devel@lists.sr.ht")
 	   (:authors
 	    ("Philip Kaludercic" . "philipk@posteo.net"))
-	   (:commit . "2c3233c0e09ef34176787b6e3da4319751ad91e7"))])
+	   (:commit . "6b70229adf1ad7c2227789061dd1b2fc00d36ad8"))])
  (consult .
 	  [(0 18)
 	   ((emacs
@@ -2332,7 +2332,7 @@
 	      ("Daiki Ueno" . "ueno@gnu.org"))
 	     (:maintainer "Daiki Ueno" . "ueno@gnu.org"))])
  (plz .
-      [(0 1)
+      [(0 2)
        ((emacs
 	 (26 3)))
        "HTTP library" tar
@@ -2341,7 +2341,7 @@
 	(:maintainer "Adam Porter" . "adam@alphapapa.net")
 	(:authors
 	 ("Adam Porter" . "adam@alphapapa.net"))
-	(:commit . "9156de9c59c1836139db1b600f4056454b42dfd2"))])
+	(:commit . "9e9a370830a879592a4c6c9e66a5e9ec9f27d698"))])
  (poker .
 	[(0 2)
 	 nil "Texas hold 'em poker" single
@@ -2388,16 +2388,16 @@
 	       ("Scott Andrew Borton" . "scott@pp.htv.fi"))
 	      (:maintainer "John Darrington" . "john@darrington.wattle.id.au"))])
  (pulsar .
-	 [(0 3 1)
+	 [(0 4 0)
 	  ((emacs
 	    (27 1)))
 	  "Pulse highlight on demand or after select functions" tar
 	  ((:url . "https://git.sr.ht/~protesilaos/pulsar")
 	   (:keywords "convenience" "pulse" "highlight")
-	   (:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
+	   (:maintainer "Pulsar Development" . "~protesilaos/pulsar@lists.sr.ht")
 	   (:authors
 	    ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	   (:commit . "86a7c429c6878287c068106b318889824cad3210"))])
+	   (:commit . "1b91e34af63240fcfc02e267d740a78590f1f2de"))])
  (pyim .
        [(5 2 3)
 	((emacs
@@ -3293,14 +3293,16 @@
 	     (:authors
 	      ("Andrii Kolomoiets" . "andreyk.mad@gmail.com")))])
  (vcard .
-	[(0 2 1)
+	[(0 2 2)
 	 ((emacs
 	   (27 1)))
 	 "Package for handling vCard files" tar
-	 ((:maintainer "Eric Abrahamsen" . "eric@ericabrahamsen.net")
+	 ((:keywords "vcard" "mail" "news")
+	  (:maintainer "Noah Friedman <friedman@splode.com>, Eric Abrahamsen" . "eric@ericabrahamsen.net")
 	  (:authors
-	   ("Eric Abrahamsen" . "eric@ericabrahamsen.net"))
-	  (:url . "https://elpa.gnu.org/packages/vcard.html"))])
+	   ("Noah Friedman" . "friedman@splode.com"))
+	  (:url . "https://elpa.gnu.org/packages/vcard.html")
+	  (:commit . "28b88fd8ed53ca12d9499175217af81f5ea161fc"))])
  (vcl-mode .
 	   [(1 1)
 	    nil "Major mode for Varnish Configuration Language" single
