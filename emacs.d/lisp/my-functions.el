@@ -257,6 +257,11 @@ Saves to a temp file and puts the filename in the kill ring."
   (interactive)
   (cider-interactive-eval "(dev/stop)"))
 
+(defun my-bloom-backend-restart ()
+  (interactive)
+  (my-bloom-backend-stop)
+  (run-with-idle-timer 0.3 nil 'my-bloom-backend-start))
+
 (defun my-bloom-clojure-sort-ns ()
   (interactive)
   (save-excursion
