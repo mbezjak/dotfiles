@@ -317,6 +317,10 @@ have kubectl && {
     }
     export GITLAB_USERNAME="$(pass show Gitlab/username)"
     export GITLAB_ACCESS_TOKEN="$(pass show Gitlab/access-token)"
+    # https://www.terraform.io/cli/config/config-file#environment-variable-credentials
+    export TF_TOKEN_gitlab_com="$(pass show Gitlab/access-token)"
+    export TF_VAR_gitlab_username="$(pass show Gitlab/username)"
+    export TF_VAR_gitlab_password="$(pass show Gitlab/access-token)"
 }
 
 
