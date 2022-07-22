@@ -199,10 +199,11 @@
               ("<escape>" . company-abort))
   :hook ((after-init . global-company-mode))
   :config
-  ;; respect case when inserting into buffer, ignore when searching for candidates
-  (setq company-dabbrev-downcase nil
-        company-dabbrev-ignore-case 'yes
-        company-show-numbers t))
+  (setq company-tooltip-offset-display 'lines
+        company-show-numbers t
+        ;; respect case when inserting into buffer, ignore when searching for candidates
+        company-dabbrev-downcase nil
+        company-dabbrev-ignore-case 'yes))
 
 (use-package psession
   :ensure t
