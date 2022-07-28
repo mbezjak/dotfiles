@@ -44,7 +44,7 @@
 ;;;### (autoloads nil "le-python" "le-python.el" (0 0 0 0))
 ;;; Generated autoloads from le-python.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-python" '("lispy-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "le-python" '("lispy-" "python-shell--interpreter")))
 
 ;;;***
 

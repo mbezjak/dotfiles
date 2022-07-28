@@ -6,9 +6,8 @@
                          (or (file-name-directory #$) (car load-path))))
 
 
-;;;### (autoloads nil "go-mode" "../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el"
-;;;;;;  "153b0808a60acb4bae253aa2ad9766e1")
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el
+;;;### (autoloads nil "go-mode" "go-mode.el" (0 0 0 0))
+;;; Generated autoloads from go-mode.el
 
 (autoload 'go-mode "go-mode" "\
 Major mode for editing Go source text.
@@ -94,20 +93,15 @@ Download a paste from the playground and insert it in a Go buffer.
 Tries to look for a URL at point.
 
 \(fn URL)" t nil)
-
-;;;### (autoloads "actual autoloads are elsewhere" "go-mode" "../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from ../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el
+
+(autoload 'go-dot-mod-mode "go-mode" "\
+A major mode for editing go.mod files.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("go\\.mod\\'" . go-dot-mod-mode))
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "go-mode" '("go-" "god" "gofmt")))
-
-;;;***
-
-;;;***
-
-;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode-autoloads.el"
-;;;;;;  "../../../../../.emacs.d/elpa/go-mode-1.5.0/go-mode.el")
-;;;;;;  (0 0 0 0))
 
 ;;;***
 
