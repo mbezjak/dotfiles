@@ -11,10 +11,10 @@
 ;;       Magnar Sveen <magnars@gmail.com>
 ;; Maintainer: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: http://github.com/clojure-emacs/clojure-mode
-;; Package-Version: 5.15.0
-;; Package-Commit: 93bb1c5a2a4699063e4f2ac7e585f5cab5dd52c1
+;; Package-Version: 5.15.1
+;; Package-Commit: ad322e989e56c10c05bb286e5b55a82b1e031d62
 ;; Keywords: languages clojure clojurescript lisp
-;; Version: 5.15.0
+;; Version: 5.15.1
 ;; Package-Requires: ((emacs "25.1"))
 
 ;; This file is not part of GNU Emacs.
@@ -759,7 +759,7 @@ Called by `imenu--generic-function'."
             (when (char-equal ?^ (char-after def-beg))
               ;; move to the beginning of next sexp
               (progn (forward-sexp) (backward-sexp)))
-            (when (or (not (char-equal ?^ (char-after (point))))
+            (when (or (not (char-equal ?^ (char-after def-beg)))
                       (and (char-equal ?^ (char-after (point))) (= def-beg (point))))
               (setq found? t)
               (when (string= deftype "defmethod")

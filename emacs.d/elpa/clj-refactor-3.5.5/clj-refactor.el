@@ -7,7 +7,7 @@
 ;;         Lars Andersen <expez@expez.com>
 ;;         Benedek Fazekas <benedek.fazekas@gmail.com>
 ;;         Bozhidar Batsov <bozhidar@batsov.dev>
-;; Version: 3.5.4
+;; Version: 3.5.5
 ;; Keywords: convenience, clojure, cider
 
 ;; Package-Requires: ((emacs "26.1") (seq "2.19") (yasnippet "0.6.1") (paredit "24") (multiple-cursors "1.2.2") (clojure-mode "5.14") (cider "1.4.1") (parseedn "1.1.0") (inflections "2.6") (hydra "0.13.2"))
@@ -1967,25 +1967,32 @@ following this convention: https://stuartsierra.com/2015/05/10/clojure-namespace
   (and (cljr--cljs-file-p)
        (string-equal "js" alias)))
 
-(defun cljr--magic-requires-lookup-alias ()
-  "Return (alias (ns.candidate1 ns.candidate1)) if we recognize
-the alias in the project."
-  (let ((short (thread-last (buffer-substring-no-properties
-                             (cljr--point-after 'paredit-backward)
-                             (1- (point)))
-                 (string-remove-prefix "::")
-                 (string-remove-prefix "@"))))
-    (unless (or (cljr--resolve-alias short)
-                (cljr--js-alias-p short))
-      (if-let ((aliases (ignore-errors (cljr--get-aliases-from-middleware)))
-               (candidates (gethash (intern short) aliases)))
-          (list short candidates)
-        (when (and cljr-magic-require-namespaces ; a regex against "" always triggers
-                   (string-match-p (cljr--magic-requires-re) short))
-          ;; This when-let might seem unnecessary but the regexp match
-          ;; isn't perfect.
-          (when-let (long (cljr--aget cljr-magic-require-namespaces short))
-            (list short (list long))))))))
+(defun cljr--ns-alias-at-point ()
+  "Returns the (alias)/ just prior to the point excluding the trailing slash."
+  (buffer-substring-no-properties
+   (cljr--point-after
+    ;; word or symbol constituent
+    '(skip-syntax-backward "w_")
+    ;; ignore prefix digits, #', ', `, :, and ::, that are not part of the
+    ;; symbol, and can occur in various orderings.
+    '(re-search-forward "[0-9`':#]*" nil t))
+   (1- (point))))
+
+(defun cljr--magic-requires-lookup-alias (short)
+  "Generate a mapping from alias to candidate namespaces.
+
+If we recognize the `short' alias in the project, use namespaces
+from the middleware or any `cljr-magic-require-namespaces' that
+match. Returns a structure of (alias (ns1 ns2 ...))."
+  (if-let ((aliases (ignore-errors (cljr--get-aliases-from-middleware)))
+           (candidates (gethash (intern short) aliases)))
+      (list short candidates)
+    (when (and cljr-magic-require-namespaces ; a regex against "" always triggers
+               (string-match-p (cljr--magic-requires-re) short))
+      ;; This when-let might seem unnecessary but the regexp match
+      ;; isn't perfect.
+      (when-let (long (cljr--aget cljr-magic-require-namespaces short))
+        (list short (list long))))))
 
 (defun cljr--in-keyword-sans-alias-p ()
   "Checks if thing at point is keyword without an alias."
@@ -2016,6 +2023,24 @@ the alias in the project."
     (backward-sexp 1)
     (looking-at-p "[-+0-9]")))
 
+(defun cljr--unresolved-alias-ref (alias-ref)
+  "Return `alias-ref' if the alias is unresolved or nil.
+
+Filters out existing alias in the namespace, or a global alias
+ like `js' in cljs."
+  (unless (or (cljr--resolve-alias alias-ref)
+              (cljr--js-alias-p alias-ref))
+    alias-ref))
+
+(defun cljr--insert-require-libspec (libspec)
+  "Inserts a require `libspec' in the namespace of the current file."
+  (save-excursion
+    (cljr--insert-in-ns ":require")
+    (insert libspec)
+    (ignore-errors (cljr--maybe-eval-ns-form))
+    (cljr--indent-defun)
+    (cljr--post-command-message "Required %s" libspec)))
+
 ;;;###autoload
 (defun cljr-slash ()
   "Inserts / as normal, but also checks for common namespace shorthands to require.
@@ -2024,32 +2049,27 @@ listed in `cljr-magic-require-namespaces', or any alias used elsewhere in the pr
 will add the corresponding require statement to the ns form."
   (interactive)
   (insert "/")
-  (when-let (aliases (and cljr-magic-requires
-                          (not (cljr--in-map-destructuring?))
-                          (not (cljr--in-ns-above-point-p))
-                          (not (cljr--in-reader-literal-p))
-                          (not (cider-in-comment-p))
-                          (not (cider-in-string-p))
-                          (not (cljr--in-keyword-sans-alias-p))
-                          (not (cljr--in-number-p))
-                          (clojure-find-ns)
-                          (cljr--magic-requires-lookup-alias)))
-    (let ((short (cl-first aliases))
-          ;; Ensure it's a list (and not a vector):
-          (candidates (mapcar 'identity (cl-second aliases))))
-      (when-let (long (cljr--prompt-user-for "Require " candidates))
-        (when (and (not (cljr--in-namespace-declaration-p (concat ":as " short "\b")))
-                   (not (cljr--in-namespace-declaration-p (concat ":as-alias " short "\b")))
-                   (or (not (eq :prompt cljr-magic-requires))
-                       (not (> (length candidates) 1)) ; already prompted
-                       (yes-or-no-p (format "Add %s :as %s to requires?" long short))))
-          (save-excursion
-            (cljr--insert-in-ns ":require")
-            (let ((libspec (format "[%s :as %s]" long short)))
-              (insert libspec)
-              (ignore-errors (cljr--maybe-eval-ns-form))
-              (cljr--indent-defun)
-              (cljr--post-command-message "Required %s" libspec))))))))
+  (when-let (alias-ref (and cljr-magic-requires
+                            (not (cljr--in-map-destructuring?))
+                            (not (cljr--in-ns-above-point-p))
+                            (not (cljr--in-reader-literal-p))
+                            (not (cider-in-comment-p))
+                            (not (cider-in-string-p))
+                            (not (cljr--in-keyword-sans-alias-p))
+                            (not (cljr--in-number-p))
+                            (clojure-find-ns)
+                            (cljr--unresolved-alias-ref (cljr--ns-alias-at-point))))
+    (when-let (aliases (cljr--magic-requires-lookup-alias alias-ref))
+      (let ((short (cl-first aliases))
+            ;; Ensure it's a list (and not a vector):
+            (candidates (mapcar 'identity (cl-second aliases))))
+        (when-let (long (cljr--prompt-user-for "Require " candidates))
+          (when (and (not (cljr--in-namespace-declaration-p (concat ":as " short "\b")))
+                     (not (cljr--in-namespace-declaration-p (concat ":as-alias " short "\b")))
+                     (or (not (eq :prompt cljr-magic-requires))
+                         (not (> (length candidates) 1)) ; already prompted
+                         (yes-or-no-p (format "Add %s :as %s to requires?" long short))))
+            (cljr--insert-require-libspec (format "[%s :as %s]" long short))))))))
 
 (defun cljr--in-namespace-declaration-p (s)
   (save-excursion
@@ -3295,7 +3315,7 @@ if REMOVE-PACKAGE_VERSION is t get rid of the (package: 20150828.1048) suffix."
 ;; We used to derive the version out of `(cljr--version t)`,
 ;; but now prefer a fixed version to fully decouple things and prevent unforeseen behavior.
 ;; This suits better our current pace of development.
-(defcustom cljr-injected-middleware-version "3.5.3"
+(defcustom cljr-injected-middleware-version "3.5.4"
   "The refactor-nrepl version to be injected.
 
 You can customize this in order to try out new releases.

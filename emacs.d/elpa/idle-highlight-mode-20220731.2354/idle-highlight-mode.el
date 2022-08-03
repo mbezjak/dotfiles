@@ -6,8 +6,8 @@
 ;; Author: Phil Hagelberg, Cornelius Mika, Campbell Barton
 ;; Maintainer: Campbell Barton <ideasman42@gmail.com>
 ;; URL: https://codeberg.org/ideasman42/emacs-idle-highlight-mode
-;; Package-Version: 20220710.709
-;; Package-Commit: dd07a8f465adb76c05d4712d03e093e9fdb79485
+;; Package-Version: 20220731.2354
+;; Package-Commit: b3eed5553fe8d7b28bd95b5093e4174d859695ca
 ;; Version: 1.1.3
 ;; Created: 2008-05-13
 ;; Keywords: convenience
@@ -30,6 +30,10 @@
 ;; (add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
 ;;; Code:
+
+(eval-when-compile
+  ;; For `pcase-dolist'.
+  (require 'pcase))
 
 
 ;; ---------------------------------------------------------------------------
