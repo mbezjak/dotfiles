@@ -718,7 +718,7 @@
   :ensure t
   :defer t
   :init
-  (setq yaml-indent-offset 4))
+  (setq yaml-indent-offset 2))
 
 (use-package toggle-quotes
   :ensure t
