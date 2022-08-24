@@ -42,16 +42,16 @@
 
   ;; when in calendar mode, shift+keys do not switch windows
   (let ((map org-read-date-minibuffer-local-map))
-    (define-key map [(shift up)]
-      (lambda () (interactive)
-        (org-eval-in-calendar '(calendar-backward-week 1))))
-    (define-key map [(shift down)]
+    (org-defkey map (kbd "S-<up>")
+                (lambda () (interactive)
+                  (org-eval-in-calendar '(calendar-backward-week 1))))
+    (org-defkey map (kbd "S-<down>")
                 (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-forward-week 1))))
-    (define-key map [(shift left)]
+    (org-defkey map (kbd "S-<left>")
                 (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-backward-day 1))))
-    (define-key map [(shift right)]
+    (org-defkey map (kbd "S-<right>")
                 (lambda () (interactive)
                   (org-eval-in-calendar '(calendar-forward-day 1)))))
 
@@ -81,7 +81,7 @@
              :map org-agenda-keymap
              ("C-s" . org-save-all-org-buffers)))
 
-; http://lists.gnu.org/archive/html/emacs-orgmode/2014-02/msg00088.html
+;; http://lists.gnu.org/archive/html/emacs-orgmode/2014-02/msg00088.html
 (defun my-org-ask-clock-out ()
   "Ask the user before clocking out. This is a useful function for adding to `kill-emacs-query-functions'."
   (if (and (featurep 'org-clock)
