@@ -619,8 +619,7 @@
          ("C-c t" . crux-visit-term-buffer)
          ("C-c j" . crux-top-join-line)
          ("M-E" . crux-kill-line-backwards)
-         ("C-c i" . crux-ispell-word-then-abbrev)
-         ("C-t" . crux-transpose-windows)))
+         ("C-c i" . crux-ispell-word-then-abbrev)))
 
 (use-package try
   :ensure t

@@ -80,7 +80,18 @@
 (define-key 'help-command "a" 'apropos)
 
 ;; shift + arrow keys
-(windmove-default-keybindings)
+;; Not using `(windmove-default-keybindings)` because minor modes override local
+;; map that org mode setups up in `org-read-date-minibuffer-local-map`.
+;; I want to use shift+arrows in minibuffer to select a date, but everywhere
+;; else it should be windmove commands. Below is defining those keys via global
+;; map which has lowest precedence.
+;; https://www.masteringemacs.org/article/mastering-key-bindings-emacs#keymap-lookup-order
+(bind-keys
+ ("S-<left>" . windmove-left)
+ ("S-<right>" . windmove-right)
+ ("S-<up>" . windmove-up)
+ ("S-<down>" . windmove-down))
+(windmove-swap-states-default-keybindings '(shift meta))
 
 
 (unbind-key "M-1")
