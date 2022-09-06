@@ -219,13 +219,14 @@
 	    ("Artur Malabarba" . "emacs@endlessparentheses.com"))
 	   (:commit . "0cf8b60f62876f3e75653a5fb30d5d5cdd74c586"))])
  (blist .
-	[(0 1)
+	[(0 2)
 	 nil "Display bookmarks in an ibuffer way" tar
 	 ((:keywords "convenience")
 	  (:maintainer "Durand" . "mmemmew@gmail.com")
 	  (:authors
 	   ("Durand" . "mmemmew@gmail.com"))
-	  (:url . "https://elpa.gnu.org/packages/blist.html"))])
+	  (:url . "https://elpa.gnu.org/packages/blist.html")
+	  (:commit . "c5aadbce3b713a2a9e7dba8c3c0881c43ebb2b4d"))])
  (bluetooth .
 	    [(0 3 1)
 	     ((emacs
@@ -553,16 +554,18 @@
 	   ("Daniel Mendler" . "mail@daniel-mendler.de"))
 	  (:commit . "42f777680ee50fa1328326c7be0c045e9c3ccb69"))])
  (coterm .
-	 [(1 5)
+	 [(1 6)
 	  ((emacs
-	    (26 1)))
+	    (26 1))
+	   (compat
+	    (28 1 2 0)))
 	  "Terminal emulation for comint" tar
 	  ((:url . "https://repo.or.cz/emacs-coterm.git")
 	   (:keywords "processes")
 	   (:maintainer "jakanakaevangeli" . "jakanakaevangeli@chiru.no")
 	   (:authors
 	    ("jakanakaevangeli" . "jakanakaevangeli@chiru.no"))
-	   (:commit . "ef4b5fb55304266244c87d2c6aaefab58149da62"))])
+	   (:commit . "d8e1b04cd359d9f27ab7c6dbf8cae90dde834085"))])
  (counsel .
 	  [(0 13 4)
 	   ((emacs
@@ -637,7 +640,7 @@
 	     (:url . "https://elpa.gnu.org/packages/csv-mode.html")
 	     (:commit . "d10d68c382e17960fc9aaef072fd18a23ea92a86"))])
  (cursory .
-	  [(0 2 1)
+	  [(0 3 0)
 	   ((emacs
 	     (27 1)))
 	   "Manage cursor styles using presets" tar
@@ -646,7 +649,7 @@
 	    (:maintainer "Cursory Development" . "~protesilaos/cursory@lists.sr.ht")
 	    (:authors
 	     ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	    (:commit . "e04fd74d56bee52eccbc124c5395ee78e47189a0"))])
+	    (:commit . "568310b13dfeda471fa23c6aa9b88c2a410aed01"))])
  (cycle-quotes .
 	       [(0 1)
 		nil "Cycle between quote styles" tar
@@ -711,7 +714,7 @@
 	    (:maintainer "Phil Sainty" . "psainty@orcon.net.nz")
 	    (:url . "https://savannah.nongnu.org/projects/delight"))])
  (denote .
-	 [(0 5 1)
+	 [(0 6 1)
 	  ((emacs
 	    (27 2)))
 	  "Simple notes with an efficient file-naming scheme" tar
@@ -719,18 +722,18 @@
 	   (:maintainer "Denote Development" . "~protesilaos/denote@lists.sr.ht")
 	   (:authors
 	    ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	   (:commit . "1d714e8fb260470ada1f48dce731f6849905b78f"))])
+	   (:commit . "a143347053d1b91cbbaae602d6a109157d0e2ed7"))])
  (detached .
-	   [(0 7)
+	   [(0 8 0)
 	    ((emacs
 	      (27 1)))
 	    "A package to launch, and manage, detached processes" tar
 	    ((:url . "https://sr.ht/~niklaseklund/detached.el/")
 	     (:keywords "convenience" "processes")
-	     (:maintainer "Niklas Eklund" . "niklas.eklund@posteo.net")
+	     (:maintainer "detached.el Development" . "~niklaseklund/detached.el@lists.sr.ht")
 	     (:authors
 	      ("Niklas Eklund" . "niklas.eklund@posteo.net"))
-	     (:commit . "8402e7ef4574c719f114b15f89b4aecdddea1e1e"))])
+	     (:commit . "982443b3638e697fbe859faaa95eef502c13339d"))])
  (devdocs .
 	  [(0 5)
 	   ((emacs
@@ -949,7 +952,7 @@
 	 ("Eduardo Ochs" . "eduardoochs@gmail.com"))
 	(:commit . "db182293dbbef6f6611be4d8930da37481b6857a"))])
  (ef-themes .
-	    [(0 4 0)
+	    [(0 4 2)
 	     ((emacs
 	       (27 1)))
 	     "Colorful and legible themes" tar
@@ -958,7 +961,7 @@
 	      (:maintainer "Ef-Themes Development" . "~protesilaos/ef-themes@lists.sr.ht")
 	      (:authors
 	       ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	      (:commit . "24cf2c89dd3a083ec8c072366098d8bf34f413d5"))])
+	      (:commit . "feecafad1ffde54c913f6dbe03671a8a07156f26"))])
  (eglot .
 	[(1 8)
 	 ((emacs
@@ -1787,16 +1790,16 @@
 	   (:maintainer "Alexey Veretennikov" . "alexey.veretennikov@gmail.com")
 	   (:url . "https://github.com/fourier/loccur"))])
  (logos .
-	[(0 4 0)
+	[(0 5 0)
 	 ((emacs
 	   (27 1)))
 	 "Simple focus mode and extras" tar
 	 ((:url . "https://git.sr.ht/~protesilaos/logos")
 	  (:keywords "convenience" "focus" "writing" "presentation" "narrowing")
-	  (:maintainer "Protesilaos Stavrou" . "info@protesilaos.com")
+	  (:maintainer "Logos Development" . "~protesilaos/logos@lists.sr.ht")
 	  (:authors
 	   ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	  (:commit . "388bfbd9d8c880898d1832e888d5b41582dd1a85"))])
+	  (:commit . "83a2739a34e5dada28bf3679996d2cc2cce15984"))])
  (map .
       [(3 2 1)
        ((emacs
@@ -2162,7 +2165,7 @@
 	       ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 	      (:commit . "92008e762b30cb445a2227e458cbb9a5e1b1d4e8"))])
  (org .
-      [(9 5 4)
+      [(9 5 5)
        ((emacs
 	 (25 1)))
        "Outline-based notes management and organizer" tar
@@ -2171,7 +2174,7 @@
 	(:maintainer "Bastien Guerry" . "bzg@gnu.org")
 	(:authors
 	 ("Carsten Dominik" . "carsten.dominik@gmail.com"))
-	(:commit . "e0b05b07528dea684f3439c017370436b8d37b50"))])
+	(:commit . "8ef6205a560cd3a92f8c5f8fe34953b80121c2cb"))])
  (org-edna .
 	   [(1 1 2)
 	    ((emacs
@@ -2809,15 +2812,16 @@
 	     ("Michael R. Mauger" . "michael@mauger.com"))
 	    (:url . "https://elpa.gnu.org/packages/shelisp.html"))])
  (shell-command+ .
-		 [(2 3 2)
+		 [(2 4 1)
 		  ((emacs
-		    (24 1)))
+		    (24 3)))
 		  "An extended shell-command" tar
 		  ((:url . "https://git.sr.ht/~pkal/shell-command-plus")
 		   (:keywords "unix" "processes" "convenience")
-		   (:maintainer "Philip Kaludercic" . "philipk@posteo.net")
+		   (:maintainer "Philip Kaludercic" . "~pkal/public-inbox@lists.sr.ht")
 		   (:authors
-		    ("Philip Kaludercic" . "philipk@posteo.net")))])
+		    ("Philip Kaludercic" . "philipk@posteo.net"))
+		   (:commit . "ba5a0faab4e9e0bd8344bb042edd6169491502ce"))])
  (shen-mode .
 	    [(0 1)
 	     nil "A major mode for editing shen source code" tar
@@ -3675,4 +3679,17 @@
 	  (:maintainer "Alexey Veretennikov" . "alexey.veretennikov@gmail.com")
 	  (:authors
 	   ("Alexey Veretennikov" . "alexey.veretennikov@gmail.com"))
-	  (:keywords "files" "tools"))]))
+	  (:keywords "files" "tools"))])
+ (zuul .
+       [(0 4 0)
+	((emacs
+	  (27 1))
+	 (project
+	  (0 8 1)))
+	"Interface to Zuul" tar
+	((:url . "https://sr.ht/~niklaseklund/zuul.el")
+	 (:keywords "convenience" "tools")
+	 (:maintainer "zuul.el Development" . "~niklaseklund/zuul.el@lists.sr.ht")
+	 (:authors
+	  ("Niklas Eklund" . "niklas.eklund@posteo.net"))
+	 (:commit . "c94886cb7abdea66ba1d0a064a4d93efed10fed4"))]))
