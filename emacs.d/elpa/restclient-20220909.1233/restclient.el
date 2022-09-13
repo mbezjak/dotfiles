@@ -1,4 +1,4 @@
-;;; restclient.el --- An interactive HTTP client for Emacs
+;;; restclient.el --- An interactive HTTP client for Emacs  -*- lexical-binding: t; -*-
 ;;
 ;; Public domain.
 
@@ -6,8 +6,8 @@
 ;; Maintainer: Pavel Kurnosov <pashky@gmail.com>
 ;; Created: 01 Apr 2012
 ;; Keywords: http
-;; Package-Version: 20220101.1239
-;; Package-Commit: 9e2cfa86529133eba6c9ef53794be182f15e4c21
+;; Package-Version: 20220909.1233
+;; Package-Commit: 1fb570643b08ba66eb70831b6f874f52546917f1
 
 ;; This file is not part of GNU Emacs.
 ;; This file is public domain software. Do what you want.
@@ -506,7 +506,7 @@ The buffer contains the raw HTTP response sent by the server."
     (restclient-replace-all-in-string vars-at-point (cdr (assoc var-name vars-at-point)))))
 
 (defmacro restclient-get-var (var-name)
-  (lexical-let ((buf-name (buffer-name (current-buffer)))
+  (let ((buf-name (buffer-name (current-buffer)))
 		(buf-point (point)))
     `(restclient-get-var-at-point ,var-name ,buf-name ,buf-point)))
 
@@ -571,7 +571,7 @@ The buffer contains the raw HTTP response sent by the server."
 
 (defun restclient-elisp-result-function (args offset)
   (goto-char offset)
-  (lexical-let ((form (macroexpand-all (read (current-buffer)))))
+  (let ((form (macroexpand-all (read (current-buffer)))))
     (lambda ()
       (eval form))))
 

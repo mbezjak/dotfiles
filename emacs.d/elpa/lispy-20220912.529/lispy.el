@@ -219,7 +219,7 @@ The hint will consist of the possible nouns that apply to the verb."
   :group 'lispy)
 
 (defcustom lispy-close-quotes-at-end-p nil
-  "If t, when pressing the `\"' at the end of a quoted string, it will move you past the end quote."
+  "If t, when pressing `\"' at the end of a quoted string, move past the end quote."
   :type 'boolean
   :group 'lispy)
 
@@ -2096,6 +2096,7 @@ When the region is active, toggle a ~ at the start of the region."
 (declare-function slime-repl-return "ext:slime-repl")
 (declare-function sly-mrepl-return "ext:sly-mrepl")
 (declare-function racket-repl-submit "ext:racket-repl")
+(declare-function geiser-repl-maybe-send "ext:geiser-repl")
 (defun lispy-newline-and-indent-plain ()
   "When in minibuffer, exit it.  Otherwise forward to `newline-and-indent'."
   (interactive)
@@ -2117,6 +2118,8 @@ When the region is active, toggle a ~ at the start of the region."
        (ielm-return))
       (racket-repl-mode
        (racket-repl-submit))
+      (geiser-repl-mode
+       (geiser-repl-maybe-send))
       (t
        (if (and (not (lispy--in-string-or-comment-p))
                 (if (memq major-mode lispy-clojure-modes)
@@ -2464,7 +2467,11 @@ If indenting does not adjust indentation or move the point, call
         (bnd (when (region-active-p)
                (cons (region-beginning)
                      (region-end)))))
-    (indent-for-tab-command)
+    ;; the current TAB may not always be `indent-for-tab-command'
+    (cond
+     ((memq major-mode '(minibuffer-mode minibuffer-inactive-mode))
+      (completion-at-point))
+     (t (indent-for-tab-command)))
     (when (and (= tick (buffer-chars-modified-tick))
                (= pt (point)))
       (if bnd
@@ -4204,7 +4211,7 @@ SYMBOL is a string."
      le-julia lispy-eval-julia lispy-eval-julia-str)
     (racket-mode
      le-racket lispy--eval-racket)
-    (scheme-mode
+    ((scheme-mode geiser-repl-mode)
      le-scheme lispy--eval-scheme)
     (lisp-mode
      le-lisp lispy--eval-lisp)
@@ -4392,8 +4399,8 @@ If STR is too large, pop it to a buffer instead."
         (let ((inhibit-read-only t))
           (delete-region (point-min) (point-max))
           (insert (ansi-color-apply str))
-          (unless (> (length str) 2000)
-            (ignore-errors (pp-buffer)))
+          ;; (unless (> (length str) 2000)
+          ;;   (ignore-errors (pp-buffer)))
           (goto-char (point-min))
           (while (re-search-forward "\\\\n" nil t)
             (replace-match "\n" nil t))
@@ -5457,7 +5464,7 @@ The bindings of `lispy-backward' or `lispy-mark-symbol' can also be used."
   (let* ((bnd (lispy--bounds-dwim))
          (str (lispy--string-dwim bnd))
          (kind (lispy--bind-variable-kind))
-         (fmt (if (eq major-mode 'clojure-mode)
+         (fmt (if (memq major-mode lispy-clojure-modes)
                   '("(let [ %s]\n)" . 6)
                 '("(let (( %s))\n)" . 7))))
     (setq lispy-bind-var-in-progress t)

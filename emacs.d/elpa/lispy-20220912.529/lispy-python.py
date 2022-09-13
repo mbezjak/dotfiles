@@ -22,18 +22,19 @@ import ast
 import collections
 import inspect
 import io
+import json
 import os
 import pprint as pp
 import re
 import shlex
 import subprocess
 import sys
-import types
 from ast import AST
 from contextlib import redirect_stdout
-from typing import List, Dict, Any, Union, Tuple
+from typing import List, Dict, Any, Union, Tuple, Optional, TypedDict, Callable, cast
+from types import TracebackType, MethodType, FunctionType, ModuleType
 
-def sh(cmd):
+def sh(cmd: str) -> str:
     r = subprocess.run(
         shlex.split(cmd),
         stdout=subprocess.PIPE,
@@ -46,7 +47,7 @@ try:
     import reprlib
     repr1 = reprlib.Repr()
     repr1.maxlist = 10
-    repr1.maxstring = 100
+    repr1.maxstring = 200
 except:
     pass
 try:
@@ -62,7 +63,7 @@ except:
 class Stack:
     line_numbers: Dict[Tuple[str, str], int] = {}
 
-    def __init__(self, tb):
+    def __init__(self, tb: Optional[TracebackType]):
         self.stack = []
         self.stack_idx = 0
         while tb:
@@ -78,13 +79,13 @@ class Stack:
         if self.stack_top >= 0:
             self.set_frame(self.stack_top)
 
-    def frame_string(self, i):
+    def frame_string(self, i: int) -> str:
         (fname, line, f) = self.stack[i]
         res = "  File \"%s\", line %d, Frame [%d/%d] (%s):" % (
             f.f_code.co_filename, line, i, self.stack_top, f.f_code.co_name)
         return res
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         frames = []
         for i in range(self.stack_top + 1):
             s = self.frame_string(i)
@@ -93,7 +94,7 @@ class Stack:
             frames.append(s)
         return "\n".join(frames)
 
-    def set_frame(self, i):
+    def set_frame(self, i: int) -> None:
         if i >= 0:
             f = self.stack[i][2]
             self.stack_idx = i
@@ -106,7 +107,7 @@ class Stack:
 
             print(self.frame_string(self.stack_idx))
 
-    def up(self, delta=1):
+    def up(self, delta: int = 1) -> None:
         if self.stack_idx <= 0:
             if self.stack:
                 print(self.frame_string(self.stack_idx))
@@ -114,7 +115,7 @@ class Stack:
             self.stack_idx = max(self.stack_idx - delta, 0)
             self.set_frame(self.stack_idx)
 
-    def down(self, delta=1):
+    def down(self, delta: int = 1) -> None:
         if self.stack_idx >= self.stack_top:
             if self.stack:
                 print(self.frame_string(self.stack_idx))
@@ -123,13 +124,13 @@ class Stack:
             self.set_frame(self.stack_idx)
 
 class Autocall:
-    def __init__(self, f):
+    def __init__(self, f: Callable):
         self.f = f
 
-    def __call__(self, n):
+    def __call__(self, n: Any) -> None:
         self.f(n)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         try:
             self.f()
         except:
@@ -137,7 +138,7 @@ class Autocall:
         return ""
 
 #* Functions
-def chfile(f):
+def chfile(f: str) -> None:
     tf = top_level()
     tf.f_globals["__file__"] = f
     d = os.path.dirname(f)
@@ -146,21 +147,19 @@ def chfile(f):
     except:
         pass
 
-def format_arg(arg_pair):
-    name, default_value = arg_pair
-    if default_value:
-        return name + " = " + default_value
-    else:
-        return name
-
-def arglist(sym):
+def arglist(sym: Callable) -> List[str]:
+    def format_arg(arg_pair: Tuple[str, Optional[str]]) -> str:
+        name, default_value = arg_pair
+        if default_value:
+            return name + " = " + default_value
+        else:
+            return name
     arg_info = inspect.getfullargspec(sym)
     if "self" in arg_info.args:
         arg_info.args.remove("self")
     if arg_info.defaults:
-        defaults = (
-            [None] * (len(arg_info.args) - len(arg_info.defaults)) +
-            [repr(x) for x in arg_info.defaults])
+        defaults: List[Optional[str]] = [None] * (len(arg_info.args) - len(arg_info.defaults))
+        defaults += [repr(x) for x in arg_info.defaults]
         args = [format_arg(x) for x in zip(arg_info.args, defaults)]
     else:
         args = arg_info.args
@@ -168,14 +167,11 @@ def arglist(sym):
             args += arg_info.varargs
     keywords = arg_info.kwonlydefaults
     if keywords:
-        if type(keywords) is dict:
-            for k, v in keywords.items():
-                args.append(f"{k} = {v}")
-        else:
-            args.append("**" + keywords)
+        for k, v in keywords.items():
+            args.append(f"{k} = {v}")
     return args
 
-def print_elisp(obj, end="\n"):
+def print_elisp(obj: Any, end: str = "\n") -> None:
     if hasattr(obj, "_asdict") and obj._asdict is not None:
         # namedtuple
         try:
@@ -213,7 +209,7 @@ def print_elisp(obj, end="\n"):
     elif isinstance(obj, int):
         print(obj)
     else:
-        if obj:
+        if obj is not None:
             if type(obj) is list or type(obj) is tuple:
                 print("(", end="")
                 for x in obj:
@@ -223,6 +219,8 @@ def print_elisp(obj, end="\n"):
                 # quote strings?
                 # print("\"'" + re.sub("\"", "\\\"", obj) + "'\"", end=" ")
                 print('"' + re.sub("\"", "\\\"", obj) + '"', end=" ")
+            elif hasattr(obj, "to_dict"):
+                print_elisp(obj.to_dict())
             else:
                 print('"' + repr(obj) + '"', end=" ")
         else:
@@ -301,7 +299,7 @@ def list_step(varname, lst):
     f_globals[varname] = val
     return val
 
-def argv(cmd):
+def argv(cmd: str) -> None:
     sys.argv = shlex.split(cmd)
 
 def find_global_vars(class_name):
@@ -319,11 +317,11 @@ def rebind(method, fname=None, line=None):
     (cls_name, fun_name) = qname.split(".")
     for (n, v) in find_global_vars(cls_name):
         print("rebind:", n)
-        top_level().f_globals[n].__dict__[fun_name] = types.MethodType(top_level().f_globals[fun_name], v)
+        top_level().f_globals[n].__dict__[fun_name] = MethodType(top_level().f_globals[fun_name], v)
     if fname and line:
         Stack.line_numbers[(fname, qname)] = line
 
-def pm():
+def pm() -> None:
     """Post mortem: recover the locals and globals from the last traceback."""
     if hasattr(sys, 'last_traceback'):
         stack = Stack(sys.last_traceback)
@@ -334,7 +332,7 @@ def pm():
     tl.f_globals["dn"] = Autocall(stack.down)
     globals()["stack"] = stack
 
-def pprint(x):
+def pprint(x: Any) -> None:
     r1 = repr(x)
     if len(r1) > 1000 and repr1:
         print(repr1.repr(x))
@@ -344,7 +342,7 @@ def pprint(x):
         else:
             pp.PrettyPrinter(width=200).pprint(x)
 
-def to_str(x):
+def to_str(x: Any) -> str:
     with io.StringIO() as buf, redirect_stdout(buf):
         pprint(x)
         return buf.getvalue().strip()
@@ -356,7 +354,7 @@ def step_in(fn, *args):
         f_globals[arg_name] = arg_val
 
 def step_into_module_maybe(module):
-    if isinstance(module, types.FunctionType):
+    if isinstance(module, FunctionType):
         try:
             module = sys.modules[module.__module__]
         except:
@@ -599,7 +597,6 @@ def has_return(p: Expr) -> bool:
     else:
         return False
 
-
 def tr_returns(p: Expr) -> Expr:
     if isinstance(p, list):
         return [tr_returns(x) for x in p]
@@ -618,62 +615,182 @@ def ast_call(func: Union[str, AST], args: List[Any] = [], keywords: List[Any] = 
         func = ast.Name(func)
     return ast.Call(func=func, args=args, keywords=keywords)
 
-def wrap_return(parsed: Expr) -> Expr:
+def wrap_return(parsed: List[ast.stmt]) -> Expr:
     return [
         ast.FunctionDef(
             name="__res__",
-            body=parsed,
+            body=[*parsed, *ast.parse("return {'__return__': None}").body],
             decorator_list=[],
             args=[],
             lineno=0,
             col_offset=0),
         ast.Expr(
             ast_call(
-                ast.Attribute(value=ast_call("globals"), attr="update"),
-                args=[ast_call("__res__")]))]
+                ast.Attribute(value=ast_call("locals"), attr="update"),
+                args=[ast_call("__res__")])),
+        ast.Expr(value=ast.Name("__return__"))
+    ]
 
-def translate_assign(p: Expr) -> Expr:
-    if isinstance(p, list):
-        if isinstance(p[-1], ast.Assign):
-            return [*p, ast.Expr(
-                ast_call("print", p[-1].targets))]
-        elif isinstance(p[-1], ast.Expr):
-            return [*p[:-1], ast.Expr(
-                ast_call("print", [p[-1]]))]
-        else:
-            return [*p, ast.Expr(
-                ast_call("print", [ast.Constant("(ok)")]))]
-    return p
+def try_in_expr(p: Expr) -> Optional[Tuple[ast.expr, ast.expr]]:
+    if not isinstance(p, list):
+        return None
+    if pytest_mark := try_pytest_mark(p):
+        return pytest_mark
+    p0 = p[0]
+    if not isinstance(p0, ast.Expr):
+        return None
+    if not isinstance(p0.value, ast.Compare):
+        return None
+    if not isinstance(p0.value.ops[0], ast.In):
+        return None
+    return (p0.value.left, p0.value.comparators[0])
 
-def tr_print_last_expr(p: Expr) -> Expr:
-    if isinstance(p, list):
-        if isinstance(p[-1], ast.Expr):
-            return [*p[:-1], ast.Expr(ast_call("print", [p[-1]]))]
-    return p
-
-def translate(code: str) -> Any:
+def select_item(code: str, idx: int) -> Any:
     parsed = ast.parse(code, mode="exec").body
-    if has_return(parsed):
-        parsed_1 =  wrap_return(tr_returns(parsed))
-        return [*parsed_1, ast.Expr(ast_call("print", [ast.Name("__return__")]))]
-    else:
-        # parsed_1 = translate_assign(parsed)
-        return tr_print_last_expr(parsed)
-
-def eval_code(_code: str, env: Dict[str, Any] = {}) -> None:
-    _code = _code or slurp(env["code"])
-    new_code = ast.unparse(translate(_code))
-    # print(f"{new_code=}")
+    in_expr = try_in_expr(parsed)
+    assert in_expr
+    (left, right) = in_expr
+    l = ast.unparse(left)
+    r = ast.unparse(right)
     locals_1 = locals()
     locals_2 = locals_1.copy()
     # pylint: disable=exec-used
-    exec(new_code, top_level().f_globals | {"__file__": env.get("fname")}, locals_2)
-    binds = [k for k in locals_2.keys() if k not in locals_1.keys()]
-    for bind in binds:
+    exec(f"{l} = list({r})[{idx}]", top_level().f_globals, locals_2)
+    for bind in [k for k in locals_2.keys() if k not in locals_1.keys()]:
         top_level().f_globals[bind] = locals_2[bind]
+    # pylint: disable=eval-used
+    return eval(l, locals_2)
 
-    binds_to_print = binds if env.get("echo") else binds[-1:]
-    for bind in binds_to_print:
-        if bind != "__res__":
-            v = to_str(locals_2[bind])
-            print(f"{bind} = {v}")
+def ast_match(p: Expr, expr: Any) -> bool:
+    if isinstance(p, ast.Attribute):
+        if expr[0] != ".":
+            return False
+        return (
+            expr[2] == p.attr
+            and ast_match(p.value, expr[1]))
+    elif isinstance(p, ast.Name):
+        return p.id == expr
+    elif isinstance(p, str):
+        return p == expr
+    else:
+        raise RuntimeError(f"Can't compare: {p} == {expr}")
+
+def try_pytest_mark(p: Expr) -> Optional[Expr]:
+    if not isinstance(p, list):
+        return None
+    if not len(p) == 1:
+        return None
+    p0 = p[0]
+    if not isinstance(p0, ast.FunctionDef):
+        return None
+    if not len(p0.decorator_list) == 1:
+        return None
+    decorator = p0.decorator_list[0]
+    if ast_match(decorator.func, (".",  (".", "pytest", "mark"), "parametrize")):
+        assert len(decorator.args) == 2
+        return [ast.Name(decorator.args[0].value), decorator.args[1]]
+    return None
+
+def to_elisp(code: str) -> str:
+    with io.StringIO() as buf, redirect_stdout(buf):
+        # pylint: disable=eval-used
+        print_elisp(eval(code, top_level().f_globals))
+        return buf.getvalue().strip()
+
+def translate(code: str) -> Any:
+    parsed = ast.parse(code, mode="exec").body
+    if in_expr := try_in_expr(parsed):
+        (left, right) = in_expr
+        out = to_elisp(ast.unparse(right))
+        nc = f"print('''{out}''')\n'select'"
+        return ast.parse(nc).body
+    elif has_return(parsed):
+        r = tr_returns(parsed)
+        assert isinstance(r, list)
+        return wrap_return(r)
+    else:
+        return parsed
+
+class EvalResult(TypedDict):
+    res: str
+    binds: Dict[str, str]
+    out: str
+    err: Optional[str]
+
+def eval_code(_code: str, env: Dict[str, Any] = {}) -> EvalResult:
+    _res = "unset"
+    binds = {}
+    out = ""
+    err: Optional[str] = None
+    if "fname" in env:
+        top_level().f_globals["__file__"] = env["fname"]
+    try:
+        _code = _code or slurp(env["code"])
+        new_code = translate(_code)
+        (*butlast, last) = new_code
+        if "__return__" in locals():
+            del locals()["__return__"]
+        locals_1 = locals()
+        locals_2 = locals_1.copy()
+        with io.StringIO() as buf, redirect_stdout(buf):
+            # pylint: disable=exec-used
+            exec(ast.unparse(butlast), top_level().f_globals, locals_2)
+            for bind in [k for k in locals_2.keys() if k not in locals_1.keys()]:
+                top_level().f_globals[bind] = locals_2[bind]
+            try:
+                # pylint: disable=eval-used
+                _res = eval(ast.unparse(last), top_level().f_globals, locals_2)
+            except:
+                locals_1 = locals()
+                locals_2 = locals_1.copy()
+                exec(ast.unparse(last), top_level().f_globals, locals_2)
+            out = buf.getvalue().strip()
+        binds1 = [k for k in locals_2.keys() if k not in locals_1.keys()]
+        for sym in ["_res", "binds", "out", "err", "env", "new_code", "last", "butlast", "locals_1", "locals_2"]:
+            try:
+                if id(locals_1[sym]) != id(locals_2[sym]):
+                    binds1.append(sym)
+            except:
+                pass
+        for bind in binds1:
+            top_level().f_globals[bind] = locals_2[bind]
+        binds2 = [bind for bind in binds1 if bind not in ["__res__", "__return__"]]
+        print_fn = cast(Callable[..., str], to_str if env.get("echo") else str)
+        binds = {bind: print_fn(locals_2[bind]) for bind in binds2}
+    # pylint: disable=broad-except
+    except Exception as e:
+        err = f"{e.__class__.__name__}: {e}\n{e.__dict__}"
+        top_level().f_globals["e"] = e
+    return {
+        "res": to_str(_res) if env.get("echo") else repr(_res),
+        "binds": binds,
+        "out": out,
+        "err": err
+    }
+
+def eval_to_json(code: str, env: Dict[str, Any] = {}) -> None:
+    try:
+        s = json.dumps(eval_code(code, env))
+        print(s)
+    # pylint: disable=broad-except
+    except Exception as e:
+        print({
+            "res": None,
+            "binds": {},
+            "out": "",
+            "err": str(e)})
+
+def find_module(fname: str) -> Optional[ModuleType]:
+    for (name, module) in sys.modules.items():
+        if getattr(module, "__file__", None) == fname:
+            return module
+    return None
+
+def generate_import(code_fname: str, buffer_fname: str) -> None:
+    code = slurp(code_fname)
+    parsed = ast.parse(code).body[0]
+    if isinstance(parsed, ast.FunctionDef):
+        name = parsed.name
+    module = find_module(buffer_fname)
+    assert module
+    print(f"from {module.__name__} import {name}")

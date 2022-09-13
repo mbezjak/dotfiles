@@ -53,11 +53,11 @@ Stripping them will produce code that's valid for an eval."
             ((and (looking-at lispy-outline)
                   (looking-at lispy-outline-header))
              (lispy--bounds-outline))
-            ((looking-at "@")
+            ((and (looking-at "@") (bolp))
              (setq bnd (cons (point)
                              (save-excursion
-                               (forward-sexp)
-                               (skip-chars-forward "[ \t\n]")
+                               (re-search-forward "^def" nil t)
+                               (goto-char (match-beginning 0))
                                (cdr (lispy-bounds-python-block))))))
             ((setq bnd (lispy-bounds-python-block)))
             ((bolp)
@@ -296,7 +296,9 @@ it at one time."
   (let* ((proc-name (or name
                         (and (process-live-p (get-buffer-process lispy-python-buf))
                              (process-name (get-buffer-process lispy-python-buf)))
-                        "lispy-python-default"))
+                        (if (string-match ":python \\(.*\\)\\'" python-shell-interpreter-args)
+                            (concat "lispy-python-" (match-string 1 python-shell-interpreter-args))
+                          "lispy-python-default")))
          (process (get-process proc-name)))
     (if (process-live-p process)
         process
@@ -553,25 +555,81 @@ If so, return an equivalent of ITEM = ARRAY_LIKE[IDX]; ITEM."
             (mapconcat #'identity (nreverse r) ",")
             "}")))
 
+(defun lispy--python-nth-1 (cands)
+  (let ((len (length cands)))
+    (read
+     (ivy-read
+      "idx: "
+      (cl-mapcar
+       (lambda (x i)
+         (concat
+          (number-to-string i)
+          " "
+          (cond ((listp x)
+                 (mapconcat
+                  (lambda (y) (if (stringp y) y (prin1-to-string y)))
+                  x " "))
+                ((stringp x)
+                 x)
+                (t
+                 (prin1-to-string x)))))
+       cands
+       (number-sequence 0 (1- len)))))))
+
 (defun lispy--eval-python-plain (str)
   (python-shell-send-string-no-output
    str (lispy--python-proc)))
 
 (defun lispy--eval-python (str)
+  (setq lispy-eval-output nil)
   (let* ((echo (if (eq current-prefix-arg 2) nil t))
          (fstr
-          (if (string-match-p ".\\n+." str)
+          (if (or (string-match-p ".\\n+." str) (string-match-p "\"\"\"" str))
               (let ((temp-file-name (python-shell--save-temp-file str)))
-                (format "lp.eval_code('', %s)"
+                (format "lp.eval_to_json('', %s)"
                         (lispy--dict
                          :code temp-file-name
                          :fname (buffer-file-name)
                          :echo echo)))
-            (format "lp.eval_code(\"\"\"%s \"\"\", %s)" str
+            (format "lp.eval_to_json(\"\"\"%s \"\"\", %s)" str
                     (lispy--dict :fname (buffer-file-name)
-                                 :echo echo)))))
-    (python-shell-send-string-no-output
-     fstr (lispy--python-proc))))
+                                 :echo echo))))
+         (rs (python-shell-send-string-no-output
+              fstr
+              (lispy--python-proc)))
+         (extra-out (and (string-match "^{" rs) (substring rs 0 (match-beginning 0))))
+         (res (json-parse-string
+               (substring rs (match-beginning 0)) :object-type 'plist :null-object nil))
+         (val (plist-get res :res))
+         (binds (plist-get res :binds))
+         (out (concat extra-out (plist-get res :out)))
+         (err (plist-get res :err)))
+    (when (eq current-prefix-arg 3)
+      (kill-new fstr))
+    (if err
+        (signal 'eval-error err)
+      (unless (equal out "")
+        (setq lispy-eval-output
+              (concat (propertize out 'face 'font-lock-string-face) "\n")))
+      (cond
+       ((string= val "'select'")
+        (setq lispy-eval-output nil)
+        (let* ((cands (read out))
+               (idx (lispy--python-nth-1 cands)))
+          (lispy--eval-python-plain
+           (format "lp.select_item(\"\"\"%s\"\"\", %d)" str idx))))
+       ((and val (not (string= val "'unset'")))
+        (if (string-prefix-p "\"" val)
+            (read val)
+          val))
+       (binds
+        (mapconcat
+         (lambda (x)
+           (concat (substring (symbol-name (car x)) 1) " = " (cadr x)))
+         (seq-partition binds 2)
+         "\n"))
+       (t
+        "(ok)")))))
 
 (defun lispy--python-array-to-elisp (array-str)
   "Transform a Python string ARRAY-STR to an Elisp string array."
@@ -647,7 +705,7 @@ If so, return an equivalent of ITEM = ARRAY_LIKE[IDX]; ITEM."
                        (cons (point)
                              (lispy--python-beginning-of-object))))
                 (str (lispy--string-dwim bnd))
-                (keys (read (lispy--eval-python
+                (keys (read (lispy--eval-python-plain
                              (format "lp.print_elisp(%s.keys())" str)))))
            (list (point) (point)
                  (if (> (length quote_str) 0)
@@ -745,7 +803,7 @@ If so, return an equivalent of ITEM = ARRAY_LIKE[IDX]; ITEM."
                         args))
              (args-normal (cl-set-difference args args-key))
              (fn-data
-              (read (lispy--eval-python
+              (read (lispy--eval-python-plain
                      (format "lp.argspec(%s)" fn))))
              (fn-args
               (plist-get fn-data :args))
@@ -875,30 +933,22 @@ If so, return an equivalent of ITEM = ARRAY_LIKE[IDX]; ITEM."
       (if file
           (lispy--goto-symbol-python file line)
         (or (lispy--python-goto-definition)
-            (let ((res (ignore-errors
-                         (or
-                          (deferred:sync!
-                            (jedi:goto-definition))
-                          t))))
-              (if (member res '(nil "Definition not found."))
-                  (let* ((symbol (or (python-info-current-symbol) symbol))
-                         (r (ignore-errors
-                              (lispy--eval-python
-                               (format "lp.argspec(%s)" symbol) t)))
-                         (plist (and r (read r))))
-                    (cond (plist
-                           (lispy--goto-symbol-python
-                            (plist-get plist :filename)
-                            (plist-get plist :line)))
-                          ((and (equal file "None")
-                                (let ((symbol-re
-                                       (concat "^\\(?:def\\|class\\).*"
-                                               (car (last (split-string symbol "\\." t))))))
-                                  (re-search-backward symbol-re nil t))))
-                          (t
-                           (error "Both jedi and inspect failed"))))
-                (unless (looking-back "def " (line-beginning-position))
-                  (jedi:goto-definition)))))))))
+            (let* ((symbol (or (python-info-current-symbol) symbol))
+                   (r (ignore-errors
+                        (lispy--eval-python-plain
+                         (format "lp.argspec(%s)" symbol))))
+                   (plist (and r (read r))))
+              (cond (plist
+                     (lispy--goto-symbol-python
+                      (plist-get plist :filename)
+                      (plist-get plist :line)))
+                    ((and (equal file "None")
+                          (let ((symbol-re
+                                 (concat "^\\(?:def\\|class\\).*"
+                                         (car (last (split-string symbol "\\." t))))))
+                            (re-search-backward symbol-re nil t))))
+                    (t
+                     (error "Both jedi and inspect failed")))))))))
 
 (defun lispy--python-docstring (symbol)
   "Look up the docstring for SYMBOL.
@@ -925,7 +975,7 @@ Otherwise, fall back to Jedi (static)."
 (defun lispy--python-middleware-load ()
   "Load the custom Python code in \"lispy-python.py\"."
   (unless lispy--python-middleware-loaded-p
-    (let ((default-directory (or (projectile-project-root)
+    (let ((default-directory (or (locate-dominating-file default-directory ".git")
                                  default-directory)))
       (lispy--eval-python-plain
        (format
