@@ -17,6 +17,7 @@
 --ignore-directory=is:var
 --ignore-directory=is:data
 --ignore-directory=is:.metadata
+--ignore-directory=is:.terraform
 --ignore-directory=is:xtmp
 --ignore-directory=is:xexperiment
 --ignore-directory=is:xedu
