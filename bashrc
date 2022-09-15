@@ -301,6 +301,10 @@ have kubectl && {
     source <(kubectl completion bash)
 }
 
+have aws_completer && {
+    complete -C $(which aws_completer) aws
+}
+
 [[ -d ~/workspace/backend ]] && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
