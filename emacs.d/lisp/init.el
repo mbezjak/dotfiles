@@ -415,6 +415,17 @@
   :mode "\\.js\\'"
   :interpreter "node")
 
+(use-package xref-js2
+  :ensure t
+  :after js2-mode
+  :config
+  (define-key js2-mode-map (kbd "M-.") nil)
+  (add-hook 'js2-mode-hook
+            (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+  (setq xref-js2-search-program 'rg)
+  (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions)
+  (define-key js2-mode-map (kbd "M-,") 'xref-pop-marker-stack))
+
 (use-package rjsx-mode
   :ensure t
   :mode "components\\/.*\\.js\\'"
