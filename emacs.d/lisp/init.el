@@ -419,13 +419,15 @@
   :ensure t
   :mode "components\\/.*\\.js\\'"
   :bind (:map rjsx-mode-map
-         ("C-d" . my-delete-region-or-line)))
+              ("C-d" . my-delete-region-or-line)))
 
 (use-package prettier-js
   :ensure t
   :hook ((rjsx-mode . prettier-js-mode)
          (js2-mode . prettier-js-mode)
-         (json-mode . prettier-js-mode)))
+         (json-mode . prettier-js-mode))
+  :config
+  (setq prettier-js-args '("--plugin" "@trivago/prettier-plugin-sort-imports")))
 
 (use-package coffee-mode
   :ensure t
