@@ -305,6 +305,10 @@ have aws_completer && {
     complete -C $(which aws_completer) aws
 }
 
+have jc && {
+    source <(jc -B)
+}
+
 [[ -d ~/workspace/backend ]] && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
