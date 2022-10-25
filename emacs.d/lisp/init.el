@@ -436,9 +436,7 @@
   :ensure t
   :hook ((rjsx-mode . prettier-js-mode)
          (js2-mode . prettier-js-mode)
-         (json-mode . prettier-js-mode))
-  :config
-  (setq prettier-js-args '("--plugin" "@trivago/prettier-plugin-sort-imports")))
+         (json-mode . prettier-js-mode)))
 
 (use-package coffee-mode
   :ensure t
