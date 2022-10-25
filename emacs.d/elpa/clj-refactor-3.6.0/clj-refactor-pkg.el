@@ -1,4 +1,4 @@
-(define-package "clj-refactor" "3.5.6" "A collection of commands for refactoring Clojure code"
+(define-package "clj-refactor" "3.6.0" "A collection of commands for refactoring Clojure code"
   '((emacs "26.1")
     (seq "2.19")
     (yasnippet "0.6.1")
@@ -9,7 +9,7 @@
     (parseedn "1.1.0")
     (inflections "2.6")
     (hydra "0.13.2"))
-  :commit "cd97626fd952f824564808a2f21b40bfcb59ff0f" :authors
+  :commit "8300d5cab861668f313fbbbb3e2926e3e5130e86" :authors
   '(("Magnar Sveen" . "magnars@gmail.com")
     ("Lars Andersen" . "expez@expez.com")
     ("Benedek Fazekas" . "benedek.fazekas@gmail.com")
