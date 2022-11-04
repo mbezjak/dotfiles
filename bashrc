@@ -309,6 +309,10 @@ have jc && {
     source <(jc -B)
 }
 
+have hugo && {
+    source <(hugo completion bash)
+}
+
 [[ -d ~/workspace/backend ]] && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
