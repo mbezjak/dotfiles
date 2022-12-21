@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: clj
+# key: clj
+# --
+\`\`\`clojure
+$0
+\`\`\`
