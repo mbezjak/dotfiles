@@ -6,9 +6,9 @@
 ;; Author: Phil Hagelberg, Cornelius Mika, Campbell Barton
 ;; Maintainer: Campbell Barton <ideasman42@gmail.com>
 ;; URL: https://codeberg.org/ideasman42/emacs-idle-highlight-mode
-;; Package-Version: 20221228.438
-;; Package-Commit: 52f9bd8aff1a911837c371394badd172bf6e5fde
-;; Version: 1.1.3
+;; Package-Version: 20230110.332
+;; Package-Commit: ad303ce2ed4ce6a833f3b1155ba8dcaf64e9f9fa
+;; Version: 1.1.4
 ;; Created: 2008-05-13
 ;; Keywords: convenience
 ;; EmacsWiki: IdleHighlight
@@ -17,7 +17,8 @@
 ;;; Commentary:
 
 ;; M-x idle-highlight-mode sets an idle timer that highlights all
-;; occurrences in the buffer of the symbol under the point.
+;; occurrences in the buffer of the symbol under the point
+;; (optionally highlighting in all other buffers as well).
 
 ;; Enabling it in a hook is recommended if you don't want it enabled
 ;; for all buffers, just programming ones.
@@ -88,13 +89,17 @@ See documentation for `skip-syntax-forward', nil to ignore."
   "List of major-modes to exclude when `idle-highlight' has been enabled globally."
   :type '(repeat symbol))
 
-(defvar-local global-idle-highlight-ignore-buffer nil
+(define-obsolete-variable-alias
+  'global-idle-highlight-ignore-buffer
+  'idle-highlight-global-ignore-buffer
+  "1.1.4")
+
+(defvar-local idle-highlight-global-ignore-buffer nil
   "When non-nil, the global mode will not be enabled for this buffer.
 This variable can also be a predicate function, in which case
 it'll be called with one parameter (the buffer in question), and
 it should return non-nil to make Global `idle-highlight' Mode not
 check this buffer.")
-
 
 ;; ---------------------------------------------------------------------------
 ;; Internal Variables
@@ -109,12 +114,10 @@ check this buffer.")
 (defun idle-highlight--faces-at-point (pos)
   "Add the named faces that the `read-face-name' or `face' property use.
 Argument POS return faces at this point."
-  (let
-      ( ;; List of faces to return.
-       (faces nil)
-       ;; NOTE: use `get-text-property' instead of `get-char-property' so overlays are excluded,
-       ;; since this causes overlays with `hl-line-mode' (for example) to mask keywords, see: #1.
-       (faceprop (or (get-text-property pos 'read-face-name) (get-text-property pos 'face))))
+  (let ((faces nil) ; List of faces to return.
+        ;; NOTE: use `get-text-property' instead of `get-char-property' so overlays are excluded,
+        ;; since this causes overlays with `hl-line-mode' (for example) to mask keywords, see: #1.
+        (faceprop (or (get-text-property pos 'read-face-name) (get-text-property pos 'face))))
     (cond
      ((facep faceprop)
       (push faceprop faces))
@@ -134,8 +137,7 @@ Where RANGES is an unordered list of (min . max) cons cells."
     (setq ranges
           (sort
            ranges
-           (lambda (x y)
-             (or (< (car x) (car y)) (and (= (car x) (car y)) (< (cdr x) (cdr y)))))))
+           (lambda (x y) (or (< (car x) (car y)) (and (= (car x) (car y)) (< (cdr x) (cdr y)))))))
     ;; Step over `ranges', de-duplicating & adjusting elements as needed.
     (let ((ranges-iter ranges)
           (ranges-next (cdr ranges)))
@@ -153,7 +155,7 @@ Where RANGES is an unordered list of (min . max) cons cells."
             (setcdr ranges-iter ranges-next)))))
       ranges))
 
-   (t ;; No need for complex logic single/empty lists.
+   (t ; No need for complex logic single/empty lists.
     ranges)))
 
 
@@ -187,7 +189,7 @@ Where RANGES is an unordered list of (min . max) cons cells."
                   ;; Break.
                   (setq faces-at-pos nil))))))))
       result))
-   (t ;; Default to true, if there are no exceptions.
+   (t ; Default to true, if there are no exceptions.
     t)))
 
 (defun idle-highlight--check-word (target)
@@ -276,12 +278,11 @@ should be the result of `idle-highlight--word-at-point-args'."
 (defun idle-highlight--time-callback-or-disable ()
   "Callback that run the repeat timer."
 
-  (let
-      ( ;; Ensure all other buffers are highlighted on request.
-       (is-mode-active (bound-and-true-p idle-highlight-mode))
-       (buf-current (current-buffer))
-       (dirty-buffer-list (list))
-       (force-all idle-highlight-visible-buffers))
+  ;; Ensure all other buffers are highlighted on request.
+  (let ((is-mode-active (bound-and-true-p idle-highlight-mode))
+        (buf-current (current-buffer))
+        (dirty-buffer-list (list))
+        (force-all idle-highlight-visible-buffers))
 
     ;; When this buffer is not in the mode, flush all other buffers.
     (cond
@@ -348,7 +349,7 @@ should be the result of `idle-highlight--word-at-point-args'."
       ;; Always keep the current buffer dirty
       ;; so navigating away from this buffer will refresh it.
       (setq idle-highlight--dirty t))
-     (t ;; Cancel the timer until the current buffer uses this mode again.
+     (t ; Cancel the timer until the current buffer uses this mode again.
       (idle-highlight--time-ensure nil)))))
 
 (defun idle-highlight--time-ensure (state)
@@ -417,10 +418,10 @@ should be the result of `idle-highlight--word-at-point-args'."
          ;; Not explicitly ignored.
          (not (memq major-mode idle-highlight-ignore-modes))
          ;; Optionally check if a function is used.
-         (or (null global-idle-highlight-ignore-buffer)
+         (or (null idle-highlight-global-ignore-buffer)
              (cond
-              ((functionp global-idle-highlight-ignore-buffer)
-               (not (funcall global-idle-highlight-ignore-buffer (current-buffer))))
+              ((functionp idle-highlight-global-ignore-buffer)
+               (not (funcall idle-highlight-global-ignore-buffer (current-buffer))))
               (t
                nil))))
     (idle-highlight-mode 1)))
@@ -441,10 +442,15 @@ should be the result of `idle-highlight--word-at-point-args'."
     (idle-highlight--disable))))
 
 ;;;###autoload
-(define-globalized-minor-mode global-idle-highlight-mode
-
+(define-globalized-minor-mode idle-highlight-global-mode
   idle-highlight-mode
   idle-highlight--turn-on)
 
+(define-obsolete-function-alias 'global-idle-highlight-mode #'idle-highlight-global-mode "1.1.4")
+
 (provide 'idle-highlight-mode)
+;; Local Variables:
+;; fill-column: 99
+;; indent-tabs-mode: nil
+;; End:
 ;;; idle-highlight-mode.el ends here
