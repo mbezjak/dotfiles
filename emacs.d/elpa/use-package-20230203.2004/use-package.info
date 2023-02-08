@@ -713,12 +713,14 @@ File: use-package.info,  Node: Global keybindings,  Next: Binding in keymaps,  U
 4.2.1 Global keybindings
 ------------------------
 
-To bind keys globally, the ‘:bind’ keyword takes either a single cons or
-a list of conses.  Every cons has the form ‘(KEY . COMMAND’, where KEY
-is a string indicating the key to bind, and COMMAND is the name of a
-command (a symbol).  The syntax for the keys is similar to the syntax
-used by the ‘kbd’ function (*note (emacs)Init Rebinding:: for more
-information).
+To bind keys globally, the ‘:bind’ keyword takes as its argument either
+a single cons or a list of conses.  Each cons has the form
+‘(KEY . DEFINITION)’, where KEY is a string indicating the key to bind,
+and DEFINITION is the name of a command (a symbol).  Alternatively,
+DEFINITION may be a cons ‘(DESC . COMMAND)’, where DESC is a string
+describing COMMAND, which is the name of a command to bind KEY to.  The
+syntax for the keys is similar to the syntax used by the ‘kbd’ function
+(see *note (emacs)Init Rebinding::, for more information).
 
 Using ‘:bind’ with a single cons
 --------------------------------
@@ -758,6 +760,22 @@ e.g. ‘[tab]’ instead of ‘"<tab>"’.
               ("M-<f5>" . helm-find-files)
               ([f10] . helm-buffers-list)
               ([S-f10] . helm-recentf)))
+
+Providing custom descriptions of commands
+-----------------------------------------
+
+When binding keys to commands with ‘:bind’, custom descriptions of the
+commands may optionally be provided.
+
+   Examples:
+
+     (use-package avy
+       :bind ("C-:" ("Jump to char" . avy-goto-char)
+              "M-g f" ("Jump to line" . avy-goto-line)))
+
+These descriptions can be used by other code that deals with key
+bindings.  For example, the GNU ELPA package ‘which-key’ displays them
+when showing key bindings, instead of the plain command names.
 
 Remapping commands
 ------------------
@@ -2326,39 +2344,39 @@ Node: Config keyword25564
 Node: Best practices26289
 Node: Key bindings27766
 Node: Global keybindings28536
-Node: Binding in keymaps31619
-Node: Binding to a keymap32830
-Node: Binding to repeat-maps33864
-Node: Displaying keybindings36251
-Node: Hooks36813
-Node: Modes and interpreters39581
-Node: Magic handlers41120
-Node: User options41949
-Node: Faces43364
-Node: Hiding minor modes44161
-Ref: Hiding minor modes-Footnote-144868
-Node: Diminish44923
-Ref: Diminish-Footnote-145862
-Node: Delight45921
-Ref: Delight-Footnote-147729
-Node: Installing packages47793
-Node: Install package48406
-Node: Pinning packages49236
-Ref: Pinning packages-Footnote-150930
-Node: Other package managers51010
-Node: Byte-compiling51882
-Node: Troubleshooting53874
-Node: Troubleshooting Options55225
-Node: Gathering Statistics56787
-Node: Disabling a package58354
-Node: Keyword extensions59070
-Node: use-package-ensure-system-package59558
-Ref: use-package-ensure-system-package-Footnote-162567
-Ref: use-package-ensure-system-package-Footnote-262835
-Node: Creating an extension62966
-Node: History66378
-Node: GNU Free Documentation License67051
-Node: Index92403
+Node: Binding in keymaps32350
+Node: Binding to a keymap33561
+Node: Binding to repeat-maps34595
+Node: Displaying keybindings36982
+Node: Hooks37544
+Node: Modes and interpreters40312
+Node: Magic handlers41851
+Node: User options42680
+Node: Faces44095
+Node: Hiding minor modes44892
+Ref: Hiding minor modes-Footnote-145599
+Node: Diminish45654
+Ref: Diminish-Footnote-146593
+Node: Delight46652
+Ref: Delight-Footnote-148460
+Node: Installing packages48524
+Node: Install package49137
+Node: Pinning packages49967
+Ref: Pinning packages-Footnote-151661
+Node: Other package managers51741
+Node: Byte-compiling52613
+Node: Troubleshooting54605
+Node: Troubleshooting Options55956
+Node: Gathering Statistics57518
+Node: Disabling a package59085
+Node: Keyword extensions59801
+Node: use-package-ensure-system-package60289
+Ref: use-package-ensure-system-package-Footnote-163298
+Ref: use-package-ensure-system-package-Footnote-263566
+Node: Creating an extension63697
+Node: History67109
+Node: GNU Free Documentation License67782
+Node: Index93134
 
 End Tag Table
 

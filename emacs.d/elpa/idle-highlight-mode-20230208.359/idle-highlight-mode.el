@@ -6,8 +6,8 @@
 ;; Author: Phil Hagelberg, Cornelius Mika, Campbell Barton
 ;; Maintainer: Campbell Barton <ideasman42@gmail.com>
 ;; URL: https://codeberg.org/ideasman42/emacs-idle-highlight-mode
-;; Package-Version: 20230116.951
-;; Package-Commit: 0f135a6b5bb3a55dafacbd885535edfcb35a04d5
+;; Package-Version: 20230208.359
+;; Package-Commit: 215d6612b4f8f412c14f9f456106bfa4c5df3d2f
 ;; Version: 1.1.4
 ;; Created: 2008-05-13
 ;; Keywords: convenience
@@ -72,16 +72,14 @@
 (defcustom idle-highlight-exceptions nil
   "List of words to be excepted from highlighting."
   :type
-  '(choice
-    (repeat :tag "A list of string literals that will be excluded." string)
-    (function :tag "A function taking a string, non-nil result excludes.")))
+  '(choice (repeat :tag "A list of string literals that will be excluded." string)
+           (function :tag "A function taking a string, non-nil result excludes.")))
 
 (defcustom idle-highlight-exceptions-face '(font-lock-keyword-face font-lock-string-face)
   "List of exception faces."
   :type
-  '(choice
-    (repeat :tag "A list of face symbols that will be ignored." symbol)
-    (function :tag "A function that takes a list of faces, non-nil result excludes.")))
+  '(choice (repeat :tag "A list of face symbols that will be ignored." symbol)
+           (function :tag "A function that takes a list of faces, non-nil result excludes.")))
 
 (defcustom idle-highlight-exceptions-syntax "^w_"
   "Syntax table to to skip.
@@ -466,5 +464,6 @@ should be the result of `idle-highlight--word-at-point-args'."
 ;; Local Variables:
 ;; fill-column: 99
 ;; indent-tabs-mode: nil
+;; elisp-autofmt-format-quoted: nil
 ;; End:
 ;;; idle-highlight-mode.el ends here
