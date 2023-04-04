@@ -313,6 +313,11 @@ have hugo && {
     source <(hugo completion bash)
 }
 
+have node && {
+    # https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported
+    export NODE_OPTIONS=--openssl-legacy-provider
+}
+
 [[ -d ~/workspace/backend ]] && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
