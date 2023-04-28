@@ -318,6 +318,7 @@
     :ensure t
     :config (helm-descbinds-mode))
   (use-package helm-rg
+    :pin melpa ;; not released in a long time
     :ensure t))
 
 (use-package projectile
