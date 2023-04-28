@@ -1,31 +1,33 @@
-;;; no-littering.el --- help keeping ~/.emacs.d clean  -*- lexical-binding: t; -*-
+;;; no-littering.el --- Help keeping ~/.config/emacs clean  -*- lexical-binding:t -*-
 
-;; Copyright (C) 2016-2022  Jonas Bernoulli
+;; Copyright (C) 2016-2023 Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Homepage: https://github.com/emacscollective/no-littering
-;; Package-Requires: ((cl-lib "0.5"))
-;; Package-Version: 1.2.7
-;; Package-Commit: 13414b7a294fa6f35bbeb535cdcab6b256e39da7
+;; Keywords: convenience
+;; Package-Version: 1.3.0
+;; Package-Commit: 6db8c576bd5fe0516a5b91066a0f44cddce51eae
 
-;; This file is not part of GNU Emacs.
+;; Package-Requires: ((emacs "25.1") (compat "29.1.3.4"))
 
-;; This file is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 3, or (at your option)
-;; any later version.
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
+;; This file is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published
+;; by the Free Software Foundation, either version 3 of the License,
+;; or (at your option) any later version.
+;;
 ;; This file is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-
-;; For a full copy of the GNU General Public License
-;; see https://www.gnu.org/licenses.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; Help keeping ~/.emacs.d clean.
+;; Help keeping ~/.config/emacs clean.
 
 ;; The default paths used to store configuration files and persistent
 ;; data are not consistent across Emacs packages.  This isn't just a
@@ -39,7 +41,7 @@
 ;; This package sets out to fix this by changing the values of path
 ;; variables to put configuration files in `no-littering-etc-directory'
 ;; (defaulting to "etc/" under `user-emacs-directory', thus usually
-;; "~/.emacs.d/etc/") and persistent data files in
+;; "~/.config/emacs/etc/") and persistent data files in
 ;; `no-littering-var-directory' (defaulting to "var/" under
 ;; `user-emacs-directory', thus usually "~/.emacs.d/var/"), and
 ;; by using descriptive file names and subdirectories when appropriate.
@@ -178,6 +180,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'compat)
 
 (defvar no-littering-etc-directory
   (expand-file-name (convert-standard-filename "etc/") user-emacs-directory)
@@ -214,7 +217,6 @@ This variable has to be set before `no-littering' is loaded.")
     (setq abbrev-file-name                 (etc "abbrev.el"))
     (setq auto-insert-directory            (etc "auto-insert/"))
     (setq auto-save-list-file-prefix       (var "auto-save/sessions/"))
-    (setq backup-directory-alist           (list (cons "." (var "backup/"))))
     (setq bookmark-default-file            (var "bookmark-default.el"))
     (setq calc-settings-file               (etc "calc-settings.el"))
     (eval-after-load 'desktop
@@ -231,6 +233,8 @@ This variable has to be set before `no-littering' is loaded.")
     (eval-after-load 'eshell
       `(make-directory ,(etc "eshell/") t))
     (setq eshell-aliases-file              (etc "eshell/aliases"))
+    (setq eshell-rc-script                 (etc "eshell/rc"))
+    (setq eshell-login-script              (etc "eshell/login"))
     (setq eshell-directory-name            (var "eshell/"))
     (setq eudc-options-file                (etc "eudc-options.el"))
     (eval-after-load 'eww
@@ -240,8 +244,12 @@ This variable has to be set before `no-littering' is loaded.")
     (setq gamegrid-user-score-file-directory (var "gamegrid-user-score/"))
     (eval-after-load 'gnus
       `(make-directory ,(var "gnus/dribble/") t))
+    (eval-after-load 'gnus
+      `(make-directory ,(etc "gnus/") t))
     (setq gnus-dribble-directory           (var "gnus/dribble/"))
     (setq gnus-init-file                   (etc "gnus/init.el"))
+    ;;; Gnus hardcodes newsrc.eld to be based on gnus-startup-file' :/
+    (setq gnus-startup-file                (etc "gnus/newsrc"))
     (setq ido-save-directory-list-file     (var "ido-save-directory-list.el"))
     (setq image-dired-db-file              (var "image-dired/db.el"))
     (setq image-dired-dir                  (var "image-dired/"))
@@ -295,6 +303,7 @@ This variable has to be set before `no-littering' is loaded.")
     (setq auto-package-update-last-update-day-path (var "auto-package-update-last-update-day"))
     (eval-after-load 'bbdb
       `(make-directory ,(var "bbdb/") t))
+    (setq abm-file                         (var "autobookmarks.el"))
     (setq bbdb-file                        (var "bbdb/bbdb.el"))
     (setq bbdb-vcard-directory             (var "bbdb/vcard/"))
     (setq bm-repository-file               (var "bm-repository.el"))
@@ -320,6 +329,8 @@ This variable has to be set before `no-littering' is loaded.")
     (setq dap-java-test-runner             (var "lsp-java/eclipse.jdt.ls/test-runner/junit-platform-console-standalone.jar"))
     (setq dap-utils-extension-path         (var "dap/extensions/"))
     (setq debbugs-gnu-persistency-file     (var "debbugs.el"))
+    (setq detached-db-directory            (var "detached/db/"))
+    (setq detached-session-directory       (var "detached/sessions/"))
     (setq devdocs-browser-cache-directory  (var "devdocs/browser-cache/"))
     (setq devdocs-data-dir                 (var "devdocs/data/"))
     (setq dired-recent-directories-file    (var "dired-recent-directories.el"))
@@ -332,6 +343,8 @@ This variable has to be set before `no-littering' is loaded.")
     (setq elfeed-db-directory              (var "elfeed/db/"))
     (setq elfeed-enclosure-default-dir     (var "elfeed/enclosures/"))
     (setq elfeed-score-score-file          (etc "elfeed/score/score.el"))
+    (setq elfeed-autotag-files             (list (etc "elfeed/autotags.org")))
+    (setq elgrep-data-file                 (var "elgrep-data.el"))
     (setq elpher-bookmarks-file            (var "elpher-bookmarks.el"))
     (eval-after-load 'x-win
       (let ((session-dir (var "emacs-session/")))
@@ -348,13 +361,18 @@ directories."
     (setq emojify-emojis-dir               (var "emojify/"))
     (setq epkg-repository                  (var "epkgs/"))
     (setq equake-persistent-display-file   (var "equake-persistent-display"))
+    (setq fontaine-latest-state-file       (var "fontaine-latest-state.eld"))
     (setq forge-database-file              (var "forge/database.sqlite"))
     (setq forge-post-directory             (var "forge/posts/"))
     (setq geben-temporary-file-directory   (var "geben/"))
     (eval-after-load 'geiser
       `(make-directory ,(var "geiser/") t))
     (setq geiser-repl-history-filename     (var "geiser/repl-history"))
+    (setq gnus-notes-top-dir               (var "gnus-notes/"))
+    (setq gnus-notes-file                  (var "gnus-notes/articles.el"))
+    (setq grammalecte-settings-file        (etc "grammalecte-settings.el"))
     (setq hackernews-visited-links-file    (var "hackernews/visited-links.el"))
+    (setq harpoon-cache-file               (var "harpoon/"))
     (eval-after-load 'helm
       `(make-directory ,(var "helm/") t))
     (setq helm-adaptive-history-file       (var "helm/adaptive-history.el"))
@@ -381,6 +399,7 @@ directories."
       `(make-directory ,(etc "lookup/") t))
     (setq lookup-init-directory            (etc "lookup/"))
     (setq lsp-clojure-workspace-dir        (var "lsp-clojure/workspace/"))
+    (setq lsp-ltex-user-rules-path         (var "lsp-ltex/"))
     (setq lsp-eslint-library-choices-file  (var "lsp/eslint-library-choices.el"))
     (setq lsp-python-ms-dir                (var "lsp-python-ms/"))
     (eval-after-load 'lsp-mode
@@ -395,6 +414,7 @@ directories."
     (setq meghanada-server-install-dir     (var "meghanada/"))
     (setq multi-compile-history-file       (var "multi-compile-history.el"))
     (setq nix-buffer-directory-name        (var "nix-buffer/"))
+    (setq nomad-tramp-script-directory     (var "nomad-tramp/"))
     ;; The value of this variable MUST NOT end with ".el" but the
     ;; actual file name MUST end with ".el".  Use "git blame" for
     ;; more information.
@@ -427,18 +447,22 @@ directories."
     (setq purpose-layout-dirs              (list (etc "window-purpose/layouts/")))
     (setq pyim-dcache-directory            (var "pyim/dcache/"))
     (setq quack-dir                        (var "quack/"))
+    (setq racket-repl-history-directory    (var "racket-mode/repl-history/"))
     (setq rfc-mode-directory               (var "rfc-mode/"))
     (setq request-storage-directory        (var "request/storage/"))
     (setq rime-user-data-dir               (var "rime/"))
-    (setq rmh-elfeed-org-files             (list (var "elfeed/rmh-elfeed.org")))
+    (setq rmh-elfeed-org-files             (list (etc "elfeed/rmh-elfeed.org")))
     (setq runner-init-file                 (var "runner-init.el"))
     (setq save-kill-file-name              (var "save-kill.el"))
     (setq save-visited-files-location      (var "save-visited-files-location"))
     (eval-after-load 'sly
       `(make-directory ,(var "sly/") t))
+    (setq session-save-file                (var "session.el"))
     (setq sly-mrepl-history-file-name      (var "sly/mrepl-history"))
     (setq smex-save-file                   (var "smex-save.el"))
     (setq speed-type-gb-dir                (var "speed-type/"))
+    (setq spell-fu-directory               (var "spell-fu/"))
+    (setq svg-lib-icons-dir                (var "svg-lib/icons/"))
     (eval-after-load 'sx
       `(make-directory ,(var "sx/cache/") t))
     (setq sx-cache-directory               (var "sx/cache/"))
@@ -451,6 +475,7 @@ directories."
     (setq undo-fu-session-directory        (var "undo-fu-session/"))
     (setq undohist-directory               (var "undohist/"))
     (setq undo-tree-history-directory-alist (list (cons "." (var "undo-tree-hist/"))))
+    (setq uptimes-database                 (var "uptimes.el"))
     (setq user-emacs-ensime-directory      (var "ensime/"))
     (setq vimish-fold-dir                  (var "vimish-fold/"))
     (eval-after-load 'wl

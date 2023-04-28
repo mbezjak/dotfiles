@@ -1,4 +1,4 @@
-;;; no-littering-autoloads.el --- automatically extracted autoloads
+;;; no-littering-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
 ;;
 ;;; Code:
 
@@ -19,7 +19,7 @@ Expand filename FILE relative to `no-littering-var-directory'.
 
 \(fn FILE)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "no-littering" '("no-littering-")))
+(register-definition-prefixes "no-littering" '("no-littering-"))
 
 ;;;***
 
