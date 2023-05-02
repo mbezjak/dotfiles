@@ -70,7 +70,12 @@
 
 
 (use-package no-littering
-  :ensure t)
+  :ensure t
+  :config
+  (setq backup-directory-alist
+        `(("\\`/tmp/" . nil)
+          ("\\`/dev/shm/" . nil)
+          ("." . ,(no-littering-expand-var-file-name "backup/")))))
 
 (setq custom-file (no-littering-expand-var-file-name "custom.el"))
 (when (file-exists-p custom-file)
