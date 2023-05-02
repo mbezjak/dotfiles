@@ -63,6 +63,7 @@ source-if /usr/share/fzf/completion.bash
 source-if /usr/share/fzf/key-bindings.bash
 source-if /etc/profile.d/autojump.bash
 source-if ~/.napalm/profile
+source-if ~/.bashrc.work
 
 add-to-path ~/bin
 add-to-path ~/Sync/bin
