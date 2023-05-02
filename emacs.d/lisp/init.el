@@ -319,7 +319,11 @@
     :config (helm-descbinds-mode))
   (use-package helm-rg
     :pin melpa ;; not released in a long time
-    :ensure t))
+    :ensure t
+    :bind (:map helm-rg-map
+           ("<right>" . helm-execute-persistent-action)
+           ("C-<right>" . helm-rg--file-forward)
+           ("C-<left>" . helm-rg--file-backward))))
 
 (use-package projectile
   :ensure t
