@@ -1024,7 +1024,7 @@
 	       ("Protesilaos Stavrou" . "info@protesilaos.com"))
 	      (:commit . "1d7e6e78df914e8829e6511a935616b0895403ae"))])
  (eglot .
-	[(1 14)
+	[(1 15)
 	 ((emacs
 	   (26 3))
 	  (jsonrpc
@@ -1047,7 +1047,7 @@
 	  (:maintainer "João Távora" . "joaotavora@gmail.com")
 	  (:authors
 	   ("João Távora" . "joaotavora@gmail.com"))
-	  (:commit . "8125d4cfc5605ead9102b7d823c4241029eb76cc"))])
+	  (:commit . "30892cbd330ace125454a056ca86d85e2a860bf5"))])
  (el-search .
 	    [(1 12 6 1)
 	     ((emacs
@@ -1277,6 +1277,17 @@
 			   ("Lawrence Mitchell" . "wence@gmx.li"))
 			  (:maintainer "Lawrence Mitchell" . "wence@gmx.li")
 			  (:url . "http://github.com/wence-/f90-iface/"))])
+ (face-shift .
+	     [(0 2 1)
+	      ((emacs
+		(24 1)))
+	      "Shift the colour of certain faces" tar
+	      ((:url . "https://git.sr.ht/~pkal/face-shift")
+	       (:keywords "faces")
+	       (:maintainer "Philip Kaludercic" . "philipk@posteo.net")
+	       (:authors
+		("Philip Kaludercic" . "philipk@posteo.net"))
+	       (:commit . "671e53fdef9ed3fdb9ee768216d05b90e3ce592a"))])
  (filladapt .
 	    [(2 12 2)
 	     ((emacs
@@ -1668,7 +1679,7 @@
 	   ("Durand" . "mmemmew@gmail.com"))
 	  (:url . "https://elpa.gnu.org/packages/ilist.html"))])
  (inspector .
-	    [(0 28)
+	    [(0 29)
 	     ((emacs
 	       (27 1)))
 	     "Tool for inspection of Emacs Lisp objects" tar
@@ -1677,7 +1688,7 @@
 	      (:maintainer "Mariano Montone" . "marianomontone@gmail.com")
 	      (:authors
 	       ("Mariano Montone" . "marianomontone@gmail.com"))
-	      (:commit . "0b2cf2f00a827f06bda717da8250eafec4108fb3"))])
+	      (:commit . "c328475aa433a39dd08702ff7daf5941a3a3efde"))])
  (ioccur .
 	 [(2 6)
 	  ((emacs
@@ -1807,7 +1818,7 @@
 		 ("Stefan Monnier" . "monnier@iro.umontreal.ca"))
 		(:maintainer "Stefan Monnier" . "monnier@iro.umontreal.ca"))])
  (jinx .
-       [(0 7)
+       [(0 8)
 	((emacs
 	  (27 1))
 	 (compat
@@ -1818,7 +1829,7 @@
 	 (:maintainer "Daniel Mendler" . "mail@daniel-mendler.de")
 	 (:authors
 	  ("Daniel Mendler" . "mail@daniel-mendler.de"))
-	 (:commit . "25a39dfc57b5819d9e5317ac61ecbdcd112234f7"))])
+	 (:commit . "7fced90fdaca5a482cd08b80967e0eac5ee8d885"))])
  (jit-spell .
 	    [(0 3)
 	     ((emacs
@@ -2403,7 +2414,7 @@
 	       ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 	      (:commit . "847694e78c12d903d5e3f6cb365a5d3b984db537"))])
  (org .
-      [(9 6 4)
+      [(9 6 5)
        ((emacs
 	 (26 1)))
        "Outline-based notes management and organizer" tar
@@ -2412,7 +2423,7 @@
 	(:maintainer "Bastien Guerry" . "bzg@gnu.org")
 	(:authors
 	 ("Carsten Dominik" . "carsten.dominik@gmail.com"))
-	(:commit . "f1fd1f22f42aece448dcf2d5e1037064a9ce2437"))])
+	(:commit . "921e0e8bc1158736313db77c2ebc503b50211b89"))])
  (org-contacts .
 	       [(1 1)
 		((emacs
@@ -2535,7 +2546,7 @@
 	(:keywords "comm" "processes" "multimedia")
 	(:url . "https://elpa.gnu.org/packages/osc.html"))])
  (osm .
-      [(0 11)
+      [(0 12)
        ((emacs
 	 (27 1))
 	(compat
@@ -2546,7 +2557,7 @@
 	(:maintainer "Daniel Mendler" . "mail@daniel-mendler.de")
 	(:authors
 	 ("Daniel Mendler" . "mail@daniel-mendler.de"))
-	(:commit . "ce8512d793cbe99f2406551bc84ad534a7a37893"))])
+	(:commit . "f08f03860021fa334708829d705370614e383880"))])
  (other-frame-window .
 		     [(1 0 6)
 		      ((emacs
@@ -3569,7 +3580,7 @@
 	      ("Trevor Edwin Pogue" . "trevor.pogue@gmail.com"))
 	     (:commit . "33c2a6f0a11d1d88cdb2065c5a897e33507f4c86"))])
  (tramp .
-	[(2 6 0 3)
+	[(2 6 0 4)
 	 ((emacs
 	   (26 1)))
 	 "Transparent Remote Access, Multiple Protocol" tar
@@ -3578,7 +3589,7 @@
 	  (:maintainer "Michael Albinus" . "michael.albinus@gmx.de")
 	  (:authors
 	   ("Kai Großjohann" . "kai.grossjohann@gmx.net"))
-	  (:commit . "1e5bbe5eca67973c26f4e4e62d42ba30ba01584b"))])
+	  (:commit . "9f4a6ac09014318bc6283438574a411a034ff1a3"))])
  (tramp-nspawn .
 	       [(1 0 1)
 		((emacs
