@@ -425,6 +425,10 @@
   :mode "\\.js\\'"
   :interpreter "node")
 
+(use-package typescript-mode
+  :ensure t
+  :pin melpa)
+
 (use-package xref-js2
   :ensure t
   :after js2-mode
