@@ -133,17 +133,6 @@ Same as `replace-string C-q C-m RET RET'."
   (my-rename-file-and-buffer (concat new-name "." (f-ext (buffer-file-name))))
   (my-groovy-change-class-name-to new-name))
 
-(defun my-coffee-change-fn-name-to (new-name)
-  (save-excursion
-    (goto-char 1)
-    (when (re-search-forward "\.[a-zA-Z0-9_]+ =")
-      (replace-match (concat "." new-name " =")))))
-
-(defun my-coffee-rename-fn (new-name)
-  (interactive "sNew fn name: ")
-  (my-rename-file-and-buffer (concat new-name "." (f-ext (buffer-file-name))))
-  (my-coffee-change-fn-name-to new-name))
-
 ;; https://www.reddit.com/r/emacs/comments/idz35e/emacs_27_can_take_svg_screenshots_of_itself/
 (defun screenshot-svg ()
   "Save a screenshot of the current frame as an SVG image.

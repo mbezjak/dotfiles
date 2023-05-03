@@ -452,14 +452,6 @@
          (js2-mode . prettier-js-mode)
          (json-mode . prettier-js-mode)))
 
-(use-package coffee-mode
-  :ensure t
-  :defer t
-  :config
-  (bind-keys :map coffee-mode-map
-             ("M-C" . coffee-compile-buffer)
-             ("S-C-r" . my-coffee-rename-fn)))
-
 (use-package restclient
   :ensure t
   :defer t)
