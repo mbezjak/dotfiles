@@ -114,6 +114,10 @@ function le() {
     fi
 }
 eval $(dircolors -b) # colored ls output
+have exa && {
+    alias l='exa --group-directories-first --long --header --git'
+    alias ll='exa --group-directories-first --long --header --git --all --all'
+}
 
 # new commands
 alias e='emacs --no-window-system'
