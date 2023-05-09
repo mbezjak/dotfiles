@@ -320,8 +320,6 @@
   (when (executable-find "ack")
     (setq helm-grep-default-command "ack -Hn --color --smart-case --no-group %e %p %f"
           helm-grep-default-recurse-command "ack -H --color --smart-case --no-group %e %p %f"))
-  (when (executable-find "rg")
-    (setq helm-rg-base-command '("rg" "--vimgrep" "--color=always" "--sort=path")))
   :config
   (require 'tramp) ; otherwise void variable tramp-methods on projectile switch project
   (use-package helm-config)
