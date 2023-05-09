@@ -257,6 +257,13 @@
   (setq git-messenger:show-detail t
         git-messenger:use-magit-popup t))
 
+(use-package git-link
+  :ensure t
+  :defer t
+  :init
+  (setq git-link-use-commit t
+        git-link-open-in-browser t))
+
 (use-package anzu
   :ensure t
   :diminish anzu-mode
