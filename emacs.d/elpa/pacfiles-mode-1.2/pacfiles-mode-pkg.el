@@ -1,8 +1,9 @@
-(define-package "pacfiles-mode" "1.0" "pacnew and pacsave merging tool"
-  '((emacs "26")
-    (cl-lib "0.5"))
-  :commit "180eea7ba33dc4fa5c116b01649c4e9ba3f43276" :authors
+(define-package "pacfiles-mode" "1.2" "The pacnew and pacsave merging tool"
+  '((emacs "26.1"))
+  :commit "a613d1d88dba4cb293ecaf42a9aeff7d8a3ce8aa" :authors
   '(("Carlos G. Cordero <http://github/UndeadKernel>"))
+  :maintainers
+  '(("Carlos G. Cordero" . "pacfiles@binarycharly.com"))
   :maintainer
   '("Carlos G. Cordero" . "pacfiles@binarycharly.com")
   :keywords

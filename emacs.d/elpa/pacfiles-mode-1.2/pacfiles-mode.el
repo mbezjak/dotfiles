@@ -1,15 +1,15 @@
-;;; pacfiles-mode.el --- pacnew and pacsave merging tool -*- lexical-binding: t; -*-
+;;; pacfiles-mode.el --- The pacnew and pacsave merging tool -*- lexical-binding: t; -*-
 ;;
-;; Copyright (C) 2018 Carlos G. Cordero
+;; Copyright (C) 2023 Carlos G. Cordero
 ;;
 ;; Author: Carlos G. Cordero <http://github/UndeadKernel>
 ;; Maintainer: Carlos G. Cordero <pacfiles@binarycharly.com>
 ;; Created: Oct 11, 2018
-;; Modified: Oct 11, 2018
-;; Version: 1.0
+;; Modified: May 03, 2023
+;; Version: 1.2
 ;; Keywords: files pacman arch pacnew pacsave update linux
 ;; URL: https://github.com/UndeadKernel/pacfiles-mode
-;; Package-Requires: ((emacs "26") (cl-lib "0.5"))
+;; Package-Requires: ((emacs "26.1"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -29,20 +29,24 @@
 (require 'pacfiles-buttons)
 (require 'pacfiles-utils)
 (require 'pacfiles-win)
+(require 'pacfiles-automerge)
 
-(require 'cl-seq)
+(require 'cl-lib)
 (require 'ediff)
 (require 'outline)
 (require 'time-date)
 
-(defgroup pacfiles nil "Faces for the buttons used in pacfiles-mode."
-  :group 'tools)
+(defgroup pacfiles nil "Options that relate to ‘pacfiles-mode’."
+  :group 'applications)
 
-(defvar pacfiles-updates-search-command "find /etc -name '*.pacnew' -o -name '*.pacsave' 2>/dev/null"
-  "Command to find .pacnew files.")
+(defcustom pacfiles-updates-search-command
+  "find /etc -name '*.pacnew' -o -name '*.pacsave' 2>/dev/null"
+  "Command to find .pacnew files."
+  :type '(string)
+  :group 'pacfiles)
 
 (defvar pacfiles--merge-search-command
-  (concat "find " pacfiles-merge-file-tmp-location " -name '*.pacmerge' 2>/dev/null")
+  (concat "find " (shell-quote-argument pacfiles-merge-file-tmp-location) " -name '*.pacmerge' 2>/dev/null")
   "Command to search for temporarily merged files.")
 
 (defvar pacfiles--ediff-conf '()
@@ -66,6 +70,7 @@
       (pacfiles-mode)
       (pacfiles-revert-buffer t t))))
 
+;;;###autoload
 (defun pacfiles-quit ()
   "Quit ‘pacfiles-mode’ and restore the previous window and ediff configuration."
   (interactive)
@@ -75,6 +80,7 @@
   (pacfiles--pop-window-conf))
 
 ;; Main function that displays the contents of the PACFILES buffer.
+;;;###autoload
 (defun pacfiles-revert-buffer (&optional _ignore-auto noconfirm)
   "Populate the ‘pacfiles-mode’ buffer with .pacnew and .pacsave files.
 
@@ -86,8 +92,12 @@ Ignore IGNORE-AUTO but take into account NOCONFIRM."
       (run-hooks 'before-revert-hook)
       ;; The actual revert mechanism starts here
       (let ((inhibit-read-only t)
-            (files (split-string (shell-command-to-string pacfiles-updates-search-command) "\n" t))
-            (merged-files (split-string (shell-command-to-string pacfiles--merge-search-command) "\n" t))
+            (files (mapcar #'pacfiles--set-remote-path-maybe
+                           (split-string (shell-command-to-string
+                                          pacfiles-updates-search-command) "\n" t)))
+            (merged-files (mapcar #'pacfiles--set-remote-path-maybe
+                                  (split-string (shell-command-to-string
+                                                 pacfiles--merge-search-command) "\n" t)))
             (pacnew-alist (list))
             (pacsave-alist (list)))
         (delete-region (point-min) (point-max))
@@ -95,7 +105,9 @@ Ignore IGNORE-AUTO but take into account NOCONFIRM."
         ;; Split .pacnew and .pacsave files
         (dolist (file files)
           ;; Associate each FILE in FILES with a file to hold the merge
-          (let ((merge-file (pacfiles--calculate-merge-file file pacfiles-merge-file-tmp-location)))
+          (let ((merge-file
+                 (pacfiles--set-remote-path-maybe
+                  (pacfiles--calculate-merge-file file pacfiles-merge-file-tmp-location))))
             (cond
              ((string-match-p ".pacnew" file)
               (push (cons file merge-file) pacnew-alist))
@@ -137,6 +149,7 @@ The FILE-TYPE specifies which type of update file we are processing."
         (insert (propertize "--- no pending files ---\n" 'font-lock-face 'font-lock-comment-face))
       (dolist (file-pair pending-alist)
         (pacfiles--insert-merge-button file-pair)
+        (pacfiles--insert-automerge-button-maybe file-pair)
         (pacfiles--insert-diff-button (car file-pair))
         (pacfiles--insert-delete-button file-pair)
         (insert (car file-pair) " ")
@@ -248,16 +261,6 @@ We restore the saved variables after ‘pacfiles-mode’ quits."
   (buffer-disable-undo)
   ;; Disable showing parents locally by letting the mode think it's disabled.
   (setq-local show-paren-mode nil)
-  (setq show-trailing-whitespace nil)
-  ;; Disable lines numbers.
-  (when (bound-and-true-p global-linum-mode)
-    (linum-mode -1))
-  (when (and (fboundp 'nlinum-mode)
-             (bound-and-true-p global-nlinum-mode))
-    (nlinum-mode -1))
-  (when (and (fboundp 'display-line-numbers-mode)
-             (bound-and-true-p global-display-line-numbers-mode))
-    (display-line-numbers-mode -1))
   ;; Set the function used when reverting pacfile-mode buffers.
   (setq-local revert-buffer-function #'pacfiles-revert-buffer)
   ;; configure ediff
