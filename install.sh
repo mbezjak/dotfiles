@@ -39,8 +39,5 @@ for f in $(find -mindepth 1 -maxdepth 1 -type f \
     install_link "$f" ".$f"
 done
 
-# remove dead symbolic links
-find ~/bin -type l ! -exec test -r {} \; -exec rm -i {} \;
-
 echo done
 exit 0
