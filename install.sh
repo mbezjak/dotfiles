@@ -51,17 +51,5 @@ fi
 # remove dead symbolic links
 find ~/bin -type l ! -exec test -r {} \; -exec rm -i {} \;
 
-# remove old links that are no longer used
-for f in $(find ~/bin -type l); do
-    if [[ $(readlink -f "$f") = */dotfiles/bin/* ]]; then
-        rm "$f"
-    fi
-done
-
-# https://blog.g3rt.nl/upgrade-your-ssh-keys.html
-if [[ ! -f ~/.ssh/id_ed25519.pub ]]; then
-    ssh-keygen -o -a 100 -t ed25519 -C 'bezjak.miro@gmail.com'
-fi
-
 echo done
 exit 0
