@@ -30,6 +30,7 @@
 --ignore-file=match:/^\.ensime$/
 --ignore-file=match:/[.-]all[.]js$/
 --ignore-file=match:/[.]chunk[.]js$/
+--ignore-file=match:/[.]mjs[.]map$/
 --ignore-file=match:/[.-]lock[.]json$/
 --ignore-file=match:/[.]log([.]\d{4}[-]\d{2})?$/
 --nogettext
