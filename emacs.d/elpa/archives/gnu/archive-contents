@@ -1013,7 +1013,7 @@
 	 ("Eduardo Ochs" . "eduardoochs@gmail.com"))
 	(:commit . "16613c18c5ec17755f083f4839bca7e4e05dd4c7"))])
  (ef-themes .
-	    [(0 11 0)
+	    [(1 0 0)
 	     ((emacs
 	       (27 1)))
 	     "Colorful and legible themes" tar
@@ -1022,7 +1022,7 @@
 	      (:maintainer "Ef-Themes Development" . "~protesilaos/ef-themes@lists.sr.ht")
 	      (:authors
 	       ("Protesilaos Stavrou" . "info@protesilaos.com"))
-	      (:commit . "1d7e6e78df914e8829e6511a935616b0895403ae"))])
+	      (:commit . "27c8a119557ddd183a9b679c01e65a70b5c79636"))])
  (eglot .
 	[(1 15)
 	 ((emacs
@@ -1126,7 +1126,7 @@
 		    ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 		   (:commit . "127492fac048cecfdba145d496a902022a68d1d5"))])
  (ement .
-	[(0 8 3)
+	[(0 9 2)
 	 ((emacs
 	   (27 1))
 	  (map
@@ -1149,7 +1149,7 @@
 	  (:maintainer "Adam Porter" . "adam@alphapapa.net")
 	  (:authors
 	   ("Adam Porter" . "adam@alphapapa.net"))
-	  (:commit . "b86a31700d1a382ad8da8cd2addd5dcad79d6dba"))])
+	  (:commit . "7f39fa5694232fa3f0a32b2104187fe1e886c202"))])
  (emms .
        [(15)
 	((cl-lib
@@ -1224,7 +1224,7 @@
 		    ("Matthew L. Fidler" . "matthew.fidler@gmail.com"))
 		   (:keywords "convenience"))])
  (excorporate .
-	      [(1 0 0)
+	      [(1 1 0)
 	       ((emacs
 		 (24 1))
 		(cl-lib
@@ -1236,13 +1236,16 @@
 		(url-http-ntlm
 		 (2 0 4))
 		(nadvice
-		 (0 3)))
+		 (0 3))
+		(url-http-oauth
+		 (0 8 3)))
 	       "Exchange Web Services (EWS) integration" tar
 	       ((:url . "https://www.fitzsim.org/blog/")
+		(:keywords "calendar")
 		(:maintainer "Thomas Fitzsimmons" . "fitzsim@fitzsim.org")
 		(:authors
 		 ("Thomas Fitzsimmons" . "fitzsim@fitzsim.org"))
-		(:keywords "calendar"))])
+		(:commit . "7df1891759e26541711ccbff739a39be6bca09ac"))])
  (expand-region .
 		[(0 11 0)
 		 nil "Increase selected region by semantic units." tar
@@ -1929,6 +1932,21 @@
 	     (:authors
 	      ("Terrence Brannon" . "metaperl@gmail.com"))
 	     (:maintainer nil . "emacs-devel@gnu.org"))])
+ (latex-table-wizard .
+		     [(1 5 2)
+		      ((emacs
+			(27 1))
+		       (auctex
+			(12 1))
+		       (transient
+			(0 3 7)))
+		      "Magic editing of LaTeX tables" tar
+		      ((:url . "https://github.com/enricoflor/latex-table-wizard")
+		       (:keywords "convenience")
+		       (:maintainer "Enrico Flor" . "enrico@eflor.net")
+		       (:authors
+			("Enrico Flor" . "enrico@eflor.net"))
+		       (:commit . "2998be936aa31415051ee2a8d2912424045d966c"))])
  (leaf .
        [(4 5 5)
 	((emacs
@@ -2414,7 +2432,7 @@
 	       ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 	      (:commit . "847694e78c12d903d5e3f6cb365a5d3b984db537"))])
  (org .
-      [(9 6 5)
+      [(9 6 6)
        ((emacs
 	 (26 1)))
        "Outline-based notes management and organizer" tar
@@ -2423,7 +2441,7 @@
 	(:maintainer "Bastien Guerry" . "bzg@gnu.org")
 	(:authors
 	 ("Carsten Dominik" . "carsten.dominik@gmail.com"))
-	(:commit . "921e0e8bc1158736313db77c2ebc503b50211b89"))])
+	(:commit . "17608670a4f4e8edb91efe04d86fe80ff9d01b69"))])
  (org-contacts .
 	       [(1 1)
 		((emacs
@@ -2680,7 +2698,7 @@
 	 ("Adam Porter" . "adam@alphapapa.net"))
 	(:commit . "367c6a5a9a4bf320dcccb54bdd80ac46aa8be06f"))])
  (poke .
-       [(3 0)
+       [(3 2)
 	((emacs
 	  (25)))
 	"Emacs meets GNU poke!" tar
@@ -2688,7 +2706,7 @@
 	 (:maintainer "Jose E. Marchesi" . "jemarch@gnu.org")
 	 (:authors
 	  ("Jose E. Marchesi" . "jemarch@gnu.org"))
-	 (:commit . "bc0bd9e618a468bbb0d0a68cdc2462db43b5b689"))])
+	 (:commit . "77bdcce97e06bbd6771f35acbb3f399457bebb71"))])
  (poke-mode .
 	    [(3 0)
 	     nil "Major mode for editing Poke programs" tar
@@ -3234,7 +3252,7 @@
 	     ("Phil Sainty" . "psainty@orcon.net.nz"))
 	    (:commit . "045a4fe94c18cd36ef297e62a80cdff449af3aa5"))])
  (soap-client .
-	      [(3 2 1)
+	      [(3 2 3)
 	       ((emacs
 		 (24 1))
 		(cl-lib
@@ -3245,7 +3263,7 @@
 		(:maintainer "Alexandru Harsanyi" . "AlexHarsanyi@gmail.com")
 		(:authors
 		 ("Alexandru Harsanyi" . "AlexHarsanyi@gmail.com"))
-		(:commit . "37eef19fd608ca81acb40f974b8d7bbe7fc27127"))])
+		(:commit . "6234c3e0411a1d70bed2c85bbfb438d4479be51b"))])
  (sokoban .
 	  [(1 4 9)
 	   ((emacs
@@ -3619,15 +3637,18 @@
 		("David Gonzalez Gandara" . "dggandara@member.fsf.org"))
 	       (:maintainer "David Gonzalez Gandara" . "dggandara@member.fsf.org"))])
  (transient .
-	    [(0 3 7)
+	    [(0 4 0)
 	     ((emacs
-	       (25 1)))
+	       (25 1))
+	      (compat
+	       (29 1 4 1)))
 	     "Transient commands" tar
 	     ((:url . "https://github.com/magit/transient")
-	      (:keywords "bindings")
+	      (:keywords "extensions")
 	      (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
 	      (:authors
-	       ("Jonas Bernoulli" . "jonas@bernoul.li")))])
+	       ("Jonas Bernoulli" . "jonas@bernoul.li"))
+	      (:commit . "b4127842f200848817103e8d4c45c36bc8fdf3b8"))])
  (transient-cycles .
 		   [(1 0)
 		    ((emacs
@@ -3718,6 +3739,21 @@
 		    ("Stephen Leake" . "stephen_leake@stephe-leake.org"))
 		   (:url . "https://elpa.gnu.org/packages/uniquify-files.html")
 		   (:commit . "1d76b4f0e283afaff2be053d85f8726ffc3abd6e"))])
+ (urgrep .
+	 [(0 1 0)
+	  ((emacs
+	    (27 1))
+	   (compat
+	    (29 1 0 1))
+	   (project
+	    (0 3 0)))
+	  "Universal recursive grep" tar
+	  ((:url . "https://github.com/jimporter/urgrep")
+	   (:keywords "grep" "search")
+	   (:maintainer "Jim Porter")
+	   (:authors
+	    ("Jim Porter"))
+	   (:commit . "d1cc269eeca739aceb31d983a562264d94ea2dfb"))])
  (url-http-ntlm .
 		[(2 0 4)
 		 ((cl-lib
@@ -3731,27 +3767,14 @@
 		  (:maintainer "Thomas Fitzsimmons" . "fitzsim@fitzsim.org")
 		  (:url . "https://code.google.com/p/url-http-ntlm/"))])
  (url-http-oauth .
-		 [(0 8 2)
+		 [(0 8 3)
 		  nil "OAuth 2.0 for URL library" tar
 		  ((:keywords "comm" "data" "processes" "hypermedia")
 		   (:maintainer "Thomas Fitzsimmons" . "fitzsim@fitzsim.org")
 		   (:authors
 		    ("Thomas Fitzsimmons" . "fitzsim@fitzsim.org"))
 		   (:url . "https://elpa.gnu.org/packages/url-http-oauth.html")
-		   (:commit . "b8393fe7ad2becc008975984e76bd485c9039dd7"))])
- (url-http-oauth-demo .
-		      [(1 0 3)
-		       ((url-http-oauth
-			 (0 8 1))
-			(emacs
-			 (27 1)))
-		       "Demo url-http-oauth" tar
-		       ((:keywords "comm" "data" "processes" "hypermedia")
-			(:maintainer "Thomas Fitzsimmons" . "fitzsim@fitzsim.org")
-			(:authors
-			 ("Thomas Fitzsimmons" . "fitzsim@fitzsim.org"))
-			(:url . "https://elpa.gnu.org/packages/url-http-oauth-demo.html")
-			(:commit . "1ec81a2d94e57e7afa4d6a55b9a69dc36de6a7ac"))])
+		   (:commit . "c2d06036f22ce61f5a1e3084c8b265d897b7fcab"))])
  (url-scgi .
 	   [(0 9)
 	    ((emacs
