@@ -16,6 +16,7 @@
 --ignore-directory=is:elpa
 --ignore-directory=is:var
 --ignore-directory=is:data
+--ignore-directory=is:mock_data
 --ignore-directory=is:.metadata
 --ignore-directory=is:.terraform
 --ignore-directory=is:xtmp
