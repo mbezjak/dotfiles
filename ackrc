@@ -13,6 +13,7 @@
 --ignore-directory=is:out
 --ignore-directory=is:.ensime_cache
 --ignore-directory=is:.clj-kondo
+--ignore-directory=is:.circleci
 --ignore-directory=is:elpa
 --ignore-directory=is:var
 --ignore-directory=is:data
