@@ -319,7 +319,6 @@
           helm-grep-default-recurse-command "ack -H --color --smart-case --no-group %e %p %f"))
   :config
   (require 'tramp) ; otherwise void variable tramp-methods on projectile switch project
-  (use-package helm-config)
   (helm-mode)
   (use-package helm-descbinds
     :ensure t
