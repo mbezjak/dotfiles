@@ -330,7 +330,9 @@
     :bind (:map helm-rg-map
            ("<right>" . helm-execute-persistent-action)
            ("C-<right>" . helm-rg--file-forward)
-           ("C-<left>" . helm-rg--file-backward))))
+           ("C-<left>" . helm-rg--file-backward))
+    :config
+    (setenv "RIPGREP_CONFIG_PATH" (f-full "~/.ripgreprc"))))
 
 (use-package projectile
   :ensure t

@@ -318,6 +318,10 @@ have hugo && {
     source <(hugo completion bash)
 }
 
+have rg && {
+    export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+}
+
 [[ -d ~/workspace/backend ]] && {
     add-to-path ~/workspace/backend/bin
     alias bt=~/workspace/backend/bin/test-backend.sh
