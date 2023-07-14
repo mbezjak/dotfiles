@@ -263,6 +263,7 @@ Saves to a temp file and puts the filename in the kill ring."
       (lispy-oneline)
       (forward-to-indentation))))
 
+;; https://systemcrafters.net/emacs-tips/presentations-with-org-present/
 (defun my-present ()
   (interactive)
   (setq-local face-remapping-alist '((default (:height 1.5) default)
