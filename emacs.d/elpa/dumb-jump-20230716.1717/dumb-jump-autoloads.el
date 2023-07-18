@@ -77,6 +77,10 @@ option is found." nil nil)
 
 ;;;***
 
+;;;### (autoloads nil nil ("dumb-jump-pkg.el") (0 0 0 0))
+
+;;;***
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t

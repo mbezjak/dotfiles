@@ -5,8 +5,6 @@
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Homepage: https://github.com/emacscollective/no-littering
 ;; Keywords: convenience
-;; Package-Version: 1.4.0
-;; Package-Commit: ef02b6fcedd97f3ab039b51411fdaab7336d819b
 
 ;; Package-Requires: ((emacs "25.1") (compat "29.1.4.1"))
 
@@ -53,9 +51,10 @@
 ;; coverage.  Pull requests are highly welcome (but please follow the
 ;; conventions described below and in the pull request template).
 
-;; `no-littering' cannot help with moving existing files to the new
-;; location.  You will have to move the files manually.  See issue
-;; #79 for more information.
+;; This package does not automatically migrate existing files to their
+;; new locations, but unless you want to, you also do not have to do
+;; it completely by hand.  The contributed "migrate.org" provides some
+;; guidance and tools to help with the migration.
 
 ;;;; Usage
 
@@ -97,8 +96,8 @@
 ;; 5. If applicable, the appropriate extension is added to the file name
 ;;    so that files are visited using the appropriate major-modes and
 ;;    also to provide a hint about the kind of data stored in the file.
-;;    E.g.  if a file contains an S-expression, then the suffix should be
-;;    `*.el`.
+;;    E.g.,  if a file contains an S-expression, then the suffix should
+;;    be `*.el`.
 
 ;;;;; B) File location and subdirectories
 ;;
@@ -119,11 +118,11 @@
 ;; 4. If a package provides a "framework" for other packages to use,
 ;;    then we may reuse its directories for other packages that make use
 ;;    of that framework or otherwise "extend" the "main package".
-;;    E.g. we place all `helm` related files in `helm/`.
+;;    E.g., we place all `helm` related files in `helm/`.
 ;;
 ;; 5. If a package only defines a single variable that specifies a data
 ;;    (or config) directory, then the directory name should
-;;    nevertheless be just the package name.  E.g. the path used for
+;;    nevertheless be just the package name.  E.g., the path used for
 ;;    `sx-cache-directory` from the `sx` package is `sx/cache/`, not
 ;;    `sx-cache/`.
 ;;
@@ -152,7 +151,7 @@
 ;;;;; D) Commit messages
 ;;
 ;; 1. Please theme each package using a separate commit and use commit
-;;    messages of the form "<package>: theme <variable".
+;;    messages of the form "<package>: Theme <variable".
 ;;
 ;; 2. If a package has several path variables, then you should theme them
 ;;    all in one commit.
@@ -160,10 +159,11 @@
 ;; 3. If the variable names do not fit nicely on the summary line, then
 ;;    use a message such as:
 ;;
-;;      foo: theme variables
+;;      foo: Theme variables
 ;;
 ;;      Theme `foo-config-file', `foo-cache-directory',
 ;;      and `foo-persistent-file'.
+;;
 ;; 4. When appropriate add statements like the following to the commit
 ;;    message:
 ;;
@@ -325,9 +325,12 @@ This variable has to be set before `no-littering' is loaded.")
     (setq elfeed-enclosure-default-dir     (var "elfeed/enclosures/"))
     (setq elfeed-score-score-file          (etc "elfeed/score/score.el"))
     (setq elgrep-data-file                 (var "elgrep-data.el"))
+    (setq elisp-autofmt-cache-directory    (var "elisp-autofmt/cache/"))
     (setq elmo-msgdb-directory             (var "elmo/"))
     (setq elmo-split-log-file              (var "elmo/split-log"))
     (setq elpher-bookmarks-file            (var "elpher-bookmarks.el"))
+    (setq emacs-gc-stats-file              (var "emacs-gc-stats.eld"))
+    (setq ement-sessions-file              (var "ement-sessions.el"))
     (setq emms-directory                   (var "emms/"))
     (setq emojify-emojis-dir               (var "emojify/"))
     (setq epkg-repository                  (var "epkgs/"))
@@ -411,12 +414,14 @@ This variable has to be set before `no-littering' is loaded.")
     (setq save-kill-file-name              (var "save-kill.el"))
     (setq save-visited-files-location      (var "save-visited-files-location"))
     (setq session-save-file                (var "session.el"))
+    (setq shell-maker-history-path         (var "shell-maker/"))
     (setq sly-mrepl-history-file-name      (var "sly/mrepl-history"))
     (setq smex-save-file                   (var "smex-save.el"))
     (setq speed-type-gb-dir                (var "speed-type/"))
     (setq spell-fu-directory               (var "spell-fu/"))
     (setq svg-lib-icons-dir                (var "svg-lib/icons/"))
     (setq sx-cache-directory               (var "sx/cache/"))
+    (setq tabspaces-session-file           (var "tabspaces-session.eld"))
     (setq tldr-directory-path              (var "tldr/"))
     (setq transient-history-file           (var "transient/history.el"))
     (setq transient-levels-file            (etc "transient/levels.el"))

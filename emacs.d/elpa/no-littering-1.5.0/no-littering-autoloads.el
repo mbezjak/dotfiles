@@ -23,6 +23,10 @@ Expand filename FILE relative to `no-littering-var-directory'.
 
 ;;;***
 
+;;;### (autoloads nil nil ("no-littering-pkg.el") (0 0 0 0))
+
+;;;***
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
