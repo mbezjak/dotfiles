@@ -1,1 +1,3 @@
 --sort=path
+--glob=!resources/integrations/mergedev/**
+--glob=!resources/integrations/azure/**
