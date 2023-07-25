@@ -1,13 +1,13 @@
 ;;; clj-refactor.el --- A collection of commands for refactoring Clojure code -*- lexical-binding: t -*-
 
 ;; Copyright © 2012-2014 Magnar Sveen
-;; Copyright © 2014-2022 Magnar Sveen, Lars Andersen, Benedek Fazekas, Bozhidar Batsov
+;; Copyright © 2014-2023 Magnar Sveen, Lars Andersen, Benedek Fazekas, Bozhidar Batsov
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
 ;;         Lars Andersen <expez@expez.com>
 ;;         Benedek Fazekas <benedek.fazekas@gmail.com>
 ;;         Bozhidar Batsov <bozhidar@batsov.dev>
-;; Version: 3.7.1
+;; Version: 3.9.0
 ;; Keywords: convenience, clojure, cider
 
 ;; Package-Requires: ((emacs "26.1") (seq "2.19") (yasnippet "0.6.1") (paredit "24") (multiple-cursors "1.2.2") (clojure-mode "5.14") (cider "1.4.1") (parseedn "1.1.0") (inflections "2.6") (hydra "0.13.2"))
@@ -2032,7 +2032,8 @@ is not set to `:prompt'."
    ((or (> (length candidates) 1) (eq :prompt cljr-magic-requires))
     (completing-read "Add require: " candidates nil))
    ((= (length candidates) 1)
-    (seq-first candidates))))
+    ;; this is like seq-first, but compatible with older Emacsen:
+    (seq-elt candidates 0))))
 
 (defun cljr--get-aliases-from-middleware ()
   (when-let (aliases (cljr--call-middleware-for-namespace-aliases))
@@ -3405,7 +3406,7 @@ if REMOVE-PACKAGE_VERSION is t get rid of the (package: 20150828.1048) suffix."
 ;; We used to derive the version out of `(cljr--version t)`,
 ;; but now prefer a fixed version to fully decouple things and prevent unforeseen behavior.
 ;; This suits better our current pace of development.
-(defcustom cljr-injected-middleware-version "3.7.1"
+(defcustom cljr-injected-middleware-version "3.9.0"
   "The refactor-nrepl version to be injected.
 
 You can customize this in order to try out new releases.
