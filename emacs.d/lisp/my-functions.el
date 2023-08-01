@@ -12,10 +12,11 @@
 
 (defun my-open-dired-here ()
   (interactive)
-  (if-let ((filename (buffer-file-name))
-           (dir (f-dirname filename)))
-      (dired dir)
-    (message "WARNING: Current buffer is not attached to a file!")))
+  (let ((filename (or (buffer-file-name) (user-error "Not visiting a file"))))
+    (if (string-match ":" filename)
+        (let ((find-file-run-dired t))
+          (find-file (replace-regexp-in-string ":.*" "" filename)))
+      (dired (f-dirname filename)))))
 
 (defun my-xml-pretty-format ()
   (interactive)
