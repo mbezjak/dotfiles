@@ -344,7 +344,7 @@
         projectile-create-missing-test-files t)
   :config
   (projectile-mode)
-  (--each '("target" "node_modules" ".gradle" ".clj-kondo")
+  (--each '("target" "node_modules" ".gradle" ".clj-kondo" ".nx-cache")
     (add-to-list 'projectile-globally-ignored-directories it))
   (--each '("*-all.js")
     (add-to-list 'projectile-globally-ignored-files it))
