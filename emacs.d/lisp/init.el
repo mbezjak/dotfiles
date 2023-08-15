@@ -4,15 +4,11 @@
 
 (setq package-user-dir (locate-user-emacs-file "elpa"))
 (setq package-archives
-      '(("melpa-stable" . "https://stable.melpa.org/packages/")
-        ("melpa"        . "https://melpa.org/packages/")
-        ("gnu"          . "https://elpa.gnu.org/packages/")))
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu"   . "https://elpa.gnu.org/packages/")))
 (setq package-archive-priorities
-      '(("melpa-stable" . 15)
-        ("melpa" . 10)
+      '(("melpa" . 10)
         ("gnu" . 0)))
-(setq package-pinned-packages
-      '((use-package . "melpa")))
 (package-initialize)
 
 (menu-bar-mode -1)
@@ -324,7 +320,6 @@
     :ensure t
     :config (helm-descbinds-mode))
   (use-package helm-rg
-    :pin melpa ;; not released in a long time
     :ensure t
     :bind (:map helm-rg-map
            ("<right>" . helm-execute-persistent-action)
@@ -355,7 +350,6 @@
 
 (use-package helm-projectile
   :ensure t
-  :pin melpa ;; not released in a long time
   :init
   (setq projectile-completion-system 'helm
         helm-source-projectile-files-and-dired-list '(helm-source-projectile-files-list))
@@ -429,8 +423,7 @@
   :interpreter "node")
 
 (use-package typescript-mode
-  :ensure t
-  :pin melpa)
+  :ensure t)
 
 (use-package xref-js2
   :ensure t
@@ -488,7 +481,6 @@
 
 (use-package dumb-jump
   :ensure t
-  :pin melpa
   :config
   (dumb-jump-mode)
   (setq dumb-jump-selector 'helm))
@@ -500,7 +492,6 @@
 
 (use-package lispy
   :ensure t
-  :pin melpa
   :diminish lispy-mode
   :defer t
   :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
@@ -624,7 +615,6 @@
 
 (use-package crux
   :ensure t
-  :pin melpa
   :bind (("C-c o" . crux-open-with)
          ("C-S-<return>" . crux-smart-open-line-above)
          ("S-<return>" . crux-smart-open-line)
@@ -783,7 +773,6 @@
 
 ;;(use-package lsp-mode
 ;;  :ensure t
-;;  :pin melpa
 ;;  :hook (groovy-mode . lsp)
 ;;  :commands lsp)
 ;;
