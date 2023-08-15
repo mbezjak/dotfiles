@@ -6,8 +6,6 @@
 ;; Author: Phil Hagelberg, Cornelius Mika, Campbell Barton
 ;; Maintainer: Campbell Barton <ideasman42@gmail.com>
 ;; URL: https://codeberg.org/ideasman42/emacs-idle-highlight-mode
-;; Package-Version: 20230319.810
-;; Package-Commit: f9091c907d41e7b12d99d108a194229b8dbfc5ae
 ;; Version: 1.1.4
 ;; Created: 2008-05-13
 ;; Keywords: convenience

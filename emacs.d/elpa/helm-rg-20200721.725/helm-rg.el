@@ -2,8 +2,6 @@
 
 ;; Author: Danny McClanahan
 ;; Version: 0.1
-;; Package-Version: 20200721.725
-;; Package-Commit: ee0a3c09da0c843715344919400ab0a0190cc9dc
 ;; URL: https://github.com/cosmicexplorer/helm-rg
 ;; Package-Requires: ((emacs "25") (cl-lib "0.5") (dash "2.13.0") (helm "2.8.8"))
 ;; Keywords: find, file, files, helm, fast, rg, ripgrep, grep, search, match

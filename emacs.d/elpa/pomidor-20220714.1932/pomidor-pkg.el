@@ -4,6 +4,8 @@
     (dash "2.17.0"))
   :commit "394a52f95587b1d10d0c3bdca503d2cc876db35b" :authors
   '(("TatriX" . "tatrics@gmail.com"))
+  :maintainers
+  '(("TatriX" . "tatrics@gmail.com"))
   :maintainer
   '("TatriX" . "tatrics@gmail.com")
   :keywords
