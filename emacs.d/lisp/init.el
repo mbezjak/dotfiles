@@ -713,8 +713,9 @@
   :ensure t
   :hook ((rust-mode . cargo-minor-mode)
          (rust-mode . racer-mode)
-         (rust-mode . eldoc-mode)
-         (flycheck-mode . flycheck-rust-setup)))
+         (rust-mode . eldoc-mode))
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (use-package go-mode
   :ensure t
