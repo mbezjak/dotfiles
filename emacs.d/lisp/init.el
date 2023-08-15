@@ -595,8 +595,7 @@
               (lambda ()
                 (if (file-exists-p (concat buffer-file-name "c"))
                     (delete-file (concat buffer-file-name "c"))))))
-  (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
-  (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode))
+  (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save))
 
 (use-package java-mode
   :ensure nil
@@ -651,10 +650,9 @@
 
 (use-package elisp-slime-nav
   :ensure t
-  :defer t)
+  :hook (emacs-lisp-mode-hook . elisp-slime-nav-mode))
 
 (use-package helm-swoop
-  :pin melpa
   :ensure t
   :defer t)
 
