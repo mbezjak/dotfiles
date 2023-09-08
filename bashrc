@@ -115,9 +115,10 @@ function le() {
     fi
 }
 eval $(dircolors -b) # colored ls output
-have exa && {
-    alias l='exa --group-directories-first --long --header --git'
-    alias ll='exa --group-directories-first --long --header --git --all --all'
+have eza && {
+    source-if /usr/share/bash-completion/completions/eza
+    alias l='eza --group-directories-first --long --header --git'
+    alias ll='eza --group-directories-first --long --header --git --all --all'
 }
 
 # new commands
