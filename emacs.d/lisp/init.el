@@ -525,10 +525,11 @@
   :config
   (defhydra my-hydra-bloom-backend (:color amaranth)
     "Functions"
-    ("s" (my-bloom-backend-start) "Start backend" :exit t)
-    ("t" (my-bloom-backend-stop) "Stop backend" :exit t)
-    ("r" (my-bloom-backend-restart) "Restart backend" :exit t)
-    ("c" (my-bloom-clojure-sort-ns) "Sort and clean ns" :exit t)
+    ("s" (my-ardoq-backend-start) "Start backend" :exit t)
+    ("t" (my-ardoq-backend-stop) "Stop backend" :exit t)
+    ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
+    ("p" (my-ardoq-backend-fix-protocols) "Fix protocols" :exit t)
+    ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
     ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
     ("q" nil "Quit"))
   (use-package clj-refactor

@@ -239,20 +239,24 @@ Saves to a temp file and puts the filename in the kill ring."
        (replace-regexp-in-string "\-test$" "")
        (replace-regexp-in-string "^unit\." "bloom.")))
 
-(defun my-bloom-backend-start ()
+(defun my-ardoq-backend-start ()
   (interactive)
-  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/start))"))
+  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (user/go-dev))"))
 
-(defun my-bloom-backend-stop ()
+(defun my-ardoq-backend-fix-protocols ()
   (interactive)
-  (cider-interactive-eval "(dev/stop)"))
+  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/reload-protocols))"))
 
-(defun my-bloom-backend-restart ()
+(defun my-ardoq-backend-stop ()
+  (interactive)
+  (cider-interactive-eval "(user/stop)"))
+
+(defun my-ardoq-backend-restart ()
   (interactive)
   (my-bloom-backend-stop)
-  (run-with-idle-timer 0.3 nil 'my-bloom-backend-start))
+  (run-with-idle-timer 0.3 nil 'my-ardoq-backend-start))
 
-(defun my-bloom-clojure-sort-ns ()
+(defun my-clojure-sort-ns ()
   (interactive)
   (save-excursion
     (cljr-clean-ns)
