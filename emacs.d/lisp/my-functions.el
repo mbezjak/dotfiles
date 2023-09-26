@@ -253,7 +253,7 @@ Saves to a temp file and puts the filename in the kill ring."
 
 (defun my-ardoq-backend-restart ()
   (interactive)
-  (my-bloom-backend-stop)
+  (my-ardoq-backend-stop)
   (run-with-idle-timer 0.3 nil 'my-ardoq-backend-start))
 
 (defun my-clojure-sort-ns ()
