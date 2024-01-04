@@ -16,6 +16,7 @@
 --ignore-directory=is:.shadow-cljs
 --ignore-directory=is:.circleci
 --ignore-directory=is:.nx-cache
+--ignore-directory=is:.nx
 --ignore-directory=is:elpa
 --ignore-directory=is:var
 --ignore-directory=is:data
