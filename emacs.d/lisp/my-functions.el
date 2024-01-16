@@ -279,12 +279,12 @@ Saves to a temp file and puts the filename in the kill ring."
                                      (linum (:foreground "#ff6c6b") default)
                                      (hl-line (:background "RosyBrown4") default)))
   (global-hl-line-mode 1)
-  (global-linum-mode 1))
+  (display-line-numbers-mode 1))
 
 (defun my-unpresent ()
   (interactive)
   (setq-local face-remapping-alist nil)
   (global-hl-line-mode -1)
-  (global-linum-mode -1))
+  (display-line-numbers-mode -1))
 
 (provide 'my-functions)
