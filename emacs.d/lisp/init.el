@@ -673,11 +673,6 @@
   :ensure t
   :defer t)
 
-(use-package ensime
-  :disabled t
-  :ensure t
-  :defer t)
-
 (use-package paradox
   :ensure t
   :defer t
