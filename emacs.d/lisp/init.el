@@ -553,10 +553,6 @@
   :hook ((text-mode . goto-address-mode)
          (prog-mode . goto-address-mode)))
 
-(use-package octave
-  :ensure nil
-  :mode ("\\.m\\'" . octave-mode))
-
 (use-package simple
   :ensure nil
   :diminish auto-fill-function
