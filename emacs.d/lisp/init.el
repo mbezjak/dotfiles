@@ -448,10 +448,6 @@
          (js2-mode . prettier-js-mode)
          (json-mode . prettier-js-mode)))
 
-(use-package restclient
-  :ensure t
-  :defer t)
-
 (use-package super-save
   :ensure t
   :diminish super-save-mode
