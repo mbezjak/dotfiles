@@ -540,6 +540,7 @@
     (setq cljr-warn-on-eval nil
           cljr-eagerly-build-asts-on-startup nil)
     :config
+    (cljr-toggle-debug-mode)
     (defun my-clj-refactor-set-keybinding-hook ()
       (cljr-add-keybindings-with-prefix "C-c C-m"))
     (add-hook 'clojure-mode-hook 'clj-refactor-mode)
