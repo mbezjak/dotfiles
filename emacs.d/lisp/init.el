@@ -366,88 +366,6 @@
   ;; Add this back in at the end of the list.
   (add-to-list 'hippie-expand-try-functions-list 'try-complete-file-name-partially t))
 
-(use-package markdown-mode
-  :ensure t
-  :defer t
-  :config
-  ;; $ pacman --sync perl-text-markdown
-  (let ((cmd "/usr/bin/vendor_perl/Markdown.pl"))
-    (when (file-exists-p cmd)
-      (setq markdown-command cmd))))
-
-(use-package groovy-mode
-  :ensure t
-  :defer t
-  :mode ("build\\.kin\\'" "build\\.gradle\\'" "\\.drw\\'")
-  :config
-  (bind-keys :map groovy-mode-map
-             ("C-d" . my-delete-region-or-line)
-             ("M-e" . backward-kill-word)
-             ("S-C-r" . my-groovy-rename-class))
-
-  (use-package groovy-imports
-    :ensure t
-    :config
-    (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
-    (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
-    (bind-keys :map groovy-mode-map
-               ("C-M-i" . groovy-imports-add-import-dwim))))
-
-(use-package haskell-mode
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-
-  ;; $ cabal install ghc-mod
-  (when (file-executable-p "~/.cabal/bin/ghc-mod")
-    (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
-
-(use-package web-mode
-  :ensure t
-  :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
-
-;; needs: aura -A js-beautify
-(use-package web-beautify
-  :ensure t
-  :defer t)
-
-(use-package json-mode
-  :ensure t
-  :defer t)
-
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js\\'"
-  :interpreter "node")
-
-(use-package typescript-mode
-  :ensure t)
-
-(use-package xref-js2
-  :ensure t
-  :after js2-mode
-  :config
-  (define-key js2-mode-map (kbd "M-.") nil)
-  (add-hook 'js2-mode-hook
-            (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-  (setq xref-js2-search-program 'rg)
-  (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions)
-  (define-key js2-mode-map (kbd "M-,") 'xref-pop-marker-stack))
-
-(use-package rjsx-mode
-  :ensure t
-  :mode "components\\/.*\\.js\\'"
-  :bind (:map rjsx-mode-map
-              ("C-d" . my-delete-region-or-line)))
-
-(use-package prettier-js
-  :ensure t
-  :hook ((rjsx-mode . prettier-js-mode)
-         (js2-mode . prettier-js-mode)
-         (json-mode . prettier-js-mode)))
-
 (use-package super-save
   :ensure t
   :diminish super-save-mode
@@ -489,61 +407,6 @@
          ("C-h k" . helpful-key)
          ("C-h x" . helpful-command)))
 
-(use-package lispy
-  :ensure t
-  :diminish lispy-mode
-  :defer t
-  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
-         :map lispy-mode-map
-         (("C-d" . my-delete-region-or-line)
-          ("M-d" . lispy-delete)
-          ("M-e" . lispy-backward-kill-word)
-          ("M-r" . lispy-kill-word)))
-  :hook ((clojure-mode . lispy-mode)
-         (emacs-lisp-mode . lispy-mode)
-         (common-lisp-mode . lispy-mode)
-         (scheme-mode . lispy-mode)
-         (lisp-mode . lispy-mode))
-  :init
-  (setq lispy-compat '(cider)
-        lispy-key-theme '(special parinfer c-digits))
-  ;; https://github.com/abo-abo/lispy/pull/403
-  ;; temporary to get accustom to lispy
-  (advice-add 'delete-selection-pre-hook :around 'lispy--delsel-advice))
-
-(use-package clojure-mode
-  :ensure t
-  :defer t
-  :bind (:map clojure-mode-map
-              (("M-c" . my-clojure-copy-qualified-fn)
-               ("M-v" . my-clojure-copy-ns)
-               ("M-m" . my-hydra-bloom-backend/body)))
-  :config
-  (defhydra my-hydra-bloom-backend (:color amaranth)
-    "Functions"
-    ("s" (my-ardoq-backend-start) "Start backend" :exit t)
-    ("t" (my-ardoq-backend-stop) "Stop backend" :exit t)
-    ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
-    ("p" (my-ardoq-backend-fix-protocols) "Fix protocols" :exit t)
-    ("l" (my-ardoq-backend-load-lib) "Load lib.clj" :exit t)
-    ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
-    ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
-    ("q" nil "Quit"))
-  (use-package clj-refactor
-    :ensure t
-    :diminish clj-refactor-mode
-    :init
-    (setq cljr-warn-on-eval nil
-          cljr-eagerly-build-asts-on-startup nil)
-    :config
-    (cljr-toggle-debug-mode)
-    (defun my-clj-refactor-set-keybinding-hook ()
-      (cljr-add-keybindings-with-prefix "C-c C-m"))
-    (add-hook 'clojure-mode-hook 'clj-refactor-mode)
-    (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook))
-  (use-package flycheck-clj-kondo
-    :ensure t))
-
 (use-package idle-highlight-mode
   :ensure t
   :hook (prog-mode . idle-highlight-mode))
@@ -568,49 +431,6 @@
   :diminish flyspell-mode
   :if (executable-find "aspell")
   :hook ((text-mode . turn-on-flyspell)))
-
-(use-package elisp-mode
-  :ensure nil
-  :bind (:map emacs-lisp-mode-map
-              ("C-c v" . eval-buffer)
-         :map lisp-mode-shared-map
-              ("RET" . reindent-then-newline-and-indent)
-         :map read-expression-map
-              ("TAB" . completion-at-point))
-  :init
-  (defun my-remove-elc-on-save ()
-    "If you're saving an elisp file, likely the .elc is no longer valid."
-    (make-local-variable 'after-save-hook)
-    (add-hook 'after-save-hook
-              (lambda ()
-                (if (file-exists-p (concat buffer-file-name "c"))
-                    (delete-file (concat buffer-file-name "c"))))))
-  (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save))
-
-(use-package java-mode
-  :ensure nil
-  :bind (:map java-mode-map
-              ("C-d" . my-delete-region-or-line)))
-
-(use-package cider
-  :ensure t
-  :defer t
-  :init
-  (setq cider-repl-pop-to-buffer-on-connect nil
-        cider-repl-use-pretty-printing t
-        cider-enrich-classpath t
-        ;; M-. should still be cider-find-var
-        ;; xref is ok, but with lispy M-. becomes lispy-goto-symbol which doesn't work
-        cider-use-xref nil)
-  :config
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-mode-hook #'cider-auto-test-mode)
-  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
-  (use-package cider-eval-sexp-fu
-    :ensure t)
-  (use-package helm-cider
-    :ensure t
-    :config (helm-cider-mode)))
 
 (use-package crux
   :ensure t
@@ -657,51 +477,13 @@
   :ensure t
   :defer t)
 
-(use-package scala-mode
-  :ensure t
-  :defer t)
-
-(use-package sbt-mode
-  :ensure t
-  :defer t)
-
 (use-package paradox
   :ensure t
   :defer t
   :init
   (setq paradox-display-star-count nil))
 
-(use-package dockerfile-mode
-  :ensure t
-  :defer t)
-
 (use-package pacfiles-mode
-  :ensure t
-  :defer t)
-
-(use-package cargo
-  :ensure t
-  :defer t)
-
-(use-package flycheck-rust
-  :ensure t
-  :defer t)
-
-(use-package racer
-  :ensure t
-  :defer t
-  :init
-  (setq racer-rust-src-path "/usr/src/rust/src"))
-
-(use-package rust-mode
-  :ensure t
-  :hook ((rust-mode . cargo-minor-mode)
-         (rust-mode . racer-mode)
-         (rust-mode . eldoc-mode))
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-(use-package go-mode
   :ensure t
   :defer t)
 
@@ -758,12 +540,212 @@
   :defer t
   :bind (("<f12> a" . cfw:open-org-calendar)))
 
-(use-package terraform-mode
-  :ensure t)
-
 (use-package auto-dim-other-buffers
   :ensure t
   :hook ((after-init . auto-dim-other-buffers-mode)))
+
+(use-package go-mode         :ensure t :defer t)
+(use-package dockerfile-mode :ensure t :defer t)
+(use-package scala-mode      :ensure t :defer t)
+(use-package sbt-mode        :ensure t :defer t)
+(use-package terraform-mode  :ensure t :defer t)
+(use-package json-mode       :ensure t :defer t)
+(use-package typescript-mode :ensure t :defer t)
+
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :interpreter "node")
+
+(use-package xref-js2
+  :ensure t
+  :after js2-mode
+  :config
+  (define-key js2-mode-map (kbd "M-.") nil)
+  (add-hook 'js2-mode-hook
+            (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+  (setq xref-js2-search-program 'rg)
+  (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions)
+  (define-key js2-mode-map (kbd "M-,") 'xref-pop-marker-stack))
+
+(use-package rjsx-mode
+  :ensure t
+  :mode "components\\/.*\\.js\\'"
+  :bind (:map rjsx-mode-map
+              ("C-d" . my-delete-region-or-line)))
+
+(use-package prettier-js
+  :ensure t
+  :hook ((rjsx-mode . prettier-js-mode)
+         (js2-mode . prettier-js-mode)
+         (json-mode . prettier-js-mode)))
+
+;; needs: aura -A js-beautify
+(use-package web-beautify
+  :ensure t
+  :defer t)
+
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :config
+  ;; $ pacman --sync perl-text-markdown
+  (let ((cmd "/usr/bin/vendor_perl/Markdown.pl"))
+    (when (file-exists-p cmd)
+      (setq markdown-command cmd))))
+
+(use-package java-mode
+  :ensure nil
+  :bind (:map java-mode-map
+              ("C-d" . my-delete-region-or-line)))
+
+(use-package groovy-mode
+  :ensure t
+  :defer t
+  :mode ("build\\.kin\\'" "build\\.gradle\\'" "\\.drw\\'")
+  :config
+  (bind-keys :map groovy-mode-map
+             ("C-d" . my-delete-region-or-line)
+             ("M-e" . backward-kill-word)
+             ("S-C-r" . my-groovy-rename-class))
+
+  (use-package groovy-imports
+    :ensure t
+    :config
+    (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
+    (add-hook 'groovy-mode-hook 'groovy-imports-scan-file)
+    (bind-keys :map groovy-mode-map
+               ("C-M-i" . groovy-imports-add-import-dwim))))
+
+(use-package haskell-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+  ;; $ cabal install ghc-mod
+  (when (file-executable-p "~/.cabal/bin/ghc-mod")
+    (add-hook 'haskell-mode-hook (lambda () (ghc-init)))))
+
+(use-package web-mode
+  :ensure t
+  :mode ("\\.[gj]sp\\'" "\\.html?\\'"))
+
+(use-package cargo
+  :ensure t
+  :defer t)
+
+(use-package flycheck-rust
+  :ensure t
+  :defer t)
+
+(use-package racer
+  :ensure t
+  :defer t
+  :init
+  (setq racer-rust-src-path "/usr/src/rust/src"))
+
+(use-package rust-mode
+  :ensure t
+  :hook ((rust-mode . cargo-minor-mode)
+         (rust-mode . racer-mode)
+         (rust-mode . eldoc-mode))
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
+(use-package elisp-mode
+  :ensure nil
+  :bind (:map emacs-lisp-mode-map
+              ("C-c v" . eval-buffer)
+              :map lisp-mode-shared-map
+              ("RET" . reindent-then-newline-and-indent)
+              :map read-expression-map
+              ("TAB" . completion-at-point))
+  :init
+  (defun my-remove-elc-on-save ()
+    "If you're saving an elisp file, likely the .elc is no longer valid."
+    (make-local-variable 'after-save-hook)
+    (add-hook 'after-save-hook
+              (lambda ()
+                (if (file-exists-p (concat buffer-file-name "c"))
+                    (delete-file (concat buffer-file-name "c"))))))
+  (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save))
+
+(use-package lispy
+  :ensure t
+  :diminish lispy-mode
+  :defer t
+  :bind (([remap lispy-move-beginning-of-line] . mwim-beginning-of-code-or-line)
+         :map lispy-mode-map
+         (("C-d" . my-delete-region-or-line)
+          ("M-d" . lispy-delete)
+          ("M-e" . lispy-backward-kill-word)
+          ("M-r" . lispy-kill-word)))
+  :hook ((clojure-mode . lispy-mode)
+         (emacs-lisp-mode . lispy-mode)
+         (common-lisp-mode . lispy-mode)
+         (scheme-mode . lispy-mode)
+         (lisp-mode . lispy-mode))
+  :init
+  (setq lispy-compat '(cider)
+        lispy-key-theme '(special parinfer c-digits))
+  ;; https://github.com/abo-abo/lispy/pull/403
+  ;; temporary to get accustom to lispy
+  (advice-add 'delete-selection-pre-hook :around 'lispy--delsel-advice))
+
+(use-package clojure-mode
+  :ensure t
+  :defer t
+  :bind (:map clojure-mode-map
+              (("M-c" . my-clojure-copy-qualified-fn)
+               ("M-v" . my-clojure-copy-ns)
+               ("M-m" . my-hydra-bloom-backend/body)))
+  :config
+  (defhydra my-hydra-bloom-backend (:color amaranth)
+    "Functions"
+    ("s" (my-ardoq-backend-start) "Start backend" :exit t)
+    ("t" (my-ardoq-backend-stop) "Stop backend" :exit t)
+    ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
+    ("p" (my-ardoq-backend-fix-protocols) "Fix protocols" :exit t)
+    ("l" (my-ardoq-backend-load-lib) "Load lib.clj" :exit t)
+    ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
+    ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
+    ("q" nil "Quit"))
+  (use-package clj-refactor
+    :ensure t
+    :diminish clj-refactor-mode
+    :init
+    (setq cljr-warn-on-eval nil
+          cljr-eagerly-build-asts-on-startup nil)
+    :config
+    (cljr-toggle-debug-mode)
+    (defun my-clj-refactor-set-keybinding-hook ()
+      (cljr-add-keybindings-with-prefix "C-c C-m"))
+    (add-hook 'clojure-mode-hook 'clj-refactor-mode)
+    (add-hook 'clojure-mode-hook 'my-clj-refactor-set-keybinding-hook))
+  (use-package flycheck-clj-kondo
+    :ensure t))
+
+(use-package cider
+  :ensure t
+  :defer t
+  :init
+  (setq cider-repl-pop-to-buffer-on-connect nil
+        cider-repl-use-pretty-printing t
+        cider-enrich-classpath t
+        ;; M-. should still be cider-find-var
+        ;; xref is ok, but with lispy M-. becomes lispy-goto-symbol which doesn't work
+        cider-use-xref nil)
+  :config
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-mode-hook #'cider-auto-test-mode)
+  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+  (use-package cider-eval-sexp-fu
+    :ensure t)
+  (use-package helm-cider
+    :ensure t
+    :config (helm-cider-mode)))
 
 ;;(use-package lsp-mode
 ;;  :ensure t
