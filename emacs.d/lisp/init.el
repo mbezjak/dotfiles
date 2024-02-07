@@ -537,7 +537,8 @@
     :ensure t
     :diminish clj-refactor-mode
     :init
-    (setq cljr-warn-on-eval nil)
+    (setq cljr-warn-on-eval nil
+          cljr-eagerly-build-asts-on-startup nil)
     :config
     (defun my-clj-refactor-set-keybinding-hook ()
       (cljr-add-keybindings-with-prefix "C-c C-m"))
