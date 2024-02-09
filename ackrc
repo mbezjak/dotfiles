@@ -32,6 +32,7 @@
 --ignore-file=ext:cache
 --ignore-file=ext:iws
 --ignore-file=ext:unl
+--ignore-file=match:/^bikeshed[.]baseline$/
 --ignore-file=match:/^\.ensime$/
 --ignore-file=match:/[.-]all[.]js$/
 --ignore-file=match:/[.]chunk[.]js$/
