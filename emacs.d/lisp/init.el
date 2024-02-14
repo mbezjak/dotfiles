@@ -94,14 +94,21 @@
 (use-package my-keys
   :ensure nil)
 
-(use-package smart-mode-line-powerline-theme
-  :ensure t)
-
-(use-package smart-mode-line
+(use-package telephone-line
   :ensure t
-  :hook ((after-init . sml/setup))
+  :hook ((after-init . telephone-line-mode))
   :config
-  (setq sml/theme 'powerline))
+  (setq telephone-line-lhs '((evil   . (telephone-line-airline-position-segment))
+                             (accent . (telephone-line-vc-segment
+                                        telephone-line-erc-modified-channels-segment
+                                        telephone-line-process-segment))
+                             (nil    . (telephone-line-projectile-segment
+                                        telephone-line-buffer-segment)))
+        telephone-line-rhs '((nil    . (telephone-line-flycheck-segment
+                                        telephone-line-misc-info-segment))
+                             (accent . (telephone-line-major-mode-segment
+                                        telephone-line-minor-mode-segment))
+                             (evil   . (telephone-line-evil-tag-segment)))))
 
 (use-package monokai-theme
   :ensure t
