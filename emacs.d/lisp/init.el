@@ -105,12 +105,6 @@
                                         telephone-line-minor-mode-segment))
                              (evil   . (telephone-line-evil-tag-segment)))))
 
-(use-package monokai-theme
-  :ensure t
-  :disabled t
-  :config
-  (load-theme 'monokai 'no-confirm))
-
 (use-package doom-themes
   :ensure t
   :config
