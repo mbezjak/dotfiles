@@ -526,15 +526,6 @@
   :ensure t
   :bind (("<f12> e" . elfeed)))
 
-(use-package calfw
-  :ensure t
-  :defer t)
-
-(use-package calfw-org
-  :ensure t
-  :defer t
-  :bind (("<f12> a" . cfw:open-org-calendar)))
-
 (use-package auto-dim-other-buffers
   :ensure t
   :hook ((after-init . auto-dim-other-buffers-mode)))
