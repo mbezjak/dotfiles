@@ -479,11 +479,9 @@
   :ensure t
   :defer t)
 
-(use-package paradox
+(use-package package-utils
   :ensure t
-  :defer t
-  :init
-  (setq paradox-display-star-count nil))
+  :defer t)
 
 (use-package pacfiles-mode
   :ensure t
