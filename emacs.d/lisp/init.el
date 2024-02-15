@@ -74,14 +74,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(use-package dash
-  :ensure t)
-
-(use-package s
-  :ensure t)
-
-(use-package f
-  :ensure t)
+(use-package dash :ensure t)
+(use-package s    :ensure t)
+(use-package f    :ensure t)
 
 (use-package my-functions
   :ensure nil
