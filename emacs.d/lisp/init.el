@@ -314,7 +314,8 @@
   :init
   (setq history-length 100 ; determines file-name-history; see helm-ff-file-name-history-use-recentf
         helm-split-window-default-side 'right
-        helm-find-files-ignore-thing-at-point t)
+        helm-find-files-ignore-thing-at-point t
+        helm-move-to-line-cycle-in-source nil)
   (when (executable-find "curl")
     (setq helm-net-prefer-curl t))
   (when (executable-find "ack")
