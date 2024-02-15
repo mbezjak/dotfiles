@@ -394,12 +394,6 @@
   :init
   (setq alert-default-style 'libnotify))
 
-(use-package which-key
-  :ensure t
-  :diminish which-key-mode
-  :config
-  (which-key-mode))
-
 (use-package dumb-jump
   :ensure t
   :config
