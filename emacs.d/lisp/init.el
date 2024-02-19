@@ -121,7 +121,8 @@
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
-  (yas-global-mode))
+  (yas-global-mode)
+  (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand))
 
 (use-package recentf
   :ensure nil
