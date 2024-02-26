@@ -531,7 +531,19 @@
 (use-package sbt-mode        :ensure t :defer t)
 (use-package terraform-mode  :ensure t :defer t)
 (use-package json-mode       :ensure t :defer t)
-(use-package typescript-mode :ensure t :defer t)
+
+(use-package typescript-mode
+  :ensure t
+  :defer t
+  :config
+  (setq typescript-indent-level 2))
+
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
 
 (use-package js2-mode
   :ensure t
@@ -557,7 +569,8 @@
 
 (use-package prettier-js
   :ensure t
-  :hook ((rjsx-mode . prettier-js-mode)
+  :hook ((typescript-mode . prettier-js-mode)
+         (rjsx-mode . prettier-js-mode)
          (js2-mode . prettier-js-mode)
          (json-mode . prettier-js-mode)))
 
