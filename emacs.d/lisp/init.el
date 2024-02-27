@@ -567,12 +567,10 @@
   :bind (:map rjsx-mode-map
               ("C-d" . my-delete-region-or-line)))
 
-(use-package prettier-js
+(use-package prettier
   :ensure t
-  :hook ((typescript-mode . prettier-js-mode)
-         (rjsx-mode . prettier-js-mode)
-         (js2-mode . prettier-js-mode)
-         (json-mode . prettier-js-mode)))
+  :defer t
+  :hook ((after-init . global-prettier-mode)))
 
 ;; needs: aura -A js-beautify
 (use-package web-beautify
