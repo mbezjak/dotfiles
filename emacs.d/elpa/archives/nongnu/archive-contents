@@ -190,7 +190,7 @@
 	      ("Dave Pearson" . "davep@davep.org"))
 	     (:commit . "fe676396fa7e4372e01bf2c3d9a62e8d53615d46"))])
  (buttercup .
-	    [(1 33)
+	    [(1 34)
 	     ((emacs
 	       (24 4)))
 	     "Behavior-Driven Emacs Lisp Testing" tar
@@ -198,7 +198,7 @@
 	      (:maintainer "Ola Nilsson" . "ola.nilsson@gmail.com")
 	      (:authors
 	       ("Jorgen Schaefer" . "contact@jorgenschaefer.de"))
-	      (:commit . "e4fb7cd560d27d8879a2c7739ee96946adec2df8"))])
+	      (:commit . "c0764a764cf088dcb5132c44d5864b22d7723765"))])
  (camera .
 	 [(0 3)
 	  ((emacs
@@ -306,15 +306,16 @@
 		    ("Akib Azmain Turja" . "akib@disroot.org"))
 		   (:commit . "501548c3d51f926c687e8cd838c5865ec45d03cc"))])
  (crux .
-       [(0 4 0)
-	((seq
-	  (1 11)))
+       [(0 5 0)
+	((emacs
+	  (26 1)))
 	"A Collection of Ridiculously Useful eXtensions" tar
 	((:url . "https://github.com/bbatsov/crux")
+	 (:keywords "convenience")
 	 (:maintainer "Bozhidar Batsov" . "bozhidar@batsov.dev")
 	 (:authors
 	  ("Bozhidar Batsov" . "bozhidar@batsov.dev"))
-	 (:keywords "convenience"))])
+	 (:commit . "7980df10e47eef41d4d1c57cfb690ec406381ed3"))])
  (cyberpunk-theme .
 		  [(1 22)
 		   nil "Cyberpunk Color Theme" tar
@@ -1883,7 +1884,7 @@
 	       ("David Christiansen" . "david@davidchristiansen.dk"))
 	      (:keywords "convenience"))])
  (racket-mode .
-	      [(1 0 20240222 110701)
+	      [(1 0 20240301 121422)
 	       ((emacs
 		 (25 1)))
 	       "Racket editing, REPL, and more" tar
@@ -2363,14 +2364,14 @@
 			("Joost Kremers" . "joostkremers@fastmail.fm"))
 		       (:commit . "5b9f9309bdf040b72bb2c3d99d1d8a0f0d98c308"))])
  (web-mode .
-	   [(17 3 18)
+	   [(17 3 19)
 	    ((emacs
 	      (23 1)))
 	    "major mode for editing web templates" tar
 	    ((:url . "https://web-mode.org")
 	     (:keywords "languages")
 	     (:maintainer "François-Xavier Bois" . "fxbois@gmail.com")
-	     (:commit . "208f32b98873f5381f6516f9de8424418e3cf16f"))])
+	     (:commit . "10f1269ab1007ab3d5fe018c83bb82c979617bfd"))])
  (webpaste .
 	   [(3 2 2)
 	    ((emacs
