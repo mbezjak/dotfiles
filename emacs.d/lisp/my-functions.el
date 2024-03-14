@@ -241,7 +241,7 @@ Saves to a temp file and puts the filename in the kill ring."
 
 (defun my-ardoq-backend-start ()
   (interactive)
-  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (user/go-dev))"))
+  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/start-if-not-started))"))
 
 (defun my-ardoq-backend-load-lib ()
   (interactive)
