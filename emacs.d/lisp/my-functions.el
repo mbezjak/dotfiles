@@ -247,10 +247,6 @@ Saves to a temp file and puts the filename in the kill ring."
   (interactive)
   (cider-interactive-eval "(load-file \"repl/miro/lib.clj\")"))
 
-(defun my-ardoq-backend-fix-protocols ()
-  (interactive)
-  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/reload-protocols))"))
-
 (defun my-ardoq-backend-stop ()
   (interactive)
   (cider-interactive-eval "(user/stop)"))

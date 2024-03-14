@@ -699,7 +699,6 @@
     ("s" (my-ardoq-backend-start) "Start backend" :exit t)
     ("t" (my-ardoq-backend-stop) "Stop backend" :exit t)
     ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
-    ("p" (my-ardoq-backend-fix-protocols) "Fix protocols" :exit t)
     ("l" (my-ardoq-backend-load-lib) "Load lib.clj" :exit t)
     ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
     ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
