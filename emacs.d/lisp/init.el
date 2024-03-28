@@ -701,7 +701,8 @@
     ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
     ("l" (my-ardoq-backend-load-lib) "Load lib.clj" :exit t)
     ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
-    ("n" (my-clojure-remove-ns) "Remove ns" :exit t)
+    ("N" (my-clojure-remove-ns) "Remove ns" :exit t)
+    ("n" (my-clojure-clean-ns) "Clean ns" :exit t)
     ("q" nil "Quit"))
   (use-package clj-refactor
     :ensure t

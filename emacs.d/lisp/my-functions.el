@@ -196,6 +196,12 @@ Saves to a temp file and puts the filename in the kill ring."
     (cider-interactive-eval (format "(remove-ns '%s)" ns))
     (message "Removed ns: %s" ns)))
 
+(defun my-clojure-clean-ns ()
+  (interactive)
+  (let ((ns (my-no-properties (cider-current-ns))))
+    (cider-interactive-eval (format "(do (doseq [s (keys (ns-interns '%s))] (ns-unmap '%s s)) [:cleaned '%s])" ns ns ns))
+    (message "Cleaned ns: %s" ns)))
+
 (defun my-yas-buffer-class-name ()
   (let ((file (or (buffer-file-name) "Foo")))
     (f-base file)))
