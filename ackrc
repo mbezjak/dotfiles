@@ -1,13 +1,6 @@
 --smart-case
 --follow
 
---type-add=markdown:ext:markdown,md
---type-add=rst:ext:rst
---type-add=org:ext:org
---type-add=coffee:ext:coffee
---type-add=darwin:ext:drw
---type-add=gettext:ext:po,pot
-
 --ignore-directory=is:target
 --ignore-directory=is:build
 --ignore-directory=is:out
@@ -39,4 +32,3 @@
 --ignore-file=match:/[.]mjs[.]map$/
 --ignore-file=match:/[.-]lock[.]json$/
 --ignore-file=match:/[.]log([.]\d{4}[-]\d{2})?$/
---nogettext
