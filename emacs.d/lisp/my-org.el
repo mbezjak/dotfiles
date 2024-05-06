@@ -26,7 +26,7 @@
       org-hide-leading-stars    t
       org-use-speed-commands    t
       org-cycle-separator-lines 0
-      org-catch-invisible-edits 'show-and-error
+      org-fold-catch-invisible-edits 'show-and-error
       org-log-done       'time
       org-tags-exclude-from-inheritance '("crypt")
       org-attach-store-link-p 'attached
