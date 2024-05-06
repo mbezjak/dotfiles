@@ -73,6 +73,8 @@
   (bind-keys :map org-mode-map
              ("M-e" . backward-kill-word)
              ("M-p" . forward-word)
+             ("C-M-S-<left>" . org-shiftmetaleft)
+             ("C-M-S-<right>" . org-shiftmetaright)
              ;; reserved for windmove
              ("S-<right>" . nil)
              ("S-<left>" . nil)
