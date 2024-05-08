@@ -10,8 +10,7 @@
 
 (use-package org-randomnote
   :ensure t
-  :bind (("<f12> r" . my-org-random)
-         ("<f12> t" . my-random-red-book)))
+  :bind (("<f12> r" . my-org-random)))
 
 (use-package org-cliplink
   :ensure t
