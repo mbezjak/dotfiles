@@ -351,15 +351,18 @@
 		     ("Nicholas M. Van Horn" . "nvanhorn@protonmail.com"))
 		    (:commit . "81004fc774d373777d426926fc11abcf1e7ab334"))])
  (cycle-at-point .
-		 [(0 1)
+		 [(0 2)
 		  ((emacs
-		    (27 1))
+		    (29 1))
 		   (recomplete
 		    (0 2)))
 		  "Cycle (rotate) the thing under the cursor" tar
-		  ((:url . "https://gitlab.com/ideasman42/emacs-cycle-at-point")
+		  ((:url . "https://codeberg.org/ideasman42/emacs-cycle-at-point")
 		   (:keywords "convenience")
-		   (:commit . "ea22b90f35f4cef73387047b3ef3fad83787d4e2"))])
+		   (:maintainer "Campbell Barton" . "ideasman42@gmail.com")
+		   (:authors
+		    ("Campbell Barton" . "ideasman42@gmail.com"))
+		   (:commit . "83d94733fd8ed64f2ba40f4e1df7ecbfe8260e51"))])
  (d-mode .
 	 [(202003130913)
 	  ((emacs
@@ -1890,7 +1893,7 @@
 	       ("David Christiansen" . "david@davidchristiansen.dk"))
 	      (:commit . "1edda80e2e32b72e77f4f16ae5b83c312c68ee95"))])
  (racket-mode .
-	      [(1 0 20240416 91625)
+	      [(1 0 20240419 71343)
 	       ((emacs
 		 (25 1)))
 	       "Racket editing, REPL, and more" tar
@@ -2389,15 +2392,15 @@
 	      ("Elis etu Hirwing" . "elis@hirwing.se"))
 	     (:commit . "78272662e6992b8614e79a571ff2395fa9630357"))])
  (wfnames .
-	  [(1 1)
+	  [(1 2)
 	   ((emacs
-	     (24 3)))
+	     (24 4)))
 	   "Edit filenames" tar
 	   ((:url . "https://github.com/thierryvolpiatto/wfnames")
 	    (:maintainer "Thierry Volpiatto" . "thievol@posteo.net")
 	    (:authors
 	     ("Thierry Volpiatto" . "thievol@posteo.net"))
-	    (:commit . "4447417c58b063df1fca1ba4bec9cb650c7beb60"))])
+	    (:commit . "2f014c48fde0979da4ce3c0dbda81389c61a26bc"))])
  (wgrep .
 	[(3 0 0)
 	 ((emacs
