@@ -277,8 +277,8 @@ Saves to a temp file and puts the filename in the kill ring."
 ;; https://systemcrafters.net/emacs-tips/presentations-with-org-present/
 (defun my-present ()
   (interactive)
-  (setq-local face-remapping-alist '((default (:height 1.5) default)
-                                     (linum (:foreground "#ff6c6b") default)
+  (set-face-attribute 'default nil :height 150)
+  (setq-local face-remapping-alist '((linum (:foreground "#ff6c6b") default)
                                      (hl-line (:background "RosyBrown4") default)))
   (global-hl-line-mode 1)
   (display-line-numbers-mode 1))
@@ -286,6 +286,7 @@ Saves to a temp file and puts the filename in the kill ring."
 (defun my-unpresent ()
   (interactive)
   (setq-local face-remapping-alist nil)
+  (set-face-attribute 'default nil :height 100)
   (global-hl-line-mode -1)
   (display-line-numbers-mode -1))
 
