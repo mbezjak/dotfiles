@@ -570,7 +570,9 @@
 (use-package prettier
   :ensure t
   :defer t
-  :hook ((after-init . global-prettier-mode)))
+  :hook ((after-init . global-prettier-mode))
+  :init
+  (setenv "NODE_PATH" "/usr/lib/node_modules"))
 
 ;; needs: aura -A js-beautify
 (use-package web-beautify
