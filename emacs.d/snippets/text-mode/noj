@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: No Jira Issue
+# key: noj
+# --
+[No Jira Issue] $0
