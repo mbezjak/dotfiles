@@ -733,7 +733,6 @@
         cider-use-xref nil)
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-mode-hook #'cider-auto-test-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
   (use-package cider-eval-sexp-fu
     :ensure t)
