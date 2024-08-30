@@ -65,6 +65,8 @@
  ("<f10>" . org-capture)
  ("<f12> p" . pomidor)
  ("<f12> d" . org-decrypt-entry)
+ ("C-+" . text-scale-increase)
+ ("C-_" . text-scale-decrease)
 
  ("C-c a" . org-agenda)
  ("C-c r" . revert-buffer)
@@ -144,7 +146,6 @@
 (unbind-key "C-b")
 (unbind-key "S-C-v")
 (unbind-key "C-@")
-(unbind-key "C-_")
 (unbind-key "C-<backspace>")
 (unbind-key "C-<delete>")
 (unbind-key "M-<backspace>")
