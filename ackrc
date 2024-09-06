@@ -9,6 +9,7 @@
 --ignore-directory=is:.nx-cache
 --ignore-directory=is:.shadow-cljs
 --ignore-directory=is:.terraform
+--ignore-directory=is:ardoq-attachments
 --ignore-directory=is:build
 --ignore-directory=is:data
 --ignore-directory=is:elpa
