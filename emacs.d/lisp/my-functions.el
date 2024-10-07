@@ -281,13 +281,13 @@ Saves to a temp file and puts the filename in the kill ring."
   (setq-local face-remapping-alist '((linum (:foreground "#ff6c6b") default)
                                      (hl-line (:background "RosyBrown4") default)))
   (global-hl-line-mode 1)
-  (display-line-numbers-mode 1))
+  (global-display-line-numbers-mode 1))
 
 (defun my-unpresent ()
   (interactive)
   (setq-local face-remapping-alist nil)
   (set-face-attribute 'default nil :height 100)
   (global-hl-line-mode -1)
-  (display-line-numbers-mode -1))
+  (global-display-line-numbers-mode -1))
 
 (provide 'my-functions)
