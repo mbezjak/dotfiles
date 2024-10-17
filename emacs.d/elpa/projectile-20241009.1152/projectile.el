@@ -5,7 +5,8 @@
 ;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: https://github.com/bbatsov/projectile
 ;; Keywords: project, convenience
-;; Version: 2.9.0-snapshot
+;; Package-Version: 20241009.1152
+;; Package-Revision: 41f8a8e7bdc5
 ;; Package-Requires: ((emacs "25.1"))
 
 ;; This file is NOT part of GNU Emacs.
@@ -425,6 +426,7 @@ is set to `alien'."
     "^\\.ccls-cache$"
     "^\\.cache$"
     "^\\.clangd$"
+    "*CVS"
     "^\\.sl$"
     "^\\.jj$")
   "A list of directories globally ignored by projectile.

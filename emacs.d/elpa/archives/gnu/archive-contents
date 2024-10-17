@@ -915,7 +915,7 @@
 		 (:url . "https://elpa.gnu.org/packages/cycle-quotes.html")
 		 (:commit . "836b19b39651419876e65cdb1a91e3eef83cc4e7"))])
  (dape .
-       [(0 15 0)
+       [(0 16 0)
 	((emacs
 	  (29 1))
 	 (jsonrpc
@@ -923,7 +923,7 @@
 	"Debug Adapter Protocol for Emacs" tar
 	((:url . "https://github.com/svaante/dape")
 	 (:maintainer "Daniel Pettersson" . "daniel@dpettersson.net")
-	 (:commit . "b272d855333ccca6d42ec0957c7f6326a72fe22e"))])
+	 (:commit . "3d4b8086d94ca93fe19ec72362782386abf35bde"))])
  (darkroom .
 	   [(0 3)
 	    ((cl-lib
@@ -1288,7 +1288,7 @@
 	       ("Markus Triska" . "triska@metalevel.at"))
 	      (:commit . "ea8710335eec483b576c7a800c92b8fd214aa6dd"))])
  (eev .
-      [(20241002)
+      [(20241014)
        ((emacs
 	 (25 1)))
        "Support for e-scripts (eepitch blocks, elisp hyperlinks, etc)" tar
@@ -1297,7 +1297,7 @@
 	(:maintainer "Eduardo Ochs" . "eduardoochs@gmail.com")
 	(:authors
 	 ("Eduardo Ochs" . "eduardoochs@gmail.com"))
-	(:commit . "d2d846f31d2a204f33b001c43c0a42aced8d0f9e"))])
+	(:commit . "36b85774297847db6d5bf6c424e169321b47562d"))])
  (ef-themes .
 	    [(1 8 0)
 	     ((emacs
@@ -1454,7 +1454,7 @@
 		    ("Omar Antolín Camarena" . "omar@matem.unam.mx"))
 		   (:commit . "195add1f1ccd1059472c9df7334c97c4d155425e"))])
  (ement .
-	[(0 15 1)
+	[(0 16)
 	 ((emacs
 	   (27 1))
 	  (map
@@ -1477,7 +1477,7 @@
 	  (:maintainer "Adam Porter" . "adam@alphapapa.net")
 	  (:authors
 	   ("Adam Porter" . "adam@alphapapa.net"))
-	  (:commit . "e120fdb3bdf23e31f6f8b4a3aa4490794ca37183"))])
+	  (:commit . "26bf5a4efd08bc724cf29c412c36c2909d72bb13"))])
  (emms .
        [(20 1)
 	((cl-lib
@@ -2115,7 +2115,7 @@
 	   ("Durand" . "mmemmew@gmail.com"))
 	  (:commit . "5a57e52122fe483fa9bd39049c13a25334e408da"))])
  (indent-bars .
-	      [(0 7 6)
+	      [(0 8)
 	       ((emacs
 		 (27 1))
 		(compat
@@ -2126,7 +2126,7 @@
 		(:maintainer "J.D. Smith" . "jdtsmith+elpa@gmail.com")
 		(:authors
 		 ("J.D. Smith" . "jdtsmith+elpa@gmail.com"))
-		(:commit . "5119ae8f8d9f24f1c793fbff362ea6416e035a77"))])
+		(:commit . "912486722771d9ef5c6000011edf7e6d6c0cebc2"))])
  (inspector .
 	    [(0 38)
 	     ((emacs
@@ -4339,7 +4339,7 @@
 	      ("Paul D. Nelson" . "nelson.paul.david@gmail.com"))
 	     (:commit . "ee1957f3bce6ed04627b985e95a17db190781e06"))])
  (tex-parens .
-	     [(0 5)
+	     [(0 6)
 	      ((emacs
 		(27 1)))
 	      "like lisp.el but for tex" tar
@@ -4348,7 +4348,7 @@
 	       (:maintainer "Paul D. Nelson" . "nelson.paul.david@gmail.com")
 	       (:authors
 		("Paul D. Nelson" . "nelson.paul.david@gmail.com"))
-	       (:commit . "7f03698353b6c43e5fc2633c7d38b7b23e5fefd1"))])
+	       (:commit . "f0717e7aa1918825505b4870d665012cc7b49fd1"))])
  (theme-buffet .
 	       [(0 1 2)
 		((emacs
@@ -4741,7 +4741,7 @@
 	   ("Justin Burkett" . "justin@burkett.cc"))
 	  (:commit . "007e44be19d068fd6b49874b6e9b8df8b1f552bd"))])
  (verilog-mode .
-	       [(2024 3 1 121933719)
+	       [(2024 10 9 140346409)
 		nil "major mode for editing verilog source in Emacs" tar
 		((:url . "https://www.veripool.org")
 		 (:keywords "languages")
@@ -4751,7 +4751,7 @@
 		 (:authors
 		  ("Michael McNamara" . "mac@verilog.com")
 		  ("Wilson Snyder" . "wsnyder@wsnyder.org"))
-		 (:commit . "b2d18ff944ae374fa03579ca2574f1fba8ae2e4b"))])
+		 (:commit . "cb0b6a405706f6367d9adfb3ee447590c2a0876f"))])
  (vertico .
 	  [(1 9)
 	   ((emacs
