@@ -1,5 +1,6 @@
 --smart-case
 --follow
+--sort-files
 
 --ignore-directory=is:.circleci
 --ignore-directory=is:.clj-kondo
