@@ -179,7 +179,7 @@ Saves to a temp file and puts the filename in the kill ring."
     (clojure-backward-logical-sexp 1)
     (lispy-flow 1)
     (let* ((ns (my-no-properties (cider-current-ns)))
-           (fn (cider-second-sexp-in-list))
+           (fn (cadr (clojure-find-def)))
            (qfn (format "%s/%s" ns fn)))
       (kill-new qfn)
       (message "Copied to clipboard: %s" qfn))))
