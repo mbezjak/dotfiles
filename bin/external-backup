@@ -41,20 +41,7 @@ function laptop {
     rm -rf $dest
     mkdir $dest
 
-    echo "Login to bitwarden"
-    export BW_SESSION=$(bw login --raw)
-    echo "Making a backup as encrypted json"
-    bw export --format encrypted_json --output $dest/bitwarden_encrypted_export.json
-    bw logout
-
-    cp -a ~/.ssh $dest/ssh
-    cp -a ~/.bash_history $dest/bash_history
     cp -a ~/Documents $dest/Documents
-    # less relevant
-    cp -a ~/workspace $dest/workspace
-    cp -a ~/.config $dest/config
-    cp -a ~/.local $dest/local
-    cp -a ~/.local/share/local-mail $dest/local-mail
     sync
     return 0
 }
