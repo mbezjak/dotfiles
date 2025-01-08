@@ -192,7 +192,11 @@
   :ensure t
   :diminish company-mode
   :bind (:map company-active-map
-              ("<escape>" . company-abort))
+              ("<escape>" . company-abort)
+              ("<return>" . nil)
+              ("RET" . nil)
+              ("<tab>" . #'company-complete-selection)
+              ("TAB" . #'company-complete-selection))
   :hook ((after-init . global-company-mode))
   :config
   (setq company-tooltip-offset-display 'lines
