@@ -239,7 +239,10 @@
 
 (use-package magit
   :ensure t
-  :bind (("<f8>" . magit-status)))
+  :bind (("<f8>" . magit-status))
+  :config
+  ;; magit-refs chokes if a repo has a few thousand tags
+  (remove-hook 'magit-refs-sections-hook 'magit-insert-tags))
 
 (use-package git-timemachine
   :ensure t
