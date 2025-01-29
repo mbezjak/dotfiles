@@ -738,7 +738,8 @@
         cider-enrich-classpath t
         ;; M-. should still be cider-find-var
         ;; xref is ok, but with lispy M-. becomes lispy-goto-symbol which doesn't work
-        cider-use-xref nil)
+        cider-use-xref nil
+        cider-preferred-build-tool 'lein)
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
