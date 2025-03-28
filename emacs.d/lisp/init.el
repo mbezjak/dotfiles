@@ -692,23 +692,24 @@
   :init
   (setq lispy-compat '(cider)
         lispy-key-theme '(special parinfer c-digits))
-  :config
-  (defun lispy--eval-clojure-cider (e-str)
-    (require 'cider)
-    (let ((f-str (lispy--eval-clojure-context e-str))
-          deactivate-mark)
-      (cond ((null (lispy--clojure-process-buffer))
-             ;; Override so that we don't do any window reconfigurations!
-             (error "Do cider jack in first"))
-            ((eq current-prefix-arg 7)
-             (kill-new f-str))
-            ((and (eq current-prefix-arg 0)
-                  (lispy--eval-clojure-cider
-                   "(lispy.clojure/shadow-unmap *ns*)")
-                  nil))
-            (t
-             (lispy--clojure-middleware-load)
-             (lispy--eval-clojure-1 f-str e-str))))))
+  (use-package le-clojure
+    :config
+    (defun lispy--eval-clojure-cider (e-str)
+      (require 'cider)
+      (let ((f-str (lispy--eval-clojure-context e-str))
+            deactivate-mark)
+        (cond ((null (lispy--clojure-process-buffer))
+               ;; Override so that we don't do any window reconfigurations!
+               (error "Do cider jack in first"))
+              ((eq current-prefix-arg 7)
+               (kill-new f-str))
+              ((and (eq current-prefix-arg 0)
+                    (lispy--eval-clojure-cider
+                     "(lispy.clojure/shadow-unmap *ns*)")
+                    nil))
+              (t
+               (lispy--clojure-middleware-load)
+               (lispy--eval-clojure-1 f-str e-str)))))))
 
 (use-package clojure-mode
   :ensure t
