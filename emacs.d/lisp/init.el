@@ -692,9 +692,6 @@
   :init
   (setq lispy-compat '(cider)
         lispy-key-theme '(special parinfer c-digits))
-  ;; https://github.com/abo-abo/lispy/pull/403
-  ;; temporary to get accustom to lispy
-  (advice-add 'delete-selection-pre-hook :around 'lispy--delsel-advice)
   :config
   (defun lispy--eval-clojure-cider (e-str)
     (require 'cider)
