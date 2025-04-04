@@ -45,6 +45,20 @@ Same as `replace-string C-q C-m RET RET'."
     (while (search-forward "\r" nil :noerror)
       (replace-match ""))))
 
+(defun my-interpret-newlines ()
+  (interactive)
+  (my-delete-carrage-returns)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\\r" nil :noerror)
+      (replace-match ""))
+    (goto-char 0)
+    (while (search-forward "\\n" nil :noerror)
+      (replace-match "\n"))
+    (goto-char 0)
+    (while (search-forward "\\t" nil :noerror)
+      (replace-match "    "))))
+
 ;; ported from starter-kit
 (defun my-untabify-buffer ()
   (interactive)
