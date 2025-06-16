@@ -791,6 +791,13 @@
     :ensure t
     :config (helm-cider-mode)))
 
+(use-package gptel
+  :ensure t
+  :defer t
+  :init
+  (setq gptel-model 'gpt-4.1
+        gptel-backend (gptel-make-gh-copilot "Copilot")))
+
 ;;(use-package lsp-mode
 ;;  :ensure t
 ;;  :hook (groovy-mode . lsp)
