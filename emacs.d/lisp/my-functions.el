@@ -256,8 +256,7 @@ Saves to a temp file and puts the filename in the kill ring."
 
 (defun my-yas-buffer-clojure-non-test-namespace ()
   (->> (my-yas-buffer-clojure-namespace)
-       (replace-regexp-in-string "\-test$" "")
-       (replace-regexp-in-string "^unit\." "bloom.")))
+       (replace-regexp-in-string "\-test$" "")))
 
 (defun my-ardoq-backend-start ()
   (interactive)
