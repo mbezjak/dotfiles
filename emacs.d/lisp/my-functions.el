@@ -258,23 +258,6 @@ Saves to a temp file and puts the filename in the kill ring."
   (->> (my-yas-buffer-clojure-namespace)
        (replace-regexp-in-string "\-test$" "")))
 
-(defun my-ardoq-backend-start ()
-  (interactive)
-  (cider-interactive-eval "(do (load-file \"repl/miro/lib.clj\") (lib/start-if-not-started))"))
-
-(defun my-ardoq-backend-load-lib ()
-  (interactive)
-  (cider-interactive-eval "(load-file \"repl/miro/lib.clj\")"))
-
-(defun my-ardoq-backend-stop ()
-  (interactive)
-  (cider-interactive-eval "(user/stop)"))
-
-(defun my-ardoq-backend-restart ()
-  (interactive)
-  (my-ardoq-backend-stop)
-  (run-with-idle-timer 0.3 nil 'my-ardoq-backend-start))
-
 (defun my-clojure-sort-ns ()
   (interactive)
   (save-excursion

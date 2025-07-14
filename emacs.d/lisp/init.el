@@ -743,19 +743,8 @@
   :defer t
   :bind (:map clojure-mode-map
               (("M-c" . my-clojure-copy-qualified-fn)
-               ("M-v" . my-clojure-copy-ns)
-               ("M-m" . my-hydra-bloom-backend/body)))
+               ("M-v" . my-clojure-copy-ns)))
   :config
-  (defhydra my-hydra-bloom-backend (:color amaranth)
-    "Functions"
-    ("s" (my-ardoq-backend-start) "Start backend" :exit t)
-    ("t" (my-ardoq-backend-stop) "Stop backend" :exit t)
-    ("r" (my-ardoq-backend-restart) "Restart backend" :exit t)
-    ("l" (my-ardoq-backend-load-lib) "Load lib.clj" :exit t)
-    ("c" (my-clojure-sort-ns) "Sort and clean ns" :exit t)
-    ("N" (my-clojure-remove-ns) "Remove ns" :exit t)
-    ("n" (my-clojure-clean-ns) "Clean ns" :exit t)
-    ("q" nil "Quit"))
   (use-package clj-refactor
     :ensure t
     :diminish clj-refactor-mode
