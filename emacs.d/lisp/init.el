@@ -791,13 +791,6 @@
     :ensure t
     :config (helm-cider-mode)))
 
-(use-package gptel
-  :ensure t
-  :defer t
-  :init
-  (setq gptel-model 'gpt-4.1
-        gptel-backend (gptel-make-gh-copilot "Copilot")))
-
 ;;(use-package lsp-mode
 ;;  :ensure t
 ;;  :hook (groovy-mode . lsp)
@@ -812,3 +805,7 @@
 ;;(use-package helm-lsp
 ;;  :ensure t
 ;;  :commands helm-lsp-workspace-symbol)
+
+(let ((work-config (expand-file-name "init-work.el" user-emacs-directory)))
+  (when (file-exists-p work-config)
+    (load work-config)))
